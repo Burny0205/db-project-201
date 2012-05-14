@@ -1,0 +1,19 @@
+.svn
+_ReSharper.SalonComplex
+_UpgradeReport_Files
+SalonComplex.sln.DotSettings.user
+*.XML
+*.config
+exclude.txt
+SalonComplex.dll
+*.exe
+*.rar
+*.zip
+*.sln
+*.suo
+*.bat
+*.pdb
+Backup
+packages
+obj
+back up
