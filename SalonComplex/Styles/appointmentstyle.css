@@ -1,0 +1,624 @@
+﻿#service
+{
+    width: 728px;
+}
+.spacer
+{
+    width: 512px;
+}
+#online_booking
+{
+    width: 612px;
+}
+.spacer
+{
+    width: 218px;
+}
+.service_option_grid
+{
+    width: 632px;
+}
+
+#service_cat
+{
+}
+
+#SelectEmployee0
+{
+    width: 598px;
+}
+#SelectEmployee
+{
+    width: 628px;
+    margin-left: 0px;
+}
+
+.service_option_grid
+{
+    width: 686px;
+}
+
+.service_option_price
+{
+    text-align: right;
+}
+
+#service
+{
+    width: 751px;
+}
+
+#service
+{
+    width: 719px;
+}
+
+#comment
+{
+    height: 100px;
+}        
+
+#ResetAppoinmentButton
+{
+    height: 30px;
+    width: 135px;
+}
+
+#Reset1
+{
+    height: 30px;
+    width: 132px;
+}
+
+
+/*Calendar*/
+.CalendarStyle   
+{  
+    background-color:DarkSlateGray;  
+    color:Snow;  
+    border:solid 2px DarkBlue;  
+    }  
+.ajax__calendar_days  
+{  
+    background-color:SlateGray;  
+    }   
+.ajax__calendar_header  
+{  
+    background-color:BurlyWood;  
+    color:Snow;  
+    }                   
+.ajax__calendar_footer  
+{  
+    background-color:Peru;  
+    color:Snow;  
+}       
+
+/*END Calendar*/       
+
+/*ASP generated styles*/
+
+        .style1
+        {
+            width: 296px;
+            text-align: left;
+        }
+        .style2
+        {
+            text-align: right;
+        }
+        .service_option_price
+        {
+            text-align: right;
+        }
+        .style3
+        {
+            width: 6px;
+        }
+        .style4
+        {
+            width: 12px;
+        }
+        .style5
+        {
+            width: 301px;
+            text-align: left;
+        }
+        .style6
+        {
+            width: 13px;
+        }
+        .style7
+        {
+            width: 302px;
+            text-align: left;
+        }
+        .style8
+        {
+            width: 3px;
+        }
+        .style9
+        {
+            width: 14px;
+        }
+        .style11
+        {
+            width: 314px;
+            text-align: left;
+        }
+        .style12
+        {
+            width: 323px;
+            text-align: left;
+        }
+        .style13
+        {
+            text-align: center;
+        }
+        
+        .style14
+        {
+            text-align: left;
+        }
+        .style16
+        {
+            height: 22px;
+            text-align: center;
+        }
+        
+        .style19
+        {
+            width: 323px;
+        }
+        .style20
+        {
+            width: 18px;
+        }
+        .style21
+        {
+            width: 17px;
+        }
+        
+        .style22
+        {
+            width: 13px;
+        }
+        .style2
+        {
+            text-align: right;
+        }
+        .style23
+        {
+            width: 14px;
+        }
+        .style24
+        {
+            width: 12px;
+        }
+        .style11
+        {
+            text-align: right;
+        }
+        .style25
+        {
+            width: 322px;
+        }
+        .style26
+        {
+            width: 332px;
+        }
+        
+        
+        .style1
+        {
+            width: 551px;
+            text-align: right;
+        }
+        .style3
+        {
+            width: 518px;
+            text-align: left;
+        }
+        .style4
+        {
+            width: 522px;
+            text-align: right;
+        }
+        .style5
+        {
+            width: 490px;
+        }
+        .style6
+        {
+            width: 571px;
+            text-align: right;
+        }
+        .style7
+        {
+            width: 122px;
+        }
+        .style8
+        {
+            width: 514px;
+            text-align: left;
+        }
+        .style16
+        {
+            width: 754px;
+            text-align: center;
+        }
+        
+    .style1
+    {
+        width: 62px;
+    }
+    .style2
+    {
+        width: 20px;
+    }
+    .style3
+    {
+        text-align: right;
+    }
+    .style4
+    {
+        text-align: left;
+    }
+    .style5
+    {
+        width: 197px;
+    }
+    .style6
+    {
+        width: 77px;
+        text-align: right;
+    }
+    .style9
+    {
+        width: 21px;
+    }
+    .style10
+    {
+        width: 19px;
+    }
+    .style11
+    {
+        width: 120px;
+        text-align: left;
+    }
+    .style12
+    {
+        width: 507px;
+        text-align: left;
+    }
+    .style13
+    {
+        width: 505px;
+    }
+    .style14
+    {
+        width: 499px;
+    }
+    .style16
+    {
+        width: 509px;
+        text-align: center;
+    }
+    .service_option_price
+    {
+        text-align: right;
+    }
+    .style18
+    {
+        width: 18px;
+    }
+    .style19
+    {
+        width: 3px;
+    }
+    .style20
+    {
+        width: 465px;
+        text-align: left;
+    }
+    .style22
+    {
+        width: 100%;
+    }
+    
+        .style1
+        {
+            width: 100%;
+        }
+        
+        .style1
+        {
+            width: 549px;
+        }
+        .style2
+        {
+            width: 532px;
+        }
+        .style3
+        {
+            width: 526px;
+        }
+        .style4
+        {
+            width: 520px;
+        }
+        .style5
+        {
+            width: 517px;
+        }
+        .style6
+        {
+            width: 514px;
+        }
+        .style7
+        {
+            width: 226px;
+        }
+        .style8
+        {
+            width: 300px;
+        }
+        
+        .style1
+        {
+            width: 546px;
+        }
+        .style2
+        {
+            width: 536px;
+        }
+        .style3
+        {
+            width: 535px;
+        }
+        .style4
+        {
+            width: 534px;
+        }
+        .style5
+        {
+            width: 533px;
+        }
+        .style6
+        {
+            width: 532px;
+        }
+        .style7
+        {
+            width: 470px;
+        }
+        
+        #Reset1
+        {
+            width: 135px;
+            height: 30px;
+        }
+        
+        .style1
+        {
+            width: 547px;
+            text-align: right;
+        }
+        .style2
+        {
+            width: 32px;
+        }
+        .style3
+        {
+            width: 558px;
+            text-align: right;
+        }
+        .style4
+        {
+            width: 308px;
+            text-align: left;
+        }
+        .style5
+        {
+            width: 1069px;
+            text-align: left;
+        }
+        .style6
+        {
+            width: 545px;
+        }
+        .style7
+        {
+            width: 406px;
+        }
+        .style8
+        {
+            width: 541px;
+        }
+        .style10
+        {
+            width: 547px;
+            text-align: right;
+        }
+        .style11
+        {
+            text-align: right;
+        }
+        .style12
+        {
+            width: 530px;
+            text-align: right;
+        }
+        .style13
+        {
+            width: 507px;
+            text-align: right;
+        }
+        .style14
+        {
+            width: 485px;
+            text-align: left;
+        }
+        .style16
+        {
+            text-align: center;
+            width: 550px;
+        }
+        .style18
+        {
+            width: 548px;
+        }
+        .style19
+        {
+            width: 17px;
+        }
+        .style20
+        {
+            text-align: left;
+        }
+        .style21
+        {
+            width: 9px;
+        }
+        .style22
+        {
+            text-align: right;
+            width: 7px;
+        }
+        .style23
+        {
+            text-align: right;
+            width: 9px;
+        }
+        .style24
+        {
+            width: 384px;
+            text-align: left;
+        }
+        .spacer
+        {
+            width: 518px;
+        }
+
+        .style1
+        {
+            width: 530px;
+            text-align: right;
+        }
+        .style3
+        {
+            width: 539px;
+            text-align: right;
+        }
+        .style4
+        {
+            width: 231px;
+            text-align: left;
+        }
+        .style6
+        {
+            width: 520px;
+            text-align: right;
+        }
+        .style7
+        {
+            width: 386px;
+        }
+        .style8
+        {
+            width: 382px;
+        }
+        .style9
+        {
+            width: 17px;
+        }
+        .style10
+        {
+            width: 542px;
+            text-align: right;
+        }
+        .style11
+        {
+            width: 532px;
+            text-align: right;
+        }
+        .style12
+        {
+            width: 514px;
+        }
+        .style13
+        {
+            width: 749px;
+        }
+        .style14
+        {
+            width: 468px;
+        }
+        .style15
+        {
+            width: 25px;
+        }
+        .style16
+        {
+            width: 515px;
+        }
+        .style20
+        {
+            width: 541px;
+        }
+        .style21
+        {
+            width: 14px;
+        }
+        .style22
+        {
+            width: 24px;
+        }
+        .style23
+        {
+            width: 18px;
+        }
+        .style24
+        {
+            width: 540px;
+        }
+        .style25
+        {
+            width: 289px;
+            text-align: left;
+        }
+        
+.style1
+        {
+            width: 550px;
+        }
+        .style2
+        {
+            width: 161px;
+        }
+        
+.style1
+        {
+            width: 548px;
+        }
+        .style2
+        {
+            width: 303px;
+        }
+        .style3
+        {
+            width: 549px;
+        }
+        .style4
+        {
+            width: 545px;
+        }
+        .style5
+        {
+            width: 518px;
+        }
+        
+.style1
+{
+    width: 100%;
+}
+/*END ASP generated styles*/

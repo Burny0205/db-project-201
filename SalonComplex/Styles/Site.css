@@ -1,0 +1,551 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+td
+{ margin: 15px;
+  margin: margin-bottom: 10px;
+  line-height: 1.6em;
+  width: 552px;
+   margin-left: 40px;
+}
+
+.appoint_td
+{    width: 728px;
+}
+
+body
+{
+    background-position: left bottom;
+    background: #FFFFFF;
+    font-size: .80em;
+    font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    margin: 5px;
+    padding: 0px;
+    color: #000000;
+    background-image: url('../Images/bk2.jpg');
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+}
+
+a:link, a:visited
+{
+    color: #034af3;
+}
+
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #034af3;
+}
+
+.p_appoint
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 200px;
+}
+
+.appoint_p
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 332px;
+}
+
+
+.login
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 382px;
+}
+
+.appointText
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 665px;
+}
+
+
+.psalon
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 886px;
+}
+
+.salonstaff
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 662px;
+}
+
+.empSch
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 662px;
+}
+
+.maleservice
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 938px;
+}
+
+.spa_nail_service
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 938px;
+}
+
+.appointment
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 561px;
+}
+
+.spaStaff
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 662px; 
+}
+
+
+
+.contact
+{
+   
+    margin-bottom:10px;
+}
+.OneLineContact
+{
+    margin-bottom: 10px;
+    margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 356px;
+    height: 35px;
+}
+
+
+register
+ {   margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 314px;
+    height: 35px;
+}
+
+
+p
+{
+    margin-bottom: 10px;
+     margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 728px;
+}
+
+r
+{
+margin-bottom: 10px;
+     margin: 15px;
+    line-height: 1.6em;
+    font-size:medium;
+    width: 500px;
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+     margin-left: 20px;
+}
+
+h1
+{
+    font-size: 1.6em;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: 326px;
+    margin-left: 40px;
+    height: 38px;
+}
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.page
+{
+    width: 960px; 
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+    
+}
+
+.header
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 99%;
+    top: 3px;
+    left: 4px;
+    height: 128px;
+}
+
+.header h1
+{
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    color: #f9f9f9;
+    border: none;
+    line-height: 2em;
+    font-size: 2em;
+}
+
+.main
+{
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+    min-height: 420px;
+}
+
+.leftCol
+{
+    padding: 6px 0px;
+    margin: 12px 8px 8px 8px;
+    width: 200px;
+    min-height: 200px;
+}
+
+.footer
+{
+    color: #4e5766;
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: normal;
+    text-decoration:none;
+    
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+div.hideSkiplink
+{
+    background-color:#3a4f63;
+    width:100%;
+}
+
+div.menu
+{
+    background: #465c71;
+    padding: 4px -8px 4px 8px;
+    width:100%;
+}
+
+div.menu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+    background-color: #465c71;
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div.menu ul li a:hover
+{
+    background-color: #bfcbd6;
+    color: #465c71;
+    text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+    background-color: #465c71;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+   
+}
+
+fieldset p 
+{
+    margin: 2px 8px 10px 10px;
+    text-align: left;
+   
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+    margin-right: 3px;
+}
+
+fieldset label.inline 
+{
+    display: inline;
+}
+
+legend 
+{
+    font-size: x-large;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+    color: #000000;
+    font-family: Garamond;
+}
+
+input.textEntry 
+{
+    width: 200px;
+    border: 1px solid #ccc;
+}
+
+input.passwordEntry 
+{
+    width: 200px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+    width: 46%;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color: black;
+    height: 39px;
+}
+
+.loginDisplay a:link
+{
+    color: black;
+}
+
+.loginDisplay a:visited
+{
+    color: #0000ff;
+}
+
+.loginDisplay a:hover
+{
+    color: #0000ff q;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: left;
+    padding-right: 10px;
+   
+}
+
+/* START Header Section */
+.title
+{
+    display: block;
+    float: left;
+    margin: 20px 0;
+    text-align: left;
+    width: 553px;
+    height: 68px;
+    position: relative;
+    left: 272px;
+    top: -21px;
+}
+
+.logo 
+{
+    margin-left: 0px; 
+    margin-right: 0px; 
+    margin-top: 0px;
+    margin-bottom:10px;
+    height: 100px;
+    width: 250px;
+    float: left;
+}
+
+h1.logoTitle 
+{
+    font-family: Garamond; 
+    font-size: x-large; 
+    font-weight: bolder; 
+    font-style: normal; 
+    text-transform: uppercase; 
+    color: #0000FF; 
+    height: 102px;
+}
+
+/* END Header Section */
+
+/* START Body */
+.content
+{
+    font-family: Garamond;
+    font-size: medium;
+    color: #000;
+    font-weight: bold;
+    padding-right: 25px;
+    
+    /*margin: 0px; 
+    padding: 0px; 
+    display: block; 
+    overflow-x: hidden; 
+    overflow-y: hidden; 
+    line-height: 19px; 
+    font-style: normal; 
+    font-variant: normal; 
+    letter-spacing: normal; 
+    orphans: 2; 
+    text-align: -webkit-auto; 
+    text-indent: 0px; 
+    text-transform: none; 
+    white-space: normal; 
+    widows: 2; 
+    word-spacing: 0px; 
+    -webkit-text-size-adjust: auto; 
+    -webkit-text-stroke-width: 0px; 
+    background-color: rgb(255, 255, 255);*/
+}
+
+.loginInfo
+{
+    padding: 50px;
+}
+/* END Body */
+
+
+
+.ui-multiselect { padding:2px 0 2px 4px; text-align:left }
+.ui-multiselect span.ui-icon { float:right }
+.ui-multiselect-single .ui-multiselect-checkboxes input { position:absolute !important; top: auto !important; left:-9999px; }
+.ui-multiselect-single .ui-multiselect-checkboxes label { padding:5px !important }
+
+.ui-multiselect-header { margin-bottom:3px; padding:3px 0 3px 4px }
+.ui-multiselect-header ul { font-size:0.9em }
+.ui-multiselect-header ul li { float:left; padding:0 10px 0 0 }
+.ui-multiselect-header a { text-decoration:none }
+.ui-multiselect-header a:hover { text-decoration:underline }
+.ui-multiselect-header span.ui-icon { float:left }
+.ui-multiselect-header li.ui-multiselect-close { float:right; text-align:right; padding-right:0 }
+
+.ui-multiselect-menu { display:none; padding:3px; position:absolute; z-index:10000 }
+.ui-multiselect-checkboxes { position:relative /* fixes bug in IE6/7 */; overflow-y:scroll }
+.ui-multiselect-checkboxes label { cursor:default; display:block; border:1px solid transparent; padding:3px 1px }
+.ui-multiselect-checkboxes label input { position:relative; top:1px }
+.ui-multiselect-checkboxes li { clear:both; font-size:0.9em; padding-right:3px }
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label { text-align:center; font-weight:bold; border-bottom:1px solid }
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label a { display:block; padding:3px; margin:1px 0; text-decoration:none }
+
+/* remove label borders in IE6 because IE6 does not support transparency */
+* html .ui-multiselect-checkboxes label { border:none }
+
+.message { padding:10px; margin:15px 0; display:block; text-align:left }
+.message-title { font-weight:bold; font-size:1.25em }
+.message-body { margin-top:4px }
+.error, .notice, .success {border: 2px solid #ddd;width:270px;float: right;margin-right:90px;}
+.error { background:#FBE3E4; color:#8a1f11; border-color:#FBC2C4 }
+.notice { background:#FFF6BF; color:#514721; border-color:#FFD324 }
+.success { background:#E6EFC2; color:#264409; border-color:#C6D880 }
+.error a { color:#8a1f11 }
+.notice a { color:#514721 }
+.success a { color:#264409 }

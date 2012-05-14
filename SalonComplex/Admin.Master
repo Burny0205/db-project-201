@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="SalonComplex.Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+        <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="Scripts/main.js"></script>
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+   
+</head>
+<body>
+    <form id="form5" runat="server">
+   <div class="page">
+        <!-- START Header -->
+        <div class="header">
+            <!-- Branding Section -->
+            <div class="title">
+                <asp:Image ID="Image1" runat="server" BackColor="White" BorderColor="#99CCFF" 
+                    ImageAlign="Middle" ImageUrl="~/Images/Femservicelogo.png" 
+                    class="logo" />
+                <!--<h1 class="logoTitle">The Edge Beauty Salon</h1>-->
+            </div>
+            <!-- Login Area -->
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <!-- Main Menu -->
+            <div class="mainMenu">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
+                    EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" 
+                    BackColor="#3333FF">
+                    <Items>
+                        <asp:MenuItem Text="Admin" Value="Admin" Selectable="False">
+                            <asp:MenuItem NavigateUrl="~/Employee/Add Employee.aspx" Text="Add Employee" 
+                                Value="Add Employee"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Employee/Edit Employee.aspx" Text="Edit Employee" 
+                                Value="Edit Employee"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Employee/Add Employee Schedule.aspx" 
+                                Text="Edit Employee Schedule" Value="Edit Employee Schedule"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <!-- END Header -->
+
+        <!-- START Main content -->
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+       
+        <!-- END main content -->
+
+        <!-- START Footer -->
+        <div class="clear"></div>
+        <!-- END Footer -->
+    </div>
+    </form>
+</body>
+</html>

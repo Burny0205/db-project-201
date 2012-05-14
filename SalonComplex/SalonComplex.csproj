@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E2680843-9D64-403F-ACD7-7A7B3252CB71}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SalonComplex</RootNamespace>
+    <AssemblyName>SalonComplex</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.60501.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Appointment\Appointment Page.aspx" />
+    <Content Include="Contact\Contact.aspx" />
+    <Content Include="Controls\ServicesControl.ascx" />
+    <Content Include="Employee\Add Employee Schedule.aspx" />
+    <Content Include="Employee\Add Employee.aspx" />
+    <Content Include="Employee\Edit Employee.aspx" />
+    <Content Include="Images\A1.jpg" />
+    <Content Include="Images\A2.jpg" />
+    <Content Include="Images\A3.jpg" />
+    <Content Include="Images\bk2.jpg" />
+    <Content Include="Images\blowdryer.jpg" />
+    <Content Include="Images\Calendar_scheduleHS.png" />
+    <Content Include="Images\calicon_abs.gif" />
+    <Content Include="Images\calnext.gif" />
+    <Content Include="Images\calprev.gif" />
+    <Content Include="Images\SalonCalendar_scheduleHS.png" />
+    <Content Include="Images\Femservicelogo.png" />
+    <Content Include="Images\img.gif" />
+    <Content Include="Images\location_org.jpg" />
+    <Content Include="Images\logo-8.png" />
+    <Content Include="Images\Logo1.jpg" />
+    <Content Include="Images\N1.jpg" />
+    <Content Include="Images\N2.jpg" />
+    <Content Include="Images\N3.jpg" />
+    <Content Include="Images\N4.jpg" />
+    <Content Include="Images\N5.jpg" />
+    <Content Include="Images\N6.jpg" />
+    <Content Include="Images\Nail.jpg" />
+    <Content Include="Images\polish.jpg" />
+    <Content Include="Images\polish1.jpg" />
+    <Content Include="Images\S1.jpg" />
+    <Content Include="Images\S10.jpg" />
+    <Content Include="Images\S2.jpg" />
+    <Content Include="Images\S3.jpg" />
+    <Content Include="Images\S4.jpg" />
+    <Content Include="Images\S5.jpg" />
+    <Content Include="Images\S6.jpg" />
+    <Content Include="Images\S7.jpg" />
+    <Content Include="Images\S8.jpg" />
+    <Content Include="Images\S9.jpg" />
+    <Content Include="Images\servicelogo.png" />
+    <Content Include="Images\slideshow\pic1.jpg" />
+    <Content Include="Images\slideshow\pic10.jpg" />
+    <Content Include="Images\slideshow\pic11.jpg" />
+    <Content Include="Images\slideshow\pic12.jpg" />
+    <Content Include="Images\slideshow\pic13.jpg" />
+    <Content Include="Images\slideshow\pic14.jpg" />
+    <Content Include="Images\slideshow\pic2.jpg" />
+    <Content Include="Images\slideshow\pic3.jpg" />
+    <Content Include="Images\slideshow\pic4.jpg" />
+    <Content Include="Images\slideshow\pic5.jpg" />
+    <Content Include="Images\slideshow\pic6.jpg" />
+    <Content Include="Images\slideshow\pic7.jpg" />
+    <Content Include="Images\slideshow\pic8.jpg" />
+    <Content Include="Images\slideshow\pic9.jpg" />
+    <Content Include="Images\sprites\arrow-next.png" />
+    <Content Include="Images\sprites\arrow-prev.png" />
+    <Content Include="Images\sprites\background.png" />
+    <Content Include="Images\sprites\bkgd.png" />
+    <Content Include="Images\sprites\edge.png" />
+    <Content Include="Images\sprites\edge_bg.png" />
+    <Content Include="Images\sprites\example-frame.png" />
+    <Content Include="Images\sprites\loading.gif" />
+    <Content Include="Images\sprites\logo.png" />
+    <Content Include="Images\sprites\new-ribbon.png" />
+    <Content Include="Images\sprites\pagination.png" />
+    <Content Include="Images\sprites\slogan.png" />
+    <Content Include="Pages\Gallery.aspx" />
+    <Content Include="Pages\Videos.aspx" />
+    <Content Include="Plugins\flowplayer\flowplayer-3.2.10.swf" />
+    <Content Include="Plugins\flowplayer\flowplayer-3.2.9.min.js" />
+    <Content Include="Plugins\flowplayer\flowplayer.controls-3.2.10.swf" />
+    <Content Include="Plugins\flowplayer\LICENSE.txt" />
+    <Content Include="Plugins\flowplayer\README.txt" />
+    <Content Include="Plugins\galleria\galleria-1.2.7.js" />
+    <Content Include="Plugins\galleria\galleria-1.2.7.min.js" />
+    <Content Include="Plugins\galleria\plugins\flickr\flickr-demo.html" />
+    <Content Include="Plugins\galleria\plugins\flickr\flickr-loader.gif" />
+    <Content Include="Plugins\galleria\plugins\flickr\galleria.flickr.js" />
+    <Content Include="Plugins\galleria\plugins\flickr\galleria.flickr.min.js" />
+    <Content Include="Plugins\galleria\plugins\flickr\loader.gif" />
+    <Content Include="Plugins\galleria\plugins\history\galleria.history.js" />
+    <Content Include="Plugins\galleria\plugins\history\galleria.history.min.js" />
+    <Content Include="Plugins\galleria\plugins\history\history-demo.html" />
+    <Content Include="Plugins\galleria\plugins\picasa\galleria.picasa.js" />
+    <Content Include="Plugins\galleria\plugins\picasa\galleria.picasa.min.js" />
+    <Content Include="Plugins\galleria\plugins\picasa\loader.gif" />
+    <Content Include="Plugins\galleria\plugins\picasa\picasa-demo.html" />
+    <Content Include="Plugins\galleria\themes\classic\classic-demo.html" />
+    <Content Include="Plugins\galleria\themes\classic\classic-loader.gif" />
+    <Content Include="Plugins\galleria\themes\classic\classic-map.png" />
+    <Content Include="Plugins\galleria\themes\classic\galleria.classic.css" />
+    <Content Include="Plugins\galleria\themes\classic\galleria.classic.js" />
+    <Content Include="Plugins\galleria\themes\classic\galleria.classic.min.js" />
+    <Content Include="Salon\Salon Staff.aspx" />
+    <Content Include="Salon\Spa Staff.aspx" />
+    <Content Include="Scripts\appointment.js" />
+    <Content Include="Scripts\jquery-1.7.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.2.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.multiselect.min.js" />
+    <Content Include="Scripts\jquery.ui.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\slides.min.jquery.js" />
+    <Content Include="Services\Female Services.aspx" />
+    <Content Include="Services\Male Services.aspx" />
+    <Content Include="Services\Nail Services.aspx" />
+    <Content Include="Styles\appointmentstyle.css" />
+    <Content Include="Styles\global.css" />
+    <Content Include="Styles\hotspot.css" />
+    <Content Include="Styles\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Styles\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Styles\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Styles\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Styles\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Styles\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Styles\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Styles\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Styles\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Styles\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Styles\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Styles\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Styles\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Styles\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Styles\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Styles\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="Styles\jquery-ui.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\Appointment Page.aspx.cs">
+      <DependentUpon>Appointment Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appointment\Appointment Page.aspx.designer.cs">
+      <DependentUpon>Appointment Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ServicesControl.ascx.cs">
+      <DependentUpon>ServicesControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ServicesControl.ascx.designer.cs">
+      <DependentUpon>ServicesControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Add Employee Schedule.aspx.cs">
+      <DependentUpon>Add Employee Schedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Add Employee Schedule.aspx.designer.cs">
+      <DependentUpon>Add Employee Schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Add Employee.aspx.cs">
+      <DependentUpon>Add Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Add Employee.aspx.designer.cs">
+      <DependentUpon>Add Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Edit Employee.aspx.cs">
+      <DependentUpon>Edit Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Edit Employee.aspx.designer.cs">
+      <DependentUpon>Edit Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LinqSQL\DataClassesLinqSQL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClassesLinqSQL.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Pages\Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Videos.aspx.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalonBusiness\Util.cs" />
+    <Compile Include="Salon\Salon Staff.aspx.cs">
+      <DependentUpon>Salon Staff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Salon\Salon Staff.aspx.designer.cs">
+      <DependentUpon>Salon Staff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Salon\Spa Staff.aspx.cs">
+      <DependentUpon>Spa Staff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Salon\Spa Staff.aspx.designer.cs">
+      <DependentUpon>Spa Staff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Female Services.aspx.cs">
+      <DependentUpon>Female Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\Female Services.aspx.designer.cs">
+      <DependentUpon>Female Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Male Services.aspx.cs">
+      <DependentUpon>Male Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\Male Services.aspx.designer.cs">
+      <DependentUpon>Male Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalonBusiness\admin.cs" />
+    <Compile Include="Services\Nail Services.aspx.cs">
+      <DependentUpon>Nail Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\Nail Services.aspx.designer.cs">
+      <DependentUpon>Nail Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="back up\" />
+    <Folder Include="Videos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin.Master" />
+    <None Include="LinqSQL\DataClassesLinqSQL.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClassesLinqSQL.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Plugins\galleria\LICENSE" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LinqSQL\DataClassesLinqSQL.dbml.layout">
+      <DependentUpon>DataClassesLinqSQL.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>15652</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

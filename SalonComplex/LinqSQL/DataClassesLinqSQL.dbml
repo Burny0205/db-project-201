@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Salon" Class="DataClassesLinqSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=FERRON-PC\MSSQLSERVER2008;Initial Catalog=Salon;Persist Security Info=False;User ID=sa;Connect Timeout=600;Current Language=English" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SalonConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.appointment" Member="appointments">
+    <Type Name="appointment">
+      <Column Name="app_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="schedule_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="employee_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="client_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="service_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="app_day" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="app_time1" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="app_time2" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="app_time3" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="notes_requests" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="visited_status" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="app_status" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="appointment_comment" Member="comments" ThisKey="app_id" OtherKey="app_id" Type="comment" />
+      <Association Name="appointment_appointment_service" Member="appointment_services" ThisKey="app_id" OtherKey="app_id" Type="appointment_service" />
+      <Association Name="employee_appointment" Member="employee" ThisKey="employee_id" OtherKey="employee_id" Type="employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="schedule_appointment" Member="schedule" ThisKey="schedule_id,employee_id" OtherKey="schedule_id,employee_id" Type="schedule" IsForeignKey="true" />
+      <Association Name="service_appointment" Member="service" ThisKey="service_id" OtherKey="service_id" Type="service" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="client_appointment" Member="client" ThisKey="client_id" OtherKey="client_id" Type="client" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.employee" Member="employees">
+    <Type Name="employee">
+      <Column Name="employee_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="employee_type" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="employee_fname" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="employee_lname" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="employee_gender" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="employee_street" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="employee_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="employee_parish" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="employee_phone" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="employee_yoe" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="employee_email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="employee_appointment" Member="appointments" ThisKey="employee_id" OtherKey="employee_id" Type="appointment" />
+      <Association Name="employee_schedule" Member="schedules" ThisKey="employee_id" OtherKey="employee_id" Type="schedule" />
+      <Association Name="employee_skill" Member="skills" ThisKey="employee_id" OtherKey="employee_id" Type="skill" />
+    </Type>
+  </Table>
+  <Table Name="dbo.schedule" Member="schedules">
+    <Type Name="schedule">
+      <Column Name="schedule_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="employee_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sch_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="[8:00 am]" Member="_8_00_am" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[9:00 am]" Member="_9_00_am" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[10:00 am]" Member="_10_00_am" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[11:00 am]" Member="_11_00_am" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[12:00 pm]" Member="_12_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[1:00 pm]" Member="_1_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[2:00 pm]" Member="_2_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[3:00 pm]" Member="_3_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[4:00 pm]" Member="_4_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[5:00 pm]" Member="_5_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="schedule_appointment" Member="appointments" ThisKey="schedule_id,employee_id" OtherKey="schedule_id,employee_id" Type="appointment" />
+      <Association Name="employee_schedule" Member="employee" ThisKey="employee_id" OtherKey="employee_id" Type="employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.service" Member="services">
+    <Type Name="service">
+      <Column Name="service_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="service_type" Member="description" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="service" Member="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="service_appointment" Member="appointments" ThisKey="service_id" OtherKey="service_id" Type="appointment" />
+      <Association Name="service_skill" Member="skills" ThisKey="service_id" OtherKey="service_id" Type="skill" />
+      <Association Name="service_appointment_service" Member="appointment_services" ThisKey="service_id" OtherKey="service_id" Type="appointment_service" />
+      <Association Name="service_type_service" Member="service_type" ThisKey="type" OtherKey="id" Type="service_type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.service_type" Member="service_types">
+    <Type Name="service_type">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="service_type_service" Member="services" ThisKey="id" OtherKey="type" Type="service" />
+    </Type>
+  </Table>
+  <Table Name="dbo.skills" Member="skills">
+    <Type Name="skill">
+      <Column Name="skills_id" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="employee_id" AutoSync="Always" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="service_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="employee_skill" Member="employee" ThisKey="employee_id" OtherKey="employee_id" Type="employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="service_skill" Member="service" ThisKey="service_id" OtherKey="service_id" Type="service" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.client" Member="clients">
+    <Type Name="client">
+      <Column Name="client_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="client_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="client_password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="client_fname" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="client_lname" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="client_gender" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="client_street" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="client_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="client_parish" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="client_profession" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="client_phone" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="client_email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="client_numberVisits" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="client_memStatus" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="client_appointment" Member="appointments" ThisKey="client_id" OtherKey="client_id" Type="appointment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.comments" Member="comments">
+    <Type Name="comment">
+      <Column Name="contact_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="contact_name" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="contact_email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="contact_phone" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="contact_regs" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="contact_comments" Type="System.String" DbType="VarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="app_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="appointment_comment" Member="appointment" ThisKey="app_id" OtherKey="app_id" Type="appointment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.appointment_service" Member="appointment_services">
+    <Type Name="appointment_service">
+      <Column Name="appservice_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="app_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="service_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="appointment_appointment_service" Member="appointment" ThisKey="app_id" OtherKey="app_id" Type="appointment" IsForeignKey="true" />
+      <Association Name="service_appointment_service" Member="service" ThisKey="service_id" OtherKey="service_id" Type="service" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SP_DeleteEmployee" Method="SP_DeleteEmployee">
+    <Parameter Name="strEmp_id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_InsertClient" Method="SP_InsertClient">
+    <Parameter Name="clientUsername" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="clientPassword" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="clientFname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="clientLname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="clientGender" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="clientAddr1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="clientAddr2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="clientAddr3" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="clientPro" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="clientPhone_Num" Type="System.String" DbType="VarChar(13)" />
+    <Parameter Name="clientEmail" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_InsertComments" Method="SP_InsertComments">
+    <Parameter Name="contactFullname" Type="System.String" DbType="VarChar(60)" />
+    <Parameter Name="contactEmail" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="contactPhone_Num" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="contactRegs" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="contact_comments" Type="System.String" DbType="VarChar(600)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_InsertEmployee" Method="SP_InsertEmployee">
+    <Parameter Name="strEmpType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpFname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpLname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpGender" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="strEmpAddr1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpAddr2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpAddr3" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpPhone_Num" Type="System.String" DbType="VarChar(13)" />
+    <Parameter Name="strEmpYoe" Type="System.Double" DbType="Float" />
+    <Parameter Name="strEmpEmail" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_UpdateEmployee" Method="SP_UpdateEmployee">
+    <Parameter Name="empid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strEmpEditType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpEditFname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpEditLname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpEditGender" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="strEmpEditAddr1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpEditAddr2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpEditAddr3" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strEmpEditPhone_Num" Type="System.String" DbType="VarChar(13)" />
+    <Parameter Name="strEmpEditYoe" Type="System.Double" DbType="Float" />
+    <Parameter Name="strEmpEditEmail" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_InsertUserLogin" Method="SP_InsertUserLogin" IsComposable="true">
+    <Parameter Name="LoginUname" Parameter="loginUname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="LoginPwd" Parameter="loginPwd" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="LoginEmail" Parameter="loginEmail" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="LoginEnable" Parameter="loginEnable" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="LoginDenied" Parameter="loginDenied" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="strCodeValidateUser" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="iIdUser" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.SP_SelectEmployee" Method="SP_SelectEmployee">
+    <Parameter Name="EmpType" Parameter="empType" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="SP_SelectEmployeeResult">
+      <Column Name="employee_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="employee_fname" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="employee_lname" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CheckEmployee" Method="SP_CheckEmployee">
+    <Parameter Name="SchDate" Parameter="schDate" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_CheckEmployeeResult">
+      <Column Name="employee_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sch_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="[8:00 am]" Member="_8_00_am" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[9:00 am]" Member="_9_00_am" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[10:00 am]" Member="_10_00_am" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[11:00 am]" Member="_11_00_am" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[12:00 pm]" Member="_12_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[1:00 pm]" Member="_1_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[2:00 pm]" Member="_2_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[3:00 pm]" Member="_3_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[4:00 pm]" Member="_4_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="[5:00 pm]" Member="_5_00_pm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="employee_fname" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

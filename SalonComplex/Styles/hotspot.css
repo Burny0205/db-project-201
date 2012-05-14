@@ -1,0 +1,67 @@
+﻿.service_row .hotspot, .service .hotspot
+{
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.hotspot
+{
+  cursor: help;
+  padding: 0;
+}
+.hotspot_more
+{
+  margin: 0;
+  padding-bottom: 5px;
+}
+#event_wrapper #deal .reverse .hotspot
+{
+  background-color: #999999 !important;
+  color: #FFFFFF !important;
+  font-weight: normal !important;
+}
+
+#event_wrapper #deal .deal_service .hotspot_content
+{
+  font-style: normal;
+  font-size: 90%;
+}
+a, .hotspot
+{
+	text-decoration: none;
+	/*font-weight: bold;*/
+    	color: #3858A1;
+}
+a:hover, .hotspot:hover
+{
+	color: #437BFB;
+	text-decoration: underline;
+}
+
+.hotspot
+{
+  cursor: help;
+  padding: 0;
+}
+
+.hotspot_more
+{
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.service_row .hotspot, .service .hotspot
+{
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.service_row
+{
+  margin: 4px 0 5px 0;
+  padding: 0;
+}
+.service_row .hotspot, .service .hotspot
+{
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+

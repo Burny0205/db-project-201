@@ -1,0 +1,14 @@
+C:\Users\MaRcOMaCk\Desktop\SalonComplex\SalonComplex\bin\SalonComplex.dll
+C:\Users\MaRcOMaCk\Desktop\SalonComplex\SalonComplex\bin\SalonComplex.pdb
+C:\Users\MaRcOMaCk\Desktop\SalonComplex\SalonComplex\obj\Debug\SalonComplex.dll
+C:\Users\MaRcOMaCk\Desktop\SalonComplex\SalonComplex\obj\Debug\SalonComplex.pdb
+C:\Users\Shantelle\Desktop\SalonComplex\SalonComplex\bin\SalonComplex.dll
+C:\Users\Shantelle\Desktop\SalonComplex\SalonComplex\bin\SalonComplex.pdb
+C:\Users\Shantelle\Desktop\SalonComplex\SalonComplex\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shantelle\Desktop\SalonComplex\SalonComplex\obj\Debug\SalonComplex.dll
+C:\Users\Shantelle\Desktop\SalonComplex\SalonComplex\obj\Debug\SalonComplex.pdb
+C:\Users\ferron.MEDULLAN\Desktop\SalonComplex\SalonComplex\SalonComplex\bin\SalonComplex.dll
+C:\Users\ferron.MEDULLAN\Desktop\SalonComplex\SalonComplex\SalonComplex\bin\SalonComplex.pdb
+C:\Users\ferron.MEDULLAN\Desktop\SalonComplex\SalonComplex\SalonComplex\obj\Debug\SalonComplex.dll
+C:\Users\ferron.MEDULLAN\Desktop\SalonComplex\SalonComplex\SalonComplex\obj\Debug\SalonComplex.pdb
+C:\Users\ferron.MEDULLAN\Desktop\SalonComplex\SalonComplex\SalonComplex\obj\Debug\SalonComplex.csprojResolveAssemblyReference.cache
