@@ -16,6 +16,11 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div class="main">
         <br /><br />
+            <p>
+       <asp:HyperLink ID="HyperLinkChangePassWord" runat="server" 
+            NavigateUrl="~/Account/ChangePassword.aspx" Height="10" ForeColor="red">ChangePassword </asp:HyperLink>
+    </p>
+    <br />
         <h2>
             Welcome to The Edge Beauty Salon and Spa
         </h2>
@@ -37,7 +42,8 @@
 				    <div class="slides_container" id="img_container">
 				    </div>
 			    </div>
-			    <img src="Images/sprites/example-frame.png" width="500" height="500" alt="Example Frame" id="frame"/>
+			    <img src="Images/sprites/example-frame.png" width="500" height="500" alt="Example Frame" 
+                    id="frame"/>
 		    </div>
 	    </div>
     </div>

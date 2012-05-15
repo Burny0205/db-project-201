@@ -389,11 +389,12 @@
                     </SelectedItemTemplate>
                 </asp:ListView>                                         
                 <asp:SqlDataSource ID="SqlDataSourceEmpSch" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:SalondbConnectionString %>" 
+                    ConnectionString="<%$ ConnectionStrings:SalonConnectionString %>" 
                     DeleteCommand="DELETE FROM [schedule] WHERE [schedule_id] = @original_schedule_id AND [employee_id] = @original_employee_id" 
                     InsertCommand="INSERT INTO [schedule] ([employee_id], [sch_date], [8:00 am], [9:00 am], [10:00 am], [11:00 am], [12:00 pm], [1:00 pm], [2:00 pm], [3:00 pm], [4:00 pm], [5:00 pm]) VALUES (@employee_id, @sch_date, @column1, @column2, @column3, @column4, @column5, @column6, @column7, @column8, @column9, @column10)" 
                     OldValuesParameterFormatString="original_{0}" 
                     SelectCommand="SELECT [schedule_id], [employee_id], [sch_date], [8:00 am] AS column1, [9:00 am] AS column2, [10:00 am] AS column3, [11:00 am] AS column4, [12:00 pm] AS column5, [1:00 pm] AS column6, [2:00 pm] AS column7, [3:00 pm] AS column8, [4:00 pm] AS column9, [5:00 pm] AS column10 FROM [schedule]" 
+                    
                     
                     
                     UpdateCommand="UPDATE [schedule] SET [sch_date] = @sch_date, [8:00 am] = @column1, [9:00 am] = @column2, [10:00 am] = @column3, [11:00 am] = @column4, [12:00 pm] = @column5, [1:00 pm] = @column6, [2:00 pm] = @column7, [3:00 pm] = @column8, [4:00 pm] = @column9, [5:00 pm] = @column10 WHERE [schedule_id] = @original_schedule_id AND [employee_id] = @original_employee_id">

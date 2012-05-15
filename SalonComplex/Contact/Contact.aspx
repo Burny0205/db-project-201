@@ -44,7 +44,7 @@
     }
     .contact
     {
-        width: 373px;
+        width: 431px;
     }
         #textarea1
         {
@@ -94,13 +94,13 @@
 
         <tr>
             <td class="style25" rowspan="6">
-                    <p class = "contact">
+                    <p class = ".contactText">
                     We appreciate your interest in doing business with Edge Beauty Salon. Please 
                     feel free to contact us by filling out the information in the form on the right or 
                     contact us using the information listed below.<br />
                     <br />
                     </p>
-                    <p class = "contact">
+                    <p class = ".contactText">
                     <strong>The Edge Beauty Salon </strong>
                     <br />
                     Shop 21 Manchester Shopping center
@@ -113,7 +113,7 @@
                     <br />
                     <br />
                      </p>
-                <p class="contact">
+                <p class=".contactText">
                     Did you enjoy your experience at Edge Salon? Connect with us on
                     facebook and leave a comment and check out our news and discount offers.</p>
             <p class ="OneLineContact">
@@ -126,7 +126,7 @@
                     <strong>Email:</strong>
                   </p>
                    <p class = "OneLineContact">
-                    <strong><a href="mailto:@SITEEMAIL@">info@edegebeautysalon.com</a> </strong>
+                    <strong><a href="mailto:edgesaloncomplex@gmail.com">info@edgesaloncomplex</a> </strong>
                     </p>
                     <p class = "OneLineContact">
                         <strong>Business Hours: </strong>
@@ -158,13 +158,14 @@
             <td class="style18">
            
                    <p class = "OneLineContact"> 
-                   <asp:Label ID="CustNameContactLabel" runat="server" Text="Your Name:" 
-                           style="font-weight: 700"></asp:Label>
+                   <asp:Label ID="CustNameContactLabel" runat="server" 
+                           style="font-weight: 700" AssociatedControlID="TextBoxContactName" 
+                           CssClass="textEntry">Your Name:</asp:Label>
                      </p>  
                      <p  class = "OneLineContact">         
                     <asp:TextBox ID="TextBoxContactName"  align="top" runat="server" Width="310px" 
                        style="text-align: left; margin-left: 2px" Height="25px" 
-                             ValidationGroup="AddCommentGroup" ></asp:TextBox>
+                             ValidationGroup="AddCommentGroup" CssClass="textEntry" ></asp:TextBox>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidatorContactName" 
                              runat="server" ControlToValidate="TextBoxContactName" 
                              CssClass="failureNotification" ErrorMessage="Please enter your name" 
@@ -178,12 +179,13 @@
            
                    <p class = "OneLineContact"> 
                    <asp:Label ID="CustNameContactLabel0" runat="server" Text="Email Address:" 
-                           style="font-weight: 700"></asp:Label>
+                           style="font-weight: 700" AssociatedControlID="TextBoxContactEmail"></asp:Label>
                      </p>
                 <p class = "OneLineContact"> 
                 
                     <asp:TextBox ID="TextBoxContactEmail" runat="server" Width="310px" 
-                        Height="25px" ToolTip="[correct format] johnbrown@mail.com" ></asp:TextBox>
+                        Height="25px" ToolTip="[correct format] johnbrown@mail.com" 
+                        CssClass="textEntry" ></asp:TextBox>
                      <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmailPhone" 
                         runat="server" ErrorMessage="Email format incorrect" 
                         ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
@@ -198,12 +200,13 @@
             <td class="style18">
                     <p class = "OneLineContact"> 
                    <asp:Label ID="CustPhoneNumContactLabel" runat="server" Text="Phone Number:" 
-                            style="font-weight: 700"></asp:Label>
+                            style="font-weight: 700" AssociatedControlID="TextBoxContactPhone"></asp:Label>
                    </p>
                     <p class = "OneLineContact"> 
                 
                     <asp:TextBox ID="TextBoxContactPhone" runat="server" Width="310px" Height="25px" 
-                            ToolTip="accept format (123) 456-7890 or  123-456-7890" ></asp:TextBox>
+                            ToolTip="accept format (123) 456-7890 or  123-456-7890" 
+                            CssClass="textEntry" ></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorPhoneContact" 
                             runat="server" ControlToValidate="TextBoxContactPhone" 
                             CssClass="failureNotification" ErrorMessage="Incorrect phone format" 
@@ -218,12 +221,13 @@
             <td class="style18">
                      <p class = "OneLineContact"> 
                    <asp:Label ID="CustRegardingContactLabel" runat="server" Text="Regarding:" 
-                             style="font-weight: 700"></asp:Label>
+                             style="font-weight: 700" AssociatedControlID="ContactRegDropDownList"></asp:Label>
                    </p>
                      <p class = "OneLineContact"> 
                 
                     <asp:DropDownList ID="ContactRegDropDownList" runat="server" Height="25px" 
-                        Width="310px" style="margin-right: 14px" EnableTheming="True" >
+                        Width="310px" style="margin-right: 14px" EnableTheming="True" 
+                             CssClass="textEntry" >
                         <asp:ListItem>-------Select One-------</asp:ListItem>
                         <asp:ListItem>Appointment</asp:ListItem>
                         <asp:ListItem>Customer Service</asp:ListItem>
@@ -253,7 +257,7 @@
 &nbsp;<p class ="OneLineContact"> 
                         &nbsp;<asp:Button ID="ContactUsSubmittButton" runat="server" Height="25px" Text="Send Your Comments" 
                            Width="140px" onclick="ContactUsSubmittButton_Click" 
-                            ValidationGroup="AddCommentGroup" />
+                            ValidationGroup="AddCommentGroup" CssClass="submitButton" />
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input id="Reset2" type="reset" value="reset" /></p>
             </td>

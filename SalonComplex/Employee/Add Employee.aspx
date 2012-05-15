@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Add Employee" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Add Employee.aspx.cs" Inherits="SalonComplex.Employee.Add_Employee" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style1
@@ -28,7 +29,7 @@
             </span>
         <asp:ValidationSummary ID="ValidationSummaryAddStudent" runat="server" 
               ForeColor="Red" ValidationGroup="AddEmployee" 
-        style="font-size: x-small" />
+        style="font-size: medium" />
 
         <fieldset style="width:450px; height:auto">
         <legend> Employee Information </legend> 
@@ -168,12 +169,19 @@
                 <asp:Label ID="YOELabel" runat="server" Text="Years of Experience"></asp:Label>
             </td>
             <td class="style1">
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
+    
                 <asp:TextBox ID="YoeTxtBox" runat="server" Width="50px" 
-                     Height="20px" TextMode="Number"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorYOE" runat="server" 
+                     Height="20px" TextMode="SingleLine"></asp:TextBox>
+                      <asp:NumericUpDownExtender ID="YOE_NUM" runat="server"  
+                    TargetControlID="YoeTxtBox" Width="80" Step ="1" Minimum="1" Maximum="100"   >
+                </asp:NumericUpDownExtender>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorYOE" runat="server" 
                     ControlToValidate="YoeTxtBox" ErrorMessage="Street Address Required" 
                     ForeColor="Red" ValidationGroup="AddEmployee" 
                     CssClass="failureNotification" ToolTip="Street Address Required">*</asp:RequiredFieldValidator>
+                   
             </td>
             <td class="style1">
                 </td>

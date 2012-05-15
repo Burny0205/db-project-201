@@ -1,49 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls.WebParts;
-using System .Xml.Linq;
+using System.Xml.Linq;
 using SalonComplex.LinqSQL;
-
+using SalonComplex.SalonBusiness;
 
 namespace SalonComplex.Account
 {
-    public partial class Login1 : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
-        //DataClassesLinqSQLDataContext _context = new DataClassesLinqSQLDataContext();
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+           RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
         }
 
-        protected void LoginButton_Click(object sender, EventArgs e)
+        protected void LoginUser_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            /*var result = (from x in _context.clients
-                where x.client_username.Equals(UserName.Text)
-                & x.client_password.Equals(Password.Text)
-                select x).FirstOrDefault();
+            //call SP_CheckLoginPassword
 
-                if (result != null)
+            admin connect = new admin();
+
+            int result = connect.Call_CheckLoginPassWord(
+                LoginUser.UserName.ToString(CultureInfo.InvariantCulture), LoginUser.Password.ToString(CultureInfo.InvariantCulture));
+
+            //Found User
+            if (result == 1)
+            {
+                string[] strFieldsUserLogin = connect.strFullData.Split(',');
+                string strEnable = strFieldsUserLogin[1];string strDenied = strFieldsUserLogin[2];
+             
+            if (strDenied == "1") {LabelStatus.Text = " Sorry User Denied ";e.Authenticated = false;}
+           
+            
+            else
                 {
-
-                    //Session["New"] = UserName.Text;
-                    Response.Redirect("Default.aspx");
+                    if (strEnable == "1") {LabelStatus.Text = " Success ";e.Authenticated = true;}
+                    else {LabelStatus.Text = " This account is not yet enabled";e.Authenticated = false;}
                 }
-                else
-                {
-                    lblMessage.Text = "Fail to login";
 
-                //UserName.Text = "";
-            }*/
+             }
+            else
+            {
+                //Fail
+                LabelStatus.Text = " Invalid UserName or PassWord Incorrect";
+                e.Authenticated = false;
+
+            }
+
+
+        }
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            // debug
+            string strName = args.Value;
+            args.IsValid = (!Util.CheckInput(strName));
         }
 
-
-
+        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string strPassWord = args.Value;
+            args.IsValid = (!Util.CheckInput(strPassWord));
+        }
     }
 }
-//Data Source=MARCOMACK-PC\SQLEXPRESS;Initial Catalog=Salondb;Integrated Security=True
+ 

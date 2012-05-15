@@ -38,7 +38,7 @@
     
     <tr>
 
-    <td>    <p class = "salonstaff"> 
+    <td>    <p class="salonstaff2"> 
             <asp:Label ID="SalonEmpNameLabel1" runat="server" 
                 Text="Megan Moore, Owner/ Stylist" style="font-weight: 700"></asp:Label>
             </p>
@@ -67,7 +67,7 @@
                 BorderColor="Blue" BorderStyle="Groove" Height="300px" />
         </td>
         <td >
-        <p class = "salonstaff" > 
+        <p class = "salonstaff2" > 
             <asp:Label ID="EmpNameLabel" runat="server" Text="Kimberly Bailey, Stylist" 
                 style="font-weight: 700"></asp:Label>
             </p>
@@ -94,7 +94,7 @@
             <asp:Image ID="Image4" runat="server" Width="250px" ImageUrl="~/Images/S3.jpg" 
                 BorderColor="Blue" BorderStyle="Groove" Height="300px" />
         </td>
-        <td> <p class = "salonstaff"> 
+        <td> <p class = "salonstaff2"> 
             <asp:Label ID="EmpNameLabel2" runat="server" Text="Melinda Hughes, Stylist" 
                 style="font-weight: 700"></asp:Label>
             </p>
@@ -122,7 +122,7 @@
         </td>
     </tr>
     <tr>
-        <td> <p class = "salonstaff"> 
+        <td> <p class = "salonstaff2"> 
             <asp:Label ID="EmpNamLabel3" runat="server" Text="Jessica Barnes, Stylist" 
                 style="font-weight: 700"></asp:Label>
            </p>
@@ -150,7 +150,7 @@
         </td>
     </tr>
     <tr>
-        <td> <p class = "salonstaff"> 
+        <td> <p class = "salonstaff2"> 
             <asp:Label ID="SalonEmpLabel4" runat="server" Text="Jessica Griffeths, Stylist" 
                 style="font-weight: 700"></asp:Label>
            </p>
@@ -179,7 +179,7 @@
     </tr>
     <tr>
         <td>
-        <p class = "salonstaff"> 
+        <p class = "salonstaff2"> 
             <asp:Label ID="SalonEmpLabel5" runat="server" 
                 Text="Patrick Moore, Owner/Barber" style="font-weight: 700"></asp:Label>
                 </p>
@@ -211,7 +211,7 @@
     </tr>
     <tr>
         <td >
-        <p class = "salonstaff"> 
+        <p class = "salonstaff2"> 
             <asp:Label ID="LabelKG" runat="server" Text="Kyron Givans, Barber" 
                 style="font-weight: 700"></asp:Label>
             </p>
@@ -237,7 +237,7 @@
         </td>
     </tr>
     <tr>
-        <td > <p class = "salonstaff"> 
+        <td > <p class = "salonstaff2"> 
             <asp:Label ID="SalonEmLabel6" runat="server" Text="Miguel Morris, Barber" 
                 style="font-weight: 700"></asp:Label>
             </p>
@@ -266,7 +266,7 @@
     </tr>
     <tr>
         <td >
-        <p> 
+        <p  class = "salonstaff2"> 
             <asp:Label ID="SalonEmpLabel6" runat="server" Text="Ricardo Allen, Barber" 
                 style="font-weight: 700"></asp:Label>
             </p>
@@ -297,7 +297,7 @@
     </tr>
     <tr>
         <td >
-        <p class = "salonstaff">
+        <p class = "salonstaff2">
             <asp:Label ID="SalonEmpLabel7" runat="server" Text="Geoffery Green, Barber" 
                 style="font-weight: 700"></asp:Label>
             </p>

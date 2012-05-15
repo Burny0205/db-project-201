@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Edit Employee" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Edit Employee.aspx.cs" Inherits="SalonComplex.Employee.Edit_Employee" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style5
@@ -32,7 +33,7 @@
                     style="font-size: large; font-weight: 700"></asp:Label>
 </p>
  <asp:ValidationSummary ID="ValidationSummaryEditEmployee" runat="server" 
-        ForeColor="Red" ValidationGroup="EditEmployee" />
+        ForeColor="Red" ValidationGroup="EditEmployee" style="font-size: small" />
  <fieldset style="width:800px; height:auto">
     <legend> Employee Information </legend> 
     <table class="style1">
@@ -227,8 +228,24 @@
                     ForeColor="Red">*</asp:RequiredFieldValidator>
             </td>--%>
              <td class="style7">
+                 <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
                 <asp:TextBox ID="EmpEditYoeTxtBox" runat="server" Width="50px" 
-                     Height="20px" TextMode="Number"></asp:TextBox>
+                     Height="20px" TextMode="SingleLine"></asp:TextBox>
+                   
+                   
+                   
+                 <asp:NumericUpDownExtender ID="EmpYOE_EXT" runat="server"  
+                     Maximum="100" Minimum="1" TargetControlID="EmpEditYoeTxtBox" 
+                     Width="80" Step = "1">
+                 </asp:NumericUpDownExtender>
+                   
+                   
+                   
+                 <%--   <asp:NumericUpDownExtender ID="EmpEditYoeTxtBox_Extender" runat="server"  
+                    TargetControlID="EmpEditYoeTxtBox_Extender" Width="80" Step ="1" Minimum="1" Maximum="100"   >
+                 </asp:NumericUpDownExtender>--%>
+                    
                 <asp:RequiredFieldValidator ID="EmpEditRequiredFieldValidatorYOE" runat="server" 
                     ControlToValidate="EmpEditYoeTxtBox" ErrorMessage="Street Address Required" 
                     ForeColor="Red" ValidationGroup="EditEmployee" 

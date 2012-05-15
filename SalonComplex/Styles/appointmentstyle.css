@@ -184,7 +184,7 @@
         }
         .style2
         {
-            text-align: right;
+            text-align: center;
         }
         .style23
         {
@@ -206,6 +206,10 @@
         {
             width: 332px;
         }
+        
+        .style30
+        {
+          }
         
         
         .style1
@@ -492,8 +496,7 @@
         .style24
         {
             width: 384px;
-            text-align: left;
-        }
+            }
         .spacer
         {
             width: 518px;
@@ -580,7 +583,8 @@
         .style24
         {
             width: 540px;
-        }
+    text-align: justify;
+}
         .style25
         {
             width: 289px;
@@ -593,8 +597,7 @@
         }
         .style2
         {
-            width: 161px;
-        }
+}
         
 .style1
         {
@@ -602,8 +605,7 @@
         }
         .style2
         {
-            width: 303px;
-        }
+}
         .style3
         {
             width: 549px;
@@ -621,4 +623,70 @@
 {
     width: 100%;
 }
-/*END ASP generated styles*/
+
+
+
+        .style27
+        {
+            text-align: center;
+            width: 379px;
+        }
+        .style28
+        {
+            width: 379px;
+            text-align: left;
+        }
+        .style29
+        {
+            text-align: center;
+            width: 32px;
+        }
+        .style30
+        {
+            width: 257px;
+            text-align: left;
+        }
+        .style31
+        {
+            width: 542px;
+        }
+        .style32
+        {
+            width: 100%;
+        }
+    
+        .style33
+        {
+            width: 311px;
+            text-align: left;
+        }
+   
+        #service_option110039
+        {
+            text-align: left;
+        }
+        #service_option110040
+        {
+            text-align: left;
+        }
+        #service_option110041
+        {
+            text-align: left;
+        }
+        #service_option110042
+        {
+            text-align: left;
+        }
+        
+
+
+.appointText
+{margin-bottom:10px;
+ margin:15px;
+ line-height:1.36em;
+ font-size:medium;
+ width:664px;
+ height:35px;
+
+}
+    /*END ASP generated styles*/

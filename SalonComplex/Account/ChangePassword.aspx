@@ -7,14 +7,16 @@
     <h2>
         Change Password
     </h2>
-    <p>
+    <p class="login">
         Use the form below to change your password.
     </p>
-    <p>
+    <p class="login">
         New passwords are required to be a minimum of <%= Membership.MinRequiredPasswordLength %> characters in length.
     </p>
-    <asp:ChangePassword ID="ChangeUserPassword" runat="server" CancelDestinationPageUrl="~/" EnableViewState="false" RenderOuterTable="false" 
-         SuccessPageUrl="ChangePasswordSuccess.aspx">
+    <asp:ChangePassword ID="ChangeUserPassword" runat="server" 
+    CancelDestinationPageUrl="~/" EnableViewState="False" 
+         SuccessPageUrl="ChangePasswordSuccess.aspx" 
+    onchangingpassword="ChangeUserPassword_ChangingPassword">
         <ChangePasswordTemplate>
             <span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
@@ -24,21 +26,26 @@
             <div class="accountInfo">
                 <fieldset class="changePassword">
                     <legend>Account Information</legend>
-                    <p>
+                    <p class="login">
                         <asp:Label ID="CurrentPasswordLabel" runat="server" AssociatedControlID="CurrentPassword">Old Password:</asp:Label>
                         <asp:TextBox ID="CurrentPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="CurrentPasswordRequired" runat="server" ControlToValidate="CurrentPassword" 
                              CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Old Password is required." 
                              ValidationGroup="ChangeUserPasswordValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
-                    <p>
+                    <p class="login">
                         <asp:Label ID="NewPasswordLabel" runat="server" AssociatedControlID="NewPassword">New Password:</asp:Label>
                         <asp:TextBox ID="NewPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="NewPasswordRequired" runat="server" ControlToValidate="NewPassword" 
                              CssClass="failureNotification" ErrorMessage="New Password is required." ToolTip="New Password is required." 
                              ValidationGroup="ChangeUserPasswordValidationGroup">*</asp:RequiredFieldValidator>
+                        <asp:CustomValidator ID="CustomValidator1" runat="server" 
+                            ControlToValidate="ConfirmNewPassword" CssClass="failureNotification" 
+                            ErrorMessage="New password are required to be a minimum of 6 characters" 
+                            onservervalidate="CustomValidator1_ServerValidate" 
+                            ValidationGroup="ChangeUserPasswordValidationGroup">*</asp:CustomValidator>
                     </p>
-                    <p>
+                    <p class="login">
                         <asp:Label ID="ConfirmNewPasswordLabel" runat="server" AssociatedControlID="ConfirmNewPassword">Confirm New Password:</asp:Label>
                         <asp:TextBox ID="ConfirmNewPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ConfirmNewPasswordRequired" runat="server" ControlToValidate="ConfirmNewPassword" 

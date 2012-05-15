@@ -283,6 +283,15 @@ namespace SalonComplex.Employee {
         protected global::System.Web.UI.WebControls.Label EmpEditYOELabel;
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// EmpEditYoeTxtBox control.
         /// </summary>
         /// <remarks>
@@ -290,6 +299,15 @@ namespace SalonComplex.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EmpEditYoeTxtBox;
+        
+        /// <summary>
+        /// EmpYOE_EXT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.NumericUpDownExtender EmpYOE_EXT;
         
         /// <summary>
         /// EmpEditRequiredFieldValidatorYOE control.

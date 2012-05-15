@@ -89,9 +89,9 @@
             <td class="style10" style="text-transform: uppercase; font-weight: bold;">
                 &nbsp;</td>
             <td class="style9" style="text-transform: uppercase; font-weight: bold;" 
-                align="center" bgcolor="Black" rowspan="11">
+                align="center" bgcolor="Black" rowspan="8">
                 <asp:Image ID="Image5" runat="server" BorderColor="Black" BorderStyle="Groove" 
-                    Height="215px" ImageAlign="AbsMiddle" ImageUrl="~/Images/Nail.jpg" 
+                    Height="230px" ImageAlign="AbsMiddle" ImageUrl="~/Images/Nail.jpg" 
                     Width="383px" />
             </td>
         </tr>
@@ -100,6 +100,26 @@
                 &nbsp;</td>
             <td class="style5">
                 &nbsp;</td>
+            <td class="style3">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style7" 
+                style="color: #000000; font-size: medium; font-family: Garamond">
+                Polishing</td>
+            <td class="style5" align="center" 
+                style="color: #000000; font-size: medium; font-family: Garamond">
+                $300</td>
+            <td class="style3">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style7" 
+                style="color: #000000; font-size: medium; font-family: Garamond">
+                Buffing</td>
+            <td class="style5" align="center" 
+                style="color: #000000; font-size: medium; font-family: Garamond">
+                $500</td>
             <td class="style3">
                 &nbsp;</td>
         </tr>
@@ -126,27 +146,7 @@
         <tr>
             <td class="style7" 
                 style="color: #000000; font-size: medium; font-family: Garamond">
-                Polishing</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $300</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Buffing</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $500</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7" align="left" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Acrylic</td>
+                Full Sets</td>
             <td class="style5" align="center" 
                 style="color: #000000; font-size: medium; font-family: Garamond">
                 $1300</td>
@@ -154,46 +154,16 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="style7" 
+            <td class="style7" align="left" 
                 style="color: #000000; font-size: medium; font-family: Garamond">
-                Artificial nails</td>
+                &nbsp;</td>
             <td class="style5" align="center" 
                 style="color: #000000; font-size: medium; font-family: Garamond">
-                $1100</td>
+                &nbsp;</td>
             <td class="style3">
                 &nbsp;</td>
         </tr>
-        <tr>
-            <td class="style7" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Full Sets</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $1800</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style17" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Sculptured Nails</td>
-            <td class="style18" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $1500</td>
-            <td class="style19">
-                </td>
-        </tr>
-        <tr>
-            <td class="style7" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Nail Tipping</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $1200</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-    </table>
+        </table>
      </fieldset><br />
     <table class="style13">
         <tr>

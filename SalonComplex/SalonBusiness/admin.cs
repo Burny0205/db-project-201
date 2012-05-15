@@ -15,6 +15,86 @@ namespace SalonComplex.SalonBusiness
 {
     public class admin
     {
+        public int iUserLoginID = 0;
+
+        //from Call_ConfirmEmailRecieveFull
+        public string strFullData;
+        public string strRegisterDateTime;
+
+        #region ChangePassWord
+
+        public int Call_ChangePassWord(string strUser, string strOldPassWord, string strNewPassWord)
+        {
+            int Result = 0;
+
+            using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
+            {
+
+                Result = connect.SP_ChangePassWord(strUser, strOldPassWord, strNewPassWord);
+
+              
+              
+
+            }
+
+            return (Result);
+        }
+
+
+        #endregion
+
+        #region CheckLoginPassword
+        public int Call_CheckLoginPassWord(string strLogin, string strPassWord)
+        {
+            int Result = 0;
+
+            using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
+            {
+
+                DateTime? dtRecTime = DateTime.Now;
+                strFullData = "ErrorEmail, ErrorLogin, ErrorEnable";
+
+                Result = connect.SP_CheckLoginPassWord (strLogin, strPassWord, ref strFullData, ref dtRecTime);
+
+               
+                strRegisterDateTime = dtRecTime.ToString();
+
+            }
+
+            return (Result);
+        }
+
+
+
+        #endregion
+
+
+        #region ConfirmEmail
+
+
+        public int Call_ConfirmEmailReceiveFull(int UserID, string strCode)
+        {
+            int Result = 0;
+
+            using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
+            {
+
+                DateTime? dtRecTime = DateTime.Now;
+                strFullData = "anyting";
+
+                Result = connect.SP_ConfirmEmailShowAllFields((int)UserID, strCode, ref strFullData, ref dtRecTime);
+                strRegisterDateTime = dtRecTime.ToString();
+
+            }
+
+            return (Result);
+        }
+
+
+
+        #endregion
+
+
         #region Insert
 
         public int Call_InsertClient(client clientValues)
@@ -23,15 +103,34 @@ namespace SalonComplex.SalonBusiness
 
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
-                Result = connect.SP_InsertClient (clientValues.client_username, clientValues.client_password, 
-                    clientValues.client_fname, clientValues.client_lname, clientValues.client_gender, clientValues.client_street,
-                    clientValues.client_city,clientValues.client_parish, clientValues.client_profession, clientValues.client_phone,
-                    clientValues.client_email);
+
+                Result = connect.SP_InsertClient(clientValues.client_fname, clientValues.client_lname,
+                clientValues.client_gender, clientValues.client_street,
+                clientValues.client_city, clientValues.client_parish,
+                clientValues.client_profession, clientValues.client_phone);
+
             }
 
             return (Result);
         }
 
+
+        public int Call_InsertUserLogin(UserLogin UserLoginValues, string strCode)
+        {
+            int Result = 0;
+
+            using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
+            {
+                int? intUserIdResult = 0; // OUT Var SP
+                Result = connect.SP_InsertUserLogin(UserLoginValues.LoginName, UserLoginValues.LoginPassword,
+                UserLoginValues.LoginEmail, (short) UserLoginValues.LoginEnable, 
+                (short) UserLoginValues.LoginDenied, strCode, ref intUserIdResult);
+
+                iUserLoginID = (int)intUserIdResult;
+            }
+
+            return (Result);
+        }
         
     
 
@@ -43,9 +142,10 @@ namespace SalonComplex.SalonBusiness
 
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
-                Result = connect.SP_InsertEmployee(employeeValues.employee_type, employeeValues.employee_fname,employeeValues.employee_lname,
-                                                    employeeValues.employee_gender, employeeValues.employee_street, employeeValues.employee_city, 
-                                                    employeeValues.employee_parish, employeeValues.employee_phone, employeeValues.employee_yoe, employeeValues.employee_email);
+                Result = connect.SP_InsertEmployee(employeeValues.employee_type, employeeValues.employee_fname,
+                    employeeValues.employee_gender, employeeValues.employee_street,
+                employeeValues.employee_city, employeeValues.employee_parish, employeeValues.employee_phone, 
+                employeeValues.employee_yoe, employeeValues.employee_email);
             }
 
             return (Result);
@@ -75,9 +175,9 @@ namespace SalonComplex.SalonBusiness
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
                 Result = connect.SP_UpdateEmployee(employeeNewValues.employee_id,employeeNewValues.employee_type, employeeNewValues.employee_fname,
-                                                    employeeNewValues.employee_lname, employeeNewValues.employee_gender, employeeNewValues.employee_street,
-                                                    employeeNewValues.employee_city, employeeNewValues.employee_parish, employeeNewValues.employee_phone,
-                                                    employeeNewValues.employee_yoe, employeeNewValues.employee_email);
+                    employeeNewValues.employee_gender, employeeNewValues.employee_street,
+                employeeNewValues.employee_city, employeeNewValues.employee_parish, employeeNewValues.employee_phone,
+                employeeNewValues.employee_yoe, employeeNewValues.employee_email);
             }
 
             return (Result);

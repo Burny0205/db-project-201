@@ -7,7 +7,7 @@
     <h2>
         Change Password
     </h2>
-    <p>
+    <p class="login">
         Your password has been changed successfully.
     </p>
 </asp:Content>

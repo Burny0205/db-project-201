@@ -131,13 +131,11 @@
                     align="center">
                     Children 10 &amp; Under&nbsp; Prices</td>
                 <td class="style8" style="text-transform: uppercase" align="center" 
-                    rowspan="13">
-                    
-                   <%-- <asp:Image ID="Image2"  ahref= "Default.aspx"  runat="server" Height="498px" ImageAlign="AbsMiddle" 
-                        ImageUrl="~/Images/servicelogo.png" Width="243px"  />--%>
+                    rowspan="8">
+          
                      
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx" 
-                        ImageUrl="~/Images/servicelogo.png" ImageHeight="350px" ImageWidth="200px" 
+                        ImageUrl="~/Images/servicelogo.png" ImageHeight="250px" ImageWidth="200px" 
                         ImageAlign="AbsMiddle" ToolTip="Go To Home Page" >Home</asp:HyperLink>
                           
                 </td>
@@ -208,74 +206,15 @@
             <tr>
                 <td class="style16" 
                     style="color: #000000; font-size: medium; font-family: Garamond">
-                    Mustache Trim</td>
+                    &nbsp;</td>
                 <td class="style22" align="center" 
                     style="color: #000000; font-size: medium; font-family: Garamond">
-                    $200</td>
-                <td class="style24" align="center" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    ---</td>
-            </tr>
-            <tr>
-                <td class="style16" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    Goatee</td>
-                <td class="style22" align="center" 
-                    style="font-size: medium; font-family: Garamond">
-                    $250</td>
-                <td class="style24" align="center" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    ---</td>
-            </tr>
-            <tr>
-                <td class="style16" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    Edge</td>
-                <td class="style22" align="center" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    $300</td>
-                <td class="style27" 
-                    style="color: #000000; font-size: medium; font-family: Garamond;" 
-                    align="center">
-                    $200</td>
-                <span class="bold">
-            </tr>
-            <tr>
-                <td class="style16" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    Razor Edge</td>
-                <td class="style22" align="center" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    $500</td>
-                <td class="style24" align="center" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    ----</td>
-            </tr>
-            <tr>
-                <td class="style16" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    Eyebrow Trim</td>
-                <td class="style22" align="center" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    $200</td>
+                    &nbsp;</td>
                 <td class="style25" align="center" 
                     style="color: #000000; font-size: medium; font-family: Garamond">
-                    ---</td>
-            </tr>
-            <tr>
-                <td class="style16" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    Shampoo</td>
-                <td class="style22" align="center" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    $600</td>
-                <td class="style25" align="center" 
-                    style="color: #000000; font-size: medium; font-family: Garamond">
-                    ---</td>
+                    &nbsp;</td>
             </tr>
             </table>
-        
-        </span>
         
         </fieldset>
     <br />

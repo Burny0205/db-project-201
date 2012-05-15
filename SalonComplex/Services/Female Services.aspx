@@ -221,76 +221,6 @@
                 $6000</td>
         </tr>
         <tr>
-            <td class="style6" align="left" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Trim</td>
-            <td class="style7" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $2500</td>
-            <td class="style12">
-                </td>
-            <td class="style10">
-                &nbsp;</td>
-            <td class="style8" align="center">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td align="left" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Wig/Piece Haircut/Style</td>
-            <td class="style4" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $4500</td>
-            <td class="style11">
-                &nbsp;</td>
-            <td class="style14">
-                &nbsp;</td>
-            <td class="style27" align="center">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td align="left" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Designer Haircut and Curl</td>
-            <td class="style4" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $3600</td>
-            <td class="style11">
-                &nbsp;</td>
-            <td class="style14">
-                &nbsp;</td>
-            <td class="style27" align="center">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td align="left" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Roller Set</td>
-            <td class="style4" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $2000</td>
-            <td class="style11">
-                &nbsp;</td>
-            <td class="style14">
-                &nbsp;</td>
-            <td class="style27" align="center">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td align="left" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Up-do/French Rolls/Ponytails</td>
-            <td class="style4" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $3500</td>
-            <td class="style11">
-                &nbsp;</td>
-            <td class="style14">
-                &nbsp;</td>
-            <td class="style27" align="center">
-                &nbsp;</td>
-        </tr>
-        <tr>
             <td align="left">
                 &nbsp;</td>
             <td class="style4" align="center">
@@ -358,21 +288,6 @@
                 Colour Re-touch</td>
             <td class="style27" align="center">
                 $2000</td>
-        </tr>
-        <tr>
-            <td 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Texturizer</td>
-            <td class="style4" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $3200</td>
-            <td class="style11">
-                &nbsp;</td>
-            <td class="style14" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Foil Highlights</td>
-            <td class="style27" align="center">
-                $3200</td>
         </tr>
         </table>
         <br />

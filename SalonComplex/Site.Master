@@ -27,8 +27,8 @@
             <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
-                    </AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In </a> ] 
+                        </AnonymousTemplate>
                     <LoggedInTemplate>
                         Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
                         [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
@@ -53,8 +53,8 @@
                             <asp:MenuItem Text="Hair Products" Value="Hair Products"></asp:MenuItem>
                             <asp:MenuItem Text="Salon Staff Bios" Value="Salon Staff Bios" 
                                 NavigateUrl="~/Salon/Salon Staff.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Appointments" Value="Appointments" 
-                                NavigateUrl="~/Appointment/Appointment Page.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Salon Appointment" Value="Appointments" 
+                                NavigateUrl="~/Appointment/Salon AppointMent.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Spa" Value="Employee Profile" Selectable="False">
                             <asp:MenuItem Text="Spa Service" Value="stats" Selectable="False">
@@ -64,8 +64,8 @@
                             <asp:MenuItem Text="Skin and Nail Products" Value="yu"></asp:MenuItem>
                             <asp:MenuItem Text="Spa Staff Bios" Value="Spa Staff Bios" 
                                 NavigateUrl="~/Salon/Spa Staff.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Appointments" Value="Appointments" 
-                                NavigateUrl="~/Appointment/Appointment Page.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Spa Appointment" Value="Appointments" 
+                                NavigateUrl="~/Appointment/Spa AppointMent.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Gallery" Selectable="False">
                             <asp:MenuItem Text="Photos" Value="Photos" NavigateUrl="~/Pages/Gallery.aspx"></asp:MenuItem>
@@ -79,9 +79,6 @@
                         <asp:MenuItem Text="Contact Us" Value="Contact Us" Selectable="False">
                             <asp:MenuItem Text="Location and Contact Info" 
                                 Value="Location and Contact Info" NavigateUrl="~/Contact/Contact.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Schedule an Appointment" Value="Schedule an Appointment" 
-                                NavigateUrl="~/Appointment/Appointment Page.aspx">
-                            </asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
                 </asp:Menu>
@@ -107,7 +104,7 @@
        <asp:HyperLink ID="HyperLink1" runat="server" style="text-decoration:none;" NavigateUrl="~/About.aspx">About</asp:HyperLink> | 
        <asp:HyperLink ID="HyperLink2" runat="server" style="text-decoration:none;">FAQs</asp:HyperLink> | 
        <asp:HyperLink ID="HyperLinkContactFooter" runat="server" 
-           NavigateUrl="~/Contact.aspx" style="text-decoration:none;" ToolTip="go to contact webpage information">Contact</asp:HyperLink> | 
+           NavigateUrl="~/Contact/Contact.aspx" style="text-decoration:none;" ToolTip="go to contact webpage information">Contact</asp:HyperLink> | 
        <asp:HyperLink ID="HyperLink3" style="text-decoration:none;" runat="server">Testimonials</asp:HyperLink>   </strong>
         
 

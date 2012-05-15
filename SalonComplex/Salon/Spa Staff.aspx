@@ -41,7 +41,7 @@
     </tr>
     <tr>
         <td>
-            <p> <asp:Label ID="SpaWorkerNameLabel1" runat="server" Text="Tiffany Kain"></asp:Label>
+            <p class="spaStaff2"> <asp:Label ID="SpaWorkerNameLabel1" runat="server" Text="Tiffany Kain"></asp:Label>
             </p>
         <p class = "spaStaff">
             With hobbies that include arts and crafts you can undertsand why Tiffany is 
@@ -64,7 +64,7 @@
     </tr>
     <tr>
         <td>
-            <p>
+            <p class="spaStaff2">
             <asp:Label ID="SpaWorkerNameLabel2" runat="server" Text="Abigail Lawrence"></asp:Label>
             </p>
 
@@ -88,7 +88,7 @@
     </tr>
     <tr>
         <td>
-            <p> 
+            <p class="spaStaff2" > 
             <asp:Label ID="SpaWokerNameLabel3" runat="server" Text="Clarissa Brown"></asp:Label>
             </p>
             <p class = "spaStaff"> 
@@ -113,7 +113,7 @@
         </td>
     </tr>
     <tr>
-        <td><p>
+        <td><p class="spaStaff2">
             <asp:Label ID="SpaWokerNameLabel4" runat="server" Text="Michelle Lee"></asp:Label>
              </p>
             <p class = "spaStaff"> 
@@ -140,7 +140,7 @@
     </tr>
     <tr>
         <td>
-        <p> 
+        <p class="spaStaff2"> 
             <asp:Label ID="SpaWokerNameLabel5" runat="server" Text="Paula Richards"></asp:Label>
             </p>
             <p class = "spaStaff">
@@ -162,7 +162,7 @@
     </tr>
     <tr>
         <td >
-            <p> 
+            <p class="spaStaff2"> 
             <asp:Label ID="SpaWorkerLabel6" runat="server" Text="Ileana Powell"></asp:Label>
             </p>
             <p class = "spaStaff"> 
