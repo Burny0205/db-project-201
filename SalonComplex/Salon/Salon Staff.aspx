@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Salon Staff Bio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Salon Staff.aspx.cs" Inherits="SalonComplex.Salon.Salon_Staff" %>
+﻿<%@ Page Title="Salon Staff Bio" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true" CodeBehind="Salon Staff.aspx.cs" Inherits="SalonComplex.Salon.Salon_Staff" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
     .style3
@@ -30,7 +30,7 @@
     <tr>
         <td class="style3" align="center" rowspan="2">
             <asp:Image ID="Image2" runat="server" ImageAlign="AbsMiddle" Width="250px" 
-                ImageUrl="~/Images/S1.jpg" BorderColor="Blue" BorderStyle="Groove" 
+                ImageUrl="~/Images/employees/salon/S1.jpg" BorderColor="Blue" BorderStyle="Groove" 
                 Height="300px" />
         </td>
         
@@ -63,7 +63,7 @@
     </tr>
     <tr>
         <td class="style3" align="center">
-            <asp:Image ID="Image3" runat="server" Width="250px" ImageUrl="~/Images/S2.jpg" 
+            <asp:Image ID="Image3" runat="server" Width="250px" ImageUrl="~/Images/employees/salon/S2.jpg" 
                 BorderColor="Blue" BorderStyle="Groove" Height="300px" />
         </td>
         <td >
@@ -91,7 +91,7 @@
     </tr>
     <tr>
         <td class="style3" align="center">
-            <asp:Image ID="Image4" runat="server" Width="250px" ImageUrl="~/Images/S3.jpg" 
+            <asp:Image ID="Image4" runat="server" Width="250px" ImageUrl="~/Images/employees/salon/S3.jpg" 
                 BorderColor="Blue" BorderStyle="Groove" Height="300px" />
         </td>
         <td> <p class = "salonstaff2"> 
@@ -117,7 +117,7 @@
     </tr>
     <tr>
         <td class="style3" align="center" rowspan="2">
-            <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/S4.jpg" Width="250px" 
+            <asp:Image ID="Image5" runat="server" ImageUrl="~/Images/employees/salon/S4.jpg" Width="250px" 
                 BorderColor="Blue" BorderStyle="Groove" Height="300px" />
         </td>
     </tr>
@@ -145,7 +145,7 @@
     </tr>
     <tr>
         <td class="style3" align="center" rowspan="2">
-            <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/S5.jpg" Width="250px" 
+            <asp:Image ID="Image6" runat="server" ImageUrl="~/Images/employees/salon/S5.jpg" Width="250px" 
                 BorderColor="Blue" BorderStyle="Groove" Height="300px" />
         </td>
     </tr>
@@ -173,7 +173,7 @@
     </tr>
     <tr>
         <td class="style3" align="center" rowspan="2">
-            <asp:Image ID="Image7" runat="server" ImageUrl="~/Images/S6.jpg" Width="250px" 
+            <asp:Image ID="Image7" runat="server" ImageUrl="~/Images/employees/salon/S6.jpg" Width="250px" 
                 BorderColor="Blue" BorderStyle="Groove" Height="300px" />
         </td>
     </tr>
@@ -204,7 +204,7 @@
     </tr>
     <tr>
         <td class="style3" align="center" rowspan="2">
-            <asp:Image ID="Image8" runat="server" ImageUrl="~/Images/S7.jpg" Width="250px" 
+            <asp:Image ID="Image8" runat="server" ImageUrl="~/Images/employees/salon/S7.jpg" Width="250px" 
                 BorderColor="Blue" BorderStyle="Groove" EnableViewState="False" 
                 Height="300px" />
         </td>
@@ -232,7 +232,7 @@
     </tr>
     <tr>
         <td class="style3" align="center" rowspan="2">
-            <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/S8.jpg" Width="250px" 
+            <asp:Image ID="Image9" runat="server" ImageUrl="~/Images/employees/salon/S8.jpg" Width="250px" 
                 BorderColor="Blue" BorderStyle="Groove" Height="300px" />
         </td>
     </tr>
@@ -260,7 +260,7 @@
     </tr>
     <tr>
         <td class="style3" align="center" rowspan="2">
-            <asp:Image ID="Image10" runat="server" Height="300px" ImageUrl="~/Images/S9.jpg" 
+            <asp:Image ID="Image10" runat="server" Height="300px" ImageUrl="~/Images/employees/salon/S9.jpg" 
                 Width="250px" BorderColor="Blue" BorderStyle="Groove" />
         </td>
     </tr>
@@ -290,7 +290,7 @@
     </tr>
     <tr>
         <td class="style3" align="center" rowspan="2">
-            <asp:Image ID="Image11" runat="server" Height="300px" ImageUrl="~/Images/S10.jpg" 
+            <asp:Image ID="Image11" runat="server" Height="300px" ImageUrl="~/Images/employees/salon/S10.jpg" 
                 style="margin-top: 11px" Width="250px" BorderColor="Blue" 
                 BorderStyle="Groove" />
         </td>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Spa Service" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Nail Services.aspx.cs" Inherits="SalonComplex.Services.Nail_Services" %>
+﻿<%@ Page Title="Spa Service" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true" CodeBehind="Nail Services.aspx.cs" Inherits="SalonComplex.Services.Nail_Services" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
         .style2

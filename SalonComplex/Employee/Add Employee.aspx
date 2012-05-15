@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Add Employee" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Add Employee.aspx.cs" Inherits="SalonComplex.Employee.Add_Employee" %>
+﻿<%@ Page Title="Add Employee" Language="C#" MasterPageFile="~/Master/Admin.Master" AutoEventWireup="true" CodeBehind="Add Employee.aspx.cs" Inherits="SalonComplex.Employee.Add_Employee" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">

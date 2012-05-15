@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Photo Gallery" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Photo Gallery" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true"
     CodeFile="Gallery.aspx.cs" Inherits="Gallery_Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">

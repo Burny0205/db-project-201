@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Employee Schedule" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Add Employee Schedule.aspx.cs" Inherits="SalonComplex.Employee.Add_Employee_Schedule" %>
+﻿<%@ Page Title="Employee Schedule" Language="C#" MasterPageFile="~/Master/Admin.Master" AutoEventWireup="true" CodeBehind="Add Employee Schedule.aspx.cs" Inherits="SalonComplex.Employee.Add_Employee_Schedule" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .styleScheduleTable
