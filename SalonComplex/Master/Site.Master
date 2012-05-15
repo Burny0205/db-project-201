@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SalonComplex.SiteMaster" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SalonComplex.Master.SiteMaster" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -42,7 +42,7 @@
                     BackColor="#3333FF">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem Text="About Us" Value="About Us" NavigateUrl="~/About.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="About Us" Value="About Us" NavigateUrl="../Contact/About.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Salon" Value="Scheduler" Selectable="False">
                             <asp:MenuItem Text="Salon Services" Value="Salon Services" Selectable="False">
                                 <asp:MenuItem NavigateUrl="~/Services/Female Services.aspx" 
@@ -101,7 +101,7 @@
 &nbsp;
             <asp:HyperLink ID="HyperLinkhomepage" runat="server" style="text-decoration:none;" ToolTip="Go to homepage" 
             NavigateUrl="~/Default.aspx"> Edge Beauty Salon </asp:HyperLink>  | 
-       <asp:HyperLink ID="HyperLink1" runat="server" style="text-decoration:none;" NavigateUrl="~/About.aspx">About</asp:HyperLink> | 
+       <asp:HyperLink ID="HyperLink1" runat="server" style="text-decoration:none;" NavigateUrl="~/Contact/About.aspx">About</asp:HyperLink> | 
        <asp:HyperLink ID="HyperLink2" runat="server" style="text-decoration:none;">FAQs</asp:HyperLink> | 
        <asp:HyperLink ID="HyperLinkContactFooter" runat="server" 
            NavigateUrl="~/Contact/Contact.aspx" style="text-decoration:none;" ToolTip="go to contact webpage information">Contact</asp:HyperLink> | 

@@ -1,5 +1,5 @@
-Ôªø<%@ Page Title="About Us" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="About.aspx.cs" Inherits="SalonComplex.About" %>
+<%@ Page Title="About Us" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true"
+    CodeBehind="About.aspx.cs" Inherits="SalonComplex.Contact.About" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style type="text/css">
@@ -68,17 +68,17 @@
         <tr>
             <td rowspan="4">
             <p class = "about_us" > 
-                The Edge‚Äôs professional teams of stylists are educated, expertly trained hair and nail care specialists who are always ready and willing to share up to the minute intel on the most recent nail care techniques and designs, the most cutting edge techniques in cuts, coloring and weaving as well as the latest insights in natural hair care and chemically treated hair technology.
+                The Edgeís professional teams of stylists are educated, expertly trained hair and nail care specialists who are always ready and willing to share up to the minute intel on the most recent nail care techniques and designs, the most cutting edge techniques in cuts, coloring and weaving as well as the latest insights in natural hair care and chemically treated hair technology.
                 
                 <br />
                 <br />
-                The Edge Salon holds the distinction of a first class Jamaican hair and nail salon. We are The Edge hair and nail salon and we welcome you to experience the difference we make. ‚ÄúCome with the hair and nails you have, leave with the hair and nails you want.‚Äù
+                The Edge Salon holds the distinction of a first class Jamaican hair and nail salon. We are The Edge hair and nail salon and we welcome you to experience the difference we make. ìCome with the hair and nails you have, leave with the hair and nails you want.î
                 <br />
                 <br />
-        As reflected in him and her more than 10 years of experience in the beauty industry, Justin and Joan embody the entrepreneurial spirit. For most of their lives it seems they have been designing. Justin got his start as a barber and hair stylist working for one of Jamaica‚Äôs well know barber shop, ‚ÄúKris Kut‚Äù, while Joan got her start at Maureen‚Äôs hair salon in Princeville Plaza. As a couple they decided to merge their skill to form The Edge hair and salon offering a variety of services to the Jamaican public.
+        As reflected in him and her more than 10 years of experience in the beauty industry, Justin and Joan embody the entrepreneurial spirit. For most of their lives it seems they have been designing. Justin got his start as a barber and hair stylist working for one of Jamaicaís well know barber shop, ìKris Kutî, while Joan got her start at Maureenís hair salon in Princeville Plaza. As a couple they decided to merge their skill to form The Edge hair and salon offering a variety of services to the Jamaican public.
                 <br />
                 <br />
-        Justin and Joan opened their first salon in 2000 and a few years later launched The Edge in the spring of 2001. Their vision for this new salon was to create a welcoming and intimate space where they would make their client‚Äôs look and feel beautiful. Since that time, Justin and Joan has built The Edge into one of the most prestigious and highly respected salons in Jamaica, catering to their list of clients in entertainment, fashion and design, as well as from the news rooms and the wider society.
+        Justin and Joan opened their first salon in 2000 and a few years later launched The Edge in the spring of 2001. Their vision for this new salon was to create a welcoming and intimate space where they would make their clientís look and feel beautiful. Since that time, Justin and Joan has built The Edge into one of the most prestigious and highly respected salons in Jamaica, catering to their list of clients in entertainment, fashion and design, as well as from the news rooms and the wider society.
                 <br />
                 <br />
         With their trademark cutting, styling and nail techniques they will make you look fabulous. They developed a proprietary hair coloring process that prevents hair damage and dryness and created colors that look vibrant and natural. They are individual authorities in the hair industry, leading trends in haircuts for men and women, along with new extension techniques for women. Today clients come from all over the island for a chance to sit in their chair.

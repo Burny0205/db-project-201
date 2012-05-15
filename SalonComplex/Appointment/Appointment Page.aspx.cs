@@ -119,7 +119,7 @@ namespace SalonComplex.Appointment
             //appointment record into the database
             context.appointments.InsertOnSubmit(newApp);
             context.SubmitChanges();
-
+            /*
             List<appointment_service> appointmentServices = new List<appointment_service>();
 
             foreach (RepeaterItem dataItem in rptServices.Items)
@@ -147,7 +147,7 @@ namespace SalonComplex.Appointment
 
             LabelSpaAppDate.Text = "A confirmation email will be sent to you as soon as your appointment is finalized. Thank You " +
             SpaDateCalendar.SelectedDate.ToString();
-
+            */
         }
 
 
@@ -173,7 +173,7 @@ namespace SalonComplex.Appointment
         /// </summary>
         protected void GetServicesFromDb()
         {
-
+            /*
             int qParam = 0;
             qParam = DropDownListServices.SelectedValue == "Spa Services" ? 2 : 1; //retrieve service type from the services drop down
             string empName = DropDownListEmp.SelectedValue;
@@ -193,6 +193,7 @@ namespace SalonComplex.Appointment
 
             rptServices.DataSource = services;
             rptServices.DataBind();
+             */
         }
 
         /// <summary>

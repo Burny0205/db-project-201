@@ -68,12 +68,15 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
+    <Content Include="Account\ChangeNewPasswordFail.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Appointment\Appointment Page.aspx" />
+    <Content Include="Appointment\Salon AppointMent.aspx" />
+    <Content Include="Appointment\Spa AppointMent.aspx" />
+    <Content Include="Contact\About.aspx" />
     <Content Include="Contact\Contact.aspx" />
     <Content Include="Controls\ServicesControl.ascx" />
     <Content Include="Employee\Add Employee Schedule.aspx" />
@@ -88,31 +91,31 @@
     <Content Include="Images\calicon_abs.gif" />
     <Content Include="Images\calnext.gif" />
     <Content Include="Images\calprev.gif" />
+    <Content Include="Images\employees\salon\S1.jpg" />
+    <Content Include="Images\employees\salon\S10.jpg" />
+    <Content Include="Images\employees\salon\S2.jpg" />
+    <Content Include="Images\employees\salon\S3.jpg" />
+    <Content Include="Images\employees\salon\S4.jpg" />
+    <Content Include="Images\employees\salon\S5.jpg" />
+    <Content Include="Images\employees\salon\S6.jpg" />
+    <Content Include="Images\employees\salon\S7.jpg" />
+    <Content Include="Images\employees\salon\S8.jpg" />
+    <Content Include="Images\employees\salon\S9.jpg" />
+    <Content Include="Images\employees\spa\N1.jpg" />
+    <Content Include="Images\employees\spa\N2.jpg" />
+    <Content Include="Images\employees\spa\N3.jpg" />
+    <Content Include="Images\employees\spa\N4.jpg" />
+    <Content Include="Images\employees\spa\N5.jpg" />
+    <Content Include="Images\employees\spa\N6.jpg" />
     <Content Include="Images\SalonCalendar_scheduleHS.png" />
     <Content Include="Images\Femservicelogo.png" />
     <Content Include="Images\img.gif" />
     <Content Include="Images\location_org.jpg" />
     <Content Include="Images\logo-8.png" />
     <Content Include="Images\Logo1.jpg" />
-    <Content Include="Images\N1.jpg" />
-    <Content Include="Images\N2.jpg" />
-    <Content Include="Images\N3.jpg" />
-    <Content Include="Images\N4.jpg" />
-    <Content Include="Images\N5.jpg" />
-    <Content Include="Images\N6.jpg" />
     <Content Include="Images\Nail.jpg" />
     <Content Include="Images\polish.jpg" />
     <Content Include="Images\polish1.jpg" />
-    <Content Include="Images\S1.jpg" />
-    <Content Include="Images\S10.jpg" />
-    <Content Include="Images\S2.jpg" />
-    <Content Include="Images\S3.jpg" />
-    <Content Include="Images\S4.jpg" />
-    <Content Include="Images\S5.jpg" />
-    <Content Include="Images\S6.jpg" />
-    <Content Include="Images\S7.jpg" />
-    <Content Include="Images\S8.jpg" />
-    <Content Include="Images\S9.jpg" />
     <Content Include="Images\servicelogo.png" />
     <Content Include="Images\slideshow\pic1.jpg" />
     <Content Include="Images\slideshow\pic10.jpg" />
@@ -120,11 +123,62 @@
     <Content Include="Images\slideshow\pic12.jpg" />
     <Content Include="Images\slideshow\pic13.jpg" />
     <Content Include="Images\slideshow\pic14.jpg" />
+    <Content Include="Images\slideshow\pic15.jpg" />
+    <Content Include="Images\slideshow\pic16.jpg" />
+    <Content Include="Images\slideshow\pic17.jpg" />
+    <Content Include="Images\slideshow\pic18.jpg" />
+    <Content Include="Images\slideshow\pic19.jpg" />
     <Content Include="Images\slideshow\pic2.jpg" />
+    <Content Include="Images\slideshow\pic20.jpg" />
+    <Content Include="Images\slideshow\pic21.jpg" />
+    <Content Include="Images\slideshow\pic22.jpg" />
+    <Content Include="Images\slideshow\pic23.jpg" />
+    <Content Include="Images\slideshow\pic24.jpg" />
+    <Content Include="Images\slideshow\pic26.jpg" />
+    <Content Include="Images\slideshow\pic27.jpg" />
+    <Content Include="Images\slideshow\pic28.jpg" />
+    <Content Include="Images\slideshow\pic29.jpg" />
     <Content Include="Images\slideshow\pic3.jpg" />
+    <Content Include="Images\slideshow\pic30.jpg" />
+    <Content Include="Images\slideshow\pic31.jpg" />
+    <Content Include="Images\slideshow\pic32.jpg" />
+    <Content Include="Images\slideshow\pic33.jpg" />
+    <Content Include="Images\slideshow\pic34.jpg" />
+    <Content Include="Images\slideshow\pic35.jpg" />
+    <Content Include="Images\slideshow\pic36.jpg" />
+    <Content Include="Images\slideshow\pic37.jpg" />
+    <Content Include="Images\slideshow\pic38.jpg" />
+    <Content Include="Images\slideshow\pic39.jpg" />
     <Content Include="Images\slideshow\pic4.jpg" />
+    <Content Include="Images\slideshow\pic40.jpg" />
+    <Content Include="Images\slideshow\pic41.jpg" />
+    <Content Include="Images\slideshow\pic42.jpg" />
+    <Content Include="Images\slideshow\pic43.jpg" />
+    <Content Include="Images\slideshow\pic44.jpg" />
+    <Content Include="Images\slideshow\pic45.jpg" />
+    <Content Include="Images\slideshow\pic46.jpg" />
+    <Content Include="Images\slideshow\pic48.jpg" />
+    <Content Include="Images\slideshow\pic49.jpg" />
     <Content Include="Images\slideshow\pic5.jpg" />
+    <Content Include="Images\slideshow\pic50.jpg" />
+    <Content Include="Images\slideshow\pic51.jpg" />
+    <Content Include="Images\slideshow\pic52.jpg" />
+    <Content Include="Images\slideshow\pic53.jpg" />
+    <Content Include="Images\slideshow\pic54.jpg" />
+    <Content Include="Images\slideshow\pic55.jpg" />
+    <Content Include="Images\slideshow\pic56.jpg" />
+    <Content Include="Images\slideshow\pic57.jpg" />
+    <Content Include="Images\slideshow\pic58.jpg" />
+    <Content Include="Images\slideshow\pic59.jpg" />
     <Content Include="Images\slideshow\pic6.jpg" />
+    <Content Include="Images\slideshow\pic60.jpg" />
+    <Content Include="Images\slideshow\pic61.jpg" />
+    <Content Include="Images\slideshow\pic62.jpg" />
+    <Content Include="Images\slideshow\pic63.jpg" />
+    <Content Include="Images\slideshow\pic64.jpg" />
+    <Content Include="Images\slideshow\pic65.jpg" />
+    <Content Include="Images\slideshow\pic66.jpg" />
+    <Content Include="Images\slideshow\pic67.jpg" />
     <Content Include="Images\slideshow\pic7.jpg" />
     <Content Include="Images\slideshow\pic8.jpg" />
     <Content Include="Images\slideshow\pic9.jpg" />
@@ -204,6 +258,7 @@
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="VerifyNewUser\VerifyNewUser.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -215,12 +270,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Account\ChangeNewPasswordFail.aspx.cs">
+      <DependentUpon>ChangeNewPasswordFail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Account\ChangeNewPasswordFail.aspx.designer.cs">
+      <DependentUpon>ChangeNewPasswordFail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
@@ -250,19 +305,33 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin.Master.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin.Master.designer.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
-    </Compile>
     <Compile Include="Appointment\Appointment Page.aspx.cs">
       <DependentUpon>Appointment Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Appointment\Appointment Page.aspx.designer.cs">
       <DependentUpon>Appointment Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\Salon AppointMent.aspx.cs">
+      <DependentUpon>Salon AppointMent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appointment\Salon AppointMent.aspx.designer.cs">
+      <DependentUpon>Salon AppointMent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\Spa AppointMent.aspx.cs">
+      <DependentUpon>Spa AppointMent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appointment\Spa AppointMent.aspx.designer.cs">
+      <DependentUpon>Spa AppointMent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -314,6 +383,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClassesLinqSQL.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Master\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Pages\Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
@@ -361,12 +444,12 @@
     <Compile Include="Services\Nail Services.aspx.designer.cs">
       <DependentUpon>Nail Services.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="VerifyNewUser\VerifyNewUser.aspx.cs">
+      <DependentUpon>VerifyNewUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="VerifyNewUser\VerifyNewUser.aspx.designer.cs">
+      <DependentUpon>VerifyNewUser.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -380,14 +463,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin.Master" />
     <None Include="LinqSQL\DataClassesLinqSQL.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClassesLinqSQL.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Master\Site.Master" />
+    <Content Include="Master\Admin.Master" />
     <None Include="Plugins\galleria\LICENSE" />
-    <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

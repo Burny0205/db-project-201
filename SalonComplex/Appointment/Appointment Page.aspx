@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Appointment Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Appointment Page" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true"
     CodeBehind="Appointment Page.aspx.cs" Inherits="SalonComplex.Appointment.Appointment_Page" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>

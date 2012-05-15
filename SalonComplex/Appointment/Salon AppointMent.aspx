@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Salon Appointment" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Salon AppointMent.aspx.cs" Inherits="SalonComplex.Appointment.Salon_AppointMent" %>
+﻿<%@ Page Title="Salon Appointment" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true" CodeBehind="Salon AppointMent.aspx.cs" Inherits="SalonComplex.Appointment.Salon_AppointMent" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../Styles/hotspot.css" rel="stylesheet" type="text/css" />
