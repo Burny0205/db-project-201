@@ -94,14 +94,14 @@
                 
             <td align="center" bgcolor="Black" valign="middle" class="style12">
                 <asp:Image ID="Image2" runat="server" BorderColor="White" BorderStyle="Groove" 
-                    ImageUrl="~/Images/A1.jpg" Width="390px" Height="420px" 
+                    ImageUrl="~/Images/A1.jpg" Width="400px" Height="350px" 
                     ImageAlign="Middle" />
             </td>
         </tr>
         <tr>
             <td align="center" bgcolor="Black" valign="middle" class="style10">
                 <asp:Image ID="Image3" runat="server" BorderStyle="Groove" ImageUrl="~/Images/A2.jpg" 
-                    Width="400px" Height="420px" BorderColor="White" ImageAlign="Middle" />
+                    Width="400px" Height="350px" BorderColor="White" ImageAlign="Middle" />
             </td>
         </tr>
         
@@ -109,7 +109,7 @@
             <td align="center" valign="middle" class="style10" bgcolor="Black">
                 <asp:Image ID="Image4" runat="server" BackColor="Black" BorderColor="White" 
                     BorderStyle="Groove" ImageUrl="~/Images/A3.jpg" 
-                    Width="400px" Height="420px" ImageAlign="Middle" />
+                    Width="400px" Height="350px" ImageAlign="Middle" />
             </td>
         </tr>
         

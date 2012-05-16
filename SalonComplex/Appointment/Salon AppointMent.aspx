@@ -11,23 +11,7 @@
 			<div id="content">
 				<div boomtime="left" id="content_in">
     --%>
-   
-
-   
-    <style type="text/css">
-        .style35
-        {
-            width: 326px;
-            text-align: justify;
-        }
-        .style36
-        {
-            width: 275px;
-            text-align: left;
-        }
-    </style>
-   
-    
+  
     <script type="text/javascript">
         
         $(function () {
@@ -45,20 +29,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div boomtime='left' id='part_ar_headline'>
-        <h1>
-            Book Online</h1>
     </div>
     <div boomtime='left' id='part_ar_intro'>
         <p class="appointText">
-            Select your desired services, date and time.
+          <!-- We will contact you to confirm your reservation via email and phone call in the
+           next 12 hours. -->
         </p>
-        <p class="appointText">
-            We will contact you to confirm your reservation via email and a phone call in the
-            next 12 hours.</p>
-             <p class="appointText" >
-                    <asp:Label ID="LabelSpaAppDate" runat="server" ForeColor="Red" Height="21px" 
-                        style="font-size: small" Width="174px"></asp:Label>
-                </p> 
+        <p class="appointText" >
+           <asp:Label ID="LabelSpaAppDate" runat="server" ForeColor="Red" Height="21px" 
+           style="font-size: small" Width="174px"></asp:Label>
+        </p>
     </div>
     <form id="appt_request_form" action="/lschedule" method="post" name="form">
     <fieldset class="appointment" style="width: 750px;" id="appointment_info">
@@ -66,7 +46,6 @@
         <div id="appt_services">
             <h2 id="value_service">
                 Choose Services</h2>
-            
             <dl>
                 <div class="spacer">
                 </div>
@@ -74,14 +53,15 @@
                     <div class="style14">
                         <dt style="width: 255px" class="style14">
                             <select id="service_cat" name="service_cat" runat="server"  size="1" onchange="show_service_cat(this.value);">
-                                <option value="17157">Woman Hair Services</option>
+                                <option value="17157">Women Hair Services</option>
                                 <option value="17158">Men Hair Services</option>
-                            </select>
+                                <option value="17159">Boys Hair Services</option>
+                            </select> <br /> <br />
                     </div>
                     <div class="spacer">
                     </div>
                     <div class="style16">
-                        Total $ <span id="service_value">0.00</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total $ <span id="service_value">0.00 </span>
                         </dt>
                     </div>
                     <dd id="service">
@@ -354,10 +334,11 @@
         </div>
         <div id="appt_time">
             <h2>
-                Select Appointment</h2>
+                Select Appointment
+            </h2>
             <div boomtime="right" id="hour_edit">
                 <p class="appointText">
-                    Please select an employee then enter the desire date and&nbsp; three available times
+                 Please select a date and enter any three (3) times (in order of preference) from employee schedule below.
                 </p>
               
                 <table class="appoint_td">
@@ -371,8 +352,9 @@
                          </td>
                         <td class="style28">
                             <p class="appoint_p">
-                                <asp:Label ID="SalonDateLabel" Text="Enter Appointment Date:" runat="server" 
-                                    Style="font-size: medium; font-family: 'Segoe UI'"></asp:Label>
+                                <asp:Label ID="SalonDateLabel" runat="server" 
+                                    Style="font-size: medium; font-family: 'Segoe UI'" Text="Enter Appointment Date:"
+                                    Width="242px" Height="21px"></asp:Label>
                             </p>
                         </td>
                     </tr>
@@ -380,14 +362,11 @@
                         <td class="style27">
                             <p class="appoint_p">
                                 <asp:DropDownList ID="DropDownListSalonServices" runat="server" 
-                                    AutoPostBack="true" DataSourceID="SqlDataSourceDropListServices"
+                                    DataSourceID="SqlDataSourceDropListServices"
                                     DataTextField="employee_type" DataValueField="employee_type" Height="25px" 
                                     Width="200px" Enabled="False">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSourceDropListServices" runat="server" ConnectionString="<%$ ConnectionStrings:SalonConnectionString %>"
-                                    
-                                    
-                                    
                                     SelectCommand="SELECT employee_type FROM employee WHERE (employee_type = 'Salon Services')  GROUP BY employee_type">
                                 </asp:SqlDataSource>
                             </p>
@@ -395,7 +374,7 @@
                         <td class="style28">
                             <p class="appoint_p" align="center">
                                 <asp:TextBox ID="TextBoxSpaDate" runat="server" Height="22px" Width="200px" 
-                                    ClientIDMode="Static" AutoPostBack="True"></asp:TextBox>
+                                     ClientIDMode="Static" AutoPostBack="True" placeholder="select a date"></asp:TextBox>
                             </p>
                         </td>
                     </tr>
@@ -416,7 +395,7 @@
                                         ShowSelectButton="True" />
                                     <asp:BoundField DataField="sch_date" HeaderText="Schedule Date" 
                                         SortExpression="sch_date" DataFormatString="{0:d}" />
-                                    <asp:BoundField DataField="employee_fname" HeaderText="First Name" SortExpression="employee_fname" />
+                                    <asp:BoundField DataField="employee_fname" HeaderText="Employee Name" SortExpression="employee_fname" />
                                     <asp:TemplateField HeaderText="8:00 am" SortExpression="8:00 am">
                                         <EditItemTemplate>
                                             <asp:CheckBox ID="CheckBox10" runat="server" 
@@ -587,19 +566,18 @@
             Anything else we should know about your desired services or appointment?
             <dl>
                 <p class="appointText">
-                    <asp:Label ID="AppCommentLabel" runat="server" Text="Comments:" Style="font-weight: 700"></asp:Label>
+                <asp:Label ID="AppCommentLabel" runat="server" Text="Comments:" Style="font-weight: 700"></asp:Label>
                 </p>
                 <dd style="width: 315px">
-                    <textarea id="comment" name="comment" cols="35" wrap="virtual" rows="8"></textarea></dd>
+                <textarea id="comment" name="comment" cols="35" wrap="virtual" rows="8"></textarea></dd>
                 <br />
             </dl>
             <dl>
-                <dd style="width: 380px; margin-left: 40px;">
+                <dd style="width: 380px; margin-left: 10px;">
                     <div id="SelectEmployee">
-                        <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submitt Appointment"
-                            Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButton_Click" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input id="Reset1" type="reset" value="Reset Button" />
+                        <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submit Appointment"
+                            Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButton_Click" CssClass="btn btn-primary" />
+                        <input id="Reset1" type="reset" value="Reset Button" class="btn" />
                         <br />
                     </div>
             </dl>

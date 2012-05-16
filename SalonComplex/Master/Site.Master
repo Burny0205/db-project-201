@@ -22,7 +22,7 @@
             <!-- Branding Section -->
             <div class="title">
                 <asp:Image ID="Image1" runat="server" BackColor="White" BorderColor="#99CCFF" 
-                    ImageAlign="Middle" ImageUrl="~/Images/Femservicelogo.png" 
+                    ImageAlign="Middle" ImageUrl="~/Images/tester.png" 
                     class="logo" />
                 <!--<h1 class="logoTitle">The Edge Beauty Salon</h1>-->
             </div>
@@ -76,13 +76,8 @@
                         </asp:MenuItem>
                         <asp:MenuItem Text="News Letter" Value="News Letter"></asp:MenuItem>
                         <asp:MenuItem Text="Links" Value="Links"></asp:MenuItem>
-                        <asp:MenuItem Text="Instant Gift Certificates" 
-                            Value="Instant Gift Certificates">
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Contact Us" Value="Contact Us" Selectable="False">
-                            <asp:MenuItem Text="Location and Contact Info" 
-                                Value="Location and Contact Info" NavigateUrl="~/Contact/Contact.aspx"></asp:MenuItem>
-                        </asp:MenuItem>
+                        <asp:MenuItem Text="Instant Gift Certificates" Value="Instant Gift Certificates"></asp:MenuItem>
+                        <asp:MenuItem Text="Contact Us" Value="Contact Us" NavigateUrl="~/Contact/Contact.aspx"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </div>

@@ -22,18 +22,15 @@
     </p>
     <br />
         <h2>
-            Welcome to The Edge Beauty Salon and Spa
+            Welcome to The Edge Beauty Salon and Spa - our goal is to find the perfect look for you.
         </h2>
         <p class="p_content">
-            Lorem ipsum dolor sit amet, iuravi potest meum filiam. Mariae Bone de ascendit rationis ad quia ad te in. 
-            Puellae in lucem exempli paupers coniunx minus signo currit itaque completum aliquod vestrum ad te finis puellam. 
-            Rei completo litus sua etiam quantitas non ait est se vero cum suam in deinde vero non ait. Vigilans insaniae gaudens ergo est se vero rex Stranguillio eam 
-            sed haec vidit pater vero diam dominum oculos rex. Quicquid eam eos Communicatio mihi quidditas mihi cum suam in. 
-            Priapum avarus ait Cumque hoc ait est se vero diam nostra praedicabilium subsannio oculos capillos apto. Tua in fuerat est cum unde ascendit neque revertisset meam
-             celaveritis ac noctes C in. Lavabat carissime haec vidit Dionysiadi rex Dionysiadi suo celaturos Tantus nata suum Perquiramus atque bona pater beneficiorum pedes. 
-            Christus eum filiam vel dolens eos, laudes honore audi meae in lucem. Disce Apollonius ut a a civitas Conservus mihi. 
-            Coniugem flebant Tharsiam in deinde cepit roseo ruens sed quod una civitatis intelligitur sicut in. Tharsis ratio agens his carpens introivit suam vidit tam! 
-            Male habitu rubor virginitatem sunt forma non coepit contingere vasculo usque dicens filiae gloriam virginis in deinde vero cum.  
+            We are an ultra modern, upscale salon and
+            spa with a complete menu of products and services to offer its clientele.
+
+            Our motto is "perfection at its finest" as our focus and commitment is entirely to our guests.
+            With a range of certified and well trained employees, a relaxing atmosphere and flexible prices
+            Edge Beauty Salon and Spa is the perfect choice for you!
         </p>
 
         <div id="container">

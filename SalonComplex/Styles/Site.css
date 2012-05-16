@@ -21,9 +21,9 @@ body
     margin: 5px;
     padding: 0px;
     color: #000000;
-    background-image: url('../Images/bk2.jpg');
-    background-repeat: repeat-y;
-    background-attachment: fixed;
+    background-image: url('../Images/sprites/background.png');
+    background-repeat: repeat;
+    /*background-attachment: fixed;*/
 }
 
 a:link, a:visited
@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6
     text-transform: none;
     font-weight: 200;
     margin-bottom: 0px;
-     margin-left: 20px;
+    margin-left: 20px;
 }
 
 h1
@@ -514,13 +514,10 @@ div.accountInfo
 
 .logo 
 {
-    margin-left: 0px; 
+    margin-left: 90px; 
     margin-right: 0px; 
     margin-top: 0px;
     margin-bottom:10px;
-    height: 100px;
-    width: 250px;
-    float: left;
 }
 
 h1.logoTitle 
