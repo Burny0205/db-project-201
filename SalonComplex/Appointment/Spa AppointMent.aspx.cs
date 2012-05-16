@@ -13,14 +13,7 @@ namespace SalonComplex.Appointment
         {
             if (!this.IsPostBack)
             {
-               
-                LabelSpaAppDate.Font.Italic = true;
-                LabelSpaAppDate.Font.Bold = true;
-                LabelSpaAppDate.ForeColor = System.Drawing.Color.Crimson;
-                LabelSpaAppDate.Font.Size = FontUnit.Large;
-                SubmitAppButton.Font.Bold = true;
-                SubmitAppButton.ForeColor = System.Drawing.Color.DarkGreen;
-
+              
             }
         }
 

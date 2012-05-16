@@ -257,18 +257,18 @@ namespace SalonComplex.LinqSQL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_InsertClient")]
-		public int SP_InsertClient([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientFname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientLname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string clientGender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientAddr1, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientAddr2, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientAddr3, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientPro, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(13)")] string clientPhone_Num)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), clientFname, clientLname, clientGender, clientAddr1, clientAddr2, clientAddr3, clientPro, clientPhone_Num);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_InsertUserLogin")]
 		public int SP_InsertUserLogin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginUname", DbType="VarChar(50)")] string loginUname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginPwd", DbType="VarChar(30)")] string loginPwd, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginEmail", DbType="VarChar(200)")] string loginEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginEnable", DbType="SmallInt")] System.Nullable<short> loginEnable, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginDenied", DbType="SmallInt")] System.Nullable<short> loginDenied, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string strCodeValidateUser, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> iIdUser)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), loginUname, loginPwd, loginEmail, loginEnable, loginDenied, strCodeValidateUser, iIdUser);
 			iIdUser = ((System.Nullable<int>)(result.GetParameterValue(6)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_InsertClient")]
+		public int SP_InsertClient([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> clientLoginId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientFname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientLname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string clientGender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientAddr1, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientAddr2, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientAddr3, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string clientPro, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(13)")] string clientPhone_Num)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), clientLoginId, clientFname, clientLname, clientGender, clientAddr1, clientAddr2, clientAddr3, clientPro, clientPhone_Num);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -473,7 +473,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="client_appointment", Storage="_client", ThisKey="client_id", OtherKey="client_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="client_appointment", Storage="_client", ThisKey="client_id", OtherKey="client_id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public client client
 		{
 			get
@@ -648,7 +648,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserLogin_UserValidate", Storage="_UserLogin", ThisKey="LoginID", OtherKey="LoginID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserLogin_UserValidate", Storage="_UserLogin", ThisKey="LoginID", OtherKey="LoginID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public UserLogin UserLogin
 		{
 			get
@@ -858,7 +858,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="appointment_appointment_emp", Storage="_appointment", ThisKey="app_id", OtherKey="app_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="appointment_appointment_emp", Storage="_appointment", ThisKey="app_id", OtherKey="app_id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public appointment appointment
 		{
 			get
@@ -892,7 +892,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="schedule_appointment_emp", Storage="_schedule", ThisKey="schedule_id,emp_id", OtherKey="schedule_id,employee_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="schedule_appointment_emp", Storage="_schedule", ThisKey="schedule_id,emp_id", OtherKey="schedule_id,employee_id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public schedule schedule
 		{
 			get
@@ -1052,7 +1052,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="appointment_appointment_service", Storage="_appointment", ThisKey="app_id", OtherKey="app_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="appointment_appointment_service", Storage="_appointment", ThisKey="app_id", OtherKey="app_id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public appointment appointment
 		{
 			get
@@ -1086,7 +1086,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_appointment_service", Storage="_service", ThisKey="service_id", OtherKey="service_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_appointment_service", Storage="_service", ThisKey="service_id", OtherKey="service_id", IsForeignKey=true, DeleteRule="CASCADE")]
 		public service service
 		{
 			get
@@ -1388,7 +1388,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_client_phone", DbType="VarChar(13) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_client_phone", DbType="VarChar(13)")]
 		public string client_phone
 		{
 			get
@@ -1421,7 +1421,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserLogin_client", Storage="_UserLogin", ThisKey="client_LoginID", OtherKey="LoginID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserLogin_client", Storage="_UserLogin", ThisKey="client_LoginID", OtherKey="LoginID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public UserLogin UserLogin
 		{
 			get
@@ -2692,7 +2692,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_skill", Storage="_employee", ThisKey="employee_id", OtherKey="employee_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_skill", Storage="_employee", ThisKey="employee_id", OtherKey="employee_id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public employee employee
 		{
 			get
@@ -2726,7 +2726,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_skill", Storage="_service", ThisKey="service_id", OtherKey="service_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_skill", Storage="_service", ThisKey="service_id", OtherKey="service_id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public service service
 		{
 			get

@@ -394,7 +394,7 @@
                         <td class="style28">
                             <p class="appoint_p" align="center">
                                 <asp:TextBox ID="TextBoxSpaDate" runat="server" Height="22px" Width="200px" 
-                                    ontextchanged="Page_Load" ClientIDMode="Static" AutoPostBack="True"></asp:TextBox>
+                                    ontextchanged="Page_Load" ClientIDMode="Static" AutoPostBack="True" placeholder="select a date"></asp:TextBox>
                             </p>
                         </td>
                     </tr>
@@ -604,9 +604,9 @@
                 <dd style="width: 380px; margin-left: 40px;">
                     <div id="SelectEmployee">
                         <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submitt Appointment"
-                            Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButton_Click" />
+                            Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButton_Click" CssClass="btn btn-primary" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input id="Reset1" type="reset" value="Reset Button" />
+                        <input id="Reset1" type="reset" value="Reset Button" class="btn"/>
                         <br />
                     </div>
             </dl>

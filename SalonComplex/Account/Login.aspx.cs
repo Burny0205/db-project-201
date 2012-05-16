@@ -20,7 +20,7 @@ namespace SalonComplex.Account
            RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
         }
 
-        protected void LoginUser_Authenticate(object sender, AuthenticateEventArgs e)
+        protected void LoginUserAuthenticate(object sender, AuthenticateEventArgs e)
         {
             //call SP_CheckLoginPassword
 
@@ -33,15 +33,33 @@ namespace SalonComplex.Account
             if (result == 1)
             {
                 string[] strFieldsUserLogin = connect.strFullData.Split(',');
-                string strEnable = strFieldsUserLogin[1];string strDenied = strFieldsUserLogin[2];
-             
-            if (strDenied == "1") {LabelStatus.Text = " Sorry User Denied ";e.Authenticated = false;}
-           
-            
-            else
+                string strEnable = strFieldsUserLogin[1];
+                string strDenied = strFieldsUserLogin[2];
+                string loginId = strFieldsUserLogin[3]; 
+                string clientId = strFieldsUserLogin[4];
+
+                if (strDenied == "1")
                 {
-                    if (strEnable == "1") {LabelStatus.Text = " Success ";e.Authenticated = true;}
-                    else {LabelStatus.Text = " This account is not yet enabled";e.Authenticated = false;}
+                    LabelStatus.Text = " Sorry User Denied ";
+                    e.Authenticated = false;
+                }
+                else
+                {
+                    if (strEnable == "1")
+                    {
+                        LabelStatus.Text = " Success ";
+
+                        HttpCookie httpCookie = new HttpCookie("clientCookie")
+                                                    {
+                                                        Value = loginId + "|" + clientId, 
+                                                        Expires = DateTime.Now.AddMonths(3)
+                                                    };
+                        Response.Cookies.Add(httpCookie);
+
+                        e.Authenticated = true;
+                        
+                    }
+                    else { LabelStatus.Text = " This account is not yet enabled"; e.Authenticated = false; }
                 }
 
              }
@@ -55,14 +73,14 @@ namespace SalonComplex.Account
 
 
         }
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void CustomValidator1ServerValidate(object source, ServerValidateEventArgs args)
         {
             // debug
             string strName = args.Value;
             args.IsValid = (!Util.CheckInput(strName));
         }
 
-        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void CustomValidator2ServerValidate(object source, ServerValidateEventArgs args)
         {
             string strPassWord = args.Value;
             args.IsValid = (!Util.CheckInput(strPassWord));

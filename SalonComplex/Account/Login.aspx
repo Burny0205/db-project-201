@@ -16,7 +16,7 @@
     </p>
 
     <asp:Login ID="LoginUser" runat="server" EnableViewState="false" 
-        RenderOuterTable="false" onauthenticate="LoginUser_Authenticate">
+        RenderOuterTable="false" onauthenticate="LoginUserAuthenticate">
         <LayoutTemplate>
             <asp:ValidationSummary ID="AddValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="LoginUserValidationGroup"/>
@@ -31,7 +31,7 @@
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                         <asp:CustomValidator ID="CustomValidator1" runat="server" 
                             ControlToValidate="UserName" ErrorMessage="Invalid UserName" ForeColor="Red" 
-                            onservervalidate="CustomValidator1_ServerValidate" 
+                            onservervalidate="CustomValidator1ServerValidate" 
                             CssClass="failureNotification" ValidationGroup="LoginUserValidationGroup">*</asp:CustomValidator>
                     </p>
                     <p class="login">
@@ -43,16 +43,17 @@
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator><asp:CustomValidator
                                  ID="CustomValidator2" runat="server" ErrorMessage="Invalid PassWord" 
                             CssClass="failureNotification" ForeColor="Red" 
-                            onservervalidate="CustomValidator2_ServerValidate" ValidationGroup="LoginUserValidationGroup">*</asp:CustomValidator>
+                            onservervalidate="CustomValidator2ServerValidate" ValidationGroup="LoginUserValidationGroup">*</asp:CustomValidator>
                     </p>
                     <p>
                         <asp:CheckBox ID="RememberMe" runat="server"/>
                         <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Keep me logged in</asp:Label>
                     </p>
-                </fieldset>
-                <p class="submitButton">
-                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="LoginUserValidationGroup"/>
+                     <p class="submitButton">
+                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="LoginUserValidationGroup" CssClass="btn"/>
                 </p>
+                </fieldset>
+
             </div>
         </LayoutTemplate>
     </asp:Login>

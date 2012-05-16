@@ -23,17 +23,17 @@
     <asp:Label ID="LabelStatus" runat="server" Text="" CssClass = "failureNotification"></asp:Label>
    
     <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="False" 
-        OnCreatedUser="RegisterUser_CreatedUser" 
-        oncreateusererror="RegisterUser_CreateUserError" 
-        oncreatinguser="RegisterUser_CreateingUser" BackColor="#E3EAEB" 
+        OnCreatedUser="RegisterUserCreatedUser" 
+        oncreateusererror="RegisterUserCreateUserError" 
+        oncreatinguser="RegisterUserCreateingUser" BackColor="#E3EAEB" 
         BorderColor="#E6E2D8" BorderStyle="Solid" BorderWidth="1px" 
         Font-Names="Verdana" Font-Size="0.8em" 
-        onnextbuttonclick="fhethr" ViewStateMode="Enabled">
+        onnextbuttonclick="Fhethr" ViewStateMode="Enabled">
         <FinishNavigationTemplate>
             <asp:Button ID="FinishPreviousButton" runat="server" CausesValidation="False" 
-                CommandName="MovePrevious" Text="Previous" />
+                CommandName="MovePrevious" Text="Previous" CssClass="btn"/>
             <asp:Button ID="FinishButton" runat="server" CommandName="MoveComplete" 
-                Text="Finish" />
+                Text="Finish" CssClass="btn success"/>
         </FinishNavigationTemplate>
         <HeaderStyle BackColor="#666666" BorderStyle="Solid" Font-Bold="True" 
             Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" 
@@ -42,12 +42,6 @@
             <asp:PlaceHolder ID="wizardStepPlaceholder" runat="server"></asp:PlaceHolder>
             <asp:PlaceHolder ID="navigationPlaceholder" runat="server"></asp:PlaceHolder>
         </LayoutTemplate>
-        <ContinueButtonStyle BackColor="White" BorderColor="#C5BBAF" 
-            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
-            ForeColor="#1C5E55" />
-        <CreateUserButtonStyle BackColor="White" BorderColor="#C5BBAF" 
-            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
-            ForeColor="#1C5E55" />
         <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
         <WizardSteps>
         <asp:WizardStep ID="RegisterUserWizardStep0" runat="server" StepType="Start" 
@@ -192,8 +186,7 @@
                                 CssClass="failureNotification" ForeColor="#FF3300" 
                                 ToolTip="Phone Number Required" 
                                 ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
-                        </p>
-
+                          </p>
 
                          </fieldset>
 
@@ -201,11 +194,9 @@
 
                     </div>
           </asp:WizardStep>
-
                <asp:CreateUserWizardStep ID="RegisterUserWizardStep1" runat="server">
                 <ContentTemplate>
-                   
-                    <p class="submitButton">
+                    <p class="alert alert-error shifterror">
                         Passwords are required to be a minimum of <%= Membership.MinRequiredPasswordLength %> characters in length.
                     </p>
                     <span class="failureNotification">
@@ -247,7 +238,7 @@
                                 ErrorMessage="Invalid Password Length" 
                                 ControlToValidate="Password" 
                                 CssClass="failureNotification" 
-                                onservervalidate = "CustomValidatorPassword_ServerValidate"
+                                onservervalidate = "CustomValidatorPasswordServerValidate"
                                 ValidationGroup="RegisterUserValidationGroup">*</asp:CustomValidator>
                                                     
 
@@ -263,16 +254,16 @@
                                      ValidationGroup="RegisterUserValidationGroup">*</asp:CompareValidator>
                             </p>
 
-
-
-                        </fieldset>
                         <p class="submitButton">
                             <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="Create User" 
                                  ValidationGroup="RegisterUserValidationGroup" 
-                                onclick="CreateUserButton_Click"/>
+                                onclick="CreateUserButtonClick" CssClass="btn"/>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input id="Reset1" type="reset" value="Reset Form" onclick="return Reset1_onclick()" />
+                            <input id="Reset1" type="reset" value="Reset Form" onclick="return Reset1_onclick()" class="btn" />
                         </p>
+
+                        </fieldset>
+
                     </div>
                 </ContentTemplate>
                 <CustomNavigationTemplate>
@@ -293,26 +284,19 @@
             <tr>
                 <td align="right">
                     <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" 
-                        CommandName="Continue" Text="Continue" ValidationGroup="RegisterUser" />
+                        CommandName="Continue" Text="Continue" ValidationGroup="RegisterUser" CssClass="btn"/>
                 </td>
             </tr>
         </table>
     </ContentTemplate>
             </asp:CompleteWizardStep>
         </WizardSteps>
-        <NavigationButtonStyle BackColor="White" BorderColor="#C5BBAF" 
-            BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
-            ForeColor="#1C5E55" />
-        <SideBarButtonStyle ForeColor="White" />
-        <SideBarStyle BackColor="#1C5E55" Font-Size="0.9em" 
-            VerticalAlign="Top" />
         <StepNavigationTemplate>
             <asp:Button ID="StepPreviousButton" runat="server" CausesValidation="False" 
-                CommandName="MovePrevious" Text="Previous" />
+                CommandName="MovePrevious" Text="Previous" CssClass="btn"/>
             <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" 
-                Text="Next" ValidationGroup="RegisterUserValidationGroup" />
+                Text="Next" ValidationGroup="RegisterUserValidationGroup" CssClass="btn btn-primary" />
         </StepNavigationTemplate>
-        <StepStyle BorderWidth="0px" />
     </asp:CreateUserWizard>
     </asp:Content>
 

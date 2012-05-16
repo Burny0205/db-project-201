@@ -104,7 +104,7 @@ namespace SalonComplex.SalonBusiness
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
 
-                Result = connect.SP_InsertClient(clientValues.client_fname, clientValues.client_lname,
+                Result = connect.SP_InsertClient(clientValues.client_LoginID,clientValues.client_fname, clientValues.client_lname,
                 clientValues.client_gender, clientValues.client_street,
                 clientValues.client_city, clientValues.client_parish,
                 clientValues.client_profession, clientValues.client_phone);
