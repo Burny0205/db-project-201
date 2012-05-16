@@ -76,6 +76,7 @@
     <Content Include="Appointment\Appointment Page.aspx" />
     <Content Include="Appointment\Salon AppointMent.aspx" />
     <Content Include="Appointment\Spa AppointMent.aspx" />
+    <Content Include="back up\db_schema.sql" />
     <Content Include="Contact\About.aspx" />
     <Content Include="Contact\Contact.aspx" />
     <Content Include="Controls\ServicesControl.ascx" />
@@ -481,7 +482,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="back up\" />
     <Folder Include="Videos\" />
   </ItemGroup>
   <ItemGroup>

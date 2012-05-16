@@ -91,7 +91,7 @@ namespace SalonComplex.Appointment
             // B - Book
             // R - Rejected
             // C - Change 
-
+            // D - Done
 
             //app status : 
             //

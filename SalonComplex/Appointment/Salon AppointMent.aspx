@@ -5,7 +5,6 @@
     <link href="../Styles/appointmentstyle.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/cal.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../Scripts/appointment.js"></script>
-    <script type="text/javascript" src="../Scripts/appointment.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.dateinput.min.js"></script>
 
     <%--		<div id="content_wrapper">
@@ -369,12 +368,11 @@
                                     Style="font-size: medium; font-family: 'Segoe UI'" Text="Services:" 
                                     Width="242px" Height="21px"></asp:Label>
                             </p>
-                        </td>
+                         </td>
                         <td class="style28">
                             <p class="appoint_p">
-                                <asp:Label ID="SpaServiceEmpLabel" runat="server" 
-                                    Style="font-size: medium; font-family: 'Segoe UI'" Text=" Employees:" 
-                                    Width="254px"></asp:Label>
+                                <asp:Label ID="SalonDateLabel" Text="Enter Appointment Date:" runat="server" 
+                                    Style="font-size: medium; font-family: 'Segoe UI'"></asp:Label>
                             </p>
                         </td>
                     </tr>
@@ -384,7 +382,7 @@
                                 <asp:DropDownList ID="DropDownListSalonServices" runat="server" 
                                     AutoPostBack="true" DataSourceID="SqlDataSourceDropListServices"
                                     DataTextField="employee_type" DataValueField="employee_type" Height="25px" 
-                                    Width="200px">
+                                    Width="200px" Enabled="False">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSourceDropListServices" runat="server" ConnectionString="<%$ ConnectionStrings:SalonConnectionString %>"
                                     
@@ -395,43 +393,12 @@
                             </p>
                         </td>
                         <td class="style28">
-                            <p class="appoint_p">
-                                <asp:DropDownList runat="server" Height="25px" Width="200px" ID="DropDownListEmp"
-                                    AutoPostBack="true" DataSourceID="SqlDataSourceEmployees" DataTextField="employee_fname"
-                                    DataValueField="employee_id">
-                                </asp:DropDownList>
-                                <asp:SqlDataSource ID="SqlDataSourceEmployees" runat="server" ConnectionString="<%$ ConnectionStrings:SalonConnectionString %>"
-                                    ProviderName="<%$ ConnectionStrings:SalonConnectionString.ProviderName %>" SelectCommand="SP_SelectEmployee"
-                                    SelectCommandType="StoredProcedure">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="DropDownListSalonServices" DefaultValue="" Name="EmpType"
-                                            PropertyName="SelectedValue" Type="String" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
+                            <p class="appoint_p" align="center">
+                                <asp:TextBox ID="TextBoxSpaDate" runat="server" Height="22px" Width="200px" 
+                                    ClientIDMode="Static" AutoPostBack="True"></asp:TextBox>
                             </p>
                         </td>
                     </tr>
-                    <td class="style29" align="center">
-                        
-                            <p class="appoint_p">
-                                <asp:Label ID="LabelEnterAppDate" Text="Enter Appointment Date:" runat="server" 
-                                    style="text-align: center"></asp:Label>
-                            </p>
-                            <p class="appoint_p" align="center">
-                                <asp:TextBox ID="TextBoxSpaDate" runat="server" Height="22px" Width="200px" 
-                                    ontextchanged="Page_Load" ClientIDMode="Static"></asp:TextBox>
-                            </p>
-                        
-                           
-                                                
-                    </td>
-                    <td class="style29" align="center">
-                          <p class="appoint_p" align="center">
-                             <asp:RangeValidator ID="RangeValidatorSpa" runat="server" ForeColor="Red" 
-                                    ValidationGroup="ClientApp" ControlToValidate="TextBoxSpaDate" 
-                                    ErrorMessage=" &quot;Select date between today to next 7 day!&quot;" 
-                                    MaximumValue= "DateTime.Now.AddDays(7).ToShortDateString();" 
-                                    MinimumValue="DateTime.Now.ToShortDateString();" Type="Date"></asp:RangeValidator> </p> </td>
                     </table>
                 <br />
                 <br />

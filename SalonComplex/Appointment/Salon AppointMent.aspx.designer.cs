@@ -40,13 +40,13 @@ namespace SalonComplex.Appointment {
         protected global::System.Web.UI.WebControls.Label SalonServiceEmpLabel;
         
         /// <summary>
-        /// SpaServiceEmpLabel control.
+        /// SalonDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SpaServiceEmpLabel;
+        protected global::System.Web.UI.WebControls.Label SalonDateLabel;
         
         /// <summary>
         /// DropDownListSalonServices control.
@@ -67,33 +67,6 @@ namespace SalonComplex.Appointment {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceDropListServices;
         
         /// <summary>
-        /// DropDownListEmp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListEmp;
-        
-        /// <summary>
-        /// SqlDataSourceEmployees control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceEmployees;
-        
-        /// <summary>
-        /// LabelEnterAppDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelEnterAppDate;
-        
-        /// <summary>
         /// TextBoxSpaDate control.
         /// </summary>
         /// <remarks>
@@ -101,15 +74,6 @@ namespace SalonComplex.Appointment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxSpaDate;
-        
-        /// <summary>
-        /// RangeValidatorSpa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorSpa;
         
         /// <summary>
         /// GridViewSalonEmpSchedule control.

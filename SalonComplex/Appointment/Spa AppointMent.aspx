@@ -2,8 +2,10 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../Styles/hotspot.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/cal.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/appointmentstyle.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../Scripts/appointment.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.dateinput.min.js"></script>
     <%--		<div id="content_wrapper">
 			<div id="content">
 				<div boomtime="left" id="content_in">
@@ -24,6 +26,19 @@
         }
     </style>
    
+
+    <script type="text/javascript">
+
+        $(function () {
+            $('#TextBoxSpaDate').dateinput(
+                {
+                    format: 'm/d/yyyy',
+                    min: -1,
+                    max: 7
+                });
+        })
+
+    </script>
 
    
 </asp:Content>
@@ -355,9 +370,8 @@
                         </td>
                         <td class="style28">
                             <p class="appoint_p">
-                                <asp:Label ID="SpaServiceEmpLabel" runat="server" 
-                                    Style="font-size: medium; font-family: 'Segoe UI'" Text=" Employees:" 
-                                    Width="254px"></asp:Label>
+                                <asp:Label ID="LabelEnterAppDate" Text="Enter Appointment Date:" runat="server" 
+                                    Style="font-size: medium; font-family: 'Segoe UI'"></asp:Label>
                             </p>
                         </td>
                     </tr>
@@ -367,7 +381,7 @@
                                 <asp:DropDownList ID="DropDownListSpaServices" runat="server" 
                                     AutoPostBack="true" DataSourceID="SqlDataSourceDropListServices"
                                     DataTextField="employee_type" DataValueField="employee_type" Height="25px" 
-                                    Width="200px">
+                                    Width="200px" Enabled="False">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSourceDropListServices" runat="server" ConnectionString="<%$ ConnectionStrings:SalonConnectionString %>"
                                     
@@ -378,62 +392,22 @@
                             </p>
                         </td>
                         <td class="style28">
-                            <p class="appoint_p">
-                                <asp:DropDownList runat="server" Height="25px" Width="200px" ID="DropDownListEmp"
-                                    AutoPostBack="true" DataSourceID="SqlDataSourceEmployees" DataTextField="employee_fname"
-                                    DataValueField="employee_id">
-                                </asp:DropDownList>
-                                <asp:SqlDataSource ID="SqlDataSourceEmployees" runat="server" ConnectionString="<%$ ConnectionStrings:SalonConnectionString %>"
-                                    ProviderName="<%$ ConnectionStrings:SalonConnectionString.ProviderName %>" SelectCommand="SP_SelectEmployee"
-                                    SelectCommandType="StoredProcedure">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="DropDownListSpaServices" DefaultValue="" Name="EmpType"
-                                            PropertyName="SelectedValue" Type="String" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
+                            <p class="appoint_p" align="center">
+                                <asp:TextBox ID="TextBoxSpaDate" runat="server" Height="22px" Width="200px" 
+                                    ontextchanged="Page_Load" ClientIDMode="Static" AutoPostBack="True"></asp:TextBox>
                             </p>
                         </td>
                     </tr>
                     <td class="style29" align="center">
                         
-                            <p class="appoint_p">
-                                <asp:Label ID="LabelEnterAppDate" Text="Enter Appointment Date:" runat="server" 
-                                    style="text-align: center"></asp:Label>
-                            </p>
-                            <p class="appoint_p" align="center">
-                                <asp:TextBox ID="TextBoxSpaDate" runat="server" Height="22px" Width="200px" 
-                                    ontextchanged="Page_Load"></asp:TextBox>
-                                <cc1:TextBoxWatermarkExtender ID="TextBoxSpaDate_TextBoxWatermarkExtender" 
-                                    runat="server" Enabled="True" TargetControlID="TextBoxSpaDate" 
-                                    WatermarkText="Select Date and Press Enter Button">
-                                </cc1:TextBoxWatermarkExtender>
-                                <asp:Image ID="ImageSpaCalendar" runat="server" ImageUrl="~/Images/Calendar_scheduleHS.png"
-                                    Height="25px" ImageAlign="AbsMiddle" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidatorSpaDateRequired" runat="server"
-                                    ControlToValidate="TextBoxSpaDate" Text="*"> </asp:RequiredFieldValidator>
-                                <br />
-                                <asp:ScriptManager ID="ScriptManagerSpa" runat="server" OnDataBinding="Calendar1_SelectionChanged">
-                                </asp:ScriptManager>
-                                <cc1:CalendarExtender ID="SpaDateCalendar" runat="server" TargetControlID="TextBoxSpaDate"
-                                    PopupPosition="BottomLeft" PopupButtonID="ImageSpaCalendar" CssClass="CalendarStyle"
-                                    OnDataBinding="SubmitAppButton_Click" >
-                                </cc1:CalendarExtender>
-                          
-                                <asp:Button ID="EnterDateButton" runat="server" onclick="Page_Load" Text="Enter" 
-                                    ValidationGroup="ClientApp" Width="88px" />
-                             
-                            </p>
+
+
                         
                            
                                                 
                     </td>
                     <td class="style29" align="center">
-                          <p class="appoint_p" align="center">
-                             <asp:RangeValidator ID="RangeValidatorSpa" runat="server" ForeColor="Red" 
-                                    ValidationGroup="ClientApp" ControlToValidate="TextBoxSpaDate" 
-                                    ErrorMessage=" &quot;Select date between today to next 7 day!&quot;" 
-                                    MaximumValue= "DateTime.Now.AddDays(7).ToShortDateString();" 
-                                    MinimumValue="DateTime.Now.ToShortDateString();" Type="Date"></asp:RangeValidator> </p> </td>
+                          <p class="appoint_p" align="center"></p> </td>
                     </table>
                 <br />
                 <br />

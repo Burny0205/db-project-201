@@ -1,142 +1,142 @@
-USE [Salon]
+USE [SalonDb]
 GO
-/****** Object:  ForeignKey [FK_skills_employee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_skills_employee]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_skills_employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[skills]'))
 ALTER TABLE [dbo].[skills] DROP CONSTRAINT [FK_skills_employee]
 GO
-/****** Object:  ForeignKey [FK_skills_service]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_skills_service]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_skills_service]') AND parent_object_id = OBJECT_ID(N'[dbo].[skills]'))
 ALTER TABLE [dbo].[skills] DROP CONSTRAINT [FK_skills_service]
 GO
-/****** Object:  ForeignKey [FK_schedule_employee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_schedule_employee]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_schedule_employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[schedule]'))
 ALTER TABLE [dbo].[schedule] DROP CONSTRAINT [FK_schedule_employee]
 GO
-/****** Object:  ForeignKey [FK_client_UserLogin]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_client_UserLogin]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_client_UserLogin]') AND parent_object_id = OBJECT_ID(N'[dbo].[client]'))
 ALTER TABLE [dbo].[client] DROP CONSTRAINT [FK_client_UserLogin]
 GO
-/****** Object:  ForeignKey [FK_UserValidate_UserLogin]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_UserValidate_UserLogin]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserValidate_UserLogin]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserValidate]'))
 ALTER TABLE [dbo].[UserValidate] DROP CONSTRAINT [FK_UserValidate_UserLogin]
 GO
-/****** Object:  ForeignKey [FK_appointment_client]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_appointment_client]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_client]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment]'))
 ALTER TABLE [dbo].[appointment] DROP CONSTRAINT [FK_appointment_client]
 GO
-/****** Object:  ForeignKey [FK_appointment_services_appointment]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  ForeignKey [FK_appointment_services_appointment]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_services_appointment]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_services]'))
 ALTER TABLE [dbo].[appointment_services] DROP CONSTRAINT [FK_appointment_services_appointment]
 GO
-/****** Object:  ForeignKey [FK_appointment_services_service]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  ForeignKey [FK_appointment_services_service]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_services_service]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_services]'))
 ALTER TABLE [dbo].[appointment_services] DROP CONSTRAINT [FK_appointment_services_service]
 GO
-/****** Object:  ForeignKey [FK_appointment_emp_appointment_emp]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  ForeignKey [FK_appointment_emp_appointment_emp]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_emp_appointment_emp]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_emp]'))
 ALTER TABLE [dbo].[appointment_emp] DROP CONSTRAINT [FK_appointment_emp_appointment_emp]
 GO
-/****** Object:  ForeignKey [FK_appointment_emp_schedule]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  ForeignKey [FK_appointment_emp_schedule]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_emp_schedule]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_emp]'))
 ALTER TABLE [dbo].[appointment_emp] DROP CONSTRAINT [FK_appointment_emp_schedule]
 GO
-/****** Object:  Table [dbo].[appointment_emp]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  Table [dbo].[appointment_emp]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[appointment_emp]') AND type in (N'U'))
 DROP TABLE [dbo].[appointment_emp]
 GO
-/****** Object:  Table [dbo].[appointment_services]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  Table [dbo].[appointment_services]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[appointment_services]') AND type in (N'U'))
 DROP TABLE [dbo].[appointment_services]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CheckEmployee]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CheckEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_CheckEmployee]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_CheckEmployee]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DeleteEmployee]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DeleteEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_DeleteEmployee]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_DeleteEmployee]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertAppointment]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertAppointment]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_InsertAppointment]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_InsertAppointment]
 GO
-/****** Object:  Table [dbo].[appointment]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[appointment]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[appointment]') AND type in (N'U'))
 DROP TABLE [dbo].[appointment]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertUserLogin]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertUserLogin]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_InsertUserLogin]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_InsertUserLogin]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ConfirmEmail]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ConfirmEmail]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_ConfirmEmail]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_ConfirmEmail]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ConfirmEmailShowAllFields]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ConfirmEmailShowAllFields]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_ConfirmEmailShowAllFields]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_ConfirmEmailShowAllFields]
 GO
-/****** Object:  Table [dbo].[UserValidate]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[UserValidate]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserValidate]') AND type in (N'U'))
 DROP TABLE [dbo].[UserValidate]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SelectEmployee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SelectEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_SelectEmployee]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_SelectEmployee]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UpdateEmployee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UpdateEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_UpdateEmployee]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_UpdateEmployee]
 GO
-/****** Object:  Table [dbo].[client]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[client]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[client]') AND type in (N'U'))
 DROP TABLE [dbo].[client]
 GO
-/****** Object:  Table [dbo].[schedule]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[schedule]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[schedule]') AND type in (N'U'))
 DROP TABLE [dbo].[schedule]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertClient]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertClient]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_InsertClient]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_InsertClient]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertComments]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertComments]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_InsertComments]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_InsertComments]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertEmployee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_InsertEmployee]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_InsertEmployee]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CheckLoginPassWord]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CheckLoginPassWord]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_CheckLoginPassWord]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_CheckLoginPassWord]
 GO
-/****** Object:  Table [dbo].[skills]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[skills]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[skills]') AND type in (N'U'))
 DROP TABLE [dbo].[skills]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ChangePassWord]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ChangePassWord]    Script Date: 05/16/2012 03:05:39 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SP_ChangePassWord]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[SP_ChangePassWord]
 GO
-/****** Object:  Table [dbo].[service]    Script Date: 05/16/2012 00:37:45 ******/
+/****** Object:  Table [dbo].[service]    Script Date: 05/16/2012 03:05:35 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[service]') AND type in (N'U'))
 DROP TABLE [dbo].[service]
 GO
-/****** Object:  Table [dbo].[comments]    Script Date: 05/16/2012 00:37:45 ******/
+/****** Object:  Table [dbo].[comments]    Script Date: 05/16/2012 03:05:35 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[comments]') AND type in (N'U'))
 DROP TABLE [dbo].[comments]
 GO
-/****** Object:  Table [dbo].[employee]    Script Date: 05/16/2012 00:37:45 ******/
+/****** Object:  Table [dbo].[employee]    Script Date: 05/16/2012 03:05:35 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[employee]') AND type in (N'U'))
 DROP TABLE [dbo].[employee]
 GO
-/****** Object:  Table [dbo].[UserLogin]    Script Date: 05/16/2012 00:37:45 ******/
+/****** Object:  Table [dbo].[UserLogin]    Script Date: 05/16/2012 03:05:35 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserLogin]') AND type in (N'U'))
 DROP TABLE [dbo].[UserLogin]
 GO
-/****** Object:  Table [dbo].[UserLogin]    Script Date: 05/16/2012 00:37:45 ******/
+/****** Object:  Table [dbo].[UserLogin]    Script Date: 05/16/2012 03:05:35 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -162,7 +162,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[employee]    Script Date: 05/16/2012 00:37:45 ******/
+/****** Object:  Table [dbo].[employee]    Script Date: 05/16/2012 03:05:35 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -191,7 +191,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[comments]    Script Date: 05/16/2012 00:37:45 ******/
+/****** Object:  Table [dbo].[comments]    Script Date: 05/16/2012 03:05:35 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -216,7 +216,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[service]    Script Date: 05/16/2012 00:37:45 ******/
+/****** Object:  Table [dbo].[service]    Script Date: 05/16/2012 03:05:35 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -238,7 +238,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ChangePassWord]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ChangePassWord]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -323,7 +323,7 @@ END
 ' 
 END
 GO
-/****** Object:  Table [dbo].[skills]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[skills]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -343,7 +343,7 @@ CREATE TABLE [dbo].[skills](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CheckLoginPassWord]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CheckLoginPassWord]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -424,7 +424,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertEmployee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -475,7 +475,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertComments]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertComments]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -523,7 +523,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertClient]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertClient]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -593,7 +593,7 @@ BEGIN
 ' 
 END
 GO
-/****** Object:  Table [dbo].[schedule]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[schedule]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -622,7 +622,7 @@ CREATE TABLE [dbo].[schedule](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[client]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[client]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -651,7 +651,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UpdateEmployee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UpdateEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -715,7 +715,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SelectEmployee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SelectEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -747,7 +747,7 @@ END
 ' 
 END
 GO
-/****** Object:  Table [dbo].[UserValidate]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[UserValidate]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -769,7 +769,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ConfirmEmailShowAllFields]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ConfirmEmailShowAllFields]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -838,7 +838,7 @@ BEGIN
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ConfirmEmail]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_ConfirmEmail]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -901,7 +901,7 @@ BEGIN
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertUserLogin]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertUserLogin]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1017,7 +1017,7 @@ BEGIN
 ' 
 END
 GO
-/****** Object:  Table [dbo].[appointment]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  Table [dbo].[appointment]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1030,7 +1030,6 @@ CREATE TABLE [dbo].[appointment](
 	[app_id] [int] NOT NULL,
 	[client_id] [int] NULL,
 	[app_day] [datetime] NULL,
-	[app_time] [datetime] NULL,
 	[notes_requests] [varchar](600) NULL,
 	[visited_status] [varchar](1) NULL,
 	[app_status] [varchar](1) NULL,
@@ -1043,7 +1042,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  StoredProcedure [dbo].[SP_InsertAppointment]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  StoredProcedure [dbo].[SP_InsertAppointment]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1137,7 +1136,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DeleteEmployee]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DeleteEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1181,7 +1180,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CheckEmployee]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CheckEmployee]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1214,7 +1213,7 @@ END
 ' 
 END
 GO
-/****** Object:  Table [dbo].[appointment_services]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  Table [dbo].[appointment_services]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1232,7 +1231,7 @@ CREATE TABLE [dbo].[appointment_services](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  Table [dbo].[appointment_emp]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  Table [dbo].[appointment_emp]    Script Date: 05/16/2012 03:05:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1252,7 +1251,7 @@ CREATE TABLE [dbo].[appointment_emp](
 ) ON [PRIMARY]
 END
 GO
-/****** Object:  ForeignKey [FK_skills_employee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_skills_employee]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_skills_employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[skills]'))
 ALTER TABLE [dbo].[skills]  WITH CHECK ADD  CONSTRAINT [FK_skills_employee] FOREIGN KEY([employee_id])
 REFERENCES [dbo].[employee] ([employee_id])
@@ -1260,7 +1259,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_skills_employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[skills]'))
 ALTER TABLE [dbo].[skills] CHECK CONSTRAINT [FK_skills_employee]
 GO
-/****** Object:  ForeignKey [FK_skills_service]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_skills_service]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_skills_service]') AND parent_object_id = OBJECT_ID(N'[dbo].[skills]'))
 ALTER TABLE [dbo].[skills]  WITH CHECK ADD  CONSTRAINT [FK_skills_service] FOREIGN KEY([service_id])
 REFERENCES [dbo].[service] ([service_id])
@@ -1268,7 +1267,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_skills_service]') AND parent_object_id = OBJECT_ID(N'[dbo].[skills]'))
 ALTER TABLE [dbo].[skills] CHECK CONSTRAINT [FK_skills_service]
 GO
-/****** Object:  ForeignKey [FK_schedule_employee]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_schedule_employee]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_schedule_employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[schedule]'))
 ALTER TABLE [dbo].[schedule]  WITH CHECK ADD  CONSTRAINT [FK_schedule_employee] FOREIGN KEY([employee_id])
 REFERENCES [dbo].[employee] ([employee_id])
@@ -1278,7 +1277,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_schedule_employee]') AND parent_object_id = OBJECT_ID(N'[dbo].[schedule]'))
 ALTER TABLE [dbo].[schedule] CHECK CONSTRAINT [FK_schedule_employee]
 GO
-/****** Object:  ForeignKey [FK_client_UserLogin]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_client_UserLogin]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_client_UserLogin]') AND parent_object_id = OBJECT_ID(N'[dbo].[client]'))
 ALTER TABLE [dbo].[client]  WITH CHECK ADD  CONSTRAINT [FK_client_UserLogin] FOREIGN KEY([client_LoginID])
 REFERENCES [dbo].[UserLogin] ([LoginID])
@@ -1286,7 +1285,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_client_UserLogin]') AND parent_object_id = OBJECT_ID(N'[dbo].[client]'))
 ALTER TABLE [dbo].[client] CHECK CONSTRAINT [FK_client_UserLogin]
 GO
-/****** Object:  ForeignKey [FK_UserValidate_UserLogin]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_UserValidate_UserLogin]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserValidate_UserLogin]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserValidate]'))
 ALTER TABLE [dbo].[UserValidate]  WITH CHECK ADD  CONSTRAINT [FK_UserValidate_UserLogin] FOREIGN KEY([LoginID])
 REFERENCES [dbo].[UserLogin] ([LoginID])
@@ -1294,7 +1293,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_UserValidate_UserLogin]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserValidate]'))
 ALTER TABLE [dbo].[UserValidate] CHECK CONSTRAINT [FK_UserValidate_UserLogin]
 GO
-/****** Object:  ForeignKey [FK_appointment_client]    Script Date: 05/16/2012 00:38:10 ******/
+/****** Object:  ForeignKey [FK_appointment_client]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_client]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment]'))
 ALTER TABLE [dbo].[appointment]  WITH CHECK ADD  CONSTRAINT [FK_appointment_client] FOREIGN KEY([client_id])
 REFERENCES [dbo].[client] ([client_id])
@@ -1302,7 +1301,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_client]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment]'))
 ALTER TABLE [dbo].[appointment] CHECK CONSTRAINT [FK_appointment_client]
 GO
-/****** Object:  ForeignKey [FK_appointment_services_appointment]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  ForeignKey [FK_appointment_services_appointment]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_services_appointment]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_services]'))
 ALTER TABLE [dbo].[appointment_services]  WITH CHECK ADD  CONSTRAINT [FK_appointment_services_appointment] FOREIGN KEY([app_id])
 REFERENCES [dbo].[appointment] ([app_id])
@@ -1310,7 +1309,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_services_appointment]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_services]'))
 ALTER TABLE [dbo].[appointment_services] CHECK CONSTRAINT [FK_appointment_services_appointment]
 GO
-/****** Object:  ForeignKey [FK_appointment_services_service]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  ForeignKey [FK_appointment_services_service]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_services_service]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_services]'))
 ALTER TABLE [dbo].[appointment_services]  WITH CHECK ADD  CONSTRAINT [FK_appointment_services_service] FOREIGN KEY([service_id])
 REFERENCES [dbo].[service] ([service_id])
@@ -1318,7 +1317,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_services_service]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_services]'))
 ALTER TABLE [dbo].[appointment_services] CHECK CONSTRAINT [FK_appointment_services_service]
 GO
-/****** Object:  ForeignKey [FK_appointment_emp_appointment_emp]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  ForeignKey [FK_appointment_emp_appointment_emp]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_emp_appointment_emp]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_emp]'))
 ALTER TABLE [dbo].[appointment_emp]  WITH CHECK ADD  CONSTRAINT [FK_appointment_emp_appointment_emp] FOREIGN KEY([app_id])
 REFERENCES [dbo].[appointment] ([app_id])
@@ -1326,7 +1325,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_emp_appointment_emp]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_emp]'))
 ALTER TABLE [dbo].[appointment_emp] CHECK CONSTRAINT [FK_appointment_emp_appointment_emp]
 GO
-/****** Object:  ForeignKey [FK_appointment_emp_schedule]    Script Date: 05/16/2012 00:38:11 ******/
+/****** Object:  ForeignKey [FK_appointment_emp_schedule]    Script Date: 05/16/2012 03:05:39 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_appointment_emp_schedule]') AND parent_object_id = OBJECT_ID(N'[dbo].[appointment_emp]'))
 ALTER TABLE [dbo].[appointment_emp]  WITH CHECK ADD  CONSTRAINT [FK_appointment_emp_schedule] FOREIGN KEY([schedule_id], [emp_id])
 REFERENCES [dbo].[schedule] ([schedule_id], [employee_id])

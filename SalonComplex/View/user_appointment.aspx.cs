@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using SalonComplex.LinqSQL;
 using SalonComplex.SalonBusiness;
 
@@ -44,6 +45,14 @@ namespace SalonComplex.View
                              });
             }
             */
+
+            appt.Add(new Model.FullCalendar
+            {
+                id = 0,
+                start = DateTime.Now,
+                title = "peta-gay hair day :)"
+            });
+
             return JsonConvert.SerializeObject(appt);
         }
     }

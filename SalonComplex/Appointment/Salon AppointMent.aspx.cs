@@ -13,17 +13,11 @@ namespace SalonComplex.Appointment
         {
             if (!this.IsPostBack)
             {
-                RangeValidatorSpa.ControlToValidate = "TextBoxSpaDate";
-                RangeValidatorSpa.Type = ValidationDataType.Date;
-                RangeValidatorSpa.MinimumValue = DateTime.Now.ToShortDateString();
-                RangeValidatorSpa.MaximumValue = DateTime.Now.AddDays(7).ToShortDateString();
-                RangeValidatorSpa.ErrorMessage = "Select date between today to next 7 day!";
-
+               
                 LabelSpaAppDate.Font.Italic = true;
                 LabelSpaAppDate.Font.Bold = true;
                 LabelSpaAppDate.ForeColor = System.Drawing.Color.Crimson;
                 LabelSpaAppDate.Font.Size = FontUnit.Large;
-                TextBoxSpaDate.ForeColor = System.Drawing.Color.Black;
                 SubmitAppButton.Font.Bold = true;
                 SubmitAppButton.ForeColor = System.Drawing.Color.DarkGreen;
 

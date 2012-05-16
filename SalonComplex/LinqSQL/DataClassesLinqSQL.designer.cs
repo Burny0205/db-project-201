@@ -285,8 +285,6 @@ namespace SalonComplex.LinqSQL
 		
 		private System.Nullable<System.DateTime> _app_day;
 		
-		private System.Nullable<System.DateTime> _app_time;
-		
 		private string _notes_requests;
 		
 		private string _visited_status;
@@ -309,8 +307,6 @@ namespace SalonComplex.LinqSQL
     partial void Onclient_idChanged();
     partial void Onapp_dayChanging(System.Nullable<System.DateTime> value);
     partial void Onapp_dayChanged();
-    partial void Onapp_timeChanging(System.Nullable<System.DateTime> value);
-    partial void Onapp_timeChanged();
     partial void Onnotes_requestsChanging(string value);
     partial void Onnotes_requestsChanged();
     partial void Onvisited_statusChanging(string value);
@@ -387,26 +383,6 @@ namespace SalonComplex.LinqSQL
 					this._app_day = value;
 					this.SendPropertyChanged("app_day");
 					this.Onapp_dayChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> app_time
-		{
-			get
-			{
-				return this._app_time;
-			}
-			set
-			{
-				if ((this._app_time != value))
-				{
-					this.Onapp_timeChanging(value);
-					this.SendPropertyChanging();
-					this._app_time = value;
-					this.SendPropertyChanged("app_time");
-					this.Onapp_timeChanged();
 				}
 			}
 		}
