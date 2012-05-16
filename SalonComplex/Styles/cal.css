@@ -23,7 +23,7 @@
     font-size:13px;
     border:1px solid #BDC8D2;
     border-width:1px 1px 0;
-    background:#F5F9FF url(/media/img/gradient/h300.png) 0 37px repeat-x;
+    background:#F5F9FF url(../Images/cal/h300.png) 0 37px repeat-x;
     -moz-box-shadow:0 0 10px 0px #ccc;
     -webkit-box-shadow:0 0 10px 0px #ccc;
 }
@@ -46,13 +46,13 @@
     display:block;
     width:20px;
     height:20px;
-    background:transparent url(/media/img/dateinput/prev.gif) no-repeat scroll center center;
+    background:transparent url(../Images/cal/prev.gif) no-repeat scroll center center;
     float:left;
     cursor:pointer;
 }
 
 #calnext {
-    background-image:url(/media/img/dateinput/next.gif);
+    background-image:url(../Images/cal/next.gif);
 }
 
 #calprev.caldisabled, #calnext.caldisabled {
@@ -69,7 +69,7 @@
     font-size:11px;
     color:#7e7e7e;
     line-height:18px;
-    background:#fff url(/media/img/gradient/h80.png) repeat-x;
+    background:#fff url(../Images/cal/h80.png) repeat-x;
 }
 
 #calweeks {
@@ -107,7 +107,7 @@ a.calsunday {
 }
 
 .calweek a:hover, .calfocus {
-    background:#fff url(/media/img/gradient/h80.png) repeat-x;
+    background:#fff url(../Images/cal/h80.png) repeat-x;
 }
 
 .calsun {
@@ -116,7 +116,7 @@ a.calsunday {
 
 a.caloff {
     color:#999;
-    background:#eee url(/media/img/gradient/h80.png) repeat-x;
+    background:#eee url(../Images/cal/h80.png) repeat-x;
 }
 
 a.caloff.calfocus {

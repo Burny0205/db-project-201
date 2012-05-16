@@ -87,26 +87,6 @@ salon.debug = function() {
     }
 };
 
-salon.multiselect = function(el) {
-    var warning = $(".message");
-
-    $(el).multiselect({
-        header: "Choose only THREE time!",
-        noneSelectedText: 'Select three time',
-        selectedList: 3,
-        click: function(e) {
-
-            if ($(this).multiselect("widget").find("input:checked").length > 3) {
-                warning.addClass("error").removeClass("success").html("You can only check three checkboxes!");
-                return false;
-            } else {
-                warning.addClass("success").removeClass("error").html("Check a few boxes.");
-            }
-
-        }
-    });
-};
-
 salon.reset = function () {
 
     if (document.forms && document.forms.length > 1) {

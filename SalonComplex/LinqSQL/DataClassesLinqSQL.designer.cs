@@ -33,6 +33,15 @@ namespace SalonComplex.LinqSQL
     partial void Insertappointment(appointment instance);
     partial void Updateappointment(appointment instance);
     partial void Deleteappointment(appointment instance);
+    partial void InsertUserValidate(UserValidate instance);
+    partial void UpdateUserValidate(UserValidate instance);
+    partial void DeleteUserValidate(UserValidate instance);
+    partial void Insertappointment_emp(appointment_emp instance);
+    partial void Updateappointment_emp(appointment_emp instance);
+    partial void Deleteappointment_emp(appointment_emp instance);
+    partial void Insertappointment_service(appointment_service instance);
+    partial void Updateappointment_service(appointment_service instance);
+    partial void Deleteappointment_service(appointment_service instance);
     partial void Insertclient(client instance);
     partial void Updateclient(client instance);
     partial void Deleteclient(client instance);
@@ -54,9 +63,6 @@ namespace SalonComplex.LinqSQL
     partial void InsertUserLogin(UserLogin instance);
     partial void UpdateUserLogin(UserLogin instance);
     partial void DeleteUserLogin(UserLogin instance);
-    partial void InsertUserValidate(UserValidate instance);
-    partial void UpdateUserValidate(UserValidate instance);
-    partial void DeleteUserValidate(UserValidate instance);
     #endregion
 		
 		public DataClassesLinqSQLDataContext() : 
@@ -94,6 +100,30 @@ namespace SalonComplex.LinqSQL
 			get
 			{
 				return this.GetTable<appointment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<UserValidate> UserValidates
+		{
+			get
+			{
+				return this.GetTable<UserValidate>();
+			}
+		}
+		
+		public System.Data.Linq.Table<appointment_emp> appointment_emps
+		{
+			get
+			{
+				return this.GetTable<appointment_emp>();
+			}
+		}
+		
+		public System.Data.Linq.Table<appointment_service> appointment_services
+		{
+			get
+			{
+				return this.GetTable<appointment_service>();
 			}
 		}
 		
@@ -150,14 +180,6 @@ namespace SalonComplex.LinqSQL
 			get
 			{
 				return this.GetTable<UserLogin>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UserValidate> UserValidates
-		{
-			get
-			{
-				return this.GetTable<UserValidate>();
 			}
 		}
 		
@@ -259,21 +281,11 @@ namespace SalonComplex.LinqSQL
 		
 		private int _app_id;
 		
-		private int _schedule_id;
+		private System.Nullable<int> _client_id;
 		
-		private int _employee_id;
+		private System.Nullable<System.DateTime> _app_day;
 		
-		private int _client_id;
-		
-		private int _service_id;
-		
-		private System.DateTime _app_day;
-		
-		private System.TimeSpan _app_time1;
-		
-		private System.TimeSpan _app_time2;
-		
-		private System.TimeSpan _app_time3;
+		private System.Nullable<System.DateTime> _app_time;
 		
 		private string _notes_requests;
 		
@@ -281,7 +293,11 @@ namespace SalonComplex.LinqSQL
 		
 		private string _app_status;
 		
-		private EntityRef<employee> _employee;
+		private EntitySet<appointment_emp> _appointment_emps;
+		
+		private EntitySet<appointment_service> _appointment_services;
+		
+		private EntityRef<client> _client;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -289,22 +305,12 @@ namespace SalonComplex.LinqSQL
     partial void OnCreated();
     partial void Onapp_idChanging(int value);
     partial void Onapp_idChanged();
-    partial void Onschedule_idChanging(int value);
-    partial void Onschedule_idChanged();
-    partial void Onemployee_idChanging(int value);
-    partial void Onemployee_idChanged();
-    partial void Onclient_idChanging(int value);
+    partial void Onclient_idChanging(System.Nullable<int> value);
     partial void Onclient_idChanged();
-    partial void Onservice_idChanging(int value);
-    partial void Onservice_idChanged();
-    partial void Onapp_dayChanging(System.DateTime value);
+    partial void Onapp_dayChanging(System.Nullable<System.DateTime> value);
     partial void Onapp_dayChanged();
-    partial void Onapp_time1Changing(System.TimeSpan value);
-    partial void Onapp_time1Changed();
-    partial void Onapp_time2Changing(System.TimeSpan value);
-    partial void Onapp_time2Changed();
-    partial void Onapp_time3Changing(System.TimeSpan value);
-    partial void Onapp_time3Changed();
+    partial void Onapp_timeChanging(System.Nullable<System.DateTime> value);
+    partial void Onapp_timeChanged();
     partial void Onnotes_requestsChanging(string value);
     partial void Onnotes_requestsChanged();
     partial void Onvisited_statusChanging(string value);
@@ -315,11 +321,13 @@ namespace SalonComplex.LinqSQL
 		
 		public appointment()
 		{
-			this._employee = default(EntityRef<employee>);
+			this._appointment_emps = new EntitySet<appointment_emp>(new Action<appointment_emp>(this.attach_appointment_emps), new Action<appointment_emp>(this.detach_appointment_emps));
+			this._appointment_services = new EntitySet<appointment_service>(new Action<appointment_service>(this.attach_appointment_services), new Action<appointment_service>(this.detach_appointment_services));
+			this._client = default(EntityRef<client>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int app_id
 		{
 			get
@@ -339,52 +347,8 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_schedule_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int schedule_id
-		{
-			get
-			{
-				return this._schedule_id;
-			}
-			set
-			{
-				if ((this._schedule_id != value))
-				{
-					this.Onschedule_idChanging(value);
-					this.SendPropertyChanging();
-					this._schedule_id = value;
-					this.SendPropertyChanged("schedule_id");
-					this.Onschedule_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_employee_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int employee_id
-		{
-			get
-			{
-				return this._employee_id;
-			}
-			set
-			{
-				if ((this._employee_id != value))
-				{
-					if (this._employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onemployee_idChanging(value);
-					this.SendPropertyChanging();
-					this._employee_id = value;
-					this.SendPropertyChanged("employee_id");
-					this.Onemployee_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_client_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int client_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_client_id", DbType="Int")]
+		public System.Nullable<int> client_id
 		{
 			get
 			{
@@ -394,6 +358,10 @@ namespace SalonComplex.LinqSQL
 			{
 				if ((this._client_id != value))
 				{
+					if (this._client.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Onclient_idChanging(value);
 					this.SendPropertyChanging();
 					this._client_id = value;
@@ -403,28 +371,8 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_service_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int service_id
-		{
-			get
-			{
-				return this._service_id;
-			}
-			set
-			{
-				if ((this._service_id != value))
-				{
-					this.Onservice_idChanging(value);
-					this.SendPropertyChanging();
-					this._service_id = value;
-					this.SendPropertyChanged("service_id");
-					this.Onservice_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_day", DbType="Date NOT NULL")]
-		public System.DateTime app_day
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_day", DbType="DateTime")]
+		public System.Nullable<System.DateTime> app_day
 		{
 			get
 			{
@@ -443,62 +391,22 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_time1", DbType="Time NOT NULL")]
-		public System.TimeSpan app_time1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> app_time
 		{
 			get
 			{
-				return this._app_time1;
+				return this._app_time;
 			}
 			set
 			{
-				if ((this._app_time1 != value))
+				if ((this._app_time != value))
 				{
-					this.Onapp_time1Changing(value);
+					this.Onapp_timeChanging(value);
 					this.SendPropertyChanging();
-					this._app_time1 = value;
-					this.SendPropertyChanged("app_time1");
-					this.Onapp_time1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_time2", DbType="Time NOT NULL")]
-		public System.TimeSpan app_time2
-		{
-			get
-			{
-				return this._app_time2;
-			}
-			set
-			{
-				if ((this._app_time2 != value))
-				{
-					this.Onapp_time2Changing(value);
-					this.SendPropertyChanging();
-					this._app_time2 = value;
-					this.SendPropertyChanged("app_time2");
-					this.Onapp_time2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_time3", DbType="Time NOT NULL")]
-		public System.TimeSpan app_time3
-		{
-			get
-			{
-				return this._app_time3;
-			}
-			set
-			{
-				if ((this._app_time3 != value))
-				{
-					this.Onapp_time3Changing(value);
-					this.SendPropertyChanging();
-					this._app_time3 = value;
-					this.SendPropertyChanged("app_time3");
-					this.Onapp_time3Changed();
+					this._app_time = value;
+					this.SendPropertyChanged("app_time");
+					this.Onapp_timeChanged();
 				}
 			}
 		}
@@ -563,36 +471,675 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_appointment", Storage="_employee", ThisKey="employee_id", OtherKey="employee_id", IsForeignKey=true)]
-		public employee employee
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="appointment_appointment_emp", Storage="_appointment_emps", ThisKey="app_id", OtherKey="app_id")]
+		public EntitySet<appointment_emp> appointment_emps
 		{
 			get
 			{
-				return this._employee.Entity;
+				return this._appointment_emps;
 			}
 			set
 			{
-				employee previousValue = this._employee.Entity;
+				this._appointment_emps.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="appointment_appointment_service", Storage="_appointment_services", ThisKey="app_id", OtherKey="app_id")]
+		public EntitySet<appointment_service> appointment_services
+		{
+			get
+			{
+				return this._appointment_services;
+			}
+			set
+			{
+				this._appointment_services.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="client_appointment", Storage="_client", ThisKey="client_id", OtherKey="client_id", IsForeignKey=true)]
+		public client client
+		{
+			get
+			{
+				return this._client.Entity;
+			}
+			set
+			{
+				client previousValue = this._client.Entity;
 				if (((previousValue != value) 
-							|| (this._employee.HasLoadedOrAssignedValue == false)))
+							|| (this._client.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._employee.Entity = null;
+						this._client.Entity = null;
 						previousValue.appointments.Remove(this);
 					}
-					this._employee.Entity = value;
+					this._client.Entity = value;
 					if ((value != null))
 					{
 						value.appointments.Add(this);
-						this._employee_id = value.employee_id;
+						this._client_id = value.client_id;
 					}
 					else
 					{
-						this._employee_id = default(int);
+						this._client_id = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("employee");
+					this.SendPropertyChanged("client");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_appointment_emps(appointment_emp entity)
+		{
+			this.SendPropertyChanging();
+			entity.appointment = this;
+		}
+		
+		private void detach_appointment_emps(appointment_emp entity)
+		{
+			this.SendPropertyChanging();
+			entity.appointment = null;
+		}
+		
+		private void attach_appointment_services(appointment_service entity)
+		{
+			this.SendPropertyChanging();
+			entity.appointment = this;
+		}
+		
+		private void detach_appointment_services(appointment_service entity)
+		{
+			this.SendPropertyChanging();
+			entity.appointment = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserValidate")]
+	public partial class UserValidate : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _LoginID;
+		
+		private string _codeValidate;
+		
+		private System.DateTime _dateValidate;
+		
+		private EntityRef<UserLogin> _UserLogin;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLoginIDChanging(int value);
+    partial void OnLoginIDChanged();
+    partial void OncodeValidateChanging(string value);
+    partial void OncodeValidateChanged();
+    partial void OndateValidateChanging(System.DateTime value);
+    partial void OndateValidateChanged();
+    #endregion
+		
+		public UserValidate()
+		{
+			this._UserLogin = default(EntityRef<UserLogin>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int LoginID
+		{
+			get
+			{
+				return this._LoginID;
+			}
+			set
+			{
+				if ((this._LoginID != value))
+				{
+					if (this._UserLogin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLoginIDChanging(value);
+					this.SendPropertyChanging();
+					this._LoginID = value;
+					this.SendPropertyChanged("LoginID");
+					this.OnLoginIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codeValidate", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string codeValidate
+		{
+			get
+			{
+				return this._codeValidate;
+			}
+			set
+			{
+				if ((this._codeValidate != value))
+				{
+					this.OncodeValidateChanging(value);
+					this.SendPropertyChanging();
+					this._codeValidate = value;
+					this.SendPropertyChanged("codeValidate");
+					this.OncodeValidateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateValidate", DbType="DateTime NOT NULL")]
+		public System.DateTime dateValidate
+		{
+			get
+			{
+				return this._dateValidate;
+			}
+			set
+			{
+				if ((this._dateValidate != value))
+				{
+					this.OndateValidateChanging(value);
+					this.SendPropertyChanging();
+					this._dateValidate = value;
+					this.SendPropertyChanged("dateValidate");
+					this.OndateValidateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserLogin_UserValidate", Storage="_UserLogin", ThisKey="LoginID", OtherKey="LoginID", IsForeignKey=true)]
+		public UserLogin UserLogin
+		{
+			get
+			{
+				return this._UserLogin.Entity;
+			}
+			set
+			{
+				UserLogin previousValue = this._UserLogin.Entity;
+				if (((previousValue != value) 
+							|| (this._UserLogin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserLogin.Entity = null;
+						previousValue.UserValidate = null;
+					}
+					this._UserLogin.Entity = value;
+					if ((value != null))
+					{
+						value.UserValidate = this;
+						this._LoginID = value.LoginID;
+					}
+					else
+					{
+						this._LoginID = default(int);
+					}
+					this.SendPropertyChanged("UserLogin");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appointment_emp")]
+	public partial class appointment_emp : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _app_id;
+		
+		private System.Nullable<System.DateTime> _app_time;
+		
+		private System.Nullable<int> _emp_id;
+		
+		private System.Nullable<int> _schedule_id;
+		
+		private EntityRef<appointment> _appointment;
+		
+		private EntityRef<schedule> _schedule;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onapp_idChanging(int value);
+    partial void Onapp_idChanged();
+    partial void Onapp_timeChanging(System.Nullable<System.DateTime> value);
+    partial void Onapp_timeChanged();
+    partial void Onemp_idChanging(System.Nullable<int> value);
+    partial void Onemp_idChanged();
+    partial void Onschedule_idChanging(System.Nullable<int> value);
+    partial void Onschedule_idChanged();
+    #endregion
+		
+		public appointment_emp()
+		{
+			this._appointment = default(EntityRef<appointment>);
+			this._schedule = default(EntityRef<schedule>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_id", DbType="Int NOT NULL")]
+		public int app_id
+		{
+			get
+			{
+				return this._app_id;
+			}
+			set
+			{
+				if ((this._app_id != value))
+				{
+					if (this._appointment.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onapp_idChanging(value);
+					this.SendPropertyChanging();
+					this._app_id = value;
+					this.SendPropertyChanged("app_id");
+					this.Onapp_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> app_time
+		{
+			get
+			{
+				return this._app_time;
+			}
+			set
+			{
+				if ((this._app_time != value))
+				{
+					this.Onapp_timeChanging(value);
+					this.SendPropertyChanging();
+					this._app_time = value;
+					this.SendPropertyChanged("app_time");
+					this.Onapp_timeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_emp_id", DbType="Int")]
+		public System.Nullable<int> emp_id
+		{
+			get
+			{
+				return this._emp_id;
+			}
+			set
+			{
+				if ((this._emp_id != value))
+				{
+					if (this._schedule.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onemp_idChanging(value);
+					this.SendPropertyChanging();
+					this._emp_id = value;
+					this.SendPropertyChanged("emp_id");
+					this.Onemp_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_schedule_id", DbType="Int")]
+		public System.Nullable<int> schedule_id
+		{
+			get
+			{
+				return this._schedule_id;
+			}
+			set
+			{
+				if ((this._schedule_id != value))
+				{
+					if (this._schedule.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onschedule_idChanging(value);
+					this.SendPropertyChanging();
+					this._schedule_id = value;
+					this.SendPropertyChanged("schedule_id");
+					this.Onschedule_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="appointment_appointment_emp", Storage="_appointment", ThisKey="app_id", OtherKey="app_id", IsForeignKey=true)]
+		public appointment appointment
+		{
+			get
+			{
+				return this._appointment.Entity;
+			}
+			set
+			{
+				appointment previousValue = this._appointment.Entity;
+				if (((previousValue != value) 
+							|| (this._appointment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._appointment.Entity = null;
+						previousValue.appointment_emps.Remove(this);
+					}
+					this._appointment.Entity = value;
+					if ((value != null))
+					{
+						value.appointment_emps.Add(this);
+						this._app_id = value.app_id;
+					}
+					else
+					{
+						this._app_id = default(int);
+					}
+					this.SendPropertyChanged("appointment");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="schedule_appointment_emp", Storage="_schedule", ThisKey="schedule_id,emp_id", OtherKey="schedule_id,employee_id", IsForeignKey=true)]
+		public schedule schedule
+		{
+			get
+			{
+				return this._schedule.Entity;
+			}
+			set
+			{
+				schedule previousValue = this._schedule.Entity;
+				if (((previousValue != value) 
+							|| (this._schedule.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._schedule.Entity = null;
+						previousValue.appointment_emps.Remove(this);
+					}
+					this._schedule.Entity = value;
+					if ((value != null))
+					{
+						value.appointment_emps.Add(this);
+						this._schedule_id = value.schedule_id;
+						this._emp_id = value.employee_id;
+					}
+					else
+					{
+						this._schedule_id = default(Nullable<int>);
+						this._emp_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("schedule");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appointment_services")]
+	public partial class appointment_service : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.Nullable<int> _app_id;
+		
+		private System.Nullable<int> _service_id;
+		
+		private EntityRef<appointment> _appointment;
+		
+		private EntityRef<service> _service;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onapp_idChanging(System.Nullable<int> value);
+    partial void Onapp_idChanged();
+    partial void Onservice_idChanging(System.Nullable<int> value);
+    partial void Onservice_idChanged();
+    #endregion
+		
+		public appointment_service()
+		{
+			this._appointment = default(EntityRef<appointment>);
+			this._service = default(EntityRef<service>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_id", DbType="Int")]
+		public System.Nullable<int> app_id
+		{
+			get
+			{
+				return this._app_id;
+			}
+			set
+			{
+				if ((this._app_id != value))
+				{
+					if (this._appointment.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onapp_idChanging(value);
+					this.SendPropertyChanging();
+					this._app_id = value;
+					this.SendPropertyChanged("app_id");
+					this.Onapp_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_service_id", DbType="Int")]
+		public System.Nullable<int> service_id
+		{
+			get
+			{
+				return this._service_id;
+			}
+			set
+			{
+				if ((this._service_id != value))
+				{
+					if (this._service.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onservice_idChanging(value);
+					this.SendPropertyChanging();
+					this._service_id = value;
+					this.SendPropertyChanged("service_id");
+					this.Onservice_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="appointment_appointment_service", Storage="_appointment", ThisKey="app_id", OtherKey="app_id", IsForeignKey=true)]
+		public appointment appointment
+		{
+			get
+			{
+				return this._appointment.Entity;
+			}
+			set
+			{
+				appointment previousValue = this._appointment.Entity;
+				if (((previousValue != value) 
+							|| (this._appointment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._appointment.Entity = null;
+						previousValue.appointment_services.Remove(this);
+					}
+					this._appointment.Entity = value;
+					if ((value != null))
+					{
+						value.appointment_services.Add(this);
+						this._app_id = value.app_id;
+					}
+					else
+					{
+						this._app_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("appointment");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_appointment_service", Storage="_service", ThisKey="service_id", OtherKey="service_id", IsForeignKey=true)]
+		public service service
+		{
+			get
+			{
+				return this._service.Entity;
+			}
+			set
+			{
+				service previousValue = this._service.Entity;
+				if (((previousValue != value) 
+							|| (this._service.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._service.Entity = null;
+						previousValue.appointment_services.Remove(this);
+					}
+					this._service.Entity = value;
+					if ((value != null))
+					{
+						value.appointment_services.Add(this);
+						this._service_id = value.service_id;
+					}
+					else
+					{
+						this._service_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("service");
 				}
 			}
 		}
@@ -644,6 +1191,10 @@ namespace SalonComplex.LinqSQL
 		
 		private string _client_phone;
 		
+		private EntitySet<appointment> _appointments;
+		
+		private EntityRef<UserLogin> _UserLogin;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -672,6 +1223,8 @@ namespace SalonComplex.LinqSQL
 		
 		public client()
 		{
+			this._appointments = new EntitySet<appointment>(new Action<appointment>(this.attach_appointments), new Action<appointment>(this.detach_appointments));
+			this._UserLogin = default(EntityRef<UserLogin>);
 			OnCreated();
 		}
 		
@@ -695,7 +1248,7 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_client_LoginID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_client_LoginID", DbType="Int NOT NULL")]
 		public int client_LoginID
 		{
 			get
@@ -706,6 +1259,10 @@ namespace SalonComplex.LinqSQL
 			{
 				if ((this._client_LoginID != value))
 				{
+					if (this._UserLogin.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Onclient_LoginIDChanging(value);
 					this.SendPropertyChanging();
 					this._client_LoginID = value;
@@ -875,6 +1432,53 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="client_appointment", Storage="_appointments", ThisKey="client_id", OtherKey="client_id")]
+		public EntitySet<appointment> appointments
+		{
+			get
+			{
+				return this._appointments;
+			}
+			set
+			{
+				this._appointments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserLogin_client", Storage="_UserLogin", ThisKey="client_LoginID", OtherKey="LoginID", IsForeignKey=true)]
+		public UserLogin UserLogin
+		{
+			get
+			{
+				return this._UserLogin.Entity;
+			}
+			set
+			{
+				UserLogin previousValue = this._UserLogin.Entity;
+				if (((previousValue != value) 
+							|| (this._UserLogin.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserLogin.Entity = null;
+						previousValue.clients.Remove(this);
+					}
+					this._UserLogin.Entity = value;
+					if ((value != null))
+					{
+						value.clients.Add(this);
+						this._client_LoginID = value.LoginID;
+					}
+					else
+					{
+						this._client_LoginID = default(int);
+					}
+					this.SendPropertyChanged("UserLogin");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -893,6 +1497,18 @@ namespace SalonComplex.LinqSQL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_appointments(appointment entity)
+		{
+			this.SendPropertyChanging();
+			entity.client = this;
+		}
+		
+		private void detach_appointments(appointment entity)
+		{
+			this.SendPropertyChanging();
+			entity.client = null;
 		}
 	}
 	
@@ -1104,8 +1720,6 @@ namespace SalonComplex.LinqSQL
 		
 		private string _employee_email;
 		
-		private EntitySet<appointment> _appointments;
-		
 		private EntitySet<schedule> _schedules;
 		
 		private EntitySet<skill> _skills;
@@ -1138,7 +1752,6 @@ namespace SalonComplex.LinqSQL
 		
 		public employee()
 		{
-			this._appointments = new EntitySet<appointment>(new Action<appointment>(this.attach_appointments), new Action<appointment>(this.detach_appointments));
 			this._schedules = new EntitySet<schedule>(new Action<schedule>(this.attach_schedules), new Action<schedule>(this.detach_schedules));
 			this._skills = new EntitySet<skill>(new Action<skill>(this.attach_skills), new Action<skill>(this.detach_skills));
 			OnCreated();
@@ -1344,19 +1957,6 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_appointment", Storage="_appointments", ThisKey="employee_id", OtherKey="employee_id")]
-		public EntitySet<appointment> appointments
-		{
-			get
-			{
-				return this._appointments;
-			}
-			set
-			{
-				this._appointments.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_schedule", Storage="_schedules", ThisKey="employee_id", OtherKey="employee_id")]
 		public EntitySet<schedule> schedules
 		{
@@ -1401,18 +2001,6 @@ namespace SalonComplex.LinqSQL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_appointments(appointment entity)
-		{
-			this.SendPropertyChanging();
-			entity.employee = this;
-		}
-		
-		private void detach_appointments(appointment entity)
-		{
-			this.SendPropertyChanging();
-			entity.employee = null;
 		}
 		
 		private void attach_schedules(schedule entity)
@@ -1472,6 +2060,8 @@ namespace SalonComplex.LinqSQL
 		
 		private bool @__5_00_pm;
 		
+		private EntitySet<appointment_emp> _appointment_emps;
+		
 		private EntityRef<employee> _employee;
 		
     #region Extensibility Method Definitions
@@ -1508,6 +2098,7 @@ namespace SalonComplex.LinqSQL
 		
 		public schedule()
 		{
+			this._appointment_emps = new EntitySet<appointment_emp>(new Action<appointment_emp>(this.attach_appointment_emps), new Action<appointment_emp>(this.detach_appointment_emps));
 			this._employee = default(EntityRef<employee>);
 			OnCreated();
 		}
@@ -1776,6 +2367,19 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="schedule_appointment_emp", Storage="_appointment_emps", ThisKey="schedule_id,employee_id", OtherKey="schedule_id,emp_id")]
+		public EntitySet<appointment_emp> appointment_emps
+		{
+			get
+			{
+				return this._appointment_emps;
+			}
+			set
+			{
+				this._appointment_emps.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_schedule", Storage="_employee", ThisKey="employee_id", OtherKey="employee_id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public employee employee
 		{
@@ -1829,6 +2433,18 @@ namespace SalonComplex.LinqSQL
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_appointment_emps(appointment_emp entity)
+		{
+			this.SendPropertyChanging();
+			entity.schedule = this;
+		}
+		
+		private void detach_appointment_emps(appointment_emp entity)
+		{
+			this.SendPropertyChanging();
+			entity.schedule = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.service")]
@@ -1842,6 +2458,10 @@ namespace SalonComplex.LinqSQL
 		private string _service_type;
 		
 		private decimal _price;
+		
+		private EntitySet<appointment_service> _appointment_services;
+		
+		private EntitySet<skill> _skills;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1857,6 +2477,8 @@ namespace SalonComplex.LinqSQL
 		
 		public service()
 		{
+			this._appointment_services = new EntitySet<appointment_service>(new Action<appointment_service>(this.attach_appointment_services), new Action<appointment_service>(this.detach_appointment_services));
+			this._skills = new EntitySet<skill>(new Action<skill>(this.attach_skills), new Action<skill>(this.detach_skills));
 			OnCreated();
 		}
 		
@@ -1920,6 +2542,32 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_appointment_service", Storage="_appointment_services", ThisKey="service_id", OtherKey="service_id")]
+		public EntitySet<appointment_service> appointment_services
+		{
+			get
+			{
+				return this._appointment_services;
+			}
+			set
+			{
+				this._appointment_services.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_skill", Storage="_skills", ThisKey="service_id", OtherKey="service_id")]
+		public EntitySet<skill> skills
+		{
+			get
+			{
+				return this._skills;
+			}
+			set
+			{
+				this._skills.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1939,6 +2587,30 @@ namespace SalonComplex.LinqSQL
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_appointment_services(appointment_service entity)
+		{
+			this.SendPropertyChanging();
+			entity.service = this;
+		}
+		
+		private void detach_appointment_services(appointment_service entity)
+		{
+			this.SendPropertyChanging();
+			entity.service = null;
+		}
+		
+		private void attach_skills(skill entity)
+		{
+			this.SendPropertyChanging();
+			entity.service = this;
+		}
+		
+		private void detach_skills(skill entity)
+		{
+			this.SendPropertyChanging();
+			entity.service = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.skills")]
@@ -1955,6 +2627,8 @@ namespace SalonComplex.LinqSQL
 		
 		private EntityRef<employee> _employee;
 		
+		private EntityRef<service> _service;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1970,6 +2644,7 @@ namespace SalonComplex.LinqSQL
 		public skill()
 		{
 			this._employee = default(EntityRef<employee>);
+			this._service = default(EntityRef<service>);
 			OnCreated();
 		}
 		
@@ -2028,6 +2703,10 @@ namespace SalonComplex.LinqSQL
 			{
 				if ((this._service_id != value))
 				{
+					if (this._service.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Onservice_idChanging(value);
 					this.SendPropertyChanging();
 					this._service_id = value;
@@ -2067,6 +2746,40 @@ namespace SalonComplex.LinqSQL
 						this._employee_id = default(int);
 					}
 					this.SendPropertyChanged("employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_skill", Storage="_service", ThisKey="service_id", OtherKey="service_id", IsForeignKey=true)]
+		public service service
+		{
+			get
+			{
+				return this._service.Entity;
+			}
+			set
+			{
+				service previousValue = this._service.Entity;
+				if (((previousValue != value) 
+							|| (this._service.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._service.Entity = null;
+						previousValue.skills.Remove(this);
+					}
+					this._service.Entity = value;
+					if ((value != null))
+					{
+						value.skills.Add(this);
+						this._service_id = value.service_id;
+					}
+					else
+					{
+						this._service_id = default(int);
+					}
+					this.SendPropertyChanged("service");
 				}
 			}
 		}
@@ -2114,6 +2827,8 @@ namespace SalonComplex.LinqSQL
 		
 		private EntityRef<UserValidate> _UserValidate;
 		
+		private EntitySet<client> _clients;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2137,6 +2852,7 @@ namespace SalonComplex.LinqSQL
 		public UserLogin()
 		{
 			this._UserValidate = default(EntityRef<UserValidate>);
+			this._clients = new EntitySet<client>(new Action<client>(this.attach_clients), new Action<client>(this.detach_clients));
 			OnCreated();
 		}
 		
@@ -2309,154 +3025,16 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserValidate")]
-	public partial class UserValidate : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LoginID;
-		
-		private string _codeValidate;
-		
-		private System.DateTime _dateValidate;
-		
-		private EntityRef<UserLogin> _UserLogin;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLoginIDChanging(int value);
-    partial void OnLoginIDChanged();
-    partial void OncodeValidateChanging(string value);
-    partial void OncodeValidateChanged();
-    partial void OndateValidateChanging(System.DateTime value);
-    partial void OndateValidateChanged();
-    #endregion
-		
-		public UserValidate()
-		{
-			this._UserLogin = default(EntityRef<UserLogin>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoginID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int LoginID
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserLogin_client", Storage="_clients", ThisKey="LoginID", OtherKey="client_LoginID")]
+		public EntitySet<client> clients
 		{
 			get
 			{
-				return this._LoginID;
+				return this._clients;
 			}
 			set
 			{
-				if ((this._LoginID != value))
-				{
-					if (this._UserLogin.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLoginIDChanging(value);
-					this.SendPropertyChanging();
-					this._LoginID = value;
-					this.SendPropertyChanged("LoginID");
-					this.OnLoginIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codeValidate", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string codeValidate
-		{
-			get
-			{
-				return this._codeValidate;
-			}
-			set
-			{
-				if ((this._codeValidate != value))
-				{
-					this.OncodeValidateChanging(value);
-					this.SendPropertyChanging();
-					this._codeValidate = value;
-					this.SendPropertyChanged("codeValidate");
-					this.OncodeValidateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateValidate", DbType="DateTime NOT NULL")]
-		public System.DateTime dateValidate
-		{
-			get
-			{
-				return this._dateValidate;
-			}
-			set
-			{
-				if ((this._dateValidate != value))
-				{
-					this.OndateValidateChanging(value);
-					this.SendPropertyChanging();
-					this._dateValidate = value;
-					this.SendPropertyChanged("dateValidate");
-					this.OndateValidateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserLogin_UserValidate", Storage="_UserLogin", ThisKey="LoginID", OtherKey="LoginID", IsForeignKey=true)]
-		public UserLogin UserLogin
-		{
-			get
-			{
-				return this._UserLogin.Entity;
-			}
-			set
-			{
-				UserLogin previousValue = this._UserLogin.Entity;
-				if (((previousValue != value) 
-							|| (this._UserLogin.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UserLogin.Entity = null;
-						previousValue.UserValidate = null;
-					}
-					this._UserLogin.Entity = value;
-					if ((value != null))
-					{
-						value.UserValidate = this;
-						this._LoginID = value.LoginID;
-					}
-					else
-					{
-						this._LoginID = default(int);
-					}
-					this.SendPropertyChanged("UserLogin");
-				}
+				this._clients.Assign(value);
 			}
 		}
 		
@@ -2478,6 +3056,18 @@ namespace SalonComplex.LinqSQL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_clients(client entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserLogin = this;
+		}
+		
+		private void detach_clients(client entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserLogin = null;
 		}
 	}
 	

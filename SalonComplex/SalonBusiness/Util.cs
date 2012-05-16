@@ -9,11 +9,14 @@ using System.Text;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Configuration;
+using SalonComplex.LinqSQL;
 
 namespace SalonComplex.SalonBusiness
 {
-    static public class Util
+    public static class Util
     {
+
+        #region code relating to password and sql injection
         // from http://forums.asp.net/t/1254125.aspx
         
         //Defines the set of characters that will be checked.
@@ -25,7 +28,9 @@ namespace SalonComplex.SalonBusiness
                                            "select", "sys","sysobjects","syscolumns",
                                            "table","update","=",","};
 
-        
+        private static DataClassesLinqSQLDataContext _context;
+
+
         static public Boolean CheckInput(string parameter)
 
         {
@@ -135,6 +140,8 @@ namespace SalonComplex.SalonBusiness
             return password;
         }
 
+    #endregion
+
 
         /// <summary>
         /// Gets the connection.
@@ -143,6 +150,17 @@ namespace SalonComplex.SalonBusiness
         public static string GetConnection()
         {
             return ConfigurationManager.ConnectionStrings["SalonConnectionString"].ConnectionString;
+        }
+
+        /// <summary>
+        /// Retrieve DbContext
+        /// </summary>
+        /// <returns></returns>
+        public static DataClassesLinqSQLDataContext GetDbContext()
+        {
+            if (_context != null)
+                return _context;
+            return _context = new DataClassesLinqSQLDataContext(Util.GetConnection());
         }
 
 

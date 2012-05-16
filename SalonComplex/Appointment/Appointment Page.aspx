@@ -9,18 +9,6 @@
     <link href="../Styles/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/appointmentstyle.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../Scripts/appointment.js"></script>
-    <script type="text/javascript" src="../Scripts/jquery.ui.js"></script>
-    <script type="text/javascript" src="../Scripts/jquery.multiselect.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-
-            salon.multiselect("#SalonDropDownListTime");
-
-        });
-            
-
-
-</script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">

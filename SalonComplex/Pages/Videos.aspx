@@ -3,10 +3,8 @@
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <link href="../Styles/global.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../Scripts/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="../Scripts/slides.min.jquery.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="../Scripts/main.js"></script>
     <script type="text/javascript" src="../Plugins/flowplayer/flowplayer-3.2.9.min.js"> </script>
     <script type="text/javascript">
         $(function () {

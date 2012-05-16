@@ -101,53 +101,54 @@ namespace SalonComplex.Appointment
             // D - Declined
 
             //create a new appointment object : i.e. remember it is not an actual confirmed appointment, but a booking
-            appointment newApp = new appointment
-                                     {
-                                         app_day = SpaDateCalendar.SelectedDate.GetValueOrDefault(DateTime.Now),
-                                         employee_id = 1036,
-                                         schedule_id = 3000,
-                                         client_id = 1000,
-                                         app_time1 = uTime.ElementAt(0),
-                                         app_time2 = uTime.ElementAt(1),
-                                         app_time3 = uTime.ElementAt(2),
-                                         notes_requests = comment.Text,
-                                         visited_status = "P",
-                                         app_status = "P",
-                                         service_id = 1000 //service id need to be removed from the db
-                                     };
-
-            //appointment record into the database
-            context.appointments.InsertOnSubmit(newApp);
-            context.SubmitChanges();
             /*
-            List<appointment_service> appointmentServices = new List<appointment_service>();
+          appointment newApp = new appointment
+                                   {
+                                       app_day = SpaDateCalendar.SelectedDate.GetValueOrDefault(DateTime.Now),
+                                       employee_id = 1036,
+                                       schedule_id = 3000,
+                                       client_id = 1000,
+                                       app_time1 = uTime.ElementAt(0),
+                                       app_time2 = uTime.ElementAt(1),
+                                       app_time3 = uTime.ElementAt(2),
+                                       notes_requests = comment.Text,
+                                       visited_status = "P",
+                                       app_status = "P",
+                                       service_id = 1000 //service id need to be removed from the db
+                                   };
 
-            foreach (RepeaterItem dataItem in rptServices.Items)
-            {
-                ServicesControl servicesControl = (ServicesControl)dataItem.FindControl("ServiceControl");
+          //appointment record into the database
+          context.appointments.InsertOnSubmit(newApp);
+          context.SubmitChanges();
+          
+          List<appointment_service> appointmentServices = new List<appointment_service>();
 
-                bool chkChecked = ((CheckBox)servicesControl.FindControl("chkService")).Checked;
-                if (chkChecked)
-                {
-                    int sId = 0;
-                    Int32.TryParse(((HiddenField) servicesControl.FindControl("serviceId")).Value, out sId);
-                    appointment_service newAppService = new appointment_service
-                                                            {
-                                                                app_id = newApp.app_id,
-                                                                service_id = sId
-                                                            };
+          foreach (RepeaterItem dataItem in rptServices.Items)
+          {
+              ServicesControl servicesControl = (ServicesControl)dataItem.FindControl("ServiceControl");
 
-                    appointmentServices.Add(newAppService);
-                }
-            }
+              bool chkChecked = ((CheckBox)servicesControl.FindControl("chkService")).Checked;
+              if (chkChecked)
+              {
+                  int sId = 0;
+                  Int32.TryParse(((HiddenField) servicesControl.FindControl("serviceId")).Value, out sId);
+                  appointment_service newAppService = new appointment_service
+                                                          {
+                                                              app_id = newApp.app_id,
+                                                              service_id = sId
+                                                          };
 
-            // insert all appointments services selected into the database
-            context.appointment_services.InsertAllOnSubmit(appointmentServices);
-            context.SubmitChanges();
+                  appointmentServices.Add(newAppService);
+              }
+          }
 
-            LabelSpaAppDate.Text = "A confirmation email will be sent to you as soon as your appointment is finalized. Thank You " +
-            SpaDateCalendar.SelectedDate.ToString();
-            */
+          // insert all appointments services selected into the database
+          context.appointment_services.InsertAllOnSubmit(appointmentServices);
+          context.SubmitChanges();
+
+          LabelSpaAppDate.Text = "A confirmation email will be sent to you as soon as your appointment is finalized. Thank You " +
+          SpaDateCalendar.SelectedDate.ToString();
+          */
         }
 
 
@@ -238,6 +239,7 @@ namespace SalonComplex.Appointment
 
             var dbappointments = context.appointments;
 
+            /*
             foreach (var clientAppointment in dbappointments)
             {
                 var model = new Model.Appointment
@@ -251,7 +253,7 @@ namespace SalonComplex.Appointment
                                 };
                 appointments.Add(model);
             }
-
+            */
             return appointments;
         }
 

@@ -3,7 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../Styles/hotspot.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/appointmentstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/cal.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../Scripts/appointment.js"></script>
+    <script type="text/javascript" src="../Scripts/appointment.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.dateinput.min.js"></script>
+
     <%--		<div id="content_wrapper">
 			<div id="content">
 				<div boomtime="left" id="content_in">
@@ -24,6 +28,19 @@
         }
     </style>
    
+    
+    <script type="text/javascript">
+        
+        $(function () {
+            $('#TextBoxSpaDate').dateinput(
+                {
+                    format: 'm/d/yyyy',
+                    min: -1,
+                    max: 7
+                });
+        })
+
+    </script>
 
    
 </asp:Content>
@@ -402,26 +419,7 @@
                             </p>
                             <p class="appoint_p" align="center">
                                 <asp:TextBox ID="TextBoxSpaDate" runat="server" Height="22px" Width="200px" 
-                                    ontextchanged="Page_Load"></asp:TextBox>
-                                <cc1:TextBoxWatermarkExtender ID="TextBoxSpaDate_TextBoxWatermarkExtender" 
-                                    runat="server" Enabled="True" TargetControlID="TextBoxSpaDate" 
-                                    WatermarkText="Select Date and Press Enter Button">
-                                </cc1:TextBoxWatermarkExtender>
-                                <asp:Image ID="ImageSpaCalendar" runat="server" ImageUrl="~/Images/Calendar_scheduleHS.png"
-                                    Height="25px" ImageAlign="AbsMiddle" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidatorSpaDateRequired" runat="server"
-                                    ControlToValidate="TextBoxSpaDate" Text="*"> </asp:RequiredFieldValidator>
-                                <br />
-                                <asp:ScriptManager ID="ScriptManagerSpa" runat="server" OnDataBinding="Calendar1_SelectionChanged">
-                                </asp:ScriptManager>
-                                <cc1:CalendarExtender ID="SpaDateCalendar" runat="server" TargetControlID="TextBoxSpaDate"
-                                    PopupPosition="BottomLeft" PopupButtonID="ImageSpaCalendar" CssClass="CalendarStyle"
-                                    OnDataBinding="SubmitAppButton_Click" >
-                                </cc1:CalendarExtender>
-                          
-                                <asp:Button ID="EnterSalonDateButton" runat="server" onclick="Page_Load" Text="Enter" 
-                                    ValidationGroup="ClientApp" Width="88px" />
-                             
+                                    ontextchanged="Page_Load" ClientIDMode="Static"></asp:TextBox>
                             </p>
                         
                            

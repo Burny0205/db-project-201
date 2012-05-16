@@ -103,60 +103,6 @@ namespace SalonComplex.Appointment {
         protected global::System.Web.UI.WebControls.TextBox TextBoxSpaDate;
         
         /// <summary>
-        /// TextBoxSpaDate_TextBoxWatermarkExtender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender TextBoxSpaDate_TextBoxWatermarkExtender;
-        
-        /// <summary>
-        /// ImageSpaCalendar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImageSpaCalendar;
-        
-        /// <summary>
-        /// RequiredFieldValidatorSpaDateRequired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorSpaDateRequired;
-        
-        /// <summary>
-        /// ScriptManagerSpa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManagerSpa;
-        
-        /// <summary>
-        /// SpaDateCalendar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender SpaDateCalendar;
-        
-        /// <summary>
-        /// EnterSalonDateButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EnterSalonDateButton;
-        
-        /// <summary>
         /// RangeValidatorSpa control.
         /// </summary>
         /// <remarks>

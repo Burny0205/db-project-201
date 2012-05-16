@@ -38,8 +38,8 @@ namespace SalonComplex.Appointment
 
         protected void SubmitAppButton_Click(object sender, EventArgs e)
         {
-            LabelSpaAppDate.Text = "Your appointment is: " +
-           SpaDateCalendar.SelectedDate.ToString();
+          //  LabelSpaAppDate.Text = "Your appointment is: " +
+            //SpaDateCalendar.SelectedDate.ToString();
         }
 
 
@@ -62,7 +62,7 @@ namespace SalonComplex.Appointment
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            TextBoxSpaDate.Text = SpaDateCalendar.SelectedDate.ToString();
+           // TextBoxSpaDate.Text = SpaDateCalendar.SelectedDate.ToString();
         }
     }
 }
