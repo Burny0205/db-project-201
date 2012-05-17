@@ -2,11 +2,11 @@
     CodeBehind="About.aspx.cs" Inherits="SalonComplex.Contact.About" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <link href="~/Styles/global.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .style6
         {
             width: 100%;
-            border: 2px solid #034AF3;
             height: 1568px;
         }
         .style8
@@ -67,7 +67,7 @@
     <table class="style6">
         <tr>
             <td rowspan="4">
-            <p class = "about_us" > 
+            <p class = "p_content" > 
                 The Edge’s professional teams of stylists are educated, expertly trained hair and nail care specialists who are always ready and willing to share up to the minute intel on the most recent nail care techniques and designs, the most cutting edge techniques in cuts, coloring and weaving as well as the latest insights in natural hair care and chemically treated hair technology.
                 
                 <br />
@@ -92,21 +92,21 @@
                 </p>
                 </td>
                 
-            <td align="center" bgcolor="Black" valign="middle" class="style12">
+            <td align="center" bgcolor="White" valign="middle" class="style12">
                 <asp:Image ID="Image2" runat="server" BorderColor="White" BorderStyle="Groove" 
                     ImageUrl="~/Images/A1.jpg" Width="400px" Height="350px" 
                     ImageAlign="Middle" />
             </td>
         </tr>
         <tr>
-            <td align="center" bgcolor="Black" valign="middle" class="style10">
+            <td align="center" bgcolor="White" valign="middle" class="style10">
                 <asp:Image ID="Image3" runat="server" BorderStyle="Groove" ImageUrl="~/Images/A2.jpg" 
                     Width="400px" Height="350px" BorderColor="White" ImageAlign="Middle" />
             </td>
         </tr>
         
         <tr>
-            <td align="center" valign="middle" class="style10" bgcolor="Black">
+            <td align="center" valign="middle" class="style10" bgcolor="White">
                 <asp:Image ID="Image4" runat="server" BackColor="Black" BorderColor="White" 
                     BorderStyle="Groove" ImageUrl="~/Images/A3.jpg" 
                     Width="400px" Height="350px" ImageAlign="Middle" />

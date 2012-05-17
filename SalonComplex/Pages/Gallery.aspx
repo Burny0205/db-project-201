@@ -20,10 +20,9 @@
         </div>
          <br />
          <p class="p_content">
-            Lorem ipsum dolor sit amet, iuravi potest meum filiam. Mariae Bone de ascendit rationis ad quia ad te in. 
-            Puellae in lucem exempli paupers coniunx minus signo currit itaque completum aliquod vestrum ad te finis puellam. 
-            Rei completo litus sua etiam quantitas non ait est se vero cum suam in deinde vero non ait. Vigilans insaniae gaudens ergo est se vero rex Stranguillio eam 
-            sed haec vidit pater vero diam dominum oculos rex. Quicquid eam eos Communicatio mihi quidditas mihi cum suam in.
+            We invite you to take a look at some of our unique styles and techniques. Special thanks to our customers for being apart of our collection
+            of photos to document an array of contemporary hairstyles and trims. Will you find your special look in this gallery? Let us know and we will
+            suit your preferences in no time. 
         </p>
      </div>
 </asp:Content>

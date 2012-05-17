@@ -94,19 +94,15 @@
         <!-- END Footer -->
     </div>
         <div class="footer" align="center"> <strong>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Copyright &copy; 2012 - The Edge Beauty Salon. All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-&nbsp;
+        Copyright &copy; 2012 - The Edge Beauty Salon. All Rights Reserved. <br />
             <asp:HyperLink ID="HyperLinkhomepage" runat="server" style="text-decoration:none;" ToolTip="Go to homepage" 
             NavigateUrl="~/Default.aspx"> Edge Beauty Salon </asp:HyperLink>  | 
-       <asp:HyperLink ID="HyperLink1" runat="server" style="text-decoration:none;" NavigateUrl="~/Contact/About.aspx">About</asp:HyperLink> | 
-       <asp:HyperLink ID="HyperLink2" runat="server" style="text-decoration:none;">FAQs</asp:HyperLink> | 
-       <asp:HyperLink ID="HyperLinkContactFooter" runat="server" 
-           NavigateUrl="~/Contact/Contact.aspx" style="text-decoration:none;" ToolTip="go to contact webpage information">Contact</asp:HyperLink> | 
-       <asp:HyperLink ID="HyperLink3" style="text-decoration:none;" runat="server">Testimonials</asp:HyperLink>   </strong>
-        
-
-            </div>
+            <asp:HyperLink ID="HyperLink1" runat="server" style="text-decoration:none;" NavigateUrl="~/Contact/About.aspx">About</asp:HyperLink> | 
+            <asp:HyperLink ID="HyperLink2" runat="server" style="text-decoration:none;">FAQs</asp:HyperLink> | 
+            <asp:HyperLink ID="HyperLinkContactFooter" runat="server" 
+            NavigateUrl="~/Contact/Contact.aspx" style="text-decoration:none;" ToolTip="go to contact webpage information">Contact</asp:HyperLink> | 
+            <asp:HyperLink ID="HyperLink3" style="text-decoration:none;" runat="server">Testimonials</asp:HyperLink>   </strong>        
+        </div>
     </form>
 </body>
 </html>
