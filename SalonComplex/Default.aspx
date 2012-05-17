@@ -15,11 +15,6 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div class="main">
-        <br /><br />
-            <p>
-       <asp:HyperLink ID="HyperLinkChangePassWord" runat="server" 
-            NavigateUrl="~/Account/ChangePassword.aspx" Height="10" ForeColor="red">ChangePassword </asp:HyperLink>
-    </p>
     <br />
         <h2>
             Welcome to The Edge Beauty Salon and Spa - our goal is to find the perfect look for you.

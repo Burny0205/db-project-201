@@ -75,9 +75,9 @@
                             <asp:MenuItem Text="Videos" Value="Videos" NavigateUrl="~/Pages/Videos.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="News Letter" Value="News Letter"></asp:MenuItem>
-                        <asp:MenuItem Text="Links" Value="Links"></asp:MenuItem>
                         <asp:MenuItem Text="Instant Gift Certificates" Value="Instant Gift Certificates"></asp:MenuItem>
                         <asp:MenuItem Text="Contact Us" Value="Contact Us" NavigateUrl="~/Contact/Contact.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Change Password" Value="Change Password" NavigateUrl="~/Account/ChangePassword.aspx"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </div>

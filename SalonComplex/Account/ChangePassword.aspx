@@ -4,15 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        Change Password
-    </h2>
-    <p class="login">
-        Use the form below to change your password.
-    </p>
-    <p class="login">
-        New passwords are required to be a minimum of <%= Membership.MinRequiredPasswordLength %> characters in length.
-    </p>
+    <br />
     <asp:ChangePassword ID="ChangeUserPassword" runat="server" 
     CancelDestinationPageUrl="~/" EnableViewState="False" 
          SuccessPageUrl="ChangePasswordSuccess.aspx" 
@@ -25,7 +17,7 @@
                  ValidationGroup="ChangeUserPasswordValidationGroup"/>
             <div class="accountInfo">
                 <fieldset class="changePassword">
-                    <legend>Account Information</legend>
+                    <legend>Change User Password</legend>
                     <p class="login">
                         <asp:Label ID="CurrentPasswordLabel" runat="server" AssociatedControlID="CurrentPassword">Old Password:</asp:Label>
                         <asp:TextBox ID="CurrentPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
@@ -35,7 +27,7 @@
                     </p>
                     <p class="login">
                         <asp:Label ID="NewPasswordLabel" runat="server" AssociatedControlID="NewPassword">New Password:</asp:Label>
-                        <asp:TextBox ID="NewPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="NewPassword" runat="server" CssClass="passwordEntry" TextMode="Password" placeholder="Minimum of 6 characters required"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="NewPasswordRequired" runat="server" ControlToValidate="NewPassword" 
                              CssClass="failureNotification" ErrorMessage="New Password is required." ToolTip="New Password is required." 
                              ValidationGroup="ChangeUserPasswordValidationGroup">*</asp:RequiredFieldValidator>
@@ -47,7 +39,7 @@
                     </p>
                     <p class="login">
                         <asp:Label ID="ConfirmNewPasswordLabel" runat="server" AssociatedControlID="ConfirmNewPassword">Confirm New Password:</asp:Label>
-                        <asp:TextBox ID="ConfirmNewPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="ConfirmNewPassword" runat="server" CssClass="passwordEntry" TextMode="Password" placeholder="Passwords must match"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ConfirmNewPasswordRequired" runat="server" ControlToValidate="ConfirmNewPassword" 
                              CssClass="failureNotification" Display="Dynamic" ErrorMessage="Confirm New Password is required."
                              ToolTip="Confirm New Password is required." ValidationGroup="ChangeUserPasswordValidationGroup">*</asp:RequiredFieldValidator>
@@ -57,9 +49,9 @@
                     </p>
                 </fieldset>
                 <p class="submitButton">
-                    <asp:Button ID="CancelPushButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"/>
                     <asp:Button ID="ChangePasswordPushButton" runat="server" CommandName="ChangePassword" Text="Change Password" 
-                         ValidationGroup="ChangeUserPasswordValidationGroup"/>
+                         Width="154px" Height="30px" ValidationGroup="ChangeUserPasswordValidationGroup" CssClass="btn btn-primary"/>
+                    <asp:Button ID="CancelPushButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn"/>
                 </p>
             </div>
         </ChangePasswordTemplate>

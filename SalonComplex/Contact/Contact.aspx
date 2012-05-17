@@ -85,7 +85,7 @@
                     </p>
                     <p class="OneLineContact">
                         <asp:TextBox ID="TextBoxContactName" align="top" runat="server" Width="310px" Style="text-align: left;
-                            margin-left: 2px" Height="25px" ValidationGroup="AddCommentGroup" CssClass="textEntry"></asp:TextBox>
+                            margin-left: 2px" Height="25px" ValidationGroup="AddCommentGroup" CssClass="textEntry" placeholder="e.g. John Brown"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorContactName" runat="server"
                             ControlToValidate="TextBoxContactName" CssClass="failureNotification" ErrorMessage="Please enter your name"
                             ForeColor="Red" ValidationGroup="AddCommentGroup">*</asp:RequiredFieldValidator>
@@ -100,7 +100,7 @@
                     </p>
                     <p class="OneLineContact">
                         <asp:TextBox ID="TextBoxContactEmail" runat="server" Width="310px" Height="25px"
-                            ToolTip="[correct format] johnbrown@mail.com" CssClass="textEntry"></asp:TextBox>
+                            ToolTip="[correct format] johnbrown@mail.com" CssClass="textEntry" placeholder="e.g. jbrown@gmail.com"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmailPhone" runat="server"
                             ErrorMessage="Email format incorrect" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                             ControlToValidate="TextBoxContactEmail" CssClass="failureNotification" ForeColor="Red"
@@ -116,10 +116,10 @@
                     </p>
                     <p class="OneLineContact">
                         <asp:TextBox ID="TextBoxContactPhone" runat="server" Width="310px" Height="25px"
-                            ToolTip="accept format (123) 456-7890 or  123-456-7890" CssClass="textEntry"></asp:TextBox>
+                            CssClass="textEntry" placeholder="e.g. 123-456-789"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorPhoneContact" runat="server"
                             ControlToValidate="TextBoxContactPhone" CssClass="failureNotification" ErrorMessage="Incorrect phone format"
-                            ToolTip="(123) 456-7890 or  123-456-7890" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"
+                            ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"
                             ValidationGroup="AddCommentGroup">*</asp:RegularExpressionValidator>
                     </p>
                 </td>
@@ -154,10 +154,9 @@
                         CssClass="failureNotification" ErrorMessage="600 characters is the max" ForeColor="Red"
                         MaximumValue="600" ValidationGroup="AddCommentGroup">*</asp:RangeValidator>
                     &nbsp;<p class="OneLineContact">
-                        &nbsp;<asp:Button ID="ContactUsSubmittButton" runat="server" Text="Send Your Comments"
+                        &nbsp;<asp:Button ID="ContactUsSubmitButton" runat="server" Text="Send Your Comments"
                             OnClick="ContactUsSubmittButton_Click" ValidationGroup="AddCommentGroup" CssClass="btn btn-primary" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input id="Reset2" type="reset" value="reset" class="btn" />
+                        <input id="Reset2" type="reset" value="Reset Button" class="btn" />
                     </p>
                 </td>
             </tr>

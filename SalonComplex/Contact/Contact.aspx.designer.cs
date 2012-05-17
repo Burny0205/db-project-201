@@ -184,12 +184,12 @@ namespace SalonComplex.Contact {
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorComments;
         
         /// <summary>
-        /// ContactUsSubmittButton control.
+        /// ContactUsSubmitButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ContactUsSubmittButton;
+        protected global::System.Web.UI.WebControls.Button ContactUsSubmitButton;
     }
 }

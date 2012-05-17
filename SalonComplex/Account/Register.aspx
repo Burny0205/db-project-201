@@ -46,9 +46,7 @@
         <WizardSteps>
         <asp:WizardStep ID="RegisterUserWizardStep0" runat="server" StepType="Start" 
                 Title="Personal Details" ViewStateMode="Enabled">
-
-
-         <h2> Create a New Account </h2>
+           <br />
 
            <p  class="submitButton">
                    Use the form below to create a new account.
@@ -127,18 +125,18 @@
                                     <asp:ListItem Selected="True">------Select Your Parish------</asp:ListItem>
                                     <asp:ListItem>Manchester</asp:ListItem>
                                     <asp:ListItem>Clarendon</asp:ListItem>
-                                    <asp:ListItem >ST Elizabeth</asp:ListItem>
+                                    <asp:ListItem>St Elizabeth</asp:ListItem>
                                     <asp:ListItem>St Andrew</asp:ListItem>
                                     <asp:ListItem>Trelawny</asp:ListItem>
                                     <asp:ListItem>Hanover</asp:ListItem>
                                     <asp:ListItem>Portland</asp:ListItem>
                                     <asp:ListItem>St Thomas</asp:ListItem>
                                     <asp:ListItem>Westmoreland</asp:ListItem>
-                                    <asp:ListItem>ST Catherine</asp:ListItem>
-                                    <asp:ListItem>ST Mary</asp:ListItem>
+                                    <asp:ListItem>St Catherine</asp:ListItem>
+                                    <asp:ListItem>St Mary</asp:ListItem>
                                     <asp:ListItem>St Ann</asp:ListItem>
                                     <asp:ListItem>Kingston</asp:ListItem>
-                                    <asp:ListItem>ST James</asp:ListItem>
+                                    <asp:ListItem>St James</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="ParishNameRequired" runat="server" 
                                     ControlToValidate="Parish" CssClass="failureNotification" 
@@ -257,8 +255,7 @@
                         <p class="submitButton">
                             <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="Create User" 
                                  ValidationGroup="RegisterUserValidationGroup" 
-                                onclick="CreateUserButtonClick" CssClass="btn"/>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                onclick="CreateUserButtonClick" CssClass="btn btn-primary"/>
                             <input id="Reset1" type="reset" value="Reset Form" onclick="return Reset1_onclick()" class="btn" />
                         </p>
 
@@ -284,7 +281,7 @@
             <tr>
                 <td align="right">
                     <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" 
-                        CommandName="Continue" Text="Continue" ValidationGroup="RegisterUser" CssClass="btn"/>
+                        CommandName="Continue" Text="Continue" ValidationGroup="RegisterUser" CssClass="btn btn-primary"/>
                 </td>
             </tr>
         </table>
@@ -293,7 +290,7 @@
         </WizardSteps>
         <StepNavigationTemplate>
             <asp:Button ID="StepPreviousButton" runat="server" CausesValidation="False" 
-                CommandName="MovePrevious" Text="Previous" CssClass="btn"/>
+                CommandName="MovePrevious" Text="Previous" CssClass="btn btn-primary"/>
             <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" 
                 Text="Next" ValidationGroup="RegisterUserValidationGroup" CssClass="btn btn-primary" />
         </StepNavigationTemplate>
