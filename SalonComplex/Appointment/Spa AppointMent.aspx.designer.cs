@@ -10,7 +10,7 @@
 namespace SalonComplex.Appointment {
     
     
-    public partial class Spa_AppointMent {
+    public partial class SpaAppointMent {
         
         /// <summary>
         /// LabelSpaAppDate control.
@@ -29,6 +29,15 @@ namespace SalonComplex.Appointment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect service_cat;
+        
+        /// <summary>
+        /// rptServices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptServices;
         
         /// <summary>
         /// SalonServiceEmpLabel control.

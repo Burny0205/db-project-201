@@ -4,21 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SalonComplex.SalonBusiness;
 
 namespace SalonComplex.Appointment
 {
-    public partial class Spa_AppointMent : System.Web.UI.Page
+    public partial class SpaAppointMent : Page
     {
+        private const int Spa = 3; //default id for spa
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!this.IsPostBack)
             {
-              
+                PopulateSpaRepeater();
             }
         }
 
 
-        protected void SubmitAppButton_Click(object sender, EventArgs e)
+        protected void SubmitAppButtonClick(object sender, EventArgs e)
         {
 
         }
@@ -27,17 +31,15 @@ namespace SalonComplex.Appointment
         /// This will set gridview checkbox to enabled if an appointment was not set
         /// and disabled if there is already an appointment.
         /// </summary>
-        protected Boolean toggleEnabled(String state)
+        protected Boolean ToggleEnabled(String state)
         {
-            if (state.Equals("True") || state.Equals("true"))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return !state.Equals("True") && !state.Equals("true");
+        }
 
+        protected void PopulateSpaRepeater()
+        {
+            rptServices.DataSource = QueryDb.GetServicesFromDb(Spa); ;
+            rptServices.DataBind();
         }
     }
 }

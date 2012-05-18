@@ -1,24 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using SalonComplex.SalonBusiness;
 
 namespace SalonComplex.Appointment
 {
-    public partial class Salon_AppointMent : System.Web.UI.Page
+    public partial class SalonAppointMent : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
-               
-            }  
+                PopulateSpaRepeater();
+            }
 
         }
 
-        protected void SubmitAppButton_Click(object sender, EventArgs e)
+        protected void SubmitAppButtonClick(object sender, EventArgs e)
         {
           //  LabelSpaAppDate.Text = "Your appointment is: " +
             //SpaDateCalendar.SelectedDate.ToString();
@@ -29,22 +26,23 @@ namespace SalonComplex.Appointment
         /// This will set gridview checkbox to enabled if an appointment was not set
         /// and disabled if there is already an appointment.
         /// </summary>
-        protected Boolean toggleEnabled(String state)
+        protected Boolean ToggleEnabled(String state)
         {
-            if (state.Equals("True") || state.Equals("true"))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
+            return !state.Equals("True") && !state.Equals("true");
         }
 
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        protected void PopulateSpaRepeater()
         {
-           // TextBoxSpaDate.Text = SpaDateCalendar.SelectedDate.ToString();
+            int qParam = SalonDropDownList.SelectedIndex; //retrieve service type from the services drop down
+            qParam = Util.RealValue(qParam);
+            rptServices.DataSource = QueryDb.GetServicesFromDb(qParam);
+            rptServices.DataBind();
         }
+
+        protected void LoadServices(object sender, EventArgs e)
+        {
+            PopulateSpaRepeater();
+        }
+
     }
 }

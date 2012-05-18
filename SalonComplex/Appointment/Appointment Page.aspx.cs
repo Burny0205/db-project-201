@@ -79,7 +79,7 @@ namespace SalonComplex.Appointment
 
             time.AddRange(time_stamps.Value.Split(','));
 
-            List<TimeSpan> uTime = Util.GetTimeSpan(time);
+            //List<TimeSpan> uTime = Util.GetTimeSpan(time);
 
             // schedule_id	employee_id
             // 3000	1036 : - default statuses while processing
@@ -174,6 +174,7 @@ namespace SalonComplex.Appointment
         /// </summary>
         protected void GetServicesFromDb()
         {
+
             /*
             int qParam = 0;
             qParam = DropDownListServices.SelectedValue == "Spa Services" ? 2 : 1; //retrieve service type from the services drop down

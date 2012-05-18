@@ -24,7 +24,7 @@ namespace SalonComplex.Controls
                     chkService.InputAttributes.Add("value",_service.service_id + "|" +_service.price);
                     chkService.InputAttributes.Add("onclick", "service_calc()");
                     lblPrice.Text = _service.price.ToString("$###.##");
-                   // lblSName.Text = _service.description;
+                    lblSName.Text = _service.service_type;
                     serviceId.Value = _service.service_id.ToString(CultureInfo.InvariantCulture);
                 }
             

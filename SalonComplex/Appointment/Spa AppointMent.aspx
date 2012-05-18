@@ -1,5 +1,5 @@
-﻿<%@ Page Title="Spa Appointment" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true" CodeBehind="Spa AppointMent.aspx.cs" Inherits="SalonComplex.Appointment.Spa_AppointMent" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+﻿<%@ Page Title="Spa Appointment" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true" CodeBehind="Spa AppointMent.aspx.cs" Inherits="SalonComplex.Appointment.SpaAppointMent" %>
+<%@ Register TagPrefix="sc" TagName="ServiceControls" Src="~/Controls/ServicesControl.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <link href="../Styles/hotspot.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/cal.css" rel="stylesheet" type="text/css" />
@@ -20,6 +20,16 @@
                     min: -1,
                     max: 7
                 });
+
+            $('#GridViewEmpSchedule :checked').live("click", function() {
+                var result = $('#GridViewEmpSchedule :checked').not(':disabled');
+                if(result.length > 3)
+                {
+                    alert('Cannot select more than three times');
+                    $(this).attr('checked',false);
+                }
+            });
+
         })
 
     </script>
@@ -49,284 +59,39 @@
                 <div class="spacer">
                 </div>
                 <div boomtime="right" id="service_menu_edit" class="style13">
-                    <div class="style14">
+                    <div class="style14">   
                         <dt style="width: 255px" class="style14">
                             <select id="service_cat" name="service_cat" runat="server"  size="1" onchange="show_service_cat(this.value);">
                                 <option value="17157">Nail Services</option>
                             </select>
+                         </dt>
                     </div>
                     <div class="spacer">
                     </div>
-                    <div class="style16">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total $ <span id="service_value">0.00</span><br>
-                        </dt>
+                    <br />
+                    <div class="style14">
+                         Total $ <span id="service_value">0.00</span>
                     </div>
-                    <dd id="service">
-                        <div id="service_cat17157">
-                            <div class="service_row">
-                                <p class='hotspot' name='hotspot' id='hotspot'>
-                                    Scissor Services:</p>
-                                <div class='hotspot_content' name='hotspot_content' id='hotspot_content'>
-                                    <p class="appointText">
-                                        Haircut for men, women and children.</p>
-                                </div>
-                                <table class='service_option_grid'>
-                                    <tr class='service_option'>
-                                        <td class='style9'>
-                                            <input type="checkbox" id="service_option110036" name="service_option110036" value="110036"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style25'>
-                                            <label for="service_option110036">
-                                                Mens Haircut & Shave</label>
-                                            <td class='style3'>
-                                                $500.00
-                                            </td>
+                    <br />  
+                    <div id="service">
+                        <div>
+                            <div>
+                                <table class='table table-bordered table-striped'>
+                                    <tr>
+                                        <th></th>
+                                        <th>Service Name</th>
+                                        <th>Price</th>
                                     </tr>
-                                    <tr class='service_option'>
-                                        <td class='style9'>
-                                            <input type="checkbox" id="service_option110060" name="service_option110060" value="110060"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style25'>
-                                            <label for="service_option110060">
-                                                Shave & Outline</label>
-                                            <td class='style3'>
-                                                $300.00
-                                            </td>
-                                    </tr>
-                                    <tr class='service_option'>
-                                        <td class='style9'>
-                                            <input type="checkbox" id="service_option110037" name="service_option110037" value="110037"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style25'>
-                                            <label for="service_option110037">
-                                                Womens Haircut</label>
-                                            <td class='style3'>
-                                                $600.00
-                                            </td>
-                                    </tr>
-                                    <tr class='service_option'>
-                                        <td class='style9'>
-                                            <input type="checkbox" id="service_option110038" name="service_option110038" value="110038"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style25'>
-                                            <label for="service_option110038">
-                                                Childs Haircut (12 & under)</label>
-                                            <td class='style3'>
-                                                $250.00
-                                            </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="service_row">
-                                <p class='hotspot' name='hotspot' id='hotspot'>
-                                    Special Hair Services:</p>
-                                <div class='hotspot_content' name='hotspot_content' id='hotspot_content'>
-                                    <p class="appointText">
-                                        Various styles offered to suite your look. Style for partying with friends, a wedding,
-                                        or a formal event.
-                                    </p>
-                                </div>
-                                <table class='service_option_grid'>
-                                    <tr class='service_option'>
-                                        <td class='style15'>
-                                            <input type="checkbox" id="service_option110051" name="service_option110051" value="110051"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style36'>
-                                            <label for="service_option110051">
-                                                Shampoo and Blowout</label>
-                                            <td class='style31'>
-                                                $1200.00
-                                            </td>
-                                    </tr>
-                                    <tr class='service_option'>
-                                        <td class='style15'>
-                                            <input type="checkbox" id="service_option110052" name="service_option110052" value="110052"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style36'>
-                                            <label for="service_option110052">
-                                                Hightlights & Shampoo</label>
-                                            <td class='style31'>
-                                                $1150.00
-                                            </td>
-                                    </tr>
-                                    <tr class='service_option'>
-                                        <td class='style15'>
-                                            <input type="checkbox" id="service_option110053" name="service_option110053" value="110053"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style36'>
-                                            <label for="service_option110053">
-                                                Relaxed & Blow Dry
-                                            </label>
-
-                                            <td class='style31'>
-                                                $950.00
-                                            </td>
-                                    </tr>
-                                    <tr class='service_option'>
-                                        <td class='style15'>
-                                            <input type="checkbox" id="service_option195816" name="service_option195816" value="195816"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style36'>
-                                            <label for="service_option195816">
-                                                Hights & Blow Dry
-                                            </label>
-                                            <td class='style31'>
-                                                $700.00
-                                            </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="service_row">
-                                <p class='hotspot' name='hotspot' id='hotspot'>
-                                    Color Services:</p>
-                                <div class='hotspot_content' name='hotspot_content' id='hotspot_content'>
-                                    <p class="appointText">
-                                        Quality professional color offered by our stylist, giving you that vibrant look
-                                        and feel for your hair.</p>
-                                </div>
-                                <table class='service_option_grid'>
-                                    <tr class='service_option'>
-                                        <td class='style15'>
-                                            <input type="checkbox" id="service_option110039" name="service_option110039" value="110039"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style35'>
-                                            <label for="service_option110039">
-                                                Solid Color</label>
-                                            <td class='style11'>
-                                                $980.00
-                                            </td>
-                                    </tr>
-                                    <tr class='service_option'>
-                                        <td class='style15'>
-                                            <input type="checkbox" id="service_option110040" name="service_option110040" value="110040"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style35'>
-                                            <label for="service_option110040">
-                                                Color Cut & Style</label>
-                                            <td class='style11'>
-                                                $1350.00
-                                            </td>
-                                    </tr>
-                                    <tr class='service_option'>
-                                        <td class='style15'>
-                                            <input type="checkbox" id="service_option110041" name="service_option110041" value="110041"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style35'>
-                                            <label for="service_option110041">
-                                                Retouch & Color</label>
-                                            <td class='style11'>
-                                                $800.00
-                                            </td>
-                                    </tr>
-                                    <tr class='service_option'>
-                                        <td class='style15'>
-                                            <input type="checkbox" id="service_option110042" name="service_option110042" value="110042"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style35'>
-                                            <label for="service_option110042">
-                                                Color & Blow Dry</label>
-                                            <td class='style11'>
-                                                $625.00
-                                            </td>
-                                    </tr>
+                                    <asp:Repeater ID="rptServices" runat="server">
+                                        <ItemTemplate>
+                                            <sc:ServiceControls ID="ServiceControl" runat="server" Services="<%# Container.DataItem %>" />
+                                        </ItemTemplate>
+                                    </asp:Repeater>                                 
                                 </table>
                             </div>
                         </div>
-                        <div id="service_cat17158">
-                            <div class="service_row">
-                                <p class='hotspot' name='hotspot' id='hotspot'>
-                                    Nail Services</p>
-                                <div class='hotspot_content' name='hotspot_content' id='hotspot_content'>
-                                    <p class="appointText">
-                                        Add the finishing touch on your new look.
-                                    </p>
-                                </div>
-                                <table class='service_option_grid'>
-                                    <tr class='service_option'>
-                                        <td class='style21'>
-                                            <input type="checkbox" id="service_option115962" name="service_option115962" value="115962"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style20' style="text-align: left">
-                                            <label for="service_option115962">
-                                                Polishing</label>
-                                            <td class='style6'>
-                                                $300.00
-                                            </td>
-                                    </tr>
-                                    <tr class='service_option'>
-                                        <td class='style21'>
-                                            <input type="checkbox" id="service_option115964" name="service_option115964" value="115964"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style20'>
-                                            <label for="service_option115964" class="style11" style="text-align: left">
-                                               Buffing
-                                            </label>
-                                            <td class='style6'>
-                                                $500.00
-                                            </td>
-                                    </tr>
-
-                                    <tr class='service_option'>
-                                        <td class='style21'>
-                                            <input type="checkbox"  id = "service_option110061"name="service_option110061" value="110061"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style20'>
-                                            <label for="service_option110060" class="style11" style="text-align: left">
-                                               Manicures
-                                            </label>
-                                            <td class='style6'>
-                                                $600.00
-                                            </td>
-                                    </tr>
-
-                                    <tr class='service_option'>
-                                        <td class='style21'>
-                                            <input type="checkbox"  id = "service_option110062"name="service_option110062" value="110062"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style20' style="text-align: left">
-                                            <label for="service_option110062">
-                                                Pedicures</label>
-                                            <td class='style6'>
-                                                $800.00
-                                            </td>
-                                    </tr>
-
-                                    <tr class='service_option'>
-                                        <td class='style21'>
-                                            <input type="checkbox"  id="service_option110063"name="service_option110063" value="110063"
-                                                onclick="service_calc()">
-                                        </td>
-                                        <td class='style20' style="text-align: left">
-                                            <label for="service_option110063">
-                                                Full Sets</label>
-                                            <td class='style6'>
-                                                $1300.00
-                                            </td>
-                                    </tr>
-
-
-                                </table>
-                            </div>
-                        </div>
-                        &nbsp;
-                    </dd>
-                </div>
+                    </div>
+                    </div>
             </dl>
         </div>
         <div id="appt_time">
@@ -376,16 +141,9 @@
                             </p>
                         </td>
                     </tr>
-                    <td class="style29" align="center">
-                        
-
-
-                        
-                           
-                                                
+                    <td class="style29">
+                          <p class="appoint_p"></p> 
                     </td>
-                    <td class="style29" align="center">
-                          <p class="appoint_p" align="center"></p> </td>
                     </table>
                 <br />
                 <br />
@@ -394,7 +152,7 @@
                         <td rowspan="4">
                             <asp:GridView ID="GridViewEmpSchedule" runat="server" AllowPaging="True" AllowSorting="True"
                                 AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSourceEmp" ForeColor="#333333"
-                                GridLines="None" CellSpacing="2" Style="margin-bottom: 0px" Width="737px" Height="200px">
+                                GridLines="None" CellSpacing="2" Style="margin-bottom: 0px" Width="737px" Height="200px" ClientIDMode="Static">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                 <Columns>
                                     <asp:CommandField ButtonType="Button" HeaderText="Select Employee" 
@@ -409,7 +167,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox10" runat="server" Checked='<%# Bind("[8:00 am]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[8:00 am]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[8:00 am]").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="9:00 am" SortExpression="9:00 am">
@@ -419,7 +177,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox9" runat="server" Checked='<%# Bind("[9:00 am]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[9:00 am]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[9:00 am]").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="10:00 am" SortExpression="10:00 am">
@@ -429,7 +187,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox8" runat="server" Checked='<%# Bind("[10:00 am]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[10:00 am]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[10:00 am]").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="11:00 am" SortExpression="11:00 am">
@@ -439,7 +197,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox7" runat="server" Checked='<%# Bind("[11:00 am]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[11:00 am]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[11:00 am]").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="12:00 pm" SortExpression="12:00 pm">
@@ -449,7 +207,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Bind("[12:00 pm]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[12:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[12:00 pm]").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="1:00 pm" SortExpression="1:00 pm">
@@ -459,7 +217,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox5" runat="server" Checked='<%# Bind("[1:00 pm]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[1:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[1:00 pm]").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="2:00 pm" SortExpression="2:00 pm">
@@ -469,7 +227,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox4" runat="server" Checked='<%# Bind("[2:00 pm]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[2:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[2:00 pm]").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="3:00 pm" SortExpression="3:00 pm">
@@ -479,7 +237,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox3" runat="server" Checked='<%# Bind("[3:00 pm]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[3:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[3:00 pm]").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="4:00 pm" SortExpression="4:00 pm">
@@ -489,7 +247,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Bind("[4:00 pm]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[4:00 pm]").ToString()) %>'  />
+                                                Enabled='<%# ToggleEnabled(Eval("[4:00 pm]").ToString()) %>'  />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="5:00 pm" SortExpression="5:00 pm">
@@ -499,7 +257,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("[5:00 pm]") %>' 
-                                                Enabled='<%# toggleEnabled(Eval("[5:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[5:00 pm]").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -581,7 +339,7 @@
                 <dd style="width: 380px; margin-left: 10px;">
                     <div id="SelectEmployee">
                         <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submit Appointment"
-                            Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButton_Click" CssClass="btn btn-primary" />
+                            Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButtonClick" CssClass="btn btn-primary" />
                         <input id="Reset1" type="reset" value="Reset Button" class="btn" />
                         <br />
                     </div>
@@ -589,13 +347,7 @@
     </fieldset>
     </form>
     <script type="text/javascript">
-        hotspot_load();
-        //show_client_type();
-        show_service_cat(document.getElementById('service_cat').value);
         service_calc();
-        show_time(1, "", "");
-        show_time(2, "", "");
-        show_time(3, "", "");
     </script>
     <span id="content_in_end"></span>
     <div class="cleaner">

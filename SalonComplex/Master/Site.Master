@@ -10,7 +10,6 @@
     <script type="text/javascript" src="../Scripts/main.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -21,88 +20,99 @@
         <div class="header">
             <!-- Branding Section -->
             <div class="title">
-                <asp:Image ID="Image1" runat="server" BackColor="White" BorderColor="#99CCFF" 
-                    ImageAlign="Middle" ImageUrl="~/Images/tester.png" 
-                    class="logo" />
+                <asp:Image ID="Image1" runat="server" BackColor="White" BorderColor="#99CCFF" ImageAlign="Middle"
+                    ImageUrl="~/Images/tester.png" class="logo" />
                 <!--<h1 class="logoTitle">The Edge Beauty Salon</h1>-->
             </div>
             <!-- Login Area -->
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In </a> ] 
-                        </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </div>
             <!-- Main Menu -->
-            <div class="mainMenu">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
-                    EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" 
-                    BackColor="#3333FF">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem Text="About Us" Value="About Us" NavigateUrl="../Contact/About.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Salon" Value="Scheduler" Selectable="False">
-                            <asp:MenuItem Text="Salon Services" Value="Salon Services" Selectable="False">
-                                <asp:MenuItem NavigateUrl="~/Services/Female Services.aspx" 
-                                    Text="Hair Salon Services" Value="Hair Salon Services"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/Services/Male Services.aspx" 
-                                    Text="Barbershop Services" Value="Barbershop Services"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Hair Products" Value="Hair Products"></asp:MenuItem>
-                            <asp:MenuItem Text="Salon Staff Bios" Value="Salon Staff Bios" 
-                                NavigateUrl="~/Salon/Salon Staff.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Salon Appointment" Value="Appointments" 
-                                NavigateUrl="~/Appointment/Salon AppointMent.aspx"></asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Spa" Value="Employee Profile" Selectable="False">
-                            <asp:MenuItem Text="Spa Service" Value="stats" Selectable="False">
-                                <asp:MenuItem NavigateUrl="~/Services/Nail Services.aspx" Text="Nail Services" 
-                                    Value="Nail Services"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Skin and Nail Products" Value="yu"></asp:MenuItem>
-                            <asp:MenuItem Text="Spa Staff Bios" Value="Spa Staff Bios" 
-                                NavigateUrl="~/Salon/Spa Staff.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Spa Appointment" Value="Appointments" 
-                                NavigateUrl="~/Appointment/Spa AppointMent.aspx"></asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Gallery" Selectable="False">
-                            <asp:MenuItem Text="Photos" Value="Photos" NavigateUrl="~/Pages/Gallery.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Videos" Value="Videos" NavigateUrl="~/Pages/Videos.aspx"></asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="News Letter" Value="News Letter"></asp:MenuItem>
-                        <asp:MenuItem Text="Instant Gift Certificates" Value="Instant Gift Certificates"></asp:MenuItem>
-                        <asp:MenuItem Text="Contact Us" Value="Contact Us" NavigateUrl="~/Contact/Contact.aspx"></asp:MenuItem>
-                        <asp:MenuItem Text="Change Password" Value="Change Password" NavigateUrl="~/Account/ChangePassword.aspx"></asp:MenuItem>
-                    </Items>
-                </asp:Menu>
+            <!-- Navbar
+                    ================================================== -->
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                            class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                        </a><a class="brand" href="./Default.aspx">Edge Beauty Salon</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li class=""><a href="../Default.aspx">Home</a></li>
+                                <li class=""><a href="../Contact/About.aspx">About Us</a></li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Salon<b
+                                    class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../Services/Female Services.aspx">Hair Salon Services</a></li>
+                                        <li><a href="../Services/Male Services.aspx">Barbershop Services</a></li>
+                                        <li><a href="../Salon/Salon Staff.aspx">Salon Staff Bios</a></li>
+                                        <li><a href="../Appointment/Salon AppointMent.aspx">Salon Appointment</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Spa<b
+                                    class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../Services/Nail Services.aspx">Nail Services</a></li>
+                                        <li><a href="../Salon/Spa Staff.aspx">Spa Staff Bios</a></li>
+                                        <li><a href="../Appointment/Spa AppointMent.aspx">Spa Appointment</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery<b
+                                    class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../Pages/Gallery.aspx">Photos</a></li>
+                                        <li><a href="../Pages/Videos.aspx">Videos</a></li>
+                                    </ul>
+                                </li>
+                                <li class=""><a href="../Pages/Calendar.aspx">Calendar</a></li>
+                                <li class="divider-vertical"></li>
+                                <li class=""><a href="../Contact/Contact.aspx">Contact Us</a></li>
+                                <li class="divider-vertical"></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group pull-right">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" runat="server" ID="Username"></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Change Password</a></li>
+                                <li class="divider"></li>
+                                <li class="">
+                                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                                        <AnonymousTemplate>
+                                            <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In </a>
+                                        </AnonymousTemplate>
+                                        <LoggedInTemplate>
+                                            <asp:LoginStatus ID="HeadLoginStatus" runat="server" Logout="Logout" LogoutAction="Redirect" LogoutPageUrl="~/" />
+                                        </LoggedInTemplate>
+                                    </asp:LoginView>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- END Header -->
-
         <!-- START Main content -->
-        <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-       
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         <!-- END main content -->
-
         <!-- START Footer -->
         <div class="clear"></div>
         <!-- END Footer -->
     </div>
-        <div class="footer" align="center"> <strong>
-        Copyright &copy; 2012 - The Edge Beauty Salon. All Rights Reserved. <br />
-            <asp:HyperLink ID="HyperLinkhomepage" runat="server" style="text-decoration:none;" ToolTip="Go to homepage" 
-            NavigateUrl="~/Default.aspx"> Edge Beauty Salon </asp:HyperLink>  | 
-            <asp:HyperLink ID="HyperLink1" runat="server" style="text-decoration:none;" NavigateUrl="~/Contact/About.aspx">About</asp:HyperLink> | 
-            <asp:HyperLink ID="HyperLink2" runat="server" style="text-decoration:none;">FAQs</asp:HyperLink> | 
-            <asp:HyperLink ID="HyperLinkContactFooter" runat="server" 
-            NavigateUrl="~/Contact/Contact.aspx" style="text-decoration:none;" ToolTip="go to contact webpage information">Contact</asp:HyperLink> | 
-            <asp:HyperLink ID="HyperLink3" style="text-decoration:none;" runat="server">Testimonials</asp:HyperLink>   </strong>        
-        </div>
+    <div class="footer" align="center">
+        <strong>Copyright &copy; 2012 - The Edge Beauty Salon. All Rights Reserved.
+            <br />
+            <asp:HyperLink ID="HyperLinkhomepage" runat="server" Style="text-decoration: none;"
+                ToolTip="Go to homepage" NavigateUrl="~/Default.aspx"> Edge Beauty Salon </asp:HyperLink>
+            |
+            <asp:HyperLink ID="HyperLink1" runat="server" Style="text-decoration: none;" NavigateUrl="~/Contact/About.aspx">About</asp:HyperLink>
+            |
+            <asp:HyperLink ID="HyperLink2" runat="server" Style="text-decoration: none;">FAQs</asp:HyperLink>
+            |
+            <asp:HyperLink ID="HyperLinkContactFooter" runat="server" NavigateUrl="~/Contact/Contact.aspx"
+                Style="text-decoration: none;" ToolTip="go to contact webpage information">Contact</asp:HyperLink>
+            |
+            <asp:HyperLink ID="HyperLink3" Style="text-decoration: none;" runat="server">Testimonials</asp:HyperLink>
+        </strong>
+    </div>
     </form>
 </body>
 </html>

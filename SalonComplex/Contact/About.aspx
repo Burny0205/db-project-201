@@ -43,15 +43,6 @@
         style="font-family: Garamond; font-size: x-large; font-weight: bolder; font-style: italic; text-transform: uppercase; color: #000000">
         The Edge 
     </h2>--%>
-    <table class="style8">
-        <tr>
-            <td align="center" class="style16" 
-                style="font-size: x-large; font-family: Garamond; font-weight: bolder; font-style: italic; color: #000000; text-transform: uppercase;">
-                <asp:Image ID="Image5" runat="server" Height="60px" ImageUrl="~/Images/Logo1.jpg" 
-                    Width="300px" />
-            </td>
-        </tr>
-    </table>
    <%-- <h2 align="center" 
         style="font-family: Garamond; font-size: large; font-weight: bolder; font-style: normal; text-transform: uppercase; color: #000000">
         Beauty Salon and Spa

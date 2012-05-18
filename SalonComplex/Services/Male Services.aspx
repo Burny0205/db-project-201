@@ -1,108 +1,5 @@
 ﻿<%@ Page Title="Barber Shop Services" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true" CodeBehind="Male Services.aspx.cs" Inherits="SalonComplex.Male_Services" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-    <style type="text/css">
-        .style2
-        {
-            width: 101%;
-        color: #000000;
-        font-family: Garamond;
-    }
-    .style3
-    {
-            width: 124px;
-            text-align: justify;
-        }
-    .style5
-    {
-            width: 133px;
-        }
-    .style7
-    {
-        font-size: medium;
-        font-family: Garamond;
-        color: #000000;
-        text-align: justify;
-            height: 109px;
-        }
-    .style8
-    {
-        width: 173px;
-        font-weight: bold;
-        font-size: large;
-        color: #0000CC;
-    }
-    .style9
-    {
-        width: 133px;
-        font-weight: bold;
-        font-size: large;
-        color: #000000;
-    }
-    .style11
-    {
-        width: 124px;
-        font-weight: bold;
-        font-size: large;
-        color: #000000;
-    }
-    .style16
-    {
-            width: 124px;
-            font-size: medium;
-            text-align: justify;
-        }
-    .style17
-    {
-        font-size: x-large;
-        font-family: Garamond;
-        color: #000000;
-    }
-        .style18
-        {
-            width: 124px;
-            font-size: medium;
-            height: 23px;
-            text-align: justify;
-        }
-        .style20
-        {
-            width: 133px;
-            height: 23px;
-            font-size: medium;
-        }
-        .style22
-        {
-            width: 133px;
-            font-size: medium;
-        }
-        .style23
-        {
-            width: 153px;
-            font-size: large;
-            color: #000000;
-        }
-        .style24
-        {
-            width: 153px;
-        }
-        .style25
-        {
-            width: 153px;
-            font-size: medium;
-        }
-        .style26
-        {
-            width: 153px;
-            font-size: medium;
-            height: 23px;
-        }
-        .style27
-        {
-            width: 153px;
-            font-family: Garamond;
-            font-size: large;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <br />
@@ -119,8 +16,7 @@
         <br />
     <fieldset style="width: 800px; height:auto" dir="ltr">
     <legend><span class="style17">Male Hair Services</span> </legend>
-        <table class="style2" align="center" 
-            style="background-image: none">
+        <table class="table table-bordered table-striped">
             <tr class="style7">
                 <td class="style11" style="text-transform: uppercase">
                     Types</td>
@@ -130,15 +26,6 @@
                 <td class="style23" style="text-transform: uppercase; font-weight: 700;" 
                     align="center">
                     Children 10 &amp; Under&nbsp; Prices</td>
-                <td class="style8" style="text-transform: uppercase" align="center" 
-                    rowspan="8">
-          
-                     
-                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx" 
-                        ImageUrl="~/Images/servicelogo.png" ImageHeight="250px" ImageWidth="200px" 
-                        ImageAlign="AbsMiddle" ToolTip="Go To Home Page" >Home</asp:HyperLink>
-                          
-                </td>
             </tr>
             <tr>
                 <td class="style3">

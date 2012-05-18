@@ -57,6 +57,9 @@ namespace SalonComplex.LinqSQL
     partial void Insertservice(service instance);
     partial void Updateservice(service instance);
     partial void Deleteservice(service instance);
+    partial void Insertservice_name(service_name instance);
+    partial void Updateservice_name(service_name instance);
+    partial void Deleteservice_name(service_name instance);
     partial void Insertskill(skill instance);
     partial void Updateskill(skill instance);
     partial void Deleteskill(skill instance);
@@ -164,6 +167,14 @@ namespace SalonComplex.LinqSQL
 			get
 			{
 				return this.GetTable<service>();
+			}
+		}
+		
+		public System.Data.Linq.Table<service_name> service_names
+		{
+			get
+			{
+				return this.GetTable<service_name>();
 			}
 		}
 		
@@ -2435,9 +2446,13 @@ namespace SalonComplex.LinqSQL
 		
 		private decimal _price;
 		
+		private System.Nullable<int> _service_name_id;
+		
 		private EntitySet<appointment_service> _appointment_services;
 		
 		private EntitySet<skill> _skills;
+		
+		private EntityRef<service_name> _service_name;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2449,12 +2464,15 @@ namespace SalonComplex.LinqSQL
     partial void Onservice_typeChanged();
     partial void OnpriceChanging(decimal value);
     partial void OnpriceChanged();
+    partial void Onservice_name_idChanging(System.Nullable<int> value);
+    partial void Onservice_name_idChanged();
     #endregion
 		
 		public service()
 		{
 			this._appointment_services = new EntitySet<appointment_service>(new Action<appointment_service>(this.attach_appointment_services), new Action<appointment_service>(this.detach_appointment_services));
 			this._skills = new EntitySet<skill>(new Action<skill>(this.attach_skills), new Action<skill>(this.detach_skills));
+			this._service_name = default(EntityRef<service_name>);
 			OnCreated();
 		}
 		
@@ -2518,6 +2536,30 @@ namespace SalonComplex.LinqSQL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_service_name_id", DbType="Int")]
+		public System.Nullable<int> service_name_id
+		{
+			get
+			{
+				return this._service_name_id;
+			}
+			set
+			{
+				if ((this._service_name_id != value))
+				{
+					if (this._service_name.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onservice_name_idChanging(value);
+					this.SendPropertyChanging();
+					this._service_name_id = value;
+					this.SendPropertyChanged("service_name_id");
+					this.Onservice_name_idChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_appointment_service", Storage="_appointment_services", ThisKey="service_id", OtherKey="service_id")]
 		public EntitySet<appointment_service> appointment_services
 		{
@@ -2541,6 +2583,40 @@ namespace SalonComplex.LinqSQL
 			set
 			{
 				this._skills.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_name_service", Storage="_service_name", ThisKey="service_name_id", OtherKey="service_name_id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public service_name service_name
+		{
+			get
+			{
+				return this._service_name.Entity;
+			}
+			set
+			{
+				service_name previousValue = this._service_name.Entity;
+				if (((previousValue != value) 
+							|| (this._service_name.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._service_name.Entity = null;
+						previousValue.services.Remove(this);
+					}
+					this._service_name.Entity = value;
+					if ((value != null))
+					{
+						value.services.Add(this);
+						this._service_name_id = value.service_name_id;
+					}
+					else
+					{
+						this._service_name_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("service_name");
+				}
 			}
 		}
 		
@@ -2586,6 +2662,120 @@ namespace SalonComplex.LinqSQL
 		{
 			this.SendPropertyChanging();
 			entity.service = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.service_name")]
+	public partial class service_name : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _service_name_id;
+		
+		private string _service_name1;
+		
+		private EntitySet<service> _services;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onservice_name_idChanging(int value);
+    partial void Onservice_name_idChanged();
+    partial void Onservice_name1Changing(string value);
+    partial void Onservice_name1Changed();
+    #endregion
+		
+		public service_name()
+		{
+			this._services = new EntitySet<service>(new Action<service>(this.attach_services), new Action<service>(this.detach_services));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_service_name_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int service_name_id
+		{
+			get
+			{
+				return this._service_name_id;
+			}
+			set
+			{
+				if ((this._service_name_id != value))
+				{
+					this.Onservice_name_idChanging(value);
+					this.SendPropertyChanging();
+					this._service_name_id = value;
+					this.SendPropertyChanged("service_name_id");
+					this.Onservice_name_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="service_name", Storage="_service_name1", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string service_name1
+		{
+			get
+			{
+				return this._service_name1;
+			}
+			set
+			{
+				if ((this._service_name1 != value))
+				{
+					this.Onservice_name1Changing(value);
+					this.SendPropertyChanging();
+					this._service_name1 = value;
+					this.SendPropertyChanged("service_name1");
+					this.Onservice_name1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="service_name_service", Storage="_services", ThisKey="service_name_id", OtherKey="service_name_id")]
+		public EntitySet<service> services
+		{
+			get
+			{
+				return this._services;
+			}
+			set
+			{
+				this._services.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_services(service entity)
+		{
+			this.SendPropertyChanging();
+			entity.service_name = this;
+		}
+		
+		private void detach_services(service entity)
+		{
+			this.SendPropertyChanging();
+			entity.service_name = null;
 		}
 	}
 	

@@ -88,6 +88,7 @@
     <Content Include="Images\A3.jpg" />
     <Content Include="Images\bk2.jpg" />
     <Content Include="Images\blowdryer.jpg" />
+    <Content Include="Images\Calendar_scheduleHS.jpg" />
     <Content Include="Images\Calendar_scheduleHS.png" />
     <Content Include="Images\calicon_abs.gif" />
     <Content Include="Images\calnext.gif" />
@@ -112,6 +113,8 @@
     <Content Include="Images\employees\spa\N4.jpg" />
     <Content Include="Images\employees\spa\N5.jpg" />
     <Content Include="Images\employees\spa\N6.jpg" />
+    <Content Include="Images\glyphs\glyphicons-halflings-white.png" />
+    <Content Include="Images\glyphs\glyphicons-halflings.png" />
     <Content Include="Images\SalonCalendar_scheduleHS.png" />
     <Content Include="Images\Femservicelogo.png" />
     <Content Include="Images\img.gif" />
@@ -433,6 +436,7 @@
     <Compile Include="Pages\Calendar.aspx.designer.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SalonBusiness\QueryDb.cs" />
     <Compile Include="SalonBusiness\Util.cs" />
     <Compile Include="Salon\Salon Staff.aspx.cs">
       <DependentUpon>Salon Staff.aspx</DependentUpon>

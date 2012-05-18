@@ -107,8 +107,17 @@
       <Column Name="service_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="service_type" Type="System.String" DbType="VarChar(1200) NOT NULL" CanBeNull="false" />
       <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="service_name_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="service_appointment_service" Member="appointment_services" ThisKey="service_id" OtherKey="service_id" Type="appointment_service" />
       <Association Name="service_skill" Member="skills" ThisKey="service_id" OtherKey="service_id" Type="skill" />
+      <Association Name="service_name_service" Member="service_name" ThisKey="service_name_id" OtherKey="service_name_id" Type="service_name" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.service_name" Member="service_names">
+    <Type Name="service_name">
+      <Column Name="service_name_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="service_name" Member="service_name1" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="service_name_service" Member="services" ThisKey="service_name_id" OtherKey="service_name_id" Type="service" />
     </Type>
   </Table>
   <Table Name="dbo.skills" Member="skills">
