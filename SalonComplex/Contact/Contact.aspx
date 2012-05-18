@@ -15,6 +15,7 @@
             <asp:Label ID="ContactLabelStatus" runat="server" Style="font-size: medium; color: #333333"
                 ForeColor="Blue"></asp:Label>
         </span>
+        <br /> <br /><br /> <br />
         <table>
             <tr>
                 <td>
@@ -35,7 +36,7 @@
                     <p >
                         <strong>The Edge Beauty Salon </strong>
                         <br />
-                        Shop 21 Manchester Shopping center
+                        Shop 21 Manchester Shopping Center
                         <br />
                         47 Union Street
                         <br />

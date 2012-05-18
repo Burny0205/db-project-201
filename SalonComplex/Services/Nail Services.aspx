@@ -68,7 +68,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <h2>
    </h2>
-   <br />
+   <br /> <br /> <br /> <br /> <br /> 
    <p class = "spa_nail_service">
        At The Edge our goal is to find the look that is perfect for you. With so many 
        changing trends in the industry, The Edge is committed to on-going education to 
@@ -165,20 +165,6 @@
         </tr>
         </table>
      </fieldset><br />
-    <table class="style13">
-        <tr>
-            <td align="center" class="style20">
-                <asp:HyperLink ID="HyperLinkNailService" runat="server" ImageHeight = "150px" 
-                ImageWidth  = "850px" ImageUrl="~/Images/Femservicelogo.png" ImageAlign = "AbsMiddle"
-                NavigateUrl="~/Default.aspx" ToolTip="Go To Home Page">Home</asp:HyperLink>
-             
-            </td>
-        </tr>
-        <tr>
-            <td align="center" class="style14">
-                &nbsp;</td>
-        </tr>
-    </table>
  <br />
 </asp:Content>
 

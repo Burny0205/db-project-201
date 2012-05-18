@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <br />
     <h1>
-    Male Salon Hair Services
+    Barbershop Services
    </h1>
  <p class = "maleservice">
     At The Edge our goal is to find the look that is perfect for you. 

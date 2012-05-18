@@ -26,38 +26,10 @@
     </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <%--<h2 align="center" 
-        style="font-family: Garamond; font-size: x-large; font-weight: bolder; font-style: normal; text-transform: uppercase; color: #000000">
-        Welcome to 
-    </h2>--%>
-     <table class="style8">
-        <tr>
-            <td align="center" class="style16" 
-                style="font-size: x-large; font-family: Garamond; font-weight: bolder; font-style: normal; color: #000000; text-transform: uppercase;">
-        Welcome to 
-            </td>
-        </tr>
-    </table>
-   <%-- <h2  align="center" 
-        
-        style="font-family: Garamond; font-size: x-large; font-weight: bolder; font-style: italic; text-transform: uppercase; color: #000000">
-        The Edge 
-    </h2>--%>
-   <%-- <h2 align="center" 
-        style="font-family: Garamond; font-size: large; font-weight: bolder; font-style: normal; text-transform: uppercase; color: #000000">
-        Beauty Salon and Spa
-    </h2>--%>
-     <table class="style8">
-        <tr>
-            <td align="center" class="style16" 
-                style="font-size: medium; font-family: Garamond; font-weight: bolder; font-style: normal; color: #000000; text-transform: uppercase;">
-          Beauty Salon and Spa
-            </td>
-        </tr>
-    </table>
     <table class="style6">
         <tr>
             <td rowspan="4">
+            <h2>About Edge Beauty Salon and Spa</h2>
             <p class = "p_content" > 
                 The Edge’s professional teams of stylists are educated, expertly trained hair and nail care specialists who are always ready and willing to share up to the minute intel on the most recent nail care techniques and designs, the most cutting edge techniques in cuts, coloring and weaving as well as the latest insights in natural hair care and chemically treated hair technology.
                 
@@ -69,7 +41,7 @@
         As reflected in him and her more than 10 years of experience in the beauty industry, Justin and Joan embody the entrepreneurial spirit. For most of their lives it seems they have been designing. Justin got his start as a barber and hair stylist working for one of Jamaica’s well know barber shop, “Kris Kut”, while Joan got her start at Maureen’s hair salon in Princeville Plaza. As a couple they decided to merge their skill to form The Edge hair and salon offering a variety of services to the Jamaican public.
                 <br />
                 <br />
-        Justin and Joan opened their first salon in 2000 and a few years later launched The Edge in the spring of 2001. Their vision for this new salon was to create a welcoming and intimate space where they would make their client’s look and feel beautiful. Since that time, Justin and Joan has built The Edge into one of the most prestigious and highly respected salons in Jamaica, catering to their list of clients in entertainment, fashion and design, as well as from the news rooms and the wider society.
+        Megan and Patrick opened their first salon in 2000 and a few years later launched The Edge in the spring of 2001. Their vision for this new salon was to create a welcoming and intimate space where they would make their client’s look and feel beautiful. Since that time, Justin and Joan has built The Edge into one of the most prestigious and highly respected salons in Jamaica, catering to their list of clients in entertainment, fashion and design, as well as from the news rooms and the wider society.
                 <br />
                 <br />
         With their trademark cutting, styling and nail techniques they will make you look fabulous. They developed a proprietary hair coloring process that prevents hair damage and dryness and created colors that look vibrant and natural. They are individual authorities in the hair industry, leading trends in haircuts for men and women, along with new extension techniques for women. Today clients come from all over the island for a chance to sit in their chair.

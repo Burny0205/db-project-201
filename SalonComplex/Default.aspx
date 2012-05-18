@@ -15,7 +15,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div class="main">
-    <br />
+    <br /> <br /> <br /><br /> <br /> 
         <h2>
             Welcome to The Edge Beauty Salon and Spa - our goal is to find the perfect look for you.
         </h2>
