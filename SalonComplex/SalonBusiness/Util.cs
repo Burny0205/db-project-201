@@ -16,6 +16,7 @@ namespace SalonComplex.SalonBusiness
     public static class Util
     {
         private static DataClassesLinqSQLDataContext _context;
+        private static string _connection;
 
         #region code relating to password and sql injection
 
@@ -23,7 +24,7 @@ namespace SalonComplex.SalonBusiness
 
         //Defines the set of characters that will be checked.
         //You can add to this list, or remove items from this list, as appropriate for your site
-        public static string[] blackList = {
+        public static string[] BlackList = {
                                                "--", ";--", ";", "/*", "*/", "@@", "@",
                                                "char", "nchar", "varchar", "nvarchar",
                                                "alter", "begin", "cast", "create", "cursor", "declare", "delete", "drop"
@@ -35,11 +36,9 @@ namespace SalonComplex.SalonBusiness
 
 
         public static Boolean CheckInput(string parameter)
-
         {
-            Boolean result = false;
             CompareInfo comparer = CultureInfo.InvariantCulture.CompareInfo;
-            return blackList.Any(t => comparer.IndexOf(parameter, t, CompareOptions.IgnoreCase) >= 0);
+            return BlackList.Any(t => comparer.IndexOf(parameter, t, CompareOptions.IgnoreCase) >= 0);
         }
 
 
@@ -63,8 +62,8 @@ namespace SalonComplex.SalonBusiness
 
 
             //setup the base of the url
-            string urlBase = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)
-                             + System.Web.HttpContext.Current.Request.ApplicationPath;
+            string urlBase = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)
+                             + HttpContext.Current.Request.ApplicationPath;
 
             // link format
             string verifyUrl = "VerifyNewUser/VerifyNewUser.aspx?ID=" + strNewUserNameID + "&CodeUser=" +
@@ -74,11 +73,11 @@ namespace SalonComplex.SalonBusiness
 
             MailMessage mail = new MailMessage();
             mail.To.Add(strEmailUser);
-            mail.From = new MailAddress(strUsernameEmail, strFromYourName, System.Text.Encoding.UTF8);
+            mail.From = new MailAddress(strUsernameEmail, strFromYourName, Encoding.UTF8);
             mail.Subject = strSubject;
-            mail.SubjectEncoding = System.Text.Encoding.UTF8;
+            mail.SubjectEncoding = Encoding.UTF8;
 
-            mail.BodyEncoding = System.Text.Encoding.UTF8;
+            mail.BodyEncoding = Encoding.UTF8;
             mail.IsBodyHtml = true; // set text email in html
             mail.Priority = MailPriority.High;
 
@@ -141,7 +140,9 @@ namespace SalonComplex.SalonBusiness
         /// <returns></returns>
         public static string GetConnection()
         {
-            return ConfigurationManager.ConnectionStrings["SalonConnectionString"].ConnectionString;
+            if (_connection != null)
+                return _connection;
+            return _connection = ConfigurationManager.ConnectionStrings["SalonConnectionString"].ConnectionString;
         }
 
         /// <summary>
@@ -152,7 +153,7 @@ namespace SalonComplex.SalonBusiness
         {
             if (_context != null)
                 return _context;
-            return _context = new DataClassesLinqSQLDataContext(Util.GetConnection());
+            return _context = new DataClassesLinqSQLDataContext(GetConnection());
         }
 
         public static int RealValue(int index)
