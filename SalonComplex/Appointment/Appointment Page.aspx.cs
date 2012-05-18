@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
@@ -23,7 +24,7 @@ namespace SalonComplex.Appointment
                 RangeValidatorSpa.MaximumValue = DateTime.Now.AddDays(7).ToShortDateString();
                 RangeValidatorSpa.ErrorMessage = "Select date between today to next 7 day!";
                 SalonDropDownListTime.ClearSelection();
-                GetServicesFromDb();
+               // GetServicesFromDb();
             }
         }
 
@@ -136,98 +137,11 @@ namespace SalonComplex.Appointment
             return !state.Equals("True") && !state.Equals("true");
         }
 
-        /// <summary>
-        /// Retrieve services from the database
-        /// </summary>
-        protected void GetServicesFromDb()
-        {
 
-            /*
-            int qParam = 0;
-            qParam = DropDownListServices.SelectedValue == "Spa Services" ? 2 : 1; //retrieve service type from the services drop down
-            string empName = DropDownListEmp.SelectedValue;
-
-            employee emp = GetEmployee(empName);
-
-            DataClassesLinqSQLDataContext context = GetDbContext();
-
-            var services = context.services.Where(a => a.type == qParam);
-
-            if(emp != null)
-            {
-                services = services.Where(p => p.skills.Any(a => a.employee_id == emp.employee_id));
-            }
-
-            IEnumerable<service> result = services.Cast<service>().ToList();
-
-            rptServices.DataSource = services;
-            rptServices.DataBind();
-             */
-        }
-
-        /// <summary>
-        /// Returns a list of skills for a particular employee
-        /// </summary>
-        /// <param name="name">employee name</param>
-        /// <returns>IEnumerable of employee skills</returns>
-        protected IEnumerable<skill> GetEmployeeSkills(string name)
-        {
-            employee emp = GetEmployee(name);
-
-            if (emp != null)
-            {
-               DataClassesLinqSQLDataContext context = Util.GetDbContext();
-                return context.skills.Where(a => a.employee_id == emp.employee_id);
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Get an employee object from the database
-        /// </summary>
-        /// <param name="name">employee name</param>
-        /// <returns>employee object</returns>
-        protected employee GetEmployee(string name)
-        {
-            int empid;
-            int.TryParse(name, out empid);
-            DataClassesLinqSQLDataContext context = Util.GetDbContext();
-            return context.employees.FirstOrDefault(a => a.employee_id == empid);
-        }
-
-        /// <summary>
-        /// Retrieve user appointment data from the data structuring in a list of appointment model with a calculated visit
-        /// </summary>
-        /// <returns></returns>
-        protected List<Model.Appointment> ArrayOfAppointments()
-        {
-            DataClassesLinqSQLDataContext context = Util.GetDbContext();
-            List<Model.Appointment> appointments = new List<Model.Appointment>();
-
-            var dbappointments = context.appointments;
-
-            /*
-            foreach (var clientAppointment in dbappointments)
-            {
-                var model = new Model.Appointment
-                                {
-                                    ClientId = clientAppointment.client_id,
-                                    AppointmentId = clientAppointment.app_id,
-                                    TimeChose1 = clientAppointment.app_time1,
-                                    TimeChose2 = clientAppointment.app_time2,
-                                    TimeChose3 = clientAppointment.app_time3,
-                                    NumberOfVisits = dbappointments.Count(a => a.client_id == clientAppointment.client_id)
-                                };
-                appointments.Add(model);
-            }
-            */
-            return appointments;
-        }
 
         protected void LoadServices(object sender, EventArgs e)
         {
-            GetServicesFromDb();
+            
         }
     }
 }

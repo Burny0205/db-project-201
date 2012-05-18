@@ -393,7 +393,7 @@ fieldset
 {
     margin: 1em 0px;
     padding: 1em;
-    border: 1px solid #ccc;
+   /* border: 1px solid #ccc; */
    
 }
 
@@ -572,5 +572,10 @@ h1.logoTitle
 
  #Form1 {
     margin-top : 40px;
+ }
+
+
+ .clearmargin {
+    margin:0px !important;
  }
 /* END Body */

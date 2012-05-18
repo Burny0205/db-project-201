@@ -421,6 +421,7 @@
     </Compile>
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\FullCalendar.cs" />
+    <Compile Include="Model\ItemStore.cs" />
     <Compile Include="Pages\Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

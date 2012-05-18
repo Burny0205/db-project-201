@@ -97,12 +97,11 @@
             </dl>
         </div>
         <div id="appt_time">
-            <h2>
-                Select Appointment
+            <h2 class="clearmargin">Select Appointment
             </h2>
             <div boomtime="right" id="hour_edit">
-                <p class="appointText">
-                 Please select a date and enter any three (3) times (in order of preference) from employee schedule below.
+                <p class="alert alert-info span8 clearmargin">
+                    Please select a date and enter any three (3) times (in order of preference) from employee schedule below.
                 </p>
               
                 <table class="appoint_td">
@@ -145,18 +144,10 @@
                     </table>
                 <br />
                 <br />
-                <table class="style22">
-                    <tr>
-                        <td rowspan="4">
                             <asp:GridView ID="GridViewSalonEmpSchedule" runat="server" AllowPaging="True" AllowSorting="True"
-                                AutoGenerateColumns="False" CellPadding="4" 
-                                DataSourceID="SqlDataSourceEmp" ForeColor="#333333"
-                                GridLines="None" CellSpacing="2" Style="margin-bottom: 0px" Width="737px" 
-                                Height="200px" ClientIDMode="Static">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                AutoGenerateColumns="False" DataSourceID="SqlDataSourceEmp"
+                                GridLines="None" ClientIDMode="Static" CssClass="table">
                                 <Columns>
-                                    <asp:CommandField ButtonType="Button" HeaderText="Select Employee" 
-                                        ShowSelectButton="True" />
                                     <asp:BoundField DataField="sch_date" HeaderText="Schedule Date" 
                                         SortExpression="sch_date" DataFormatString="{0:d}" />
                                     <asp:BoundField DataField="employee_fname" HeaderText="Employee Name" SortExpression="employee_fname" />
@@ -167,7 +158,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox10" runat="server" Checked='<%# Bind("[8:00 am]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[8:00 am]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[8:00 am]").ToString()) %>' Text='<%# Bind("employee_id") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="9:00 am" SortExpression="9:00 am">
@@ -177,7 +168,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox9" runat="server" Checked='<%# Bind("[9:00 am]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[9:00 am]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[9:00 am]").ToString()) %>' Text='<%# Bind("employee_id") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="10:00 am" SortExpression="10:00 am">
@@ -187,7 +178,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox8" runat="server" Checked='<%# Bind("[10:00 am]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[10:00 am]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[10:00 am]").ToString()) %>' Text='<%# Bind("employee_id") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="11:00 am" SortExpression="11:00 am">
@@ -197,7 +188,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox7" runat="server" Checked='<%# Bind("[11:00 am]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[11:00 am]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[11:00 am]").ToString()) %>' Text='<%# Bind("employee_id") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="12:00 pm" SortExpression="12:00 pm">
@@ -207,7 +198,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Bind("[12:00 pm]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[12:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[12:00 pm]").ToString()) %>' Text='<%# Bind("employee_id") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="1:00 pm" SortExpression="1:00 pm">
@@ -217,7 +208,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox5" runat="server" Checked='<%# Bind("[1:00 pm]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[1:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[1:00 pm]").ToString()) %>' Text='<%# Bind("employee_id") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="2:00 pm" SortExpression="2:00 pm">
@@ -227,7 +218,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox4" runat="server" Checked='<%# Bind("[2:00 pm]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[2:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[2:00 pm]").ToString()) %>' Text='<%# Bind("employee_id") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="3:00 pm" SortExpression="3:00 pm">
@@ -237,7 +228,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox3" runat="server" Checked='<%# Bind("[3:00 pm]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[3:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[3:00 pm]").ToString()) %>' Text='<%# Bind("employee_id") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="4:00 pm" SortExpression="4:00 pm">
@@ -247,7 +238,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Bind("[4:00 pm]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[4:00 pm]").ToString()) %>'  />
+                                                Enabled='<%# ToggleEnabled(Eval("[4:00 pm]").ToString()) %>' Text='<%# Bind("employee_id") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="5:00 pm" SortExpression="5:00 pm">
@@ -257,7 +248,7 @@
                                         </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("[5:00 pm]") %>' 
-                                                Enabled='<%# ToggleEnabled(Eval("[5:00 pm]").ToString()) %>' />
+                                                Enabled='<%# ToggleEnabled(Eval("[5:00 pm]").ToString()) %>' Text='<%# Bind("employee_id") %>'/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -319,9 +310,6 @@
                                     <asp:Parameter Name="schedule_id" Type="Int32" />
                                 </UpdateParameters>
                             </asp:SqlDataSource>
-                        </td>
-                    </tr>
-                </table>
             </div>
         </div>
         <br />
@@ -333,7 +321,7 @@
                 <asp:Label ID="AppCommentLabel" runat="server" Text="Comments:" Style="font-weight: 700"></asp:Label>
                 </p>
                 <dd style="width: 315px">
-                <textarea id="comment" name="comment" cols="35" wrap="virtual" rows="8"></textarea></dd>
+                    <asp:TextBox runat="server" ID="comment" Columns="35" Rows="8" Wrap="True" TextMode="MultiLine"></asp:TextBox>
                 <br />
             </dl>
             <dl>

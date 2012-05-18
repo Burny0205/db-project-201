@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Globalization;
 using System.Diagnostics;
@@ -9,7 +10,10 @@ using System.Text;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Configuration;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using SalonComplex.LinqSQL;
+using SalonComplex.Model;
 
 namespace SalonComplex.SalonBusiness
 {
@@ -201,6 +205,139 @@ namespace SalonComplex.SalonBusiness
 
             return HttpContext.Current.User.Identity.IsAuthenticated
                 ? HttpContext.Current.User.Identity.Name : _default;
+        }
+
+        /// <summary>
+        /// Retrieve clientId from cookie
+        /// </summary>
+        /// <returns></returns>
+        public static int GetClientId()
+        {
+            int result = -1;
+            HttpCookie httpCookie = HttpContext.Current.Request.Cookies.Get("clientCookie");
+            if (httpCookie == null)
+                return result;
+
+            string value = httpCookie.Value;
+            string[] cookie = value.Split('|');
+            if (cookie.Length > 1)
+            {
+                int.TryParse(cookie[0], out result);
+                return result;
+
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Retrieve user appointment data from the data structuring in a list of appointment model with a calculated visit
+        /// </summary>
+        /// <returns></returns>
+        public static List<Model.Appointment> ArrayOfAppointments()
+        {
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
+            List<Model.Appointment> appointments = new List<Model.Appointment>();
+
+            var dbappointments = context.appointments;
+
+            foreach (appointment dbappointment in dbappointments)
+            {
+
+                List<DateTime?> appTimes = dbappointment.appointment_emps.Where(a => a.app_id == dbappointment.app_id).Select(a => a.app_time).ToList();
+
+                if (appTimes.Count != 3)
+                    return null;
+
+                var model = new Model.Appointment
+                {
+                    AppointmentId = dbappointment.app_id,
+                    ClientId = dbappointment.client_id,
+                    TimeChose1 = appTimes.ElementAt(0),
+                    TimeChose2 = appTimes.ElementAt(1),
+                    TimeChose3 = appTimes.ElementAt(2),
+                    NumberOfVisits = dbappointments.Count(a => a.client_id == dbappointment.client_id)
+                };
+
+                appointments.Add(model);
+            }
+
+            return appointments;
+        }
+
+
+        public static void FindControlRecursive(Control root, Type type, ref List<Control> list)
+        {
+            if (root.Controls.Count != 0)
+            {
+                foreach (Control c in root.Controls)
+                {
+                    if (c.GetType() == type)
+                        list.Add(c);
+                    else if (c.HasControls())
+                        FindControlRecursive(c, type, ref list);
+                }
+            }
+        }
+
+        public static Control FindControlRecursive(Control root, Type type)
+        {
+            if (root.Controls.Count != 0)
+            {
+                foreach (Control c in root.Controls)
+                {
+                    if (c.GetType() == type)
+                        return c;
+                    else if (c.HasControls())
+                        FindControlRecursive(c, type);
+                }
+            }
+
+            return null;
+        }
+
+        public static List<ItemStore> GetCheckedItems(Control root, Type type, DateTime selectedDate)
+        {
+            DataClassesLinqSQLDataContext context = GetDbContext();
+            List<ItemStore> items = new List<ItemStore>();
+            var checkboxes = new List<Control>();
+            FindControlRecursive(root, type, ref checkboxes);
+
+            foreach (Control checkbox in checkboxes)
+            {
+                CheckBox chk = ((CheckBox)checkbox);
+                if (chk.Checked && chk.Enabled)
+                {
+                    int result = 0;
+                    int.TryParse(chk.Text, out result);
+                    if (context != null ) 
+                        items.Add(new ItemStore 
+                        {
+                            Employee = context.employees.FirstOrDefault(a => a.employee_id == result),
+                            SelectedTime = ParseChkBox(chk.ClientID, selectedDate)
+
+                        });
+                }
+            }
+
+            return items;
+        }
+
+        public static DateTime ParseChkBox(string val, DateTime selectedDate)
+        {
+            int max = 18;
+            int actual = GetNumber(val);
+            return new DateTime(selectedDate.Year,selectedDate.Month,selectedDate.Day,max-actual,0,0);
+        }
+
+        public static int GetNumber(string val)
+        {
+            int result = 0;
+            var match=Regex.Match(val,@"\d+");
+            if(match.Success)
+            {
+                int.TryParse(match.Value, out result);
+            }
+            return result;
         }
     }
 
