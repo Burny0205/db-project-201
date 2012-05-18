@@ -219,6 +219,10 @@ namespace SalonComplex.SalonBusiness
                 return result;
 
             string value = httpCookie.Value;
+
+            if (value == null)
+                return result;
+
             string[] cookie = value.Split('|');
             if (cookie.Length > 1)
             {

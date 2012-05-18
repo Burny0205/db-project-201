@@ -509,6 +509,7 @@
     <Content Include="Master\Site.Master" />
     <Content Include="Master\Admin.Master" />
     <None Include="Plugins\galleria\LICENSE" />
+    <None Include="Web.config.bak" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

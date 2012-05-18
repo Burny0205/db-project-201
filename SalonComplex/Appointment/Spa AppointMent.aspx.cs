@@ -33,7 +33,7 @@ namespace SalonComplex.Appointment
 
             int clientId = Util.GetClientId();
 
-            if (clientId == 0)
+            if (clientId < 1)
                 return;
               
             DataClassesLinqSQLDataContext context = Util.GetDbContext();

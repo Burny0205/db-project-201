@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+  <connectionStrings>
+    <add name="ApplicationServices" connectionString="Persist Security Info=False;database=Salon;server=;Trusted_Connection=True;Current Language=English;Connection Timeout=600;"
+      providerName="System.Data.SqlClient" />
+    <add name="SalondbConnectionString" connectionString="Persist Security Info=False;database=Salon;Trusted_Connection=True;Current Language=English;Connection Timeout=600;"
+      providerName="System.Data.SqlClient" />
+    <add name="SalonConnectionString" connectionString="Persist Security Info=False;database=Salon;Trusted_Connection=True;Current Language=English;Connection Timeout=600;"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <location path="Appointment">
+    <system.web>
+      <authorization>
+        <allow roles="Admin"/> 
+        <deny users="?"/>
+      </authorization>
+    </system.web>
+  </location>
+  <location path="Pages">
+    <system.web>
+      <authorization>
+        <allow roles="Admin"/> 
+        <deny users="?"/>
+      </authorization>
+    </system.web>
+  </location>
+  <system.web>
+    <authorization>
+      <allow roles="admin" />
+    </authorization>
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <add assembly="System.Web.Extensions.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"/>
+        <add assembly="System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+        <add assembly="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+      </assemblies>
+    </compilation>
+    <authentication mode="Forms">
+      <forms loginUrl="~/Account/Login.aspx" defaultUrl="Default.aspx"
+        timeout="2880" />
+    </authentication>
+      <membership>
+      <providers>
+        <clear />
+        <add connectionStringName="ApplicationServices" enablePasswordRetrieval="false"
+          enablePasswordReset="true" requiresQuestionAndAnswer="false"
+          requiresUniqueEmail="false" maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6"
+          minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10"
+          applicationName="/" name="AspNetSqlMembershipProvider" type="System.Web.Security.SqlMembershipProvider" />
+      </providers>
+    </membership>
+      <globalization
+           fileEncoding="utf-8"
+           requestEncoding="utf-8"
+           responseEncoding="utf-8"
+           culture=""
+           uiCulture=""
+        />
+  </system.web>
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true"/>
+  </system.webServer>
+  <system.net>
+    <mailSettings>
+      <smtp from="edgesaloncomplex@gmail.com">
+        <network host="smtp.gmail.com" password="saloncomplex" port="587"
+          userName="edgesaloncomplex@gmail.com " />
+      </smtp>
+    </mailSettings>
+  </system.net>
+  
+</configuration>
