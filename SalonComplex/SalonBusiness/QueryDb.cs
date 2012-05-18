@@ -38,10 +38,11 @@ namespace SalonComplex.SalonBusiness
         }
 
 
-        public static bool HasAppointment(int empId, DateTime date)
+        public static bool HasAppointment(int clientId, DateTime date)
         {
             DataClassesLinqSQLDataContext context = Util.GetDbContext();
-            return context.appointments.Any(a => a.app_day == date.Date);
+            int result = context.appointments.Count(a => a.app_day == date.Date && a.client_id == clientId);
+            return result > 0;
         }
 
     }
