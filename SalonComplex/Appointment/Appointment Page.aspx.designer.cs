@@ -10,7 +10,7 @@
 namespace SalonComplex.Appointment {
     
     
-    public partial class Appointment_Page {
+    public partial class AppointmentPage {
         
         /// <summary>
         /// Label1 control.

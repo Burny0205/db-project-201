@@ -10,9 +10,8 @@ using SalonComplex.SalonBusiness;
 namespace SalonComplex.Appointment
 
 {
-    public partial class Appointment_Page : System.Web.UI.Page
+    public partial class AppointmentPage : System.Web.UI.Page
     {
-        private static DataClassesLinqSQLDataContext _context = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {

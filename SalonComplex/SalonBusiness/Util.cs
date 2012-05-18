@@ -170,6 +170,38 @@ namespace SalonComplex.SalonBusiness
                     return 2;
             }
         }
+        /// <summary>
+        /// Helper function for Loing portal
+        /// </summary>
+        /// <returns></returns>
+        public static string FormatUsername()
+        {
+            string _default = GetIdentity();
+            return FormatUsername(_default);
+        }
+
+        /// <summary>
+        /// Helper function for Loing portal
+        /// </summary>
+        /// <param name="uname">username</param>
+        /// <returns></returns>
+        public static string FormatUsername(string uname)
+        {
+            return string.Format("<i class=\"icon-user\"></i> {0} <span class=\"caret\"></span>",
+                                            uname);
+        }
+
+        /// <summary>
+        /// Get the current user Identity
+        /// </summary>
+        /// <returns></returns>
+        public static string GetIdentity()
+        {
+            const string _default = "Anonymous";
+
+            return HttpContext.Current.User.Identity.IsAuthenticated
+                ? HttpContext.Current.User.Identity.Name : _default;
+        }
     }
 
 

@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Appointment Page" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true"
-    CodeBehind="Appointment Page.aspx.cs" Inherits="SalonComplex.Appointment.Appointment_Page" %>
+    CodeBehind="Appointment Page.aspx.cs" Inherits="SalonComplex.Appointment.AppointmentPage" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register src="../Controls/ServicesControl.ascx" tagName="ServiceControls" tagPrefix="sc" %>

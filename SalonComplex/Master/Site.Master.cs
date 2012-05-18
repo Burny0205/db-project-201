@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using System.Web;
 using System.Web.UI.WebControls;
+using SalonComplex.SalonBusiness;
 
 namespace SalonComplex.Master
 {
@@ -23,12 +24,15 @@ namespace SalonComplex.Master
                                                     };
                         Response.Cookies.Add(httpCookie);
                     }
+
+                    ChangePassword.InnerText = "Register";
+                    ChangePassword.HRef = "../Account/Register.aspx";
+
+                    Username.InnerHtml = Util.FormatUsername();
                 }
                 else
                 {
-                    string username = string.Format("<i class=\"icon-user\"></i> {0} <span class=\"caret\"></span>",
-                                                    HttpContext.Current.User.Identity.Name);
-                    Username.InnerHtml = username;
+                    Username.InnerHtml = Util.FormatUsername();
                 }
             }
 
@@ -39,6 +43,8 @@ namespace SalonComplex.Master
         {
 
         }
+
+
 
         
     }
