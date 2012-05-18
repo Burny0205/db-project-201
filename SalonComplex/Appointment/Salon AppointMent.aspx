@@ -30,9 +30,21 @@
                     $(this).attr('checked', false);
                 }
             });
+            
+            $('#GridViewSalonEmpSchedule td label').hide();
 
         })
 
+
+        function validateAppointment() {
+            alert('yay!');
+            console.log($('#TextBoxSpaDate').val().length);
+            if ($('#TextBoxSpaDate').val().length > 0)
+                return true;
+            else {
+                return false;
+            }
+        }
 
     </script>
 </asp:Content>
@@ -312,7 +324,7 @@
                     <div id="SelectEmployee">
                         <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submit Appointment"
                             Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButtonClick"
-                            CssClass="btn btn-primary" />
+                            CssClass="btn btn-primary" OnClientClick="return validateAppointment();"/>
                         <input id="Reset1" type="reset" value="Reset Button" class="btn" />
                         <br />
                     </div>

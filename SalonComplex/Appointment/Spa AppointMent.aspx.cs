@@ -124,7 +124,7 @@ namespace SalonComplex.Appointment
                 {
                     appEmps.Add(new appointment_emp
                                     {
-                                        app_id = 0,
+                                        app_id = newApp.app_id,
                                         app_time = store.SelectedTime,
                                         emp_id = store.Employee.employee_id,
                                         schedule_id = store.Employee.schedules.Where(a => a.employee_id == store.Employee.employee_id).Select(a => a.schedule_id).FirstOrDefault()
