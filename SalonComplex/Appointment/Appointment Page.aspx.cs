@@ -18,28 +18,6 @@ namespace SalonComplex.Appointment
         {
             if (!this.IsPostBack)
             {
-                LabelSpaAppDate.Font.Italic = true;
-                LabelSpaAppDate.Font.Bold = true;
-                LabelSpaAppDate.ForeColor = System.Drawing.Color.Crimson;
-                LabelSpaAppDate.Font.Size = FontUnit.Large;
-                TextBoxSpaDate.ForeColor = System.Drawing.Color.Black;
-                SubmitAppButton.Font.Bold = true;
-                SubmitAppButton.ForeColor = System.Drawing.Color.DarkGreen;
-
-               
-
-                //Calendar1.ForeColor = System.Drawing.Color.AliceBlue;
-                //Calendar1.BackColor = System.Drawing.Color.DodgerBlue;
-                //Calendar1.TitleStyle.BackColor = System.Drawing.Color.DarkGreen;
-                //Calendar1.DayHeaderStyle.BackColor = System.Drawing.Color.SeaGreen;
-                //Calendar1.SelectedDayStyle.BackColor = System.Drawing.Color.LightBlue;
-                //Calendar1.SelectedDayStyle.ForeColor = System.Drawing.Color.DarkGreen;
-                //Calendar1.BorderColor = System.Drawing.Color.DarkBlue;
-                //Calendar1.TodayDayStyle.BackColor = System.Drawing.Color.SkyBlue;
-                //Calendar1.SelectionMode = CalendarSelectionMode.Day;
-
-               
-
                 RangeValidatorSpa.ControlToValidate = "TextBoxSpaDate";
                 RangeValidatorSpa.Type = ValidationDataType.Date;
                 RangeValidatorSpa.MinimumValue = DateTime.Now.ToShortDateString();
@@ -59,8 +37,6 @@ namespace SalonComplex.Appointment
         {
 
         }
-
-      
 
         protected void Calendar1SelectionChanged(object sender, EventArgs e)
         {
@@ -158,15 +134,7 @@ namespace SalonComplex.Appointment
         /// </summary>
         protected Boolean ToggleEnabled(String state)
         {
-            if (state.Equals("True") || state.Equals("true"))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
+            return !state.Equals("True") && !state.Equals("true");
         }
 
         /// <summary>
@@ -209,7 +177,7 @@ namespace SalonComplex.Appointment
 
             if (emp != null)
             {
-               DataClassesLinqSQLDataContext context = GetDbContext();
+               DataClassesLinqSQLDataContext context = Util.GetDbContext();
                 return context.skills.Where(a => a.employee_id == emp.employee_id);
             }
 
@@ -225,7 +193,7 @@ namespace SalonComplex.Appointment
         {
             int empid;
             int.TryParse(name, out empid);
-            DataClassesLinqSQLDataContext context = GetDbContext();
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
             return context.employees.FirstOrDefault(a => a.employee_id == empid);
         }
 
@@ -235,7 +203,7 @@ namespace SalonComplex.Appointment
         /// <returns></returns>
         protected List<Model.Appointment> ArrayOfAppointments()
         {
-            DataClassesLinqSQLDataContext context = GetDbContext();
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
             List<Model.Appointment> appointments = new List<Model.Appointment>();
 
             var dbappointments = context.appointments;
@@ -257,18 +225,6 @@ namespace SalonComplex.Appointment
             */
             return appointments;
         }
-
-        /// <summary>
-        /// Retrieve DbContext
-        /// </summary>
-        /// <returns></returns>
-        private static DataClassesLinqSQLDataContext GetDbContext()
-        {
-            if (_context != null)
-                return _context;
-            return _context = new DataClassesLinqSQLDataContext(Util.GetConnection());
-        }
-
 
         protected void LoadServices(object sender, EventArgs e)
         {

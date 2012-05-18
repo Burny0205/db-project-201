@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using SalonComplex.LinqSQL;
 
 namespace SalonComplex.SalonBusiness
 {
     public class QueryDb
     {
-
-
         /// <summary>
         /// Retrieve a Collection of services from the database
         /// 

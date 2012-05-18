@@ -158,7 +158,17 @@ namespace SalonComplex.SalonBusiness
 
         public static int RealValue(int index)
         {
-            return index == 1 ? 1 : (index == 4 ? 4 : 2);
+            switch (index)
+            {
+                case 0:
+                    return 2;
+                case 1:
+                    return 1;
+                case 2:
+                    return 4;
+                default:
+                    return 2;
+            }
         }
     }
 
