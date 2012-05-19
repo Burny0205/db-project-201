@@ -7,16 +7,19 @@
     <script type="text/javascript" src="Scripts/jquery.easing.1.3.js"></script>
     <script type="text/javascript">
         $(function () {
-            salon.preloadimages('#img_container');
+            salon.preloadimages('#img_container', 40);
             salon.initslideshow('#slides');
         });
     </script>
-
+    <style type="text/css">
+        #frame {
+            display: none;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <div class="main">
-    <br /> <br /> <br /><br /> <br /> 
-        <h2>
+    <div class="main logospace">
+        <h2 class="bold">
             Welcome to The Edge Beauty Salon and Spa - our goal is to find the perfect look for you.
         </h2>
         <p class="p_content">
@@ -34,7 +37,7 @@
 				    <div class="slides_container" id="img_container">
 				    </div>
 			    </div>
-			    <img src="Images/sprites/example-frame.png" width="500" height="500" alt="Example Frame" 
+			    <img src="Images/sprites/example-frame.png" width="739" height="341" alt="Example Frame" 
                     id="frame"/>
 		    </div>
 	    </div>

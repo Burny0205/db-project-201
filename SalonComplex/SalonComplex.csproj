@@ -73,7 +73,6 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="Appointment\Appointment Page.aspx" />
     <Content Include="Appointment\Salon AppointMent.aspx" />
     <Content Include="Appointment\Spa AppointMent.aspx" />
     <Content Include="back up\db_schema.sql" />
@@ -323,13 +322,6 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Appointment\Appointment Page.aspx.cs">
-      <DependentUpon>Appointment Page.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Appointment\Appointment Page.aspx.designer.cs">
-      <DependentUpon>Appointment Page.aspx</DependentUpon>
     </Compile>
     <Compile Include="Appointment\Salon AppointMent.aspx.cs">
       <DependentUpon>Salon AppointMent.aspx</DependentUpon>

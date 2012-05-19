@@ -8,10 +8,6 @@
     <link href="../Styles/cal.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../Scripts/appointment.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.dateinput.min.js"></script>
-    <%--		<div id="content_wrapper">
-			<div id="content">
-				<div boomtime="left" id="content_in">
-    --%>
     <script type="text/javascript">
 
         $(function() {
@@ -61,7 +57,7 @@
                 Width="174px"></asp:Label>
         </p>
     </div>
-    <form id="appt_request_form" action="/lschedule" method="post" name="form">
+    <form id="appt_request_form" action="/" method="post">
     <fieldset class="appointment" style="width: 750px;" id="appointment_info">
         <legend>Salon Appointment Information</legend>
         <div id="appt_services">
@@ -316,7 +312,7 @@
                     <asp:Label ID="AppCommentLabel" runat="server" Text="Comments:" Style="font-weight: 700"></asp:Label>
                 </p>
                 <dd style="width: 315px">
-                    <asp:TextBox runat="server" ID="comment" Columns="35" Rows="8" Wrap="True" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="comment" Columns="35" Rows="8" Wrap="True" TextMode="MultiLine" CssClass="input-xxlarge"></asp:TextBox>
                     <br />
             </dl>
             <dl>

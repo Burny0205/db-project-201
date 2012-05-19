@@ -1,170 +1,50 @@
-﻿<%@ Page Title="Spa Service" Language="C#" MasterPageFile="~/Master/Site.Master" AutoEventWireup="true" CodeBehind="Nail Services.aspx.cs" Inherits="SalonComplex.Services.Nail_Services" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-    <style type="text/css">
-        .style2
-        {
-            width: 100%;
-        font-family: Garamond;
-        font-size: medium;
-        color: #000000;
-    }
-        .style3
-        {
-            width: 60px;
-        }
-        .style5
-        {
-        width: 142px;
-    }
-        .style7
-        {
-            width: 215px;
-        }
-    .style9
-    {
-        color: #0000FF;
-    }
-    .style10
-    {
-        width: 60px;
-        color: #0000FF;
-    }
-    .style11
-    {
-        width: 142px;
-        color: #000000;
-    }
-    .style12
-    {
-        width: 215px;
-        color: #000000;
-    }
-        .style13
-        {
-            width: 100%;
-        }
-        .style14
-        {}
-        .style17
-        {
-            width: 215px;
-            height: 22px;
-        }
-        .style18
-        {
-            width: 142px;
-            height: 22px;
-        }
-        .style19
-        {
-            width: 60px;
-            height: 22px;
-        }
-        .style20
-        {
-        }
-    </style>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <h2>
-   </h2>
-   <br /> <br /> <br /> <br /> <br /> 
-   <p class = "spa_nail_service">
-       At The Edge our goal is to find the look that is perfect for you. With so many 
-       changing trends in the industry, The Edge is committed to on-going education to 
-       provide the highest in quality techniques. Not sure what is right for you? 
-       Request extra time for our signature comprehensive consultation when scheduling 
-       your appointment, that way we'll be sure to get it right, and leave you feeling 
-       great.</p>
-       <br />
-   <fieldset style="width: 855px; height:auto" dir="ltr">
-    <legend><span class="style17">Nail Services</span> </legend>
-    <table class="style2" align="center">
-        <tr>
-            <td class="style12" style="text-transform: uppercase; font-weight: bold;">
-                Types</td>
-            <td class="style11" style="text-transform: uppercase; font-weight: bold;" 
-                align="center">
-                Prices</td>
-            <td class="style10" style="text-transform: uppercase; font-weight: bold;">
-                &nbsp;</td>
-            <td class="style9" style="text-transform: uppercase; font-weight: bold;" 
-                align="center" bgcolor="Black" rowspan="8">
-                <asp:Image ID="Image5" runat="server" BorderColor="Black" BorderStyle="Groove" 
-                    Height="230px" ImageAlign="AbsMiddle" ImageUrl="~/Images/Nail.jpg" 
-                    Width="383px" />
-            </td>
-        </tr>
-        <tr>
-            <td class="style7">
-                &nbsp;</td>
-            <td class="style5">
-                &nbsp;</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Polishing</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $300</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Buffing</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $500</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Manicures</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $600</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Pedicures</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $800</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                Full Sets</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                $1300</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7" align="left" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                &nbsp;</td>
-            <td class="style5" align="center" 
-                style="color: #000000; font-size: medium; font-family: Garamond">
-                &nbsp;</td>
-            <td class="style3">
-                &nbsp;</td>
-        </tr>
-        </table>
-     </fieldset><br />
- <br />
-</asp:Content>
+﻿<%@ Page Title="Spa Service" Language="C#" MasterPageFile="~/Master/Site.Master"
+    AutoEventWireup="true" CodeBehind="Nail Services.aspx.cs" Inherits="SalonComplex.Services.Nail_Services" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+    <link href="../Styles/global.css" rel="stylesheet" type="text/css" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+    <div id="main" class="logospace container-fluid">
+        <div class="row-fluid">
+            <p class="p_content">
+                At The Edge our goal is to find the look that is perfect for you. With so many changing
+                trends in the industry, The Edge is committed to on-going education to provide the
+                highest in quality techniques. Not sure what is right for you? Request extra time
+                for our signature comprehensive consultation when scheduling your appointment, that
+                way we'll be sure to get it right, and leave you feeling great.
+            </p>
+            <br />
+            <fieldset style="width: 500px; height: auto" dir="ltr">
+                <h3 class="bold">Nail Services</h3>
+                <table class="table table-bordered table-striped ">
+                    <tr>
+                        <th>Types</th>
+                        <th>Prices</th>
+                    </tr>
+                    <tr>
+                        <td>Polishing</td>
+                        <td>$300</td>
+                    </tr>
+                    <tr>
+                        <td>Buffing</td>
+                        <td>$500</td>
+                    </tr>
+                    <tr>
+                        <td>Manicures</td>
+                        <td>$600</td>
+                    </tr>
+                    <tr>
+                        <td>Pedicures</td>
+                        <td>$800</td>
+                    </tr>
+                    <tr>
+                        <td>Full Sets</td>
+                        <td>$1300</td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+    <br />
+</asp:Content>

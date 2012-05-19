@@ -31,13 +31,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SpaWorkerNameLabel1;
         
         /// <summary>
-        /// Image3 control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image3;
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// SpaWorkerNameLabel2 control.
@@ -49,13 +49,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SpaWorkerNameLabel2;
         
         /// <summary>
-        /// Image4 control.
+        /// Image3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image4;
+        protected global::System.Web.UI.WebControls.Image Image3;
         
         /// <summary>
         /// SpaWokerNameLabel3 control.
@@ -67,13 +67,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SpaWokerNameLabel3;
         
         /// <summary>
-        /// Image5 control.
+        /// Image4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image5;
+        protected global::System.Web.UI.WebControls.Image Image4;
         
         /// <summary>
         /// SpaWokerNameLabel4 control.
@@ -85,13 +85,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SpaWokerNameLabel4;
         
         /// <summary>
-        /// Image6 control.
+        /// Image5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image6;
+        protected global::System.Web.UI.WebControls.Image Image5;
         
         /// <summary>
         /// SpaWokerNameLabel5 control.
@@ -103,13 +103,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SpaWokerNameLabel5;
         
         /// <summary>
-        /// Image7 control.
+        /// Image6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image7;
+        protected global::System.Web.UI.WebControls.Image Image6;
         
         /// <summary>
         /// SpaWorkerLabel6 control.

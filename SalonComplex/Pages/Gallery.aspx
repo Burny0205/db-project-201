@@ -8,7 +8,7 @@
     <script type="text/javascript" src="../Plugins/galleria/galleria-1.2.7.min.js"></script>
     <script type="text/javascript">
         $(function () {
-            salon.preloadimages('#galleria');
+            salon.preloadimages('#galleria', 50);
             salon.gallery('#galleria');
 		});
     </script>

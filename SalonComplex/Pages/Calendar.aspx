@@ -38,8 +38,7 @@
 
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-<br /> <br /> <br /> <br />
-    <div id="main">
+    <div id="main" class="logospace">
         <div id='calendar'></div>
     </div>
 </asp:Content>

@@ -31,13 +31,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SalonEmpNameLabel1;
         
         /// <summary>
-        /// Image3 control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image3;
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// EmpNameLabel control.
@@ -49,13 +49,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label EmpNameLabel;
         
         /// <summary>
-        /// Image4 control.
+        /// Image3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image4;
+        protected global::System.Web.UI.WebControls.Image Image3;
         
         /// <summary>
         /// EmpNameLabel2 control.
@@ -67,22 +67,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label EmpNameLabel2;
         
         /// <summary>
-        /// Label1 control.
+        /// Image4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// Image5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image5;
+        protected global::System.Web.UI.WebControls.Image Image4;
         
         /// <summary>
         /// EmpNamLabel3 control.
@@ -94,13 +85,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label EmpNamLabel3;
         
         /// <summary>
-        /// Image6 control.
+        /// Image5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image6;
+        protected global::System.Web.UI.WebControls.Image Image5;
         
         /// <summary>
         /// SalonEmpLabel4 control.
@@ -112,13 +103,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SalonEmpLabel4;
         
         /// <summary>
-        /// Image7 control.
+        /// Image6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image7;
+        protected global::System.Web.UI.WebControls.Image Image6;
         
         /// <summary>
         /// SalonEmpLabel5 control.
@@ -130,13 +121,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SalonEmpLabel5;
         
         /// <summary>
-        /// Image8 control.
+        /// Image7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image8;
+        protected global::System.Web.UI.WebControls.Image Image7;
         
         /// <summary>
         /// LabelKG control.
@@ -148,13 +139,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label LabelKG;
         
         /// <summary>
-        /// Image9 control.
+        /// Image8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image9;
+        protected global::System.Web.UI.WebControls.Image Image8;
         
         /// <summary>
         /// SalonEmLabel6 control.
@@ -166,13 +157,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SalonEmLabel6;
         
         /// <summary>
-        /// Image10 control.
+        /// Image9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image10;
+        protected global::System.Web.UI.WebControls.Image Image9;
         
         /// <summary>
         /// SalonEmpLabel6 control.
@@ -184,13 +175,13 @@ namespace SalonComplex.Salon {
         protected global::System.Web.UI.WebControls.Label SalonEmpLabel6;
         
         /// <summary>
-        /// Image11 control.
+        /// Image10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image11;
+        protected global::System.Web.UI.WebControls.Image Image10;
         
         /// <summary>
         /// SalonEmpLabel7 control.
