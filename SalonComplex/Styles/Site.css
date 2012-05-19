@@ -26,6 +26,7 @@ body
     /*background-attachment: fixed;*/
 }
 
+/*
 a:link, a:visited
 {
     color: #034af3;
@@ -41,7 +42,7 @@ a:active
 {
     color: #034af3;
 }
-
+*/
 .p_appoint
 {
     margin-bottom: 10px;
@@ -578,4 +579,10 @@ h1.logoTitle
  .clearmargin {
     margin:0px !important;
  }
+ 
+ 
+ .logospace {
+	margin-top: 90px !important;
+}
+
 /* END Body */

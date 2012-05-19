@@ -172,8 +172,8 @@ body {
 	Anchors
 */
 
+/*
 a:link,a:visited {
-	/*color:#599100;*/
 	text-decoration:none;
 }
 
@@ -181,7 +181,7 @@ a:hover,a:active {
 	color:#599100;
 	text-decoration:underline;
 }
-
+*/
 
 .main {
 	background: url(../Images/sprites/edge_bg.png) no-repeat;
@@ -211,3 +211,5 @@ div.hideSkiplink {
 .p_content {
 	width:100% !important;
 }
+
+

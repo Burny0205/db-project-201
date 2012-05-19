@@ -25,10 +25,10 @@
   font-style: normal;
   font-size: 90%;
 }
+/*
 a, .hotspot
 {
 	text-decoration: none;
-	/*font-weight: bold;*/
     	color: #3858A1;
 }
 a:hover, .hotspot:hover
@@ -36,7 +36,7 @@ a:hover, .hotspot:hover
 	color: #437BFB;
 	text-decoration: underline;
 }
-
+*/
 .hotspot
 {
   cursor: help;
