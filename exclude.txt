@@ -1,7 +1,7 @@
 .svn
 _ReSharper.SalonComplex
 _UpgradeReport_Files
-SalonComplex.sln.DotSettings.user
+*.DotSettings.user
 *.XML
 *.config
 exclude.txt
