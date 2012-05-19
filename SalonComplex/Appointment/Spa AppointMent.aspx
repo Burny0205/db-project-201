@@ -15,13 +15,16 @@
     <script type="text/javascript">
 
         $(function () {
+
+            // set up data input
             $('#TextBoxSpaDate').dateinput(
                 {
                     format: 'm/d/yyyy',
                     min: -1,
                     max: 7
                 });
-
+            
+            // add a click event to the grid view to check if the check limit has been exceeded
             $('#GridViewEmpSchedule :checked').live("click", function () {
                 var result = $('#GridViewEmpSchedule :checked').not(':disabled');
                 if (result.length > 3) {
@@ -30,10 +33,12 @@
                 }
             });
 
+            //add employee id on the grid
             $('#GridViewEmpSchedule td label').hide();
 
         });
 
+        // validate the form before submission
         function validateAppointment() {
             alert('yay!');
             console.log($('#TextBoxSpaDate').val().length);

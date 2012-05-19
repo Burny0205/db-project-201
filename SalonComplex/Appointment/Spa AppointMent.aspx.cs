@@ -24,8 +24,7 @@ namespace SalonComplex.Appointment
                 PopulateSpaRepeater();
             }
         }
-
-
+        
         protected void SubmitAppButtonClick(object sender, EventArgs e)
         {
             if (TextBoxSpaDate.Text == null)
@@ -59,9 +58,10 @@ namespace SalonComplex.Appointment
 
 
             // check if user already has an appointment.
-            if (QueryDb.HasAppointment(clientId, selectedDate))
+            if (QueryDb.HasAppointment(clientId, selectedDate, Spa))
                 return;
 
+            
             #region Add Appointment to DB
             appointment newApp = new appointment
                                      {
@@ -106,36 +106,29 @@ namespace SalonComplex.Appointment
 
             #region Add Appointment Employee to Db
 
-            List<List<ItemStore>> itemChecked = new List<List<ItemStore>>();
-            List<appointment_emp> appEmps = new List<appointment_emp>();
+            List<List<ItemStore>> itemChecked = (from GridViewRow row in GridViewEmpSchedule.Rows 
+                                                 let checkboxes = new List<Control>() 
+                                                 select Util.GetCheckedItems(row, typeof (CheckBox), selectedDate)).ToList();
 
-            foreach(GridViewRow row in GridViewEmpSchedule.Rows)
-            {
-                var checkboxes = new List<Control>();
-                List<ItemStore> item = Util.GetCheckedItems(row, typeof(CheckBox), selectedDate);
-                itemChecked.Add(item);
 
-            }
-
-            
-            foreach (List<ItemStore> itemStore in itemChecked)
-            {
-                foreach (ItemStore store in itemStore)
-                {
-                    appEmps.Add(new appointment_emp
-                                    {
-                                        app_id = newApp.app_id,
-                                        app_time = store.SelectedTime,
-                                        emp_id = store.Employee.employee_id,
-                                        schedule_id = store.Employee.schedules.Where(a => a.employee_id == store.Employee.employee_id).Select(a => a.schedule_id).FirstOrDefault()
-                                    });                    
-                }
-            }
+            List<appointment_emp> appEmps = (from itemStore in itemChecked
+                                             from store in itemStore
+                                             select new appointment_emp
+                                                        {
+                                                            app_id = newApp.app_id, app_time = store.SelectedTime, 
+                                                            emp_id = store.Employee.employee_id, schedule_id = store.Employee.schedules
+                                                            .Where(a => a.employee_id == store.Employee.employee_id)
+                                                            .Select(a => a.schedule_id).FirstOrDefault()
+                                                        }).ToList();
 
             context.appointment_emps.InsertAllOnSubmit(appEmps);
             context.SubmitChanges();
-
+            
             #endregion
+
+            LabelSpaAppDate.Text = "A confirmation email will be sent to you as soon as your appointment is finalized. Thank You " + 
+                selectedDate.ToString(CultureInfo.InvariantCulture);
+
         }
 
         /// <summary>
@@ -150,7 +143,6 @@ namespace SalonComplex.Appointment
         protected void PopulateSpaRepeater()
         {
             rptServices.DataSource = QueryDb.GetServicesFromDb(Spa);
-            ;
             rptServices.DataBind();
         }
     }

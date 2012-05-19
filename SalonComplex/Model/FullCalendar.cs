@@ -9,9 +9,12 @@ namespace SalonComplex.Model
 {
     public class FullCalendar
     {
-        private bool _allday = false;
-        private bool _editable = false;
-       
+        public FullCalendar()
+        {
+            editable = false;
+            allDay = false;
+        }
+
         public int id { get; set; }
         public string title { get; set; }
 
@@ -20,15 +23,11 @@ namespace SalonComplex.Model
 
         [JsonProperty(ItemConverterType = typeof(IsoDateTimeConverter))]
         public DateTime end { get; set; }
-        public bool allDay
-        {
-            set { _allday = value; }
-            get { return _allday; }
-        }
-        public bool editable
-        {
-            set { _editable = value; }
-            get { return _editable; }
-        }
+
+        public bool allDay { get; set; }
+
+        public bool editable { get; set; }
+
+        public string color { get; set; }
     }
 }

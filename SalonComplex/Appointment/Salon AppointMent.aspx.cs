@@ -50,8 +50,10 @@ namespace SalonComplex.Appointment
             if (clientId < 1)
                 return;
 
+            int realServiceVal = Util.RealValue(SalonDropDownList.SelectedIndex);
+
             // check if user already has an appointment.
-            if (QueryDb.HasAppointment(clientId, selectedDate))
+            if (QueryDb.HasAppointment(clientId, selectedDate, realServiceVal))
                 return;
             
             #region Add Appointment to DB
@@ -98,36 +100,32 @@ namespace SalonComplex.Appointment
 
             #region Add Appointment Employee to Db
 
-            List<List<ItemStore>> itemChecked = new List<List<ItemStore>>();
-            List<appointment_emp> appEmps = new List<appointment_emp>();
 
-            foreach (GridViewRow row in GridViewSalonEmpSchedule.Rows)
-            {
-                var checkboxes = new List<Control>();
-                List<ItemStore> item = Util.GetCheckedItems(row, typeof(CheckBox), selectedDate);
-                itemChecked.Add(item);
+            //retrieve the items checked in the gridview
+            List<List<ItemStore>> itemChecked = (from GridViewRow row in GridViewSalonEmpSchedule.Rows 
+                                                 let checkboxes = new List<Control>() 
+                                                 select Util.GetCheckedItems(row, typeof (CheckBox), selectedDate)).ToList();
 
-            }
 
-            
-            foreach (List<ItemStore> itemStore in itemChecked)
-            {
-                foreach (ItemStore store in itemStore)
-                {
-                    appEmps.Add(new appointment_emp
-                                    {
-                                        app_id = newApp.app_id,
-                                        app_time = store.SelectedTime,
-                                        emp_id = store.Employee.employee_id,
-                                        schedule_id = store.Employee.schedules.Where(a => a.employee_id == store.Employee.employee_id).Select(a => a.schedule_id).FirstOrDefault()
-                                    });                    
-                }
-            }
+           //iterate over returned items and create appointment_emp objects for saving
+            List<appointment_emp> appEmps = (from itemStore in itemChecked
+                                             from store in itemStore
+                                             select new appointment_emp
+                                                        {
+                                                            app_id = newApp.app_id, app_time = store.SelectedTime, 
+                                                            emp_id = store.Employee.employee_id, 
+                                                            schedule_id = store.Employee.schedules.Where(a => a.employee_id == store.Employee.employee_id)
+                                                            .Select(a => a.schedule_id).FirstOrDefault()
+                                                        }).ToList();
 
+            //commit changes to db
             context.appointment_emps.InsertAllOnSubmit(appEmps);
             context.SubmitChanges();
 
             #endregion
+
+            LabelSpaAppDate.Text = "A confirmation email will be sent to you as soon as your appointment is finalized. Thank You " +
+            selectedDate.ToString(CultureInfo.InvariantCulture);
         }
 
 
@@ -140,6 +138,9 @@ namespace SalonComplex.Appointment
             return !state.Equals("True") && !state.Equals("true");
         }
 
+        /// <summary>
+        /// Populate the repeater with the services values
+        /// </summary>
         protected void PopulateSpaRepeater()
         {
             int qParam = SalonDropDownList.SelectedIndex; //retrieve service type from the services drop down
@@ -148,6 +149,7 @@ namespace SalonComplex.Appointment
             rptServices.DataBind();
         }
 
+      
         protected void LoadServices(object sender, EventArgs e)
         {
             PopulateSpaRepeater();

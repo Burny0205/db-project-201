@@ -160,6 +160,11 @@ namespace SalonComplex.SalonBusiness
             return _context = new DataClassesLinqSQLDataContext(GetConnection());
         }
 
+        /// <summary>
+        /// Returns the real database mapping for a service selected with the drop down
+        /// </summary>
+        /// <param name="index">drop down index</param>
+        /// <returns></returns>
         public static int RealValue(int index)
         {
             switch (index)
@@ -246,12 +251,13 @@ namespace SalonComplex.SalonBusiness
 
             foreach (appointment dbappointment in dbappointments)
             {
-
+                // pull the appointment times from the appointment_emps table
                 List<DateTime?> appTimes = dbappointment.appointment_emps.Where(a => a.app_id == dbappointment.app_id).Select(a => a.app_time).ToList();
 
                 if (appTimes.Count != 3)
                     return null;
 
+                // create an Appointment object
                 var model = new Model.Appointment
                 {
                     AppointmentId = dbappointment.app_id,
@@ -268,7 +274,13 @@ namespace SalonComplex.SalonBusiness
             return appointments;
         }
 
-
+        /// <summary>
+        /// The following function performs a traverls over the root control nodes returning the items that match the 
+        /// defined type
+        /// </summary>
+        /// <param name="root">Parent node</param>
+        /// <param name="type">Type of node to be returned</param>
+        /// <param name="list">output list</param>
         public static void FindControlRecursive(Control root, Type type, ref List<Control> list)
         {
             if (root.Controls.Count != 0)
@@ -283,22 +295,13 @@ namespace SalonComplex.SalonBusiness
             }
         }
 
-        public static Control FindControlRecursive(Control root, Type type)
-        {
-            if (root.Controls.Count != 0)
-            {
-                foreach (Control c in root.Controls)
-                {
-                    if (c.GetType() == type)
-                        return c;
-                    else if (c.HasControls())
-                        FindControlRecursive(c, type);
-                }
-            }
-
-            return null;
-        }
-
+        /// <summary>
+        /// The following function returns an ItemStore of all items check on a node
+        /// </summary>
+        /// <param name="root">Parent node</param>
+        /// <param name="type">Type of node to be returned</param>
+        /// <param name="selectedDate">date selected</param>
+        /// <returns>Collection of item store</returns>
         public static List<ItemStore> GetCheckedItems(Control root, Type type, DateTime selectedDate)
         {
             DataClassesLinqSQLDataContext context = GetDbContext();
@@ -309,23 +312,28 @@ namespace SalonComplex.SalonBusiness
             foreach (Control checkbox in checkboxes)
             {
                 CheckBox chk = ((CheckBox)checkbox);
-                if (chk.Checked && chk.Enabled)
-                {
-                    int result = 0;
-                    int.TryParse(chk.Text, out result);
-                    if (context != null ) 
-                        items.Add(new ItemStore 
-                        {
-                            Employee = context.employees.FirstOrDefault(a => a.employee_id == result),
-                            SelectedTime = ParseChkBox(chk.ClientID, selectedDate)
+                if (!chk.Checked || !chk.Enabled) continue;
 
-                        });
-                }
+                int result = 0;
+                int.TryParse(chk.Text, out result);
+                if (context != null ) 
+                    items.Add(new ItemStore 
+                                  {
+                                      Employee = context.employees.FirstOrDefault(a => a.employee_id == result),
+                                      SelectedTime = ParseChkBox(chk.ClientID, selectedDate)
+
+                                  });
             }
 
             return items;
         }
 
+        /// <summary>
+        /// The following function returns a DateTime obj for the time checked within the gridview
+        /// </summary>
+        /// <param name="val">value</param>
+        /// <param name="selectedDate">date selected</param>
+        /// <returns>DateTime of appointment</returns>
         public static DateTime ParseChkBox(string val, DateTime selectedDate)
         {
             int max = 18;
@@ -333,6 +341,12 @@ namespace SalonComplex.SalonBusiness
             return new DateTime(selectedDate.Year,selectedDate.Month,selectedDate.Day,max-actual,0,0);
         }
 
+        /// <summary>
+        /// The following function returns the numeric portion of a string 
+        /// e.g. TA23 returns 23
+        /// </summary>
+        /// <param name="val">value</param>
+        /// <returns>inter retrieve</returns>
         public static int GetNumber(string val)
         {
             int result = 0;

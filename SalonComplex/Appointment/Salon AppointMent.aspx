@@ -14,7 +14,7 @@
     --%>
     <script type="text/javascript">
 
-        $(function () {
+        $(function() {
             $('#TextBoxSpaDate').dateinput(
                 {
                     format: 'm/d/yyyy',
@@ -23,17 +23,17 @@
                 });
 
 
-            $('#GridViewSalonEmpSchedule :checked').live("click", function () {
+            $('#GridViewSalonEmpSchedule :checked').live("click", function() {
                 var result = $('#GridViewSalonEmpSchedule :checked').not(':disabled');
                 if (result.length > 3) {
                     alert('Cannot select more than three times');
                     $(this).attr('checked', false);
                 }
             });
-            
+
             $('#GridViewSalonEmpSchedule td label').hide();
 
-        })
+        });
 
 
         function validateAppointment() {
