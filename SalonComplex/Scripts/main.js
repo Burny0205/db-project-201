@@ -3,11 +3,11 @@ var salon = {
 	debugMode : true,
 };
 
-salon.preloadimages = function(el) {
+salon.preloadimages = function(el, count) {
 	// slideshow img naming convention pic{#}.jpg
 	// default size 500x500
 	// ideal solution would be to use filereader populate a json object and traverse over the object
-	var i, imgCount = 14, path = "..\\Images\\slideshow\\", imgprefix = "pic", ext = '.jpg';
+	var i, imgCount = count, path = "../Images/slideshow/", imgprefix = "pic", ext = '.jpg';
 	for (i = 1; i <= imgCount; i++) {
     	$('<img src="' + path +  imgprefix + i + ext + '" width="500" height="500" alt="Slide ' + i + '"/>').appendTo(el);
     }	
@@ -21,6 +21,7 @@ salon.initslideshow = function(el) {
 	    pause: 2500,
 	    effect: 'fade',
 	    hoverPause: true,
+		randomize : true
 	});
 };
 

@@ -46,12 +46,16 @@ namespace SalonComplex.View
             }
             */
 
-            appt.Add(new Model.FullCalendar
+            for (int i = 0; i < 20; i++)
             {
-                id = 0,
-                start = DateTime.Now,
-                title = "peta-gay hair day :)"
-            });
+                appt.Add(new Model.FullCalendar
+                             {
+                                 id = i,
+                                 start = i % 2 == 0 ? DateTime.Now.AddHours((double)i / 2) : DateTime.Now.AddDays((double)i / 2),
+                                 title = "test data :)",
+                                 color = i % 2 == 0 ? "blue" : i % 5 == 0 ? "grey" : "red"
+                             });
+            }
 
             return JsonConvert.SerializeObject(appt);
         }
