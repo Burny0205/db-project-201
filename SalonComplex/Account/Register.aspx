@@ -6,7 +6,9 @@
 // <![CDATA[
 
         function Reset1_onclick() {
-
+            $('input[type=text] , input[type=password]').each(function () {
+                $(this).val('');
+            });
         }
 
 // ]]>
@@ -203,8 +205,8 @@
                                     <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="Create User"
                                         ValidationGroup="RegisterUserValidationGroup" OnClick="CreateUserButtonClick"
                                         CssClass="btn btn-primary btn-large span3" />
-                                    <asp:Button ID="Reset" runat="server" Text="Create User" OnClientClick="return Reset1_onclick()"
-                                        CssClass="btn btn-large span3" />
+                                    <asp:Button ID="Reset" runat="server" Text="Reset" OnClientClick="return Reset1_onclick()"
+                                        CssClass="btn btn-large span3" CausesValidation="False" UseSubmitBehavior="False" />
                                 </div>
                             </fieldset>
                         </div>
@@ -221,13 +223,13 @@
                 <ContentTemplate>
                     <table>
                         <tr>
-                            <td align="center">Complete</td>
+                            <t>Complete</t>
                         </tr>
                         <tr>
                             <td>Your account has been successfully created.</td>
                         </tr>
                         <tr>
-                            <td align="right">
+                            <td>
                                 <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue"
                                     Text="Continue" ValidationGroup="RegisterUser" CssClass="btn btn-primary" />
                             </td>
