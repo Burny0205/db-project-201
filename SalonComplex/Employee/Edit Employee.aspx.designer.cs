@@ -58,15 +58,6 @@ namespace SalonComplex.Employee {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorEditLectID;
         
         /// <summary>
-        /// UpdateLect_Button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateLect_Button;
-        
-        /// <summary>
         /// EmpEditFnameLabel control.
         /// </summary>
         /// <remarks>
@@ -121,15 +112,6 @@ namespace SalonComplex.Employee {
         protected global::System.Web.UI.WebControls.RadioButton EmpRadioButtonFemale;
         
         /// <summary>
-        /// EmpDeleteButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EmpDeleteButton;
-        
-        /// <summary>
         /// EmpEditLabelStreetAdd control.
         /// </summary>
         /// <remarks>
@@ -155,24 +137,6 @@ namespace SalonComplex.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator EditRequiredFieldValidatorLectStr;
-        
-        /// <summary>
-        /// EmpConfirmButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EmpConfirmButton;
-        
-        /// <summary>
-        /// EmpCancelButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EmpCancelButton;
         
         /// <summary>
         /// EmpEditLabelCityAdd control.
@@ -227,15 +191,6 @@ namespace SalonComplex.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator EmpEditRequiredFieldValidatorParishAdd;
-        
-        /// <summary>
-        /// EmpLabelMsgDeleteOrCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmpLabelMsgDeleteOrCancel;
         
         /// <summary>
         /// EmpEditLabelPhone control.
@@ -353,6 +308,51 @@ namespace SalonComplex.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorLectEmail;
+        
+        /// <summary>
+        /// EmpConfirmButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EmpConfirmButton;
+        
+        /// <summary>
+        /// EmpCancelButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EmpCancelButton;
+        
+        /// <summary>
+        /// EmpLabelMsgDeleteOrCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmpLabelMsgDeleteOrCancel;
+        
+        /// <summary>
+        /// UpdateLect_Button control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateLect_Button;
+        
+        /// <summary>
+        /// EmpDeleteButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EmpDeleteButton;
         
         /// <summary>
         /// GrdViewEmpValUpdate control.

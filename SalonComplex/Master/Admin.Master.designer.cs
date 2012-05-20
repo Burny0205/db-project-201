@@ -40,6 +40,24 @@ namespace SalonComplex.Master {
         protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
+        /// Username control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor Username;
+        
+        /// <summary>
+        /// ChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor ChangePassword;
+        
+        /// <summary>
         /// HeadLoginView control.
         /// </summary>
         /// <remarks>
@@ -47,15 +65,6 @@ namespace SalonComplex.Master {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
-        
-        /// <summary>
-        /// NavigationMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
         /// MainContent control.

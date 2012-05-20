@@ -19,7 +19,7 @@
                     min: -1,
                     max: 7
                 });
-            
+
             // add a click event to the grid view to check if the check limit has been exceeded
             $('#GridViewEmpSchedule :checked').live("click", function () {
                 var result = $('#GridViewEmpSchedule :checked').not(':disabled');
@@ -33,17 +33,6 @@
             $('#GridViewEmpSchedule td label').hide();
 
         });
-
-        // validate the form before submission
-        function validateAppointment() {
-            alert('yay!');
-            console.log($('#TextBoxSpaDate').val().length);
-            if ($('#TextBoxSpaDate').val().length > 0)
-                return true;
-            else {
-                return false;
-            }
-        }
 
     </script>
 </asp:Content>
@@ -85,7 +74,7 @@
                     <div id="service">
                         <div>
                             <div>
-                                <table class='table table-bordered table-striped'>
+                                <table id="services" class='table table-bordered table-striped'>
                                     <tr>
                                         <th></th>
                                         <th>Service Name</th>
@@ -314,15 +303,18 @@
             <p class="appointText">
                 <asp:Label ID="AppCommentLabel" runat="server" Text="Comments:" Style="font-weight: 700"></asp:Label>
             </p>
-            <asp:TextBox runat="server" ID="comment" Columns="35" Rows="8" Wrap="True" TextMode="MultiLine" CssClass="input-xxlarge"></asp:TextBox>
+            <asp:TextBox runat="server" ID="comment" Columns="35" Rows="8" Wrap="True" TextMode="MultiLine"
+                CssClass="input-xxlarge"></asp:TextBox>
         </dl>
         <dl>
-            <dd style="width: 380px; margin-left: 10px;">
+            <dd>
                 <div id="SelectEmployee">
-                    <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submit Appointment"
-                        Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButtonClick"
-                        OnClientClick="return validateAppointment();" CssClass="btn btn-primary" ClientIDMode="Static" />
-                    <input id="Reset1" type="reset" value="Reset Button" class="btn" />
+                    <asp:Button ID="SubmitAppButton" runat="server" Text="Submit Appointment" ValidationGroup="AddApp"
+                        OnClick="SubmitAppButtonClick" OnClientClick="return validateAppointment();"
+                        CssClass="btn btn-primary btn-large span2" ClientIDMode="Static" />
+                    <asp:Button ID="Reset" runat="server" Text="Reset" OnClick="SubmitAppButtonClick"
+                        CausesValidation="False" OnClientClick="return validateAppointment();" CssClass="btn btn-large span2"
+                        ClientIDMode="Static" />
                     <br />
                 </div>
         </dl>

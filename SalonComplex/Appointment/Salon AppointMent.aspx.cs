@@ -32,16 +32,13 @@ namespace SalonComplex.Appointment
             //
             // P - Processing
             // B - Book
-            // R - Rejected
-            // C - Change 
-            // D - Done
 
             //app status : 
             //
             // Y - Yes
             // N - No
             // P - Still processing
-            // D - Declined
+            // R - Removed/Declined
 
             //create a new appointment object : i.e. remember it is not an actual confirmed appointment, but a booking
 

@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../Scripts/jquery.dateinput.min.js"></script>
     <script type="text/javascript">
 
-        $(function() {
+        $(function () {
             $('#TextBoxSpaDate').dateinput(
                 {
                     format: 'm/d/yyyy',
@@ -19,7 +19,7 @@
                 });
 
 
-            $('#GridViewSalonEmpSchedule :checked').live("click", function() {
+            $('#GridViewSalonEmpSchedule :checked').live("click", function () {
                 var result = $('#GridViewSalonEmpSchedule :checked').not(':disabled');
                 if (result.length > 3) {
                     alert('Cannot select more than three times');
@@ -30,17 +30,6 @@
             $('#GridViewSalonEmpSchedule td label').hide();
 
         });
-
-
-        function validateAppointment() {
-            alert('yay!');
-            console.log($('#TextBoxSpaDate').val().length);
-            if ($('#TextBoxSpaDate').val().length > 0)
-                return true;
-            else {
-                return false;
-            }
-        }
 
     </script>
 </asp:Content>
@@ -86,7 +75,7 @@
                     <div id="service">
                         <div>
                             <div>
-                                <table class='table table-bordered table-striped'>
+                                <table id="services" class='table table-bordered table-striped'>
                                     <tr>
                                         <th></th>
                                         <th>Service Name</th>
@@ -312,7 +301,8 @@
                     <asp:Label ID="AppCommentLabel" runat="server" Text="Comments:" Style="font-weight: 700"></asp:Label>
                 </p>
                 <dd style="width: 315px">
-                    <asp:TextBox runat="server" ID="comment" Columns="35" Rows="8" Wrap="True" TextMode="MultiLine" CssClass="input-xxlarge"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="comment" Columns="35" Rows="8" Wrap="True" TextMode="MultiLine"
+                        CssClass="input-xxlarge"></asp:TextBox>
                     <br />
             </dl>
             <dl>
@@ -320,8 +310,10 @@
                     <div id="SelectEmployee">
                         <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submit Appointment"
                             Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButtonClick"
-                            CssClass="btn btn-primary" OnClientClick="return validateAppointment();"/>
-                        <input id="Reset1" type="reset" value="Reset Button" class="btn" />
+                            CssClass="btn btn-primary btn-large" OnClientClick="return validateAppointment();" />
+                        <asp:Button ID="Reest" runat="server" Text="Reset" OnClick="SubmitAppButtonClick"
+                            CausesValidation="False" OnClientClick="return validateAppointment();" CssClass="btn btn-large span2"
+                            ClientIDMode="Static" />
                         <br />
                     </div>
             </dl>

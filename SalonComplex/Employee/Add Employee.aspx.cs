@@ -30,24 +30,22 @@ namespace SalonComplex.Employee
 
                 valuesEmployee.employee_type = DropdownListEmpType.SelectedItem.ToString();
                 valuesEmployee.employee_fname = EmpFnameText.Text.Trim();
-                string strGender;
-                if (RadioButtonGender.Checked) { strGender = "M"; }
-                else { strGender = "F"; }
+                string strGender = RadioButtonGender.Checked ? "M" : "F";
                 valuesEmployee.employee_gender = strGender;
                 valuesEmployee.employee_street = EmpStreetText.Text.Trim();
                 valuesEmployee.employee_city = EmpCityText.Text.Trim();
                 valuesEmployee.employee_parish = DropdownListEmpParish.SelectedItem.ToString();
                 valuesEmployee.employee_phone = EmpPhoneTextBox.Text.Trim();
-                float YoeAddd = 0;
-                float.TryParse(YoeTxtBox.Text.Trim(), out YoeAddd);
-                valuesEmployee.employee_yoe = (int)YoeAddd;
+                float yoeAddd = 0;
+                float.TryParse(YoeTxtBox.Text.Trim(), out yoeAddd);
+                valuesEmployee.employee_yoe = (int)yoeAddd;
                 valuesEmployee.employee_email = EmpEmailTextBox.Text.Trim();
 
 
 
-                int Result = test.Call_InsertEmployee(valuesEmployee);
+                int result = test.Call_InsertEmployee(valuesEmployee);
 
-                if (Result == 1)
+                if (result == 1)
                 {
 
                     EmpLabelStatus.Text = "Employee " + " " + valuesEmployee.employee_fname + " " +

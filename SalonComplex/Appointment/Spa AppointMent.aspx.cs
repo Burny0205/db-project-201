@@ -27,6 +27,9 @@ namespace SalonComplex.Appointment
         
         protected void SubmitAppButtonClick(object sender, EventArgs e)
         {
+
+            return;
+
             if (TextBoxSpaDate.Text == null)
                 return;
 
@@ -42,15 +45,12 @@ namespace SalonComplex.Appointment
             //app status : 
             //
             // P - Processing
-            // B - Book
+            // B - Booked
             // R - Rejected
-            // C - Change 
-            // D - Done
 
             //app status : 
             //
             // Y - Yes
-            // N - No
             // P - Still processing
             // D - Declined
 

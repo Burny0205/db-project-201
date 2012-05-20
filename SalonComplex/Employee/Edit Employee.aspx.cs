@@ -12,7 +12,7 @@ namespace SalonComplex.Employee
     public partial class Edit_Employee : System.Web.UI.Page
 
     {
-        private int isesEmpId;
+        private int _isesEmpId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,7 +27,7 @@ namespace SalonComplex.Employee
 
         }
 
-        protected void UpdateLect_Button_Click(object sender, EventArgs e)
+        protected void UpdateLectButtonClick(object sender, EventArgs e)
         {
             // first check if gridView1 was selected
             if (GrdViewEmpValUpdate.SelectedIndex == -1)
@@ -41,27 +41,28 @@ namespace SalonComplex.Employee
             GridViewRow row = GrdViewEmpValUpdate.SelectedRow;
 
                         
-            int.TryParse(row.Cells[1].Text, out isesEmpId);
-            employee UpdateEmployeeValues = new employee();
-          
-            UpdateEmployeeValues.employee_id = isesEmpId;
-            UpdateEmployeeValues.employee_type = DropdownListEmpTypeEdit.SelectedItem.Text.Trim();
-            UpdateEmployeeValues.employee_fname = EmpEditTextBoxFname.Text.Trim();
-            if (EmpRadioButtonMale.Checked) { UpdateEmployeeValues.employee_gender = "M"; }
-            else { UpdateEmployeeValues.employee_gender = "F"; }
-            UpdateEmployeeValues.employee_street = EmpEditTextBoxStreetAdd.Text.Trim();
-            UpdateEmployeeValues.employee_city = EmpEditTextBoxCityAdd.Text.Trim();
-            UpdateEmployeeValues.employee_parish = DropdownListEditEmpParish.SelectedItem.Text.Trim();
-            UpdateEmployeeValues.employee_phone = EmpEditTextBoxPhone.Text.Trim();
-            float EmpEditYoeAdd = 0;
-            float.TryParse(EmpEditYoeTxtBox.Text.Trim(), out EmpEditYoeAdd);
-            UpdateEmployeeValues.employee_yoe = (int)EmpEditYoeAdd;
-            UpdateEmployeeValues.employee_email = EmpEditTextBoxEmail.Text.Trim();
+            int.TryParse(row.Cells[1].Text, out _isesEmpId);
+            employee updateEmployeeValues = new employee
+                                                {
+                                                    employee_id = _isesEmpId,
+                                                    employee_type = DropdownListEmpTypeEdit.SelectedItem.Text.Trim(),
+                                                    employee_fname = EmpEditTextBoxFname.Text.Trim(),
+                                                    employee_gender = EmpRadioButtonMale.Checked ? "M" : "F",
+                                                    employee_street = EmpEditTextBoxStreetAdd.Text.Trim(),
+                                                    employee_parish = DropdownListEditEmpParish.SelectedItem.Text.Trim(),
+                                                    employee_city = EmpEditTextBoxCityAdd.Text.Trim(),
+                                                    employee_phone = EmpEditTextBoxPhone.Text.Trim(),
+                                                    employee_email = EmpEditTextBoxEmail.Text.Trim()
+                                                };
+
+            float empEditYoeAdd = 0;
+            float.TryParse(EmpEditYoeTxtBox.Text.Trim(), out empEditYoeAdd);
+            updateEmployeeValues.employee_yoe = (int) empEditYoeAdd;
 
 
-            int Result = test.Call_UpdateEmployee(UpdateEmployeeValues);
+            int result = test.Call_UpdateEmployee(updateEmployeeValues);
 
-            if (Result == 1)
+            if (result == 1)
             {
 
                 EmpEditLabelStatus.Text = "The employee" + " " + row.Cells[3].Text + " " + "was successfully updated";
@@ -97,7 +98,7 @@ namespace SalonComplex.Employee
 
       
 
-        protected void LectDelete_Button_Click(object sender, EventArgs e)
+        protected void LectDeleteButtonClick(object sender, EventArgs e)
         {
             if (GrdViewEmpValUpdate.SelectedIndex == -1)
             {
@@ -108,7 +109,7 @@ namespace SalonComplex.Employee
             
             GridViewRow selectedRow = GrdViewEmpValUpdate.SelectedRow;
             
-            int.TryParse(selectedRow.Cells[1].Text, out isesEmpId);
+            int.TryParse(selectedRow.Cells[1].Text, out _isesEmpId);
 
           
 
@@ -116,14 +117,14 @@ namespace SalonComplex.Employee
             EmpConfirmButton.Visible = true;
             EmpCancelButton.Visible = true;
             
-            Session["sesEmpid"] = isesEmpId.ToString();
+            Session["sesEmpid"] = _isesEmpId.ToString();
             //get Name of employee
             Session["sesEmpFirstName"] = selectedRow.Cells[3].Text;
             EmpLabelMsgDeleteOrCancel.Visible = true;
                        
         }
 
-        protected void ButtonLectConfirm_Click(object sender, EventArgs e)
+        protected void ButtonLectConfirmClick(object sender, EventArgs e)
         {
             if (GrdViewEmpValUpdate.SelectedIndex == -1)
             {                
@@ -135,13 +136,13 @@ namespace SalonComplex.Employee
             }
                                  
             GridViewRow selectedRow = GrdViewEmpValUpdate.SelectedRow;
-            int.TryParse(Session["sesEmpid"].ToString(), out isesEmpId);
+            int.TryParse(Session["sesEmpid"].ToString(), out _isesEmpId);
 
             admin test = new admin();
-            int Result = test.Call_DeleteEmployee(isesEmpId);
+            int result = test.Call_DeleteEmployee(_isesEmpId);
            
                        
-            if (Result == 1)
+            if (result == 1)
             {
                
                 EmpEditLabelStatus.Text = "The employee " + Session["sesEmpFirstName"].ToString() +" " + "was removed";
@@ -176,7 +177,7 @@ namespace SalonComplex.Employee
 
         }
 
-        protected void ButtonLectCancel_Click(object sender, EventArgs e)
+        protected void ButtonLectCancelClick(object sender, EventArgs e)
         {
             // back original state Buttons
             UpdateLect_Button.Visible = true;
@@ -189,7 +190,7 @@ namespace SalonComplex.Employee
       
 
       
-        protected void GrdViewEmpValUpdate_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GrdViewEmpValUpdateSelectedIndexChanged(object sender, EventArgs e)
         {
             //get selected row 
 

@@ -57,9 +57,28 @@ namespace SalonComplex.SalonBusiness
         public static bool HasAppointment(int clientId, DateTime date, int key)
         {
             DataClassesLinqSQLDataContext context = Util.GetDbContext();
-            int result = context.appointments.Count(a => a.app_day == date.Date && a.client_id == clientId);
+            int result = context.appointments.Count(
+                a => a.app_day == date.Date && 
+                    a.client_id == clientId && 
+                    a.appointment_services.Any(p => p.service.service_name_id == key));
             return result > 0;
         }
 
+        /// <summary>
+        /// Retrieve appointment data for calendar from database
+        /// </summary>
+        /// <returns></returns>
+        public static List<Model.FullCalendar> GetAppointmentsForCalendar()
+        {
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
+            return context.appointments.Where(a => a.app_status == "P" || a.app_status == "B").Select(
+                o => new Model.FullCalendar
+                         {
+                             id = o.app_id,
+                             start = o.appointment_emps.Select(a => a.app_time).FirstOrDefault(),
+                             title = o.client.client_fname + " "+ o.client.client_lname,
+                             color = o.app_status == "P" ? "grey" : "blue"
+                         }).ToList();
+        }
     }
 }
