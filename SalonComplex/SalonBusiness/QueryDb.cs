@@ -75,7 +75,7 @@ namespace SalonComplex.SalonBusiness
                 o => new Model.FullCalendar
                          {
                              id = o.app_id,
-                             start = o.appointment_emps.Select(a => a.app_time).FirstOrDefault(),
+                             start = o.app_status == "B" ? o.app_time : o.appointment_emps.Select(a => a.app_time).FirstOrDefault(),
                              title = o.client.client_fname + " "+ o.client.client_lname,
                              color = o.app_status == "P" ? "grey" : "blue"
                          }).ToList();
