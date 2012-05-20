@@ -519,6 +519,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="back up\SalonDb.zip" />
     <None Include="LinqSQL\DataClassesLinqSQL.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClassesLinqSQL.designer.cs</LastGenOutput>
