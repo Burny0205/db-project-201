@@ -15,7 +15,7 @@
   <location path="Appointment">
     <system.web>
       <authorization>
-        <allow roles="Admin"/> 
+        <allow roles="Admin"/>
         <deny users="?"/>
       </authorization>
     </system.web>
@@ -23,7 +23,15 @@
   <location path="Pages">
     <system.web>
       <authorization>
-        <allow roles="Admin"/> 
+        <allow roles="Admin"/>
+        <deny users="?"/>
+      </authorization>
+    </system.web>
+  </location>
+  <location path="Employee">
+    <system.web>
+      <authorization>
+        <allow roles="Admin"/>
         <deny users="?"/>
       </authorization>
     </system.web>
@@ -43,7 +51,7 @@
       <forms loginUrl="~/Account/Login.aspx" defaultUrl="Default.aspx"
         timeout="2880" />
     </authentication>
-      <membership>
+    <membership>
       <providers>
         <clear />
         <add connectionStringName="ApplicationServices" enablePasswordRetrieval="false"
@@ -53,12 +61,12 @@
           applicationName="/" name="AspNetSqlMembershipProvider" type="System.Web.Security.SqlMembershipProvider" />
       </providers>
     </membership>
-      <globalization
-           fileEncoding="utf-8"
-           requestEncoding="utf-8"
-           responseEncoding="utf-8"
-           culture=""
-           uiCulture=""
+    <globalization
+         fileEncoding="utf-8"
+         requestEncoding="utf-8"
+         responseEncoding="utf-8"
+         culture=""
+         uiCulture=""
         />
   </system.web>
   <system.webServer>
@@ -72,5 +80,5 @@
       </smtp>
     </mailSettings>
   </system.net>
-  
+
 </configuration>
