@@ -74,6 +74,14 @@
                                         <li><a href="../Pages/Videos.aspx">Videos</a></li>
                                     </ul>
                                 </li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b
+                                    class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../Employee/Add Employee.aspx">Admin Employee</a></li>
+                                        <li><a href="../Employee/Edit Employee.aspx">Edit Employee</a></li>
+                                        <li><a href="../Employee/Add Employee Schedule.aspx">Add Employee Schedule</a></li>
+                                    </ul>
+                                </li>
                                 <li class=""><a href="../Pages/Calendar.aspx">Calendar</a></li>
                                 <li class="divider-vertical"></li>
                                 <li class=""><a href="../Contact/Contact.aspx">Contact Us</a></li>

@@ -30,11 +30,19 @@ namespace SalonComplex.Master
                 }
                 else
                 {
+                    if(!IsAdmin())
+                    {
+                        Response.Redirect("~/Pages/Unauthorized.aspx");  
+                    }
+
                     Username.InnerHtml = Util.FormatUsername();
                 }
             }
+        }
 
-
+        private bool IsAdmin ()
+        {
+            return HttpContext.Current.User.Identity.Name == "admin";
         }
     }
 }

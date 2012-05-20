@@ -202,6 +202,7 @@
     <Content Include="Images\sprites\pagination.png" />
     <Content Include="Images\sprites\slogan.png" />
     <Content Include="Pages\Gallery.aspx" />
+    <Content Include="Pages\Unauthorized.aspx" />
     <Content Include="Pages\Videos.aspx" />
     <Content Include="Pages\Calendar.aspx" />
     <Content Include="Plugins\flowplayer\flowplayer-3.2.10.swf" />
@@ -417,6 +418,13 @@
     <Compile Include="Pages\Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Unauthorized.aspx.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Unauthorized.aspx.designer.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Videos.aspx.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
