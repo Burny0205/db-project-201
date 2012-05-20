@@ -8,6 +8,7 @@
       <Column Name="notes_requests" Type="System.String" DbType="VarChar(600)" CanBeNull="true" />
       <Column Name="visited_status" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
       <Column Name="app_status" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="app_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="appointment_appointment_emp" Member="appointment_emps" ThisKey="app_id" OtherKey="app_id" Type="appointment_emp" />
       <Association Name="appointment_appointment_service" Member="appointment_services" ThisKey="app_id" OtherKey="app_id" Type="appointment_service" />
       <Association Name="client_appointment" Member="client" ThisKey="client_id" OtherKey="client_id" Type="client" IsForeignKey="true" DeleteRule="CASCADE" />

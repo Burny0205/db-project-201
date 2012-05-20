@@ -14,7 +14,7 @@ namespace SalonComplex.Master
             if (!IsPostBack)
             {
                 // remove cookie if user is not authenticated
-                if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                if (Util.IsAnonymous())
                 {
                     if (Request.Cookies["clientCookie"] != null)
                     {

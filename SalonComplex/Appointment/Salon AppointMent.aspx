@@ -296,27 +296,41 @@
         <br />
         <p class="appointText">
             Anything else we should know about your desired services or appointment?
-            <dl>
-                <p class="appointText">
-                    <asp:Label ID="AppCommentLabel" runat="server" Text="Comments:" Style="font-weight: 700"></asp:Label>
-                </p>
-                <dd style="width: 315px">
-                    <asp:TextBox runat="server" ID="comment" Columns="35" Rows="8" Wrap="True" TextMode="MultiLine"
-                        CssClass="input-xxlarge"></asp:TextBox>
+        </p>
+        <dl>
+            <p class="appointText">
+                <asp:Label ID="AppCommentLabel" runat="server" Text="Comments:" Style="font-weight: 700"></asp:Label>
+            </p>
+            <dd style="width: 315px">
+                <asp:TextBox runat="server" ID="comment" Columns="35" Rows="8" Wrap="True" TextMode="MultiLine"
+                    CssClass="input-xxlarge"></asp:TextBox>
+                <br />
+        </dl>
+        <dl>
+            <dd style="width: 380px; margin-left: 10px;">
+                <div id="SelectEmployee">
+                    <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submit Appointment"
+                      ValidationGroup="AddApp" OnClick="SubmitAppButtonClick"
+                        CssClass="btn btn-primary btn-large" OnClientClick="return validateAppointment();" />
+                    <asp:Button ID="Reest" runat="server" Text="Reset" OnClick="SubmitAppButtonClick"
+                        CausesValidation="False" OnClientClick="salon.reset(); return false();;" CssClass="btn btn-large span2"
+                        ClientIDMode="Static" />
                     <br />
-            </dl>
-            <dl>
-                <dd style="width: 380px; margin-left: 10px;">
-                    <div id="SelectEmployee">
-                        <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submit Appointment"
-                            Width="154px" Height="30px" ValidationGroup="AddApp" OnClick="SubmitAppButtonClick"
-                            CssClass="btn btn-primary btn-large" OnClientClick="return validateAppointment();" />
-                        <asp:Button ID="Reest" runat="server" Text="Reset" OnClick="SubmitAppButtonClick"
-                            CausesValidation="False" OnClientClick="return validateAppointment();" CssClass="btn btn-large span2"
-                            ClientIDMode="Static" />
-                        <br />
-                    </div>
-            </dl>
+                </div>
+        </dl>
+        <div class="modal hide" id="myModal">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">×</button>
+                <h3>Errors</h3>
+            </div>
+            <div class="modal-body">
+                <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-primary" onclick="$('#myModal').modal('hide');return false;">
+                    Close</a>
+            </div>
+        </div>
     </fieldset>
     </form>
     <span id="content_in_end"></span>

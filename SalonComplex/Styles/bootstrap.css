@@ -3562,6 +3562,13 @@ a.thumbnail:hover {
   color: inherit;
   letter-spacing: -1px;
 }
+.hero-unit h2 {
+  margin-bottom: 0;
+  font-size: 25px;
+  line-height: 1;
+  color: inherit;
+  letter-spacing: -1px;
+}
 .hero-unit p {
   font-size: 18px;
   font-weight: 200;

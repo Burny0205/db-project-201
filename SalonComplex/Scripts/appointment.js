@@ -58,11 +58,39 @@ function timeTimeCheck()
 
 // validate the form before submission
 function validateAppointment() {
-	alert('yay!');
-	console.log($('#TextBoxSpaDate').val().length);
-	if ($('#TextBoxSpaDate').val().length > 0)
-		return true;
-	else {
-		return false;
+    salon.log('in here');
+	var valid = false, gvTime, errormg = "";
+
+
+    var txtDate = $('#TextBoxSpaDate').val().length;
+    var srvCount = $('#services input:checked').length;
+
+    if(document.location.href.indexOf('Salon')) {
+        gvTime = $('#GridViewSalonEmpSchedule :checked').not(':disabled').length;
+    }
+    else {
+        gvTime = $('#GridViewEmpSchedule :checked').not(':disabled').length;
 	}
+
+    if(srvCount == 0) {
+        errormsg = salon.errors.noservice;
+        salon.alert(errormsg);
+    }
+    else if (txtDate == 0) {
+        errormsg = salon.errors.nodate;
+        salon.alert(errormsg);
+    }
+    else if (gvTime == 0) {
+        errormsg = salon.errors.notime;
+        salon.alert(errormsg);
+    }
+    else if (gvTime < 3) {
+        errormsg = salon.errors.lowtime;
+        errormsg = errormsg.format(3-gvTime);
+        salon.alert(errormsg);
+    }
+    else {
+        valid = true;
+    }
+	return valid;
 }

@@ -53,8 +53,6 @@ namespace SalonComplex.SalonBusiness
                                             string strUsernameEmail,
                                             string strFromYourName,
                                             string strSubject)
-
-
         {
             Boolean resultado = false;
             //strNewUserID
@@ -208,7 +206,7 @@ namespace SalonComplex.SalonBusiness
         {
             const string _default = "Anonymous";
 
-            return HttpContext.Current.User.Identity.IsAuthenticated
+            return IsAuthenticated()
                 ? HttpContext.Current.User.Identity.Name : _default;
         }
 
@@ -242,17 +240,24 @@ namespace SalonComplex.SalonBusiness
         /// Retrieve user appointment data from the data structuring in a list of appointment model with a calculated visit
         /// </summary>
         /// <returns></returns>
-        public static List<Model.Appointment> ArrayOfAppointments()
+        public static List<Model.Appointment> ArrayOfAppointments(DateTime date)
         {
             DataClassesLinqSQLDataContext context = Util.GetDbContext();
             List<Model.Appointment> appointments = new List<Model.Appointment>();
 
-            var dbappointments = context.appointments;
+            var dbappointments = context.appointments.Where(a => a.app_day >= date.Date && a.app_status == "P");
 
             foreach (appointment dbappointment in dbappointments)
             {
                 // pull the appointment times from the appointment_emps table
-                List<DateTime?> appTimes = dbappointment.appointment_emps.Where(a => a.app_id == dbappointment.app_id).Select(a => a.app_time).ToList();
+                List<AppData> appTimes = dbappointment.appointment_emps
+                    .Where(a => a.app_id == dbappointment.app_id)
+                    .Select(a => new AppData
+                            {
+                                EmployeeId = a.emp_id,
+                                TimeChosen = a.app_time,
+                                ScheduleId = a.schedule_id
+                            }).ToList();
 
                 if (appTimes.Count != 3)
                     return null;
@@ -261,17 +266,86 @@ namespace SalonComplex.SalonBusiness
                 var model = new Model.Appointment
                 {
                     AppointmentId = dbappointment.app_id,
+                    AppointmentDate = dbappointment.app_day,
                     ClientId = dbappointment.client_id,
-                    TimeChose1 = appTimes.ElementAt(0),
-                    TimeChose2 = appTimes.ElementAt(1),
-                    TimeChose3 = appTimes.ElementAt(2),
-                    NumberOfVisits = dbappointments.Count(a => a.client_id == dbappointment.client_id)
+                    AppointmentData = appTimes,
+                    NumberOfVisits = dbappointments.Count(a => a.client_id == dbappointment.client_id && a.visited_status == "Y")
                 };
 
                 appointments.Add(model);
             }
 
-            return appointments;
+            // order in desc by # of visits
+            return appointments.OrderByDescending(a => a.NumberOfVisits).ToList();
+        }
+
+        /// <summary>
+        /// Retrieve all 
+        /// </summary>
+        /// <param name="schId"></param>
+        /// <returns></returns>
+        public static Model.Employee GetEmployeesByScheduleTime(int schId)
+        {
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
+
+            employee emp = context.employees.FirstOrDefault(a => a.schedules.Any(p => p.schedule_id == schId));
+
+            if (emp == null)
+                return null;
+            return new Model.Employee
+                                 {
+                                     EmployeeId = emp.employee_id,
+                                     AvailableTimes = AvailableTime(emp, schId),
+                                     Experience = (int) emp.employee_yoe
+                                 };
+        }
+
+        /// <summary>
+        /// Returns a list of available time for an employee
+        /// </summary>
+        /// <param name="emp"></param>
+        /// <param name="schId"></param>
+        /// <returns></returns>
+        public static List<DateTime> AvailableTime(employee emp, int schId)
+        {
+            schedule empSch = emp.schedules.FirstOrDefault(a => a.schedule_id == schId);
+            List<DateTime> availableTimes = new List<DateTime>();
+
+            if (empSch == null)
+                return null;
+
+            if (!empSch._8_00_am)
+                availableTimes.Add(MakeDate(8, empSch.sch_date));
+            if (!empSch._9_00_am)
+                availableTimes.Add(MakeDate(9, empSch.sch_date));
+            if (!empSch._10_00_am)
+                availableTimes.Add(MakeDate(10, empSch.sch_date));
+            if (!empSch._11_00_am)
+                availableTimes.Add(MakeDate(11, empSch.sch_date));
+            if (!empSch._12_00_pm)
+                availableTimes.Add(MakeDate(12, empSch.sch_date));
+            if (!empSch._1_00_pm)
+                availableTimes.Add(MakeDate(13, empSch.sch_date));
+            if (!empSch._2_00_pm)
+                availableTimes.Add(MakeDate(14, empSch.sch_date));
+            if (!empSch._3_00_pm)
+                availableTimes.Add(MakeDate(15, empSch.sch_date));
+            if (!empSch._4_00_pm)
+                availableTimes.Add(MakeDate(16, empSch.sch_date));
+            if (!empSch._5_00_pm)
+                availableTimes.Add(MakeDate(17, empSch.sch_date));
+            return availableTimes;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="schDate"></param>
+        /// <returns></returns>
+        public static DateTime MakeDate(int index, DateTime schDate)
+        {
+            return new DateTime(schDate.Year, schDate.Month, schDate.Day, index, 0, 0);
         }
 
         /// <summary>
@@ -316,8 +390,8 @@ namespace SalonComplex.SalonBusiness
 
                 int result = 0;
                 int.TryParse(chk.Text, out result);
-                if (context != null ) 
-                    items.Add(new ItemStore 
+                if (context != null)
+                    items.Add(new ItemStore
                                   {
                                       Employee = context.employees.FirstOrDefault(a => a.employee_id == result),
                                       SelectedTime = ParseChkBox(chk.ClientID, selectedDate)
@@ -338,7 +412,7 @@ namespace SalonComplex.SalonBusiness
         {
             int max = 18;
             int actual = GetNumber(val);
-            return new DateTime(selectedDate.Year,selectedDate.Month,selectedDate.Day,max-actual,0,0);
+            return new DateTime(selectedDate.Year, selectedDate.Month, selectedDate.Day, max - actual, 0, 0);
         }
 
         /// <summary>
@@ -350,13 +424,41 @@ namespace SalonComplex.SalonBusiness
         public static int GetNumber(string val)
         {
             int result = 0;
-            var match=Regex.Match(val,@"\d+");
-            if(match.Success)
+            var match = Regex.Match(val, @"\d+");
+            if (match.Success)
             {
                 int.TryParse(match.Value, out result);
             }
             return result;
         }
+
+        /// <summary>
+        /// The following function returns true if a username is admin
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsAdmin()
+        {
+            return HttpContext.Current.User.Identity.Name == "admin";
+        }
+
+        /// <summary>
+        /// The following function checks if a user is authenticated
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsAuthenticated()
+        {
+            return HttpContext.Current.User.Identity.IsAuthenticated;
+        }
+
+        /// <summary>
+        /// The following function checks if a user is anonymous
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsAnonymous()
+        {
+            return IsAuthenticated() == false;
+        }
+
     }
 
 

@@ -81,6 +81,7 @@
     <Content Include="Controls\ServicesControl.ascx" />
     <Content Include="Employee\Add Employee Schedule.aspx" />
     <Content Include="Employee\Add Employee.aspx" />
+    <Content Include="Employee\AppointmentSceduler.aspx" />
     <Content Include="Employee\Edit Employee.aspx" />
     <Content Include="Images\A1.jpg" />
     <Content Include="Images\A2.jpg" />
@@ -201,6 +202,7 @@
     <Content Include="Images\sprites\new-ribbon.png" />
     <Content Include="Images\sprites\pagination.png" />
     <Content Include="Images\sprites\slogan.png" />
+    <Content Include="Pages\Restricted.aspx" />
     <Content Include="Pages\Gallery.aspx" />
     <Content Include="Pages\Unauthorized.aspx" />
     <Content Include="Pages\Videos.aspx" />
@@ -380,6 +382,13 @@
     <Compile Include="Employee\Add Employee.aspx.designer.cs">
       <DependentUpon>Add Employee.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Employee\AppointmentSceduler.aspx.cs">
+      <DependentUpon>AppointmentSceduler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\AppointmentSceduler.aspx.designer.cs">
+      <DependentUpon>AppointmentSceduler.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Employee\Edit Employee.aspx.cs">
       <DependentUpon>Edit Employee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -412,9 +421,18 @@
     <Compile Include="Master\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Model\AppData.cs" />
     <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\FullCalendar.cs" />
     <Compile Include="Model\ItemStore.cs" />
+    <Compile Include="Pages\Restricted.aspx.cs">
+      <DependentUpon>Restricted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Restricted.aspx.designer.cs">
+      <DependentUpon>Restricted.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

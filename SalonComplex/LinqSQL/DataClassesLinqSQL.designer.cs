@@ -302,6 +302,8 @@ namespace SalonComplex.LinqSQL
 		
 		private string _app_status;
 		
+		private System.Nullable<System.DateTime> _app_time;
+		
 		private EntitySet<appointment_emp> _appointment_emps;
 		
 		private EntitySet<appointment_service> _appointment_services;
@@ -324,6 +326,8 @@ namespace SalonComplex.LinqSQL
     partial void Onvisited_statusChanged();
     partial void Onapp_statusChanging(string value);
     partial void Onapp_statusChanged();
+    partial void Onapp_timeChanging(System.Nullable<System.DateTime> value);
+    partial void Onapp_timeChanged();
     #endregion
 		
 		public appointment()
@@ -454,6 +458,26 @@ namespace SalonComplex.LinqSQL
 					this._app_status = value;
 					this.SendPropertyChanged("app_status");
 					this.Onapp_statusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_app_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> app_time
+		{
+			get
+			{
+				return this._app_time;
+			}
+			set
+			{
+				if ((this._app_time != value))
+				{
+					this.Onapp_timeChanging(value);
+					this.SendPropertyChanging();
+					this._app_time = value;
+					this.SendPropertyChanged("app_time");
+					this.Onapp_timeChanged();
 				}
 			}
 		}

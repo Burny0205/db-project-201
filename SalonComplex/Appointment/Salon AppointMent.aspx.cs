@@ -17,6 +17,9 @@ namespace SalonComplex.Appointment
         {
             if (!this.IsPostBack)
             {
+                if (Util.IsAnonymous())
+                    Response.Redirect("~/Pages/Restricted.aspx");
+
                 PopulateSpaRepeater();
             }
 
@@ -24,6 +27,7 @@ namespace SalonComplex.Appointment
 
         protected void SubmitAppButtonClick(object sender, EventArgs e)
         {
+
             DataClassesLinqSQLDataContext context = Util.GetDbContext();
 
             DateTime selectedDate = DateTime.ParseExact(TextBoxSpaDate.Text, "m/d/yyyy", CultureInfo.InvariantCulture);
@@ -36,9 +40,9 @@ namespace SalonComplex.Appointment
             //app status : 
             //
             // Y - Yes
-            // N - No
             // P - Still processing
-            // R - Removed/Declined
+            // D - Declined
+
 
             //create a new appointment object : i.e. remember it is not an actual confirmed appointment, but a booking
 
@@ -51,8 +55,11 @@ namespace SalonComplex.Appointment
 
             // check if user already has an appointment.
             if (QueryDb.HasAppointment(clientId, selectedDate, realServiceVal))
+            {
+                LabelSpaAppDate.Text = "An appointment already exist for the following date";
                 return;
-            
+            }
+
             #region Add Appointment to DB
             appointment newApp = new appointment
                                      {

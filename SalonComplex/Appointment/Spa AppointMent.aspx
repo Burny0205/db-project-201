@@ -313,11 +313,23 @@
                         OnClick="SubmitAppButtonClick" OnClientClick="return validateAppointment();"
                         CssClass="btn btn-primary btn-large span2" ClientIDMode="Static" />
                     <asp:Button ID="Reset" runat="server" Text="Reset" OnClick="SubmitAppButtonClick"
-                        CausesValidation="False" OnClientClick="return validateAppointment();" CssClass="btn btn-large span2"
+                        CausesValidation="False" OnClientClick="salon.reset(); return false();" CssClass="btn btn-large span2"
                         ClientIDMode="Static" />
                     <br />
                 </div>
         </dl>
+        <div class="modal hide" id="myModal">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">×</button>
+                <h3>Errors</h3>
+            </div>
+            <div class="modal-body">
+                <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-primary" onclick="$('#myModal').modal('hide');return false;">Close</a>
+            </div>
+        </div>
     </fieldset>
     </form>
     <script type="text/javascript">

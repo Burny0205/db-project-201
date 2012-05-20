@@ -71,11 +71,13 @@ salon.gallery = function(el) {
     }
 };
 
-salon.log = function(msg) {
+salon.log = function() {
 	// check if debugging is supported
 	// supported in IE9+, Webkit browsers, Firefox & Opera
 	if (window.console && window.console.log) {
-		console.log(msg);
+		if(arguments.length > 1)
+			console.log(arguments[0],arguments[1]); // added suppport for key : value logging
+		else console.log(arguments[0]);
 	}
 	// logging is not supported in this browser
 };
@@ -88,8 +90,16 @@ salon.debug = function() {
     }
 };
 
-salon.reset = function () {
+salon.alert = function(msg) {
+	// in case u need to customize error message it's wrap in a container
+	$('#myModal .modal-body p').html(msg)
+	$('#myModal').modal('show');
+	//alert(msg);
+	return false; // prevent bubbling
+}
 
+salon.reset = function () {
+	// the following function reloads a form
     if (document.forms && document.forms.length > 1) {
         document.forms[0].reload();
         return false;
@@ -98,4 +108,23 @@ salon.reset = function () {
         return false;
     }
 
+};
+
+salon.errors = {
+	noservice : 'You have not selected any services',
+	nodate : 'You have not selected a date for an appointment',
+	invaliddate : 'You have entered an invalid date',
+	notime : 'You did not select any time',
+	lowtime : 'You cannot select less than 3 timeslots. please select {0} more'
+}
+
+
+String.prototype.format = function() {
+  var args = arguments;
+  return this.replace(/{(\d+)}/g, function(match, number) { 
+    return typeof args[number] != 'undefined'
+      ? args[number]
+      : match
+    ;
+  });
 };

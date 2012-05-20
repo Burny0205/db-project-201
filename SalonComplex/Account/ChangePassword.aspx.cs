@@ -14,7 +14,8 @@ namespace SalonComplex.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Util.IsAnonymous())
+                Response.Redirect("~/Account/Login.aspx");
         }
 
         protected void ChangeUserPassword_ChangingPassword(object sender, LoginCancelEventArgs e)

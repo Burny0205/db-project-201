@@ -12,7 +12,7 @@ namespace SalonComplex.Master
             if (!IsPostBack)
             {
                 // remove cookie if user is not authenticated
-                if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                if (Util.IsAnonymous())
                 {
                     if (Request.Cookies["clientCookie"] != null)
                     {
@@ -30,7 +30,7 @@ namespace SalonComplex.Master
                 }
                 else
                 {
-                    if(!IsAdmin())
+                    if(!Util.IsAdmin())
                     {
                         Response.Redirect("~/Pages/Unauthorized.aspx");  
                     }
@@ -38,11 +38,6 @@ namespace SalonComplex.Master
                     Username.InnerHtml = Util.FormatUsername();
                 }
             }
-        }
-
-        private bool IsAdmin ()
-        {
-            return HttpContext.Current.User.Identity.Name == "admin";
         }
     }
 }

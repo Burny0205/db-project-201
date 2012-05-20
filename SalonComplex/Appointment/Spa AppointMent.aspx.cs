@@ -21,6 +21,9 @@ namespace SalonComplex.Appointment
 
             if (!this.IsPostBack)
             {
+                if (Util.IsAnonymous())
+                    Response.Redirect("~/Pages/Restricted.aspx");
+
                 PopulateSpaRepeater();
             }
         }
@@ -28,8 +31,7 @@ namespace SalonComplex.Appointment
         protected void SubmitAppButtonClick(object sender, EventArgs e)
         {
 
-            return;
-
+ 
             if (TextBoxSpaDate.Text == null)
                 return;
 
@@ -59,8 +61,10 @@ namespace SalonComplex.Appointment
 
             // check if user already has an appointment.
             if (QueryDb.HasAppointment(clientId, selectedDate, Spa))
+            {
+                LabelSpaAppDate.Text = "An appointment already exist for the following date";
                 return;
-
+            }
             
             #region Add Appointment to DB
             appointment newApp = new appointment
