@@ -46,19 +46,8 @@ function getPrice(val)
     }
 }
 
-function timeTimeCheck()
-{
-    var result = $('#GridViewEmpSchedule :checked').not(':disabled');
-    if(result.length > 3)
-    {
-        alert('Cannot select more than three times');
-    }
-}
-
-
 // validate the form before submission
 function validateAppointment() {
-    salon.log('in here');
 	var valid = false, gvTime, errormg = "";
 
 
@@ -72,19 +61,23 @@ function validateAppointment() {
         gvTime = $('#GridViewEmpSchedule :checked').not(':disabled').length;
 	}
 
+    // check if any service is selected
     if(srvCount == 0) {
         errormsg = salon.errors.noservice;
         salon.alert(errormsg);
-    }
+    } 
     else if (txtDate == 0) {
+        //check if a date is selected
         errormsg = salon.errors.nodate;
         salon.alert(errormsg);
     }
     else if (gvTime == 0) {
+        // check if a time was selected
         errormsg = salon.errors.notime;
         salon.alert(errormsg);
     }
     else if (gvTime < 3) {
+        //check if less than 3 times was selected
         errormsg = salon.errors.lowtime;
         errormsg = errormsg.format(3-gvTime);
         salon.alert(errormsg);
