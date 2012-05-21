@@ -108,7 +108,7 @@ namespace SalonComplex.Account
             switch (result)
             {
                 case 0:
-                    LabelStatus.Text = "An error has occurred. Please Tell E-Mail support:  edgesalon@gmail.com";
+                    LabelStatus.Text = " Fail---> A user already exist with that user name or email ...";
                     break;
                 case 1:
                     {
