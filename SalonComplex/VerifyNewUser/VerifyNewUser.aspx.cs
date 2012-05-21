@@ -32,17 +32,17 @@ namespace SalonComplex.VerifyNewUser
                         if (iUserId > 0)
                         {
                             admin connectBusiness = new admin();
-                            int Resultado = connectBusiness.Call_ConfirmEmailReceiveFull(iUserId, strCodeUser);
+                            int Resultado = connectBusiness.CallConfirmEmailReceiveFull(iUserId, strCodeUser);
 
                             if (Resultado > 0)
                             {
                                 //strCodeUser is loginName,LoginEmail,LoginEnable.LoginDenied
-                                string[] strFieldsUserLogin = connectBusiness.strFullData.Split(',');
+                                string[] strFieldsUserLogin = connectBusiness.StrFullData.Split(',');
                                 LabelStatus.Text = "Welcome " + strFieldsUserLogin[0];
                                 //record successfully validated by our system
-                                LabelMsg.Text = " Thank you your record in: " + connectBusiness.strRegisterDateTime;
+                                LabelMsg.Text = " Thank you your record in: " + connectBusiness.StrRegisterDateTime;
                                 LabelMsg.Text += " using your email " + strFieldsUserLogin[1];
-                                LabelMsg.Text += " in " + connectBusiness.strRegisterDateTime + " was successfully validated by our system.";
+                                LabelMsg.Text += " in " + connectBusiness.StrRegisterDateTime + " was successfully validated by our system.";
 
 
                             }

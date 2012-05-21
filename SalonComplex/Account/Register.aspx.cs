@@ -95,7 +95,7 @@ namespace SalonComplex.Account
 
             string strRandowPassWord = Util.GetRandomPassword(10);
             //new Call_InsertLogin Now send strRandowPassword
-            int result = connectBusiness.Call_InsertUserLogin(newUser, strRandowPassWord);
+            int result = connectBusiness.CallInsertUserLogin(newUser, strRandowPassWord);
 
             //id in database from newUser
             newUser.LoginID = connectBusiness.iUserLoginID;
@@ -114,7 +114,7 @@ namespace SalonComplex.Account
                 client_phone = PhoneTextBox.Text.Trim()
             };
 
-            result = connectBusiness.Call_InsertClient(valuesClient);
+            result = connectBusiness.CallInsertClient(valuesClient);
 
 
             // lets Send via email a link with format is 

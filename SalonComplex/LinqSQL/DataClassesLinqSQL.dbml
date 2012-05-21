@@ -254,4 +254,22 @@
     <Parameter Name="clientPhone_Num" Type="System.String" DbType="VarChar(13)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.SP_UpdateClient" Method="SP_UpdateClient">
+    <Parameter Name="clientId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="clientLoginId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strClientEditFname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strClientEditLname" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strClientEditGender" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="strclientEditAddr1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strClientEditAddr2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strClientEditAddr3" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strClientPro" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="strClientEditPhone_Num" Type="System.String" DbType="VarChar(13)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_DeleteClient" Method="SP_DeleteClient">
+    <Parameter Name="strClient_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strClientLoginID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

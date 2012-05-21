@@ -26,13 +26,13 @@ namespace SalonComplex.Account
 
             admin connect = new admin();
 
-            int result = connect.Call_CheckLoginPassWord(
+            int result = connect.CallCheckLoginPassWord(
                 LoginUser.UserName.ToString(CultureInfo.InvariantCulture), LoginUser.Password.ToString(CultureInfo.InvariantCulture));
 
             //Found User
             if (result == 1)
             {
-                string[] strFieldsUserLogin = connect.strFullData.Split(',');
+                string[] strFieldsUserLogin = connect.StrFullData.Split(',');
                 string strEnable = strFieldsUserLogin[1];
                 string strDenied = strFieldsUserLogin[2];
                 string loginId = strFieldsUserLogin[3]; 

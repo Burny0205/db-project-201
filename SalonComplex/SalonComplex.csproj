@@ -82,6 +82,7 @@
     <Content Include="Employee\Add Employee Schedule.aspx" />
     <Content Include="Employee\Add Employee.aspx" />
     <Content Include="Employee\AppointmentSceduler.aspx" />
+    <Content Include="Employee\Customer Details.aspx" />
     <Content Include="Employee\Edit Employee.aspx" />
     <Content Include="Images\A1.jpg" />
     <Content Include="Images\A2.jpg" />
@@ -388,6 +389,13 @@
     </Compile>
     <Compile Include="Employee\AppointmentSceduler.aspx.designer.cs">
       <DependentUpon>AppointmentSceduler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Customer Details.aspx.cs">
+      <DependentUpon>Customer Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Customer Details.aspx.designer.cs">
+      <DependentUpon>Customer Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employee\Edit Employee.aspx.cs">
       <DependentUpon>Edit Employee.aspx</DependentUpon>

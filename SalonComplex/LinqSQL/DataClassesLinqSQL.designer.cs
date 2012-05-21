@@ -282,6 +282,20 @@ namespace SalonComplex.LinqSQL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), clientLoginId, clientFname, clientLname, clientGender, clientAddr1, clientAddr2, clientAddr3, clientPro, clientPhone_Num);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_UpdateClient")]
+		public int SP_UpdateClient([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> clientId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> clientLoginId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string strClientEditFname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string strClientEditLname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string strClientEditGender, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string strclientEditAddr1, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string strClientEditAddr2, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string strClientEditAddr3, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string strClientPro, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(13)")] string strClientEditPhone_Num)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), clientId, clientLoginId, strClientEditFname, strClientEditLname, strClientEditGender, strclientEditAddr1, strClientEditAddr2, strClientEditAddr3, strClientPro, strClientEditPhone_Num);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_DeleteClient")]
+		public int SP_DeleteClient([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> strClient_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> strClientLoginID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), strClient_id, strClientLoginID);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appointment")]

@@ -18,8 +18,8 @@ namespace SalonComplex.SalonBusiness
         public int iUserLoginID = 0;
 
         //from Call_ConfirmEmailRecieveFull
-        public string strFullData;
-        public string strRegisterDateTime;
+        public string StrFullData;
+        public string StrRegisterDateTime;
 
         #region ChangePassWord
 
@@ -44,7 +44,7 @@ namespace SalonComplex.SalonBusiness
         #endregion
 
         #region CheckLoginPassword
-        public int Call_CheckLoginPassWord(string strLogin, string strPassWord)
+        public int CallCheckLoginPassWord(string strLogin, string strPassWord)
         {
             int Result = 0;
 
@@ -52,12 +52,12 @@ namespace SalonComplex.SalonBusiness
             {
 
                 DateTime? dtRecTime = DateTime.Now;
-                strFullData = "ErrorEmail, ErrorLogin, ErrorEnable";
+                StrFullData = "ErrorEmail, ErrorLogin, ErrorEnable";
 
-                Result = connect.SP_CheckLoginPassWord (strLogin, strPassWord, ref strFullData, ref dtRecTime);
+                Result = connect.SP_CheckLoginPassWord (strLogin, strPassWord, ref StrFullData, ref dtRecTime);
 
                
-                strRegisterDateTime = dtRecTime.ToString();
+                StrRegisterDateTime = dtRecTime.ToString();
 
             }
 
@@ -72,22 +72,22 @@ namespace SalonComplex.SalonBusiness
         #region ConfirmEmail
 
 
-        public int Call_ConfirmEmailReceiveFull(int UserID, string strCode)
+        public int CallConfirmEmailReceiveFull(int UserID, string strCode)
         {
-            int Result = 0;
+            int result = 0;
 
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
 
                 DateTime? dtRecTime = DateTime.Now;
-                strFullData = "anyting";
+                StrFullData = "anyting";
 
-                Result = connect.SP_ConfirmEmailShowAllFields((int)UserID, strCode, ref strFullData, ref dtRecTime);
-                strRegisterDateTime = dtRecTime.ToString();
+                result = connect.SP_ConfirmEmailShowAllFields((int)UserID, strCode, ref StrFullData, ref dtRecTime);
+                StrRegisterDateTime = dtRecTime.ToString();
 
             }
 
-            return (Result);
+            return (result);
         }
 
 
@@ -97,109 +97,136 @@ namespace SalonComplex.SalonBusiness
 
         #region Insert
 
-        public int Call_InsertClient(client clientValues)
+        public int CallInsertClient(client clientValues)
         {
-            int Result = 0;
+            int result = 0;
 
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
 
-                Result = connect.SP_InsertClient(clientValues.client_LoginID,clientValues.client_fname, clientValues.client_lname,
+                result = connect.SP_InsertClient(clientValues.client_LoginID,clientValues.client_fname, clientValues.client_lname,
                 clientValues.client_gender, clientValues.client_street,
                 clientValues.client_city, clientValues.client_parish,
                 clientValues.client_profession, clientValues.client_phone);
 
             }
 
-            return (Result);
+            return (result);
         }
 
 
-        public int Call_InsertUserLogin(UserLogin UserLoginValues, string strCode)
+        public int CallInsertUserLogin(UserLogin userLoginValues, string strCode)
         {
-            int Result = 0;
+            int result = 0;
 
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
                 int? intUserIdResult = 0; // OUT Var SP
-                Result = connect.SP_InsertUserLogin(UserLoginValues.LoginName, UserLoginValues.LoginPassword,
-                UserLoginValues.LoginEmail, (short) UserLoginValues.LoginEnable, 
-                (short) UserLoginValues.LoginDenied, strCode, ref intUserIdResult);
+                result = connect.SP_InsertUserLogin(userLoginValues.LoginName, userLoginValues.LoginPassword,
+                userLoginValues.LoginEmail, (short) userLoginValues.LoginEnable, 
+                (short) userLoginValues.LoginDenied, strCode, ref intUserIdResult);
 
-                iUserLoginID = (int)intUserIdResult;
+                if (intUserIdResult != null) return iUserLoginID = (int)intUserIdResult;
             }
 
-            return (Result);
+            return (result);
         }
         
     
 
     
        
-        public int Call_InsertEmployee(employee employeeValues)
+        public int CallInsertEmployee(employee employeeValues)
         {
-            int Result = 0;
+            int result = 0;
 
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
-                Result = connect.SP_InsertEmployee(employeeValues.employee_type, employeeValues.employee_fname,
+                result = connect.SP_InsertEmployee(employeeValues.employee_type, employeeValues.employee_fname,
                     employeeValues.employee_gender, employeeValues.employee_street,
                 employeeValues.employee_city, employeeValues.employee_parish, employeeValues.employee_phone, 
                 employeeValues.employee_yoe, employeeValues.employee_email);
             }
 
-            return (Result);
+            return (result);
         }
 
 
-        public int Call_InsertComments(comment commentValues)
+        public int CallInsertComments(comment commentValues)
         {
-            int Result = 0;
+            int result = 0;
 
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
-                Result = connect.SP_InsertComments(commentValues.contact_name, commentValues.contact_email,
+                result = connect.SP_InsertComments(commentValues.contact_name, commentValues.contact_email,
                     commentValues.contact_phone, commentValues.contact_regs, commentValues.contact_comments);
             }
 
-            return (Result);
+            return (result);
         }
 
         #endregion
 
         #region update
-        public int Call_UpdateEmployee(employee employeeNewValues)
+        public int CallUpdateEmployee(employee employeeNewValues)
         {
-            int Result = 0;
+            int result = 0;
 
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
-                Result = connect.SP_UpdateEmployee(employeeNewValues.employee_id,employeeNewValues.employee_type, employeeNewValues.employee_fname,
+                result = connect.SP_UpdateEmployee(employeeNewValues.employee_id,employeeNewValues.employee_type, employeeNewValues.employee_fname,
                     employeeNewValues.employee_gender, employeeNewValues.employee_street,
                 employeeNewValues.employee_city, employeeNewValues.employee_parish, employeeNewValues.employee_phone,
                 employeeNewValues.employee_yoe, employeeNewValues.employee_email);
             }
 
-            return (Result);
+            return (result);
         }
         #endregion
 
         #region delete
-        public int Call_DeleteEmployee(int strEmp_id)
+        public int CallDeleteEmployee(int strEmpID)
         {
-            int Result = 0;
+            int result = 0;
 
             using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
             {
-                Result = connect.SP_DeleteEmployee(strEmp_id);
+                result = connect.SP_DeleteEmployee(strEmpID);
             }
 
-            return (Result);
+            return (result);
         }
         #endregion
 
+        public int CallUpdateClient(client updateClientValues)
+        {
+            int result = 0;
 
-       
+            using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
+            {
+                result = connect.SP_UpdateClient(updateClientValues.client_id,
+                                                 updateClientValues.client_LoginID,
+                                                 updateClientValues.client_fname, updateClientValues.client_lname,
+                                                 updateClientValues.client_gender, updateClientValues.client_street,
+                                                 updateClientValues.client_city, updateClientValues.client_parish,
+                                                 updateClientValues.client_profession, updateClientValues.client_phone);
+            }
+
+            return result;
+        }
+
+        public int CallDeleteClient(int isesClientId, int isesClientLoginId)
+        {
+            int result = 0;
+
+            using (DataClassesLinqSQLDataContext connect = new DataClassesLinqSQLDataContext())
+            {
+                result = connect.SP_DeleteClient(isesClientId, isesClientLoginId);
+
+            }
+
+            return result;
+        }
     }
 
     

@@ -34,7 +34,7 @@ namespace SalonComplex.Contact
 
 
 
-                int Result = test.Call_InsertComments(valuesComment);
+                int Result = test.CallInsertComments(valuesComment);
 
                 if (Result == 1)
                 {

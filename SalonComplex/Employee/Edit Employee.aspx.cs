@@ -60,7 +60,7 @@ namespace SalonComplex.Employee
             updateEmployeeValues.employee_yoe = (int) empEditYoeAdd;
 
 
-            int result = test.Call_UpdateEmployee(updateEmployeeValues);
+            int result = test.CallUpdateEmployee(updateEmployeeValues);
 
             if (result == 1)
             {
@@ -139,7 +139,7 @@ namespace SalonComplex.Employee
             int.TryParse(Session["sesEmpid"].ToString(), out _isesEmpId);
 
             admin test = new admin();
-            int result = test.Call_DeleteEmployee(_isesEmpId);
+            int result = test.CallDeleteEmployee(_isesEmpId);
            
                        
             if (result == 1)

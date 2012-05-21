@@ -43,7 +43,7 @@ namespace SalonComplex.Employee
 
 
 
-                int result = test.Call_InsertEmployee(valuesEmployee);
+                int result = test.CallInsertEmployee(valuesEmployee);
 
                 if (result == 1)
                 {
