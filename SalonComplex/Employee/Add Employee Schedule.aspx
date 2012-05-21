@@ -66,7 +66,7 @@
                 <tr>
                     <td>
                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" 
-                            Text="Delete" CssClass="btn btn-primary"/>
+                            Text="Delete" CssClass="btn btn-danger"/>
                         <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn"/>
                     </td>
                     <td>
@@ -254,7 +254,7 @@
                 <tr>
                     <td>
                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" 
-                            Text="Delete" CssClass="btn btn-primary"/>
+                            Text="Delete" CssClass="btn btn-danger"/>
                         <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn"/>
                     </td>
                     <td>
@@ -352,7 +352,7 @@
                 <tr>
                     <td>
                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" 
-                            Text="Delete" CssClass="btn btn-primary"/>
+                            Text="Delete" CssClass="btn btn-danger"/>
                         <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" CssClass="btn"/>
                     </td>
                     <td>
