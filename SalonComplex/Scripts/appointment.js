@@ -54,7 +54,7 @@ function validateAppointment() {
     var txtDate = $('#TextBoxSpaDate').val().length;
     var srvCount = $('#services input:checked').length;
 
-    if(document.location.href.indexOf('Salon')) {
+    if(document.location.href.indexOf('Salon') > -1) {
         gvTime = $('#GridViewSalonEmpSchedule :checked').not(':disabled').length;
     }
     else {
