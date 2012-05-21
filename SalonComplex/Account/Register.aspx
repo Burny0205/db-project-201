@@ -23,9 +23,10 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:Label ID="LabelStatus" runat="server" Text="" CssClass="failureNotification"></asp:Label>
-    <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="False" OnCreatedUser="RegisterUserCreatedUser"
+    <asp:CreateUserWizard ID="RegisterUser" runat="server" 
+    EnableViewState="False" OnCreatedUser="RegisterUserCreatedUser"
         OnCreateUserError="RegisterUserCreateUserError" OnCreatingUser="RegisterUserCreateingUser"
-        OnNextButtonClick="Fhethr" ViewStateMode="Enabled">
+        OnNextButtonClick="Fhethr" ViewStateMode="Enabled" ActiveStepIndex="1">
         <FinishNavigationTemplate>
             <asp:Button ID="FinishPreviousButton" runat="server" CausesValidation="False" CommandName="MovePrevious"
                 Text="Previous" CssClass="btn" />
@@ -238,6 +239,10 @@
                 </ContentTemplate>
             </asp:CompleteWizardStep>
         </WizardSteps>
+        <StartNavigationTemplate>
+            <asp:Button ID="StartNextButton" runat="server" CommandName="MoveNext" 
+                Text="Next" ValidationGroup="RegisterUserValidationGroup" CssClass="btn btn-primary" />
+        </StartNavigationTemplate>
         <StepNavigationTemplate>
             <asp:Button ID="StepPreviousButton" runat="server" CausesValidation="False" CommandName="MovePrevious"
                 Text="Previous" CssClass="btn btn-primary" />

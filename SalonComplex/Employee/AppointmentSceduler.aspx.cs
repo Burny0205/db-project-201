@@ -22,7 +22,7 @@ namespace SalonComplex.Employee
             DataClassesLinqSQLDataContext context = Util.GetDbContext();
 
             // Get appointments for processing
-            var appointments = Util.ArrayOfAppointments(DateTime.Now);
+            var appointments = QueryDb.ArrayOfAppointments(DateTime.Now);
 
             List<int?> schedules = new List<int?>();
 
@@ -38,7 +38,7 @@ namespace SalonComplex.Employee
 
             // list of employees for the given schedules. i.e order list by experience
             List<Model.Employee> employees = schedules.Select(schedule => 
-                Util.GetEmployeesByScheduleTime(schedule.GetValueOrDefault(0)))
+                QueryDb.GetEmployeesByScheduleTime(schedule.GetValueOrDefault(0)))
                 .ToList().OrderByDescending(a => a.Experience).ToList();
 
 

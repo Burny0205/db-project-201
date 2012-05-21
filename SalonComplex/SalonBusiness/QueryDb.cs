@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SalonComplex.LinqSQL;
+using SalonComplex.Model;
 
 namespace SalonComplex.SalonBusiness
 {
@@ -68,17 +69,81 @@ namespace SalonComplex.SalonBusiness
         /// Retrieve appointment data for calendar from database
         /// </summary>
         /// <returns></returns>
-        public static List<Model.FullCalendar> GetAppointmentsForCalendar()
+        public static List<FullCalendar> GetAppointmentsForCalendar(int clientId)
         {
             DataClassesLinqSQLDataContext context = Util.GetDbContext();
-            return context.appointments.Where(a => a.app_status == "P" || a.app_status == "B").Select(
-                o => new Model.FullCalendar
+            return context.appointments.Where(a => (a.app_status == "P" || a.app_status == "B") && a.client_id == clientId).Select(
+                o => new FullCalendar
                          {
                              id = o.app_id,
                              start = o.app_status == "B" ? o.app_time : o.appointment_emps.Select(a => a.app_time).FirstOrDefault(),
                              title = o.client.client_fname + " "+ o.client.client_lname,
                              color = o.app_status == "P" ? "grey" : "blue"
                          }).ToList();
+        }
+
+        /// <summary>
+        /// Retrieve user appointment data from the data structuring in a list of appointment model with a calculated visit
+        /// </summary>
+        /// <returns></returns>
+        public static List<Model.Appointment> ArrayOfAppointments(DateTime date)
+        {
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
+            List<Model.Appointment> appointments = new List<Model.Appointment>();
+
+            var dbappointments = context.appointments.Where(a => a.app_day >= date.Date && a.app_status == "P");
+
+            foreach (appointment dbappointment in dbappointments)
+            {
+                // pull the appointment times from the appointment_emps table
+                List<AppData> appTimes = dbappointment.appointment_emps
+                    .Where(a => a.app_id == dbappointment.app_id)
+                    .Select(a => new AppData
+                                     {
+                                         EmployeeId = a.emp_id,
+                                         TimeChosen = a.app_time,
+                                         ScheduleId = a.schedule_id
+                                     }).ToList();
+
+                if (appTimes.Count != 3)
+                    return null;
+
+                // create an Appointment object
+                var model = new Model.Appointment
+                                {
+                                    AppointmentId = dbappointment.app_id,
+                                    AppointmentDate = dbappointment.app_day,
+                                    ClientId = dbappointment.client_id,
+                                    AppointmentData = appTimes,
+                                    NumberOfVisits = dbappointments.Count(a => a.client_id == dbappointment.client_id && a.visited_status == "Y")
+                                };
+
+                appointments.Add(model);
+            }
+
+            // order in desc by # of visits
+            return appointments.OrderByDescending(a => a.NumberOfVisits).ToList();
+        }
+
+        /// <summary>
+        /// Retrieve all 
+        /// </summary>
+        /// <param name="schId"></param>
+        /// <returns></returns>
+        public static Model.Employee GetEmployeesByScheduleTime(int schId)
+        {
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
+
+            employee emp = context.employees.FirstOrDefault(a => a.schedules.Any(p => p.schedule_id == schId));
+
+            if (emp == null)
+                return null;
+            return new Model.Employee
+                       {
+                           EmployeeId = emp.employee_id,
+                           AvailableTimes = Util.AvailableTime(emp, schId),
+                           Experience = (int) emp.employee_yoe
+                       };
         }
     }
 }

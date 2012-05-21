@@ -13,15 +13,6 @@ namespace SalonComplex.Employee {
     public partial class Add_Employee_Schedule {
         
         /// <summary>
-        /// ListViewEmpSch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListViewEmpSch;
-        
-        /// <summary>
         /// SqlDataSourceEmpSch control.
         /// </summary>
         /// <remarks>
@@ -29,5 +20,14 @@ namespace SalonComplex.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceEmpSch;
+        
+        /// <summary>
+        /// ListView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListView1;
     }
 }

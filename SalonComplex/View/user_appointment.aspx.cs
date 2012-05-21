@@ -15,13 +15,19 @@ namespace SalonComplex.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            string appArray = GetUserAppointments();
+
+            if (string.IsNullOrEmpty(appArray))
+                return;
+
             HttpResponse response = HttpContext.Current.Response;
             response.Clear();
             response.ClearContent();
             response.ClearHeaders();
            // response.Buffer = true;
             response.ContentType = "application/json";
-            string appArray = GetUserAppointments();
+
             response.Write(appArray);
             response.End();
         }
@@ -30,7 +36,11 @@ namespace SalonComplex.View
 
         public string GetUserAppointments()
         {
-            List<Model.FullCalendar> calendarData = QueryDb.GetAppointmentsForCalendar();
+            int clientId = Util.GetClientId();
+            if (clientId == -1)
+                return string.Empty;
+
+            List<Model.FullCalendar> calendarData = QueryDb.GetAppointmentsForCalendar(clientId);
             return JsonConvert.SerializeObject(calendarData);
         }
     }
