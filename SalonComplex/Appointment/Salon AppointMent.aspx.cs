@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Globalization;
 using System.Linq;
 using System.Web.UI;
@@ -40,6 +41,7 @@ namespace SalonComplex.Appointment
             //app status : 
             //
             // Y - Yes
+            // A - Awaiting
             // P - Still processing
             // D - Declined
 
@@ -72,7 +74,7 @@ namespace SalonComplex.Appointment
 
             //appointment record into the database
             context.appointments.InsertOnSubmit(newApp);
-            context.SubmitChanges();
+            context.SubmitChanges(ConflictMode.ContinueOnConflict);
             #endregion
 
             #region Add Appointment services to DB
