@@ -33,7 +33,7 @@
                         <br />
                         <br />
                         As reflected in him and her more than 10 years of experience in the beauty industry,
-                        Justin and Joan embody the entrepreneurial spirit. For most of their lives it seems
+                        Patrick and Megan Moore embody the entrepreneurial spirit. For most of their lives it seems
                         they have been designing. Justin got his start as a barber and hair stylist working
                         for one of Jamaica's well know barber shop, "Kris Kut", while Joan got her start
                         at Maureen's hair salon in Princeville Plaza. As a couple they decided to merge

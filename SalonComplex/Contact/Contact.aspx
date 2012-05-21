@@ -15,12 +15,7 @@
             <asp:Label ID="ContactLabelStatus" runat="server" Style="font-size: medium; color: #333333"
                 ForeColor="Blue"></asp:Label>
         </span>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span6">
