@@ -13,15 +13,6 @@ namespace SalonComplex.Appointment {
     public partial class SalonAppointMent {
         
         /// <summary>
-        /// LabelSpaAppDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelSpaAppDate;
-        
-        /// <summary>
         /// SalonDropDownList control.
         /// </summary>
         /// <remarks>
@@ -137,5 +128,14 @@ namespace SalonComplex.Appointment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Reest;
+        
+        /// <summary>
+        /// LabelSpaAppDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelSpaAppDate;
     }
 }

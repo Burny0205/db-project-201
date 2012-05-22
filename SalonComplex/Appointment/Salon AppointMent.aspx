@@ -29,6 +29,11 @@
 
             $('#GridViewSalonEmpSchedule td label').hide();
 
+            if ($('#LabelSpaAppDate').text().length > 1) {
+                $('#successModal p').html($('#LabelSpaAppDate').text());
+                $('#successModal').modal('show');
+            }
+
         });
 
     </script>
@@ -40,10 +45,6 @@
         <p class="appointText">
             <!-- We will contact you to confirm your reservation via email and phone call in the
            next 12 hours. -->
-        </p>
-        <p class="appointText">
-            <asp:Label ID="LabelSpaAppDate" runat="server" ForeColor="Red" Height="21px" Style="font-size: small"
-                Width="174px"></asp:Label>
         </p>
     </div>
     <form id="appt_request_form" action="/" method="post">
@@ -310,8 +311,8 @@
             <dd style="width: 380px; margin-left: 10px;">
                 <div id="SelectEmployee">
                     <asp:Button ID="SubmitAppButton" runat="server" Style="margin-left: 1px" Text="Submit Appointment"
-                      ValidationGroup="AddApp" OnClick="SubmitAppButtonClick"
-                        CssClass="btn btn-primary btn-large" OnClientClick="return validateAppointment();" />
+                        ValidationGroup="AddApp" OnClick="SubmitAppButtonClick" CssClass="btn btn-primary btn-large"
+                        OnClientClick="return validateAppointment();" />
                     <asp:Button ID="Reest" runat="server" Text="Reset" OnClick="SubmitAppButtonClick"
                         CausesValidation="False" OnClientClick="salon.reset(); return false();;" CssClass="btn btn-large span2"
                         ClientIDMode="Static" />
@@ -329,6 +330,21 @@
             <div class="modal-footer">
                 <a href="#" class="btn btn-primary" onclick="$('#myModal').modal('hide');return false;">
                     Close</a>
+            </div>
+        </div>
+        <div id="successModal" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">×</button>
+                <h3>Appointment Notification</h3>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <asp:Label ID="LabelSpaAppDate" runat="server" ForeColor="Red" Style="font-size: small; display: none;"
+                        ClientIDMode="Static" Width="10"></asp:Label>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
             </div>
         </div>
     </fieldset>

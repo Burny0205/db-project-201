@@ -30,7 +30,6 @@ namespace SalonComplex.Appointment
         
         protected void SubmitAppButtonClick(object sender, EventArgs e)
         {
-
  
             if (TextBoxSpaDate.Text == null)
                 return;

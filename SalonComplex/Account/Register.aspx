@@ -11,20 +11,39 @@
             });
         }
 
-// ]]>
+        // ]]>
 
-        $(function() {
+        $(function () {
 
-            $('input[name$="NextButton"]').addClass('btn btn-primary btn-large span2');    
+            $('input[name$="NextButton"]').addClass('btn btn-primary btn-large span2');
+
+
+            if ($('#LabelStatus').text().length > 1) {
+                $('#successModal p').html($('#LabelStatus').text());
+                $('#successModal').modal('show');
+            }
 
         });
 
     </script>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <asp:Label ID="LabelStatus" runat="server" Text="" CssClass="failureNotification"></asp:Label>
-    <asp:CreateUserWizard ID="RegisterUser" runat="server" 
-    EnableViewState="False" OnCreatedUser="RegisterUserCreatedUser"
+    <div id="successModal" class="modal hide fade" style="display: none;">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h3>Registration Notification</h3>
+        </div>
+        <div class="modal-body">
+            <p>
+                <asp:Label ID="LabelStatus" runat="server" ForeColor="Red" Style="font-size: small;
+                    display: none;" ClientIDMode="Static" Width="10"></asp:Label>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+    <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="False" OnCreatedUser="RegisterUserCreatedUser"
         OnCreateUserError="RegisterUserCreateUserError" OnCreatingUser="RegisterUserCreateingUser"
         OnNextButtonClick="Fhethr" ViewStateMode="Enabled" ActiveStepIndex="1">
         <FinishNavigationTemplate>
@@ -214,7 +233,8 @@
                         <span class="alert alert-info shifterror">Passwords are required to be a minimum of
                             <%= Membership.MinRequiredPasswordLength %>
                             characters in length. </span>
-                        <br /><br />
+                        <br />
+                        <br />
                     </div>
                 </ContentTemplate>
                 <CustomNavigationTemplate>
@@ -240,8 +260,8 @@
             </asp:CompleteWizardStep>
         </WizardSteps>
         <StartNavigationTemplate>
-            <asp:Button ID="StartNextButton" runat="server" CommandName="MoveNext" 
-                Text="Next" ValidationGroup="RegisterUserValidationGroup" CssClass="btn btn-primary" />
+            <asp:Button ID="StartNextButton" runat="server" CommandName="MoveNext" Text="Next"
+                ValidationGroup="RegisterUserValidationGroup" CssClass="btn btn-primary" />
         </StartNavigationTemplate>
         <StepNavigationTemplate>
             <asp:Button ID="StepPreviousButton" runat="server" CausesValidation="False" CommandName="MovePrevious"

@@ -100,6 +100,24 @@ namespace SalonComplex.Account
             //id in database from newUser
             newUser.LoginID = connectBusiness.iUserLoginID;
 
+            if(result > 5)
+            {
+                client valuesClient = new client
+                {
+                    client_LoginID = newUser.LoginID,
+                    client_fname = FnameText.Text.Trim(),
+                    client_lname = LnameText.Text.Trim(),
+                    client_gender = (RadioButtonGender.Checked) ? "M" : "F",
+                    client_street = StreetText.Text.Trim(),
+                    client_city = CityText.Text.Trim(),
+                    client_parish = Parish.SelectedValue,
+                    client_profession = Profession.SelectedValue,
+                    client_phone = PhoneTextBox.Text.Trim()
+                };
+
+                result = connectBusiness.CallInsertClient(valuesClient);
+            }
+
 
 
             // lets Send via email a link with format is 
@@ -112,22 +130,6 @@ namespace SalonComplex.Account
                     break;
                 case 1:
                     {
-                        client valuesClient = new client
-                        {
-                            client_LoginID = newUser.LoginID,
-                            client_fname = FnameText.Text.Trim(),
-                            client_lname = LnameText.Text.Trim(),
-                            client_gender = (RadioButtonGender.Checked) ? "M" : "F",
-                            client_street = StreetText.Text.Trim(),
-                            client_city = CityText.Text.Trim(),
-                            client_parish = Parish.SelectedValue,
-                            client_profession = Profession.SelectedValue,
-                            client_phone = PhoneTextBox.Text.Trim()
-                        };
-
-                        connectBusiness.CallInsertClient(valuesClient);
-
-
                         LabelStatus.Text = "****Login Inserted with Success !!! Please GotTo Menu Login ";
 
                         //start routine to send Email...

@@ -31,6 +31,11 @@
 
             //add employee id on the grid
             $('#GridViewEmpSchedule td label').hide();
+            
+            if ($('#LabelSpaAppDate').text().length > 1) {
+                $('#successModal p').html($('#LabelSpaAppDate').text());
+                $('#successModal').modal('show');
+            }
 
         });
 
@@ -43,10 +48,6 @@
         <p class="appointText">
             <!--We will contact you to confirm your reservation via email and phone call in the
             next 12 hours.</p> -->
-            <p class="appointText">
-                <asp:Label ID="LabelSpaAppDate" runat="server" ForeColor="Red" Height="21px" Style="font-size: small"
-                    Width="174px"></asp:Label>
-            </p>
     </div>
     <form id="appt_request_form" action="/" method="post">
     <fieldset class="appointment" style="width: 750px;" id="appointment_info">
@@ -328,6 +329,21 @@
             </div>
             <div class="modal-footer">
                 <a href="#" class="btn btn-primary" onclick="$('#myModal').modal('hide');return false;">Close</a>
+            </div>
+        </div>
+        <div id="successModal" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">×</button>
+                <h3>Appointment Notification</h3>
+            </div>
+            <div class="modal-body">
+            <p>
+                <asp:Label ID="LabelSpaAppDate" runat="server" ForeColor="Red" Height="21px" Style="font-size: small"
+                    Width="174px" ClientIDMode="Static"></asp:Label>
+            </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
             </div>
         </div>
     </fieldset>
