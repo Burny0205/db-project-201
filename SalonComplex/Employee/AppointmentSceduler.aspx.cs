@@ -26,7 +26,7 @@ namespace SalonComplex.Employee
             // Get appointments for processing
             var appointments = QueryDb.ArrayOfAppointments(DateTime.Now);
 
-            if (!appointments.Any())
+            if (appointments == null || !appointments.Any())
             {
                 lblResultArea.Text = "There are no appointments avialable for processing at this time";
                 return;
