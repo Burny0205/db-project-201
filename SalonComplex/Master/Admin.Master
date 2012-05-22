@@ -81,6 +81,7 @@
                                         <li><a href="../Employee/Edit Employee.aspx">Edit Employee</a></li>
                                         <li><a href="../Employee/Add Employee Schedule.aspx">Add Employee Schedule</a></li>
                                         <li><a href="../Employee/Customer Details.aspx">Edit Client Details</a></li>
+                                        <li><a href="../Employee/AppointmentSceduler.aspx">Appointment Scheduler</a></li>
                                     </ul>
                                 </li>
                                 <li class=""><a href="../Pages/Calendar.aspx">Calendar</a></li>

@@ -11,6 +11,8 @@ namespace SalonComplex.Employee
 {
     public partial class AppointmentSceduler : System.Web.UI.Page
     {
+        private string _result;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -51,15 +53,21 @@ namespace SalonComplex.Employee
             {
                 List<Model.Appointment> subApp =
                     appointments.Where(a => a.AppointmentDate == appointment.AppointmentDate && a.Pass == false).
-                        ToList();
+                        OrderByDescending(a => a.NumberOfVisits).ToList();
 
                 foreach (var app in subApp)
                 {
+                    if (app.Pass)
+                        break;
+
                     //app.AppointmentData.Select(a => a.TimeChosen)
                     List<DateTime?> dateTimes = app.AppointmentData.Select(a => a.TimeChosen).ToList();
 
                     foreach (var employee in employees)
                     {
+                        if (app.Pass)
+                            break;
+
                         List<DateTime> tt = employee.AvailableTimes;
 
                         foreach (var dateTime in dateTimes)
@@ -72,6 +80,7 @@ namespace SalonComplex.Employee
                                 app.EmpId = employee.EmployeeId;
                                 app.SchedId = employee.SchedId;
                                 tt.Remove(dateTime.Value);
+                                break;
                             }
                         }
                     }
@@ -86,22 +95,20 @@ namespace SalonComplex.Employee
                 {
                     var appObj = QueryDb.GetAppointmentById(app.AppointmentId);
 
+                    //update the appointment table
                     appObj.app_time = app.Chosen;
                     appObj.app_status = "B";
                     appObj.visited_status = "A";
 
-                    //update the appointment table
-                    //context.appointments.InsertOnSubmit(appObj);
 
                     // get the schedule for the selected employee
                     schedule empScd = QueryDb.GetEmployeeSchedByEmpId(app.EmpId);
 
                     // mark the time and return the schedule
+                    //update the schedules table
                     empScd = Util.MarkOffScheduleTime(empScd, app.Chosen);
 
-                    //update the schedules table
-                    //context.schedules.InsertOnSubmit(empScd);
-
+                    
                     //get the unpicked appEmp
                     List<appointment_emp> appEmp = QueryDb.GetUnpickedTimes(app.AppointmentId, app.Chosen);
 
@@ -111,13 +118,21 @@ namespace SalonComplex.Employee
                     //submit changes
                     context.SubmitChanges();
 
-                    lblResultArea.Text += app.ClientId + " processed. Appointment Scheduled for  "
+                    _result += app.ClientId + " processed. Appointment Scheduled for  "
                                           + app.AppointmentDate.Value.ToLongDateString() + " at " +
-                                          app.Chosen.ToShortTimeString() + "<br />";
+                                          app.Chosen.ToShortTimeString() + app.SchedId + " " + app.EmpId + "<br />";
+                }
+                else
+                {
+                    //notify users
+                    _result += "An appointment could not be scheduled for client " + app.ClientId +
+                               ". An email will be sent to the client momemntarily ";
                 }
             }
 
-            
+            lblResultArea.Text = _result;
+
+
         }
     }
 }
