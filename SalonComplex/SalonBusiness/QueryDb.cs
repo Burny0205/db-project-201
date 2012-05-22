@@ -150,7 +150,7 @@ namespace SalonComplex.SalonBusiness
         }
 
         /// <summary>
-        /// Retrieve all 
+        /// Retrieve an employee by schedule id 
         /// </summary>
         /// <param name="schId"></param>
         /// <returns></returns>
