@@ -433,6 +433,10 @@ namespace SalonComplex.SalonBusiness
             return IsAuthenticated() == false;
         }
 
+        /// <summary>
+        /// The following function removes a cookie from the browser 
+        /// </summary>
+        /// <param name="cookieName">name of cookie</param>
         public static void RemoveCookie(string cookieName)
         {
             if (HttpContext.Current.Request.Cookies[cookieName] != null)
