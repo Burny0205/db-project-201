@@ -51,7 +51,7 @@ namespace SalonComplex.Account
 
                         HttpCookie httpCookie = new HttpCookie("clientCookie")
                                                     {
-                                                        Value = loginId + "|" + clientId, 
+                                                        Value = clientId, 
                                                         Expires = DateTime.Now.AddMonths(3)
                                                     };
                         Response.Cookies.Add(httpCookie);

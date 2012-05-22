@@ -226,13 +226,7 @@ namespace SalonComplex.SalonBusiness
             if (value == null)
                 return result;
 
-            string[] cookie = value.Split('|');
-            if (cookie.Length > 1)
-            {
-                int.TryParse(cookie[0], out result);
-                return result;
-
-            }
+            int.TryParse(value, out result);
             return result;
         }
 
