@@ -19,7 +19,7 @@ namespace SalonComplex.Employee
         {
             if (Page.IsPostBack)
             {
-                EmpEditLabelStatus.Text = "Please Select a employee";
+                EmpEditLabelStatus.Text = "Please select a client";
             }
             else
             {   // update the gridview

@@ -29,10 +29,10 @@
             </p>
             <p style="color: red">
                 The Automatic Scheduling System is unavailable at this moment. Please contact our
-                support team have this feature deployed.
+                support team to have this feature deployed.
             </p>
             <p style="color: blue">
-                Please use the run scheduler button to manual process to initiate the scheduler.
+                Please use the run scheduler button for manual process to initiate the scheduler.
                 Sorry for any inconvenience caused.
             </p>
         </div>

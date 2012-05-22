@@ -27,7 +27,7 @@ namespace SalonComplex.SalonBusiness
         }
 
         /// <summary>
-        /// The following function returns a client gicen an id
+        /// The following function returns a client given an id
         /// </summary>
         /// <param name="clientId">client id</param>
         /// <returns>client</returns>

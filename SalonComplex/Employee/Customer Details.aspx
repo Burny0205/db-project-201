@@ -168,7 +168,7 @@
           
             <td class="style5" colspan="2">
                 <asp:Label ID="EmpLabelMsgDeleteOrCancel" runat="server" ForeColor="Red" 
-                    style="font-weight: 700; text-align: center;" Text="Press Cancel or Confirm to Delete Employee" 
+                    style="font-weight: 700; text-align: center;" Text="Press Cancel or Confirm to Delete Client" 
                     Width="315px" Visible="False"></asp:Label>
             </td>
           

@@ -126,7 +126,7 @@ namespace SalonComplex.Employee
                 {
                     //notify users
                     _result += "An appointment could not be scheduled for client " + app.ClientId +
-                               ". An email will be sent to the client momemntarily ";
+                               ". An email will be sent to the client momentarily ";
                 }
             }
 
