@@ -106,7 +106,8 @@
                     <asp:Label ID="EmpEditLabelPhone" runat="server" Text="Phone Number:"></asp:Label>
                 </div>
                 <div class="span4">
-                    <asp:TextBox ID="EmpEditTextBoxPhone" runat="server" ToolTip="correct format ----&gt;123-456-7890" placeholder="e.g. 123-456-7890"></asp:TextBox>
+                    <asp:TextBox ID="EmpEditTextBoxPhone" runat="server" ToolTip="correct format ----&gt;123-456-7890"
+                        placeholder="e.g. 123-456-7890"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmpPhone" runat="server" ErrorMessage="Phone Number Required"
                         ControlToValidate="EmpEditTextBoxPhone" CssClass="failureNotification" ForeColor="#FF3300"
                         ToolTip="Phone Number Required" ValidationGroup="EditEmployee">*</asp:RequiredFieldValidator>
@@ -123,7 +124,8 @@
                 <div class="span4" style="margin-bottom: 9px;">
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
-                    <asp:TextBox ID="EmpEditYoeTxtBox" runat="server" TextMode="SingleLine" Width="50px" Height="20px"></asp:TextBox>
+                    <asp:TextBox ID="EmpEditYoeTxtBox" runat="server" TextMode="SingleLine" Width="50px"
+                        Height="20px"></asp:TextBox>
                     <asp:NumericUpDownExtender ID="EmpYOE_EXT" runat="server" Maximum="100" Minimum="1"
                         TargetControlID="EmpEditYoeTxtBox" Width="80" Step="1">
                     </asp:NumericUpDownExtender>
@@ -148,13 +150,17 @@
                 </div>
             </div>
         </div>
-        <div>
-            <asp:Button ID="EmpConfirmButton" runat="server" OnClick="ButtonLectConfirmClick"
-                Text="Confirm" Visible="False" CssClass="btn" />
-        </div>
-        <div>
-            <asp:Button ID="EmpCancelButton" runat="server" OnClick="ButtonLectCancelClick" Text="Cancel"
-                Visible="False" CssClass="btn" />
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span4">
+                    <asp:Button ID="EmpConfirmButton" runat="server" OnClick="ButtonLectConfirmClick"
+                        Text="Confirm" Visible="False" CssClass="btn btn-primary span4" />
+                </div>
+                <div class="span4">
+                    <asp:Button ID="EmpCancelButton" runat="server" OnClick="ButtonLectCancelClick" Text="Cancel"
+                        Visible="False" CssClass="btn span4" />
+                </div>
+            </div>
         </div>
         <div>
             <asp:Label ID="EmpLabelMsgDeleteOrCancel" runat="server" Text="Press Cancel or Confirm to Delete Employee"
@@ -183,8 +189,10 @@
                 <asp:BoundField DataField="employee_street" HeaderText="Street" ReadOnly="True" SortExpression="employee_street" />
                 <asp:BoundField DataField="employee_city" HeaderText="City" ReadOnly="True" SortExpression="employee_city" />
                 <asp:BoundField DataField="employee_parish" HeaderText="Parish" ReadOnly="True" SortExpression="employee_parish" />
-                <asp:BoundField DataField="employee_phone" HeaderText="Phone" ReadOnly="True" SortExpression="employee_phone" DataFormatString="{0:(###)###-####}"/>
-                <asp:BoundField DataField="employee_yoe" HeaderText="YOE" ReadOnly="True" SortExpression="employee_yoe" DataFormatString="{0:F0}" />
+                <asp:BoundField DataField="employee_phone" HeaderText="Phone" ReadOnly="True" SortExpression="employee_phone"
+                    DataFormatString="{0:(###)###-####}" />
+                <asp:BoundField DataField="employee_yoe" HeaderText="YOE" ReadOnly="True" SortExpression="employee_yoe"
+                    DataFormatString="{0:F0}" />
                 <asp:BoundField DataField="employee_email" HeaderText="Email" ReadOnly="True" SortExpression="employee_email" />
             </Columns>
             <EditRowStyle BackColor="#999999" />

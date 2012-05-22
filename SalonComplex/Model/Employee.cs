@@ -10,5 +10,6 @@ namespace SalonComplex.Model
         public int EmployeeId { get; set; }
         public List<DateTime> AvailableTimes { get; set; }
         public int Experience { get; set; }
+        public int SchedId { get; set; }
     }
 }

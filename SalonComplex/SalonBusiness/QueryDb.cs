@@ -49,6 +49,17 @@ namespace SalonComplex.SalonBusiness
         }
 
         /// <summary>
+        /// The following function retrieves an employee schedule from the db
+        /// </summary>
+        /// <param name="empId"></param>
+        /// <returns></returns>
+        public static schedule GetEmployeeSchedByEmpId(int empId)
+        {
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
+            return context.schedules.FirstOrDefault(a => a.employee_id == empId);            
+        }
+
+        /// <summary>
         ///  The following function checks if an appointment as already been set for a client given a date and a service type
         /// </summary>
         /// <param name="clientId">client ID</param>
@@ -63,6 +74,18 @@ namespace SalonComplex.SalonBusiness
                     a.client_id == clientId && 
                     a.appointment_services.Any(p => p.service.service_name_id == key));
             return result > 0;
+        }
+
+        /// <summary>
+        /// Retrieve all unppicked appointment -> employee mappings
+        /// </summary>
+        /// <param name="appTime"></param>
+        /// <param name="appDay"></param>
+        /// <returns></returns>
+        public static List<appointment_emp> GetUnpickedTimes(int appTime, DateTime appDay)
+        {
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
+            return context.appointment_emps.Where(a => a.app_id == appTime && a.app_time == appDay).ToList();
         }
 
         /// <summary>
@@ -115,7 +138,8 @@ namespace SalonComplex.SalonBusiness
                                     AppointmentDate = dbappointment.app_day,
                                     ClientId = dbappointment.client_id,
                                     AppointmentData = appTimes,
-                                    NumberOfVisits = dbappointments.Count(a => a.client_id == dbappointment.client_id && a.visited_status == "Y")
+                                    NumberOfVisits = dbappointments.Count(a => a.client_id == dbappointment.client_id && a.visited_status == "Y"),
+                                    Pass = false
                                 };
 
                 appointments.Add(model);
@@ -130,7 +154,7 @@ namespace SalonComplex.SalonBusiness
         /// </summary>
         /// <param name="schId"></param>
         /// <returns></returns>
-        public static Model.Employee GetEmployeesByScheduleTime(int schId)
+        public static Model.Employee GetEmployeeByScheduleTime(int schId)
         {
             DataClassesLinqSQLDataContext context = Util.GetDbContext();
 
@@ -142,8 +166,20 @@ namespace SalonComplex.SalonBusiness
                        {
                            EmployeeId = emp.employee_id,
                            AvailableTimes = Util.AvailableTime(emp, schId),
-                           Experience = (int) emp.employee_yoe
+                           Experience = (int) emp.employee_yoe,
+                           SchedId = schId
                        };
+        }
+
+        /// <summary>
+        /// Retrieve an appointment by id
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <returns></returns>
+        public static appointment GetAppointmentById(int appId)
+        {
+            DataClassesLinqSQLDataContext context = Util.GetDbContext();
+            return context.appointments.FirstOrDefault(a => a.app_id == appId);
         }
     }
 }

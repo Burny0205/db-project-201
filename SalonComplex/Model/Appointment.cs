@@ -12,5 +12,9 @@ namespace SalonComplex.Model
         public List<AppData> AppointmentData { get; set; }
         public int NumberOfVisits { get; set; }
         public DateTime? AppointmentDate { get; set; }
+        public bool Pass { get; set; }
+        public DateTime Chosen { get; set; }
+        public int SchedId { get; set; }
+        public int EmpId { get; set; }
     }
 }

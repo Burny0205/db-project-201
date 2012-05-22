@@ -274,11 +274,55 @@ namespace SalonComplex.SalonBusiness
         }
 
         /// <summary>
-        /// 
+        /// Marks a date as checked on a schedule, returning the resulting schedule
         /// </summary>
-        /// <param name="index"></param>
-        /// <param name="schDate"></param>
+        /// <param name="sch"></param>
+        /// <param name="time"></param>
         /// <returns></returns>
+        public static schedule MarkOffScheduleTime(schedule sch, DateTime time)
+        {
+            switch (time.Hour)
+            {
+                case 8:
+                    sch._8_00_am = true;
+                    break;
+                case 9:
+                    sch._9_00_am = true;
+                    break;
+                case 10:
+                    sch._10_00_am = true;
+                    break;
+                case 11:
+                    sch._11_00_am = true;
+                    break;
+                case 12:
+                    sch._12_00_pm = true;
+                    break;
+                case 13:
+                    sch._1_00_pm = true;
+                    break;
+                case 14:
+                    sch._2_00_pm = true;
+                    break;
+                case 15:
+                    sch._3_00_pm = true;
+                    break;
+                case 16:
+                    sch._4_00_pm = true;
+                    break;
+                case 17:
+                    sch._5_00_pm = true;
+                    break;
+            }
+            return sch;
+        }
+
+        /// <summary>
+        /// The following functon creates a date from the schedule date and the current date index (0-24)
+        /// </summary>
+        /// <param name="index">24 hr time (0-24)</param>
+        /// <param name="schDate">schedule date</param>
+        /// <returns>new datetime</returns>
         public static DateTime MakeDate(int index, DateTime schDate)
         {
             return new DateTime(schDate.Year, schDate.Month, schDate.Day, index, 0, 0);

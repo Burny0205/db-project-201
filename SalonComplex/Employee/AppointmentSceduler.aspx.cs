@@ -24,6 +24,12 @@ namespace SalonComplex.Employee
             // Get appointments for processing
             var appointments = QueryDb.ArrayOfAppointments(DateTime.Now);
 
+            if (!appointments.Any())
+            {
+                lblResultArea.Text = "There are no appointments avialable for processing at this time";
+                return;
+            }
+
             List<int?> schedules = new List<int?>();
 
             // retrieve a list of appointments that need to be processed
@@ -31,21 +37,87 @@ namespace SalonComplex.Employee
             {
                 foreach (var appData in appointment.AppointmentData)
                 {
-                    if(!schedules.Contains(appData.ScheduleId))
+                    if (!schedules.Contains(appData.ScheduleId) && appData.ScheduleId != 0)
                         schedules.Add(appData.ScheduleId.GetValueOrDefault(0));
                 }
             }
 
             // list of employees for the given schedules. i.e order list by experience
-            List<Model.Employee> employees = schedules.Select(schedule => 
-                QueryDb.GetEmployeesByScheduleTime(schedule.GetValueOrDefault(0)))
+            List<Model.Employee> employees = schedules.Select(schedule =>
+                QueryDb.GetEmployeeByScheduleTime(schedule.GetValueOrDefault(0)))
                 .ToList().OrderByDescending(a => a.Experience).ToList();
 
+            foreach (var appointment in appointments)
+            {
+                List<Model.Appointment> subApp =
+                    appointments.Where(a => a.AppointmentDate == appointment.AppointmentDate && a.Pass == false).
+                        ToList();
 
+                foreach (var app in subApp)
+                {
+                    //app.AppointmentData.Select(a => a.TimeChosen)
+                    List<DateTime?> dateTimes = app.AppointmentData.Select(a => a.TimeChosen).ToList();
 
+                    foreach (var employee in employees)
+                    {
+                        List<DateTime> tt = employee.AvailableTimes;
 
-            var d = appointments;
-            // var employees = Util.
+                        foreach (var dateTime in dateTimes)
+                        {
+                            bool contains = tt.Contains(dateTime.Value);
+                            if (contains && !app.Pass)
+                            {
+                                app.Chosen = dateTime.Value;
+                                app.Pass = true;
+                                app.EmpId = employee.EmployeeId;
+                                app.SchedId = employee.SchedId;
+                                tt.Remove(dateTime.Value);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // saving results to db
+
+            foreach (var app in appointments)
+            {
+                if (app.Pass)
+                {
+                    var appObj = QueryDb.GetAppointmentById(app.AppointmentId);
+
+                    appObj.app_time = app.Chosen;
+                    appObj.app_status = "B";
+                    appObj.visited_status = "A";
+
+                    //update the appointment table
+                    //context.appointments.InsertOnSubmit(appObj);
+
+                    // get the schedule for the selected employee
+                    schedule empScd = QueryDb.GetEmployeeSchedByEmpId(app.EmpId);
+
+                    // mark the time and return the schedule
+                    empScd = Util.MarkOffScheduleTime(empScd, app.Chosen);
+
+                    //update the schedules table
+                    //context.schedules.InsertOnSubmit(empScd);
+
+                    //get the unpicked appEmp
+                    List<appointment_emp> appEmp = QueryDb.GetUnpickedTimes(app.AppointmentId, app.Chosen);
+
+                    //delete unpicked appointment emp mapping
+                    context.appointment_emps.DeleteAllOnSubmit(appEmp);
+
+                    //submit changes
+                    context.SubmitChanges();
+
+                    lblResultArea.Text += app.ClientId + " processed. Appointment Scheduled for  "
+                                          + app.AppointmentDate.Value.ToLongDateString() + " at " +
+                                          app.Chosen.ToShortTimeString() + "<br />";
+                }
+            }
+
+            
         }
     }
 }
