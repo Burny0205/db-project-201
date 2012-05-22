@@ -49,6 +49,8 @@ namespace SalonComplex.Account
                     {
                         LabelStatus.Text = " Success ";
 
+                        Util.RemoveCookie("clientCookie");
+
                         HttpCookie httpCookie = new HttpCookie("clientCookie")
                                                     {
                                                         Value = clientId, 

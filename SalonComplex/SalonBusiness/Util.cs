@@ -433,6 +433,16 @@ namespace SalonComplex.SalonBusiness
             return IsAuthenticated() == false;
         }
 
+        public static void RemoveCookie(string cookieName)
+        {
+            if (HttpContext.Current.Request.Cookies[cookieName] != null)
+            {
+                HttpCookie myCookie = new HttpCookie(cookieName);
+                myCookie.Expires = DateTime.Now.AddYears(-1);
+                HttpContext.Current.Response.Cookies.Add(myCookie);
+            }       
+        }
+
     }
 
 

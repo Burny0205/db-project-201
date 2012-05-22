@@ -14,14 +14,7 @@ namespace SalonComplex.Master
                 // remove cookie if user is not authenticated
                 if (Util.IsAnonymous())
                 {
-                    if (Request.Cookies["clientCookie"] != null)
-                    {
-                        HttpCookie httpCookie = new HttpCookie("clientCookie")
-                        {
-                            Expires = DateTime.Now.AddDays(-1d)
-                        };
-                        Response.Cookies.Add(httpCookie);
-                    }
+                    Util.RemoveCookie("clientCookie");
 
                     ChangePassword.InnerText = "Register";
                     ChangePassword.HRef = "../Account/Register.aspx";
