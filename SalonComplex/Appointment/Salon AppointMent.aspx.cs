@@ -31,7 +31,7 @@ namespace SalonComplex.Appointment
 
             DataClassesLinqSQLDataContext context = Util.GetDbContext();
 
-            DateTime selectedDate = DateTime.ParseExact(TextBoxSpaDate.Text, "m/d/yyyy", CultureInfo.InvariantCulture);
+            DateTime selectedDate = DateTime.Parse(TextBoxSpaDate.Text);
 
             //app status : 
             //
